@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drugs and Supplements</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .bg-blue-600 {
+      background-color: #2563eb;
+    }
+    .text-white {
+      color: white;
+    }
+    .py-8 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      max-width: 1200px;
+    }
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .flex {
+      display: flex;
+    }
+    .items-center {
+      align-items: center;
+    }
+    .justify-between {
+      justify-content: space-between;
+    }
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+    .h-10 {
+      height: 2.5rem;
+    }
+    .hover\:underline:hover {
+      text-decoration: underline;
+    }
+    .text-sm {
+      font-size: 0.875rem;
+    }
+    .text-4xl {
+      font-size: 2.25rem;
+    }
+    .font-bold {
+      font-weight: bold;
+    }
+    .relative {
+      position: relative;
+    }
+    .w-full {
+      width: 100%;
+    }
+    .p-3 {
+      padding: 0.75rem;
+    }
+    .pr-10 {
+      padding-right: 2.5rem;
+    }
+    .rounded-full {
+      border-radius: 9999px;
+    }
+    .text-gray-900 {
+      color: #1a202c;
+    }
+    .absolute {
+      position: absolute;
+    }
+    .right-3 {
+      right: 0.75rem;
+    }
+    .top-3 {
+      top: 0.75rem;
+    }
+    .text-gray-400 {
+      color: #a0aec0;
+    }
+    .text-2xl {
+      font-size: 1.5rem;
+    }
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+    .gap-2 {
+      gap: 0.5rem;
+    }
+    .w-10 {
+      width: 2.5rem;
+    }
+    .h-10 {
+      height: 2.5rem;
+    }
+    .bg-blue-100 {
+      background-color: #dbeafe;
+    }
+    .rounded-full {
+      border-radius: 9999px;
+    }
+    .text-blue-600 {
+      color: #2563eb;
+    }
+    .hover\:bg-blue-200:hover {
+      background-color: #bfdbfe;
+    }
+    .grid {
+      display: grid;
+    }
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .md\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .gap-4 {
+      gap: 1rem;
+    }
+    .py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .border-b {
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .hover\:text-blue-600:hover {
+      color: #2563eb;
+    }
+    .mt-8 {
+      margin-top: 2rem;
+    }
+    .bg-gray-100 {
+      background-color: #f7fafc;
+    }
+    .p-4 {
+      padding: 1rem;
+    }
+    .rounded {
+      border-radius: 0.25rem;
+    }
+    .text-gray-600 {
+      color: #718096;
+    }
+    .font-semibold {
+      font-weight: 600;
+    }
+    .text-blue-600 {
+      color: #2563eb;
+    }
+    .hover\:underline:hover {
+      text-decoration: underline;
+    }
+    .bg-blue-900 {
+      background-color: #1e3a8a;
+    }
+    .py-12 {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .md\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .lg\:grid-cols-6 {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+    .space-y-2 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .mt-12 {
+      margin-top: 3rem;
+    }
+    .flex-col {
+      flex-direction: column;
+    }
+    .md\:flex-row {
+      flex-direction: row;
+    }
+    .justify-between {
+      justify-content: space-between;
+    }
+    .items-center {
+      align-items: center;
+    }
+    .space-x-4 {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    .text-2xl {
+      font-size: 1.5rem;
+    }
+    .bg-black {
+      background-color: black;
+    }
+    .px-3 {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+    .py-2 {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    .rounded {
+      border-radius: 0.25rem;
+    }
+    .bg-gray-100 {
+      background-color: #f7fafc;
+    }
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .text-sm {
+      font-size: 0.875rem;
+    }
+    .text-gray-600 {
+      color: #718096;
+    }
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+    .justify-center {
+      justify-content: center;
+    }
+    .space-x-4 {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="font-sans">
+    <header class="bg-blue-600 text-white py-8">
+      <div class="container mx-auto px-4">
+        <nav class="flex items-center justify-between mb-4">
+          <img src="/placeholder.svg?height=40&width=100" alt="LCU Logo" class="h-10" />
+          <div class="flex items-center space-x-4">
+            <a href="#" class="hover:underline">Request appointment</a>
+            <a href="#" class="hover:underline">Log in</a>
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+        </nav>
+        <div class="flex items-center text-sm mb-4">
+          <a href="#" class="hover:underline">Home</a>
+          <svg class="w-4 h-4 mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          <span>Drugs & Supplements</span>
+        </div>
+        <h1 class="text-4xl font-bold mb-4">Drugs and Supplements</h1>
+        <p class="mb-4">Search prescription and over-the-counter drugs</p>
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Search"
+            class="w-full p-3 pr-10 rounded-full text-gray-900"
+            id="searchInput"
+          />
+          <svg class="absolute right-3 top-3 w-6 h-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+      <section class="mb-8">
+        <h2 class="text-2xl font-bold mb-4">Find a drug by its first letter</h2>
+        <div class="flex flex-wrap gap-2">
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">A</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">B</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">C</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">D</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">E</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">F</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">G</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">H</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">I</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">J</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">K</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">L</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">M</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">N</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">O</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">P</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">Q</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">R</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">S</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">T</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">U</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">V</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">W</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">X</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">Y</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">Z</a>
+          <a href="#" class="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full text-blue-600 hover:bg-blue-200">#</a>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-bold mb-4">Herbs, supplements and vitamins</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Acidophilus</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Aloe</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Coenzyme Q10</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Creatine</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>DHEA</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Evening primrose</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Fish oil</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Flaxseed and flaxseed oil</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Folate (folic acid)</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Ginkgo</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Glucosamine</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Honey</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>L-arginine</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Marijuana</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Melatonin</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Milk thistle</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Niacin</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Red yeast rice</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>SAMe</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>St. John's wort</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Tea tree oil</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Vitamin A</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Vitamin B-6</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Vitamin B-12</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Vitamin C</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Vitamin D</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Vitamin E</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="#" class="flex items-center justify-between py-2 border-b hover:text-blue-600">
+            <span>Zinc</span>
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </section>
+
+      <aside class="mt-8 bg-gray-100 p-4 rounded">
+        <p class="text-sm text-gray-600">
+          LCU does not endorse companies or products. Advertising revenue supports our non-profit mission.
+        </p>
+        <div class="mt-2">
+          <span class="text-sm font-semibold">Advertising & Sponsorship</span>
+          <div class="mt-1">
+            <a href="#" class="text-sm text-blue-600 hover:underline mr-2">Policy</a>
+            <a href="#" class="text-sm text-blue-600 hover:underline mr-2">Opportunities</a>
+            <a href="#" class="text-sm text-blue-600 hover:underline">Ad Choices</a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="bg-blue-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Medical Professionals</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">AskLCUExpert</a></li>
+              <li><a href="#" class="hover:underline">Clinical Trials</a></li>
+              <li><a href="#" class="hover:underline">LCU Alumni Association</a></li>
+              <li><a href="#" class="hover:underline">Refer a Patient</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Researchers</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">Research Faculty</a></li>
+              <li><a href="#" class="hover:underline">Laboratories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">International Patients</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">Appointments</a></li>
+              <li><a href="#" class="hover:underline">Financial Services</a></li>
+              <li><a href="#" class="hover:underline">International Locations & Offices</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Businesses</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">Executive Health Program</a></li>
+              <li><a href="#" class="hover:underline">International Business Collaborations</a></li>
+              <li><a href="#" class="hover:underline">Facilities & Real Estate</a></li>
+              <li><a href="#" class="hover:underline">Supplier Information</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Students</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">Admissions Requirements</a></li>
+              <li><a href="#" class="hover:underline">Degree Programs</a></li>
+              <li><a href="#" class="hover:underline">Student & Faculty Portal</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Charitable Care & Financial Assistance</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:underline">Community Health Needs Assessment</a></li>
+              <li><a href="#" class="hover:underline">Financial Assistance Documents – Arizona</a></li>
+              <li><a href="#" class="hover:underline">Financial Assistance Documents – Florida</a></li>
+              <li><a href="#" class="hover:underline">Financial Assistance Documents – Minnesota</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-12 flex flex-col md:flex-row justify-between items-center">
+          <div class="flex space-x-4 mb-4 md:mb-0">
+            <a href="#" class="text-2xl" aria-label="Twitter">𝕏</a>
+            <a href="#" class="text-2xl" aria-label="YouTube">▶</a>
+            <a href="#" class="text-2xl" aria-label="Facebook">f</a>
+            <a href="#" class="text-2xl" aria-label="LinkedIn">in</a>
+            <a href="#" class="text-2xl" aria-label="Instagram">📷</a>
+          </div>
+          <div class="flex space-x-4">
+            <a href="#" class="flex items-center bg-black text-white px-3 py-2 rounded">
+              <span class="mr-2">GET IT ON</span>
+              <span>Google Play</span>
+            </a>
+            <a href="#" class="flex items-center bg-black text-white px-3 py-2 rounded">
+              <span class="mr-2">Download on the</span>
+              <span>App Store</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="bg-gray-100 py-4">
+      <div class="container mx-auto px-4 text-sm text-gray-600">
+        <div class="flex flex-wrap justify-center space-x-4 mb-4">
+          <a href="#" class="hover:underline">Terms & Conditions</a>
+          <a href="#" class="hover:underline">Privacy Policy</a>
+          <a href="#" class="hover:underline">Notice of Privacy Practices</a>
+          <a href="#" class="hover:underline">Notice of Nondiscrimination</a>
+          <a href="#" class="hover:underline">Accessibility Statement</a>
+          <a href="#" class="hover:underline">Advertising & Sponsorship Policy</a>
+          <a href="#" class="hover:underline">Site Map</a>
+        </div>
+        <p class="text-center">
+          © 1998-2024 Lifestyle Corp University Foundation for Medical Education and Research (LCUFMER). All rights reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const herbLinks = document.querySelectorAll('.grid a');
+
+      herbLinks.forEach(link => {
+        const herbName = link.querySelector('span').textContent.toLowerCase();
+        if (herbName.includes(searchTerm)) {
+          link.style.display = 'flex';
+        } else {
+          link.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
