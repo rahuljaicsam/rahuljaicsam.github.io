@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lifestyle Corp University</title>
     <style>
+        /* General Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -15,6 +16,8 @@
             margin: 0 auto;
             padding: 0 1rem;
         }
+        
+        /* Header and Navigation */
         header {
             background-color: white;
             border-bottom: 1px solid #e5e7eb;
@@ -100,44 +103,54 @@
             text-decoration: none;
             font-size: 0.875rem;
         }
+        
+        /* Hero Section */
         .hero {
-            position: relative;
-            height: 500px;
-            background: linear-gradient(to right, #8b5cf6, #3b82f6);
-            color: white;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            flex-direction: column;
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         .hero-content {
-            z-index: 1;
+            text-align: center;
+            padding: 2rem 1rem;
         }
         .hero h1 {
             font-size: 2.25rem;
             margin-bottom: 1rem;
         }
+        /* Hero Buttons */
         .hero-buttons {
-            display: flex;
-            justify-content: center;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .buttons-wrapper {
+            display: inline-flex;
+            flex-wrap: wrap;
             gap: 1rem;
         }
-        .hero-buttons a {
+        .buttons-wrapper a {
             display: inline-block;
             padding: 0.75rem 1.5rem;
             border-radius: 9999px;
             text-decoration: none;
             font-weight: 600;
         }
+        /* Button Styles */
         .btn-primary {
-            background-color: white;
-            color: #2563eb;
+            background-color: #2563eb;
+            color: white;
         }
         .btn-secondary {
             background-color: transparent;
-            border: 2px solid white;
-            color: white;
+            border: 2px solid #2563eb;
+            color: #2563eb;
         }
+        
+        /* Section Styles */
         .section {
             padding: 3rem 0;
         }
@@ -218,6 +231,8 @@
             margin: 0;
             font-size: 1.25rem;
         }
+        
+        /* Footer Styles */
         footer {
             background-color: #1e3a8a;
             color: white;
@@ -260,26 +275,46 @@
             gap: 1rem;
             margin-bottom: 1rem;
         }
+        
+        /* Responsive Design */
         @media (min-width: 768px) {
+            /* Navigation */
             .nav-items {
                 display: flex;
             }
             .mobile-menu-button {
                 display: none;
             }
+            /* Two Column Layout */
             .two-column {
                 flex-direction: row;
             }
             .two-column > div {
                 width: 50%;
             }
+            /* Footer */
             .footer-bottom {
                 flex-direction: row;
                 justify-content: space-between;
                 text-align: left;
             }
+            /* Responsive Hero Section */
+            .hero {
+                flex-direction: row;
+                align-items: center;
+            }
+            .hero-image, .hero-content {
+                flex: 1;
+            }
+            .hero-content {
+                padding: 0 2rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
         }
     </style>
+    
 </head>
 <body>
     <header>
@@ -303,15 +338,21 @@
     <main>
         
         <section class="hero">
-            <img src="/assets/lifestyle.jpeg" alt="Lifestyle Image" style="position: relative; width: 100%; max-width: 800px; height: 600px; overflow: hidden width: 100%; height: 100%; object-fit: cover;">
+            <div class="hero-image">
+                <img src="/assets/lifestyle.jpeg" alt="Lifestyle Image">
+            </div>
             <div class="hero-content container">
                 <h1>Transforming Healthcare with AI and Robotics</h1>
-                <div class="hero-buttons">
-                    <a href="#" class="btn-primary">Explore Our Innovations</a>
-                    <a href="#" class="btn-secondary">Apply for Membership</a>
-                </div>
             </div>
         </section>
+        
+        <div class="hero-buttons container">
+            <div class="buttons-wrapper">
+                <a href="#" class="btn-primary">Explore Our Innovations</a>
+                <a href="#" class="btn-secondary">Apply for Membership</a>
+            </div>
+        </div>
+        
 
         <section class="section" style="background-color: #f3f4f6;">
             <div class="container">
