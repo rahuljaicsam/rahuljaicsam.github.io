@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Lifestyle | Lifestyle Corp University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #3b82f6;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .utility-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .utility-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 1rem;
+        }
+
+        .sidebar h2 {
+            color: #4a5568;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav > li {
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-nav h3 {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        .sidebar-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content Area Styles */
+        .content {
+            min-height: 500px;
+        }
+
+        .content h1 {
+            color: #0046be;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Program Card Styles */
+        .program-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* Featured Recipe Styles */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .recipe-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .recipe-card-content {
+            padding: 1rem;
+        }
+
+        /* Topic Navigation Styles */
+        .topic-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .topic-nav a {
+            color: #4a5568;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+
+        .topic-nav a.active {
+            color: #3b82f6;
+            border-bottom: 2px solid #3b82f6;
+            margin-bottom: -2px;
+        }
+
+        /* Newsletter Signup Styles */
+        .newsletter-signup {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .newsletter-signup h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-signup input[type="email"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+        }
+
+        .newsletter-signup button {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.5rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #1a365d;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <a href="/" class="logo">LCU</a>
+                <nav class="utility-nav">
+                    <a href="#">Request appointment</a>
+                    <a href="#">Find a Doctor</a>
+                    <a href="#">Log in</a>
+                </nav>
+            </div>
+            <nav class="main-nav">
+                <a href="#">Care at LCU</a>
+                <a href="#">Health Library</a>
+                <a href="#">For Medical Professionals</a>
+                <a href="#">Research & Education at LCU</a>
+                <a href="#">Giving to LCU</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <aside class="sidebar">
+                <h2>Life stages</h2>
+                <nav>
+                    <ul class="sidebar-nav">
+                        <li>
+                            <h3>Pregnancy</h3>
+                            <ul>
+                                <li><a href="#" data-section="getting-pregnant">Getting pregnant</a></li>
+                                <li><a href="#" data-section="pregnancy-week">Pregnancy week by week</a></li>
+                                <li><a href="#" data-section="labor-delivery">Labor and delivery, postpartum care</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Children</h3>
+                            <ul>
+                                <li><a href="#">Infant and toddler health</a></li>
+                                <li><a href="#">Children's health</a></li>
+                                <li><a href="#">Tween and teen health</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>Adult</h3>
+                            <ul>
+                                <li><a href="#">Adult health</a></li>
+                                <li><a href="#">Women's health</a></li>
+                                <li><a href="#">Men's health</a></li>
+                                <li><a href="#">Healthy aging</a></li>
+                                <li><a href="#">Caregivers</a></li>
+                                <li><a href="#">End of life</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <div class="content" id="mainContent">
+                <h1>Healthy Lifestyle</h1>
+                <p>Information and tools for a healthy lifestyle.</p>
+
+                <section class="content-section">
+                    <div class="program-card">
+                        <h2>Healthy Living Program</h2>
+                        <p>The LCU Healthy Living Program is unlike any other wellness program. It is a transformative immersion at a world-class facility designed by LCU experts in health and wellness. The experience is inspiring. The results are life-changing.</p>
+                        <img src="/placeholder.svg?height=300&width=600" alt="Healthy Living Program">
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2>Featured Recipes</h2>
+                    <div class="recipe-grid">
+                        <div class="recipe-card">
+                            <img src="/placeholder.svg?height=150&width=200" alt="Smoky bean and mushroom cornucopias">
+                            <div class="recipe-card-content">
+                                <h3>Smoky bean and mushroom cornucopias</h3>
+                            </div>
+                        </div>
+                        <div class="recipe-card">
+                            <img src="/placeholder.svg?height=150&width=200" alt="Cran-fruit coffeecake">
+                            <div class="recipe-card-content">
+                                <h3>Cran-fruit coffeecake with crumb topping</h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="newsletter-signup">
+                    <h3>From LCU to your inbox</h3>
+                    <p>Sign up for free and stay up to date on research advancements, health tips, current health topics, and expertise on managing health.</p>
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe!</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Medical Professionals</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">AskLCUExpert</a></li>
+                        <li><a href="#">Clinical Trials</a></li>
+                        <li><a href="#">LCU Alumni Association</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Researchers</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Research Faculty</a></li>
+                        <li><a href="#">Laboratories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>International Patients</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Appointments</a></li>
+                        <li><a href="#">Financial Services</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Content for different sections
+        const content = {
+            'getting-pregnant': {
+                title: 'Getting pregnant',
+                content: `
+                    <nav class="topic-nav">
+                        <a href="#" class="active">Basics</a>
+                        <a href="#">In-Depth</a>
+                        <a href="#">Expert Answers</a>
+                        <a href="#">Multimedia</a>
+                        <a href="#">Resources</a>
+                    </nav>
+                    <h2>Fertility</h2>
+                    <p>Getting pregnant can be exciting. For some people, getting pregnant happens right away. For others, getting pregnant takes time and maybe a bit of luck.</p>
+                    <p>Knowing when you're most fertile may make getting pregnant easier. And there are some simple steps you can take when you're trying to get pregnant. For example, being at a healthy weight and having sex often, mainly when you're ovulating, may help. Don't smoke or drink alcohol. Of course, healthy sperm counts too.</p>
+                `
+            },
+            'pregnancy-week': {
+                title: 'Pregnancy week by week',
+                content: `
+                    <nav class="topic-nav">
+                        <a href="#" class="active">Overview</a>
+                        <a href="#">First Trimester</a>
+                        <a href="#">Second Trimester</a>
+                        <a href="#">Third Trimester</a>
+                    </nav>
+                    <h2>Pregnancy Week by Week</h2>
+                    <p>Follow your baby's development week by week, from conception to birth, and learn about the changes you can expect in your body as your pregnancy progresses.</p>
+                `
+            },
+            'labor-delivery': {
+                title: 'Labor and delivery, postpartum care',
+                content: `
+                    <nav class="topic-nav">
+                        <a href="#" class="active">Overview</a>
+                        <a href="#">Labor & Delivery</a>
+                        <a href="#">Postpartum Care</a>
+                        <a href="#">Recovery</a>
+                    </nav>
+                    <h2>Labor and Delivery</h2>
+                    <p>Learn about the signs of labor, what happens during delivery, and what to expect during your recovery period.</p>
+                `
+            }
+        };
+
+        
+
+        // Handle sidebar navigation
+        document.querySelectorAll('.sidebar-nav a[data-section]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const section = e.target.dataset.section;
+                const sectionContent = content[section];
+                if (sectionContent) {
+                    document.getElementById('mainContent').innerHTML = `
+                        <h1>${sectionContent.title}</h1>
+                        ${sectionContent.content}
+                    `;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
