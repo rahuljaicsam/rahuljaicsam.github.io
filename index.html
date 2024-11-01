@@ -191,16 +191,28 @@
             flex-direction: column;
             gap: 2rem;
         }
-        .featured-areas {
+        .featured-areas1 {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1rem;
         }
-        .featured-areas a {
+        .featured-areas1 a {
             color: #2563eb;
             text-decoration: none;
         }
-        .featured-areas a:hover {
+        .featured-areas1 a:hover {
+            text-decoration: underline;
+        }
+        .featured-areas2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .featured-areas2 a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .featured-areas2 a:hover {
             text-decoration: underline;
         }
         .virtual-campuses1 {
@@ -428,7 +440,17 @@
             <div class="container">
                 <h2 class="section-title">Featured Research Areas</h2>
                 <p>We're tackling the world's most complex medical challenges with AI and robotics.</p>
-                <div class="featured-areas">
+                <div class="featured-areas1">
+                    <!-- Featured research areas will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Featured Research Areas</h2>
+                <p>We're tackling the world's most complex medical challenges with AI and robotics.</p>
+                <div class="featured-areas2">
                     <!-- Featured research areas will be populated by JavaScript -->
                 </div>
             </div>
@@ -600,7 +622,13 @@
 
         const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('');
 
-        const featuredResearchAreas = [
+        const featuredResearchAreas1 = [
+            "AI-driven diagnostics", "Robotic surgery advancements", "Virtual reality therapy", "Quantum computing in drug discovery",
+            "Nanorobotics in medicine", "AI-enhanced genetic engineering", "Digital twin healthcare", "Brain-computer interfaces",
+            "AI-powered mental health solutions", "Robotic prosthetics", "Synthetic biology breakthroughs", "AI in personalized medicine"
+        ];
+
+        const featuredResearchAreas2 = [
             "AI-driven diagnostics", "Robotic surgery advancements", "Virtual reality therapy", "Quantum computing in drug discovery",
             "Nanorobotics in medicine", "AI-enhanced genetic engineering", "Digital twin healthcare", "Brain-computer interfaces",
             "AI-powered mental health solutions", "Robotic prosthetics", "Synthetic biology breakthroughs", "AI in personalized medicine"
@@ -787,23 +815,23 @@
             });
         }
 
-        function populateFeaturedResearchAreas() {
-            const featuredAreasContainer = document.querySelector('.featured-areas');
-            featuredResearchAreas.forEach(area => {
+        function populateFeaturedResearchAreas1() {
+            const featuredAreas1Container = document.querySelector('.featured-areas1');
+            featuredResearchAreas1.forEach(area => {
                 const a = document.createElement('a');
                 a.href = '#';
                 a.textContent = `${area} >`;
-                featuredAreasContainer.appendChild(a);
+                featuredAreas1Container.appendChild(a);
             });
         }
 
-        function populateFeaturedResearchAreas() {
-            const featuredAreasContainer = document.querySelector('.featured-areas');
-            featuredResearchAreas.forEach(area => {
+        function populateFeaturedResearchAreas2() {
+            const featuredAreas2Container = document.querySelector('.featured-areas2');
+            featuredResearchAreas2.forEach(area => {
                 const a = document.createElement('a');
                 a.href = '#';
                 a.textContent = `${area} >`;
-                featuredAreasContainer.appendChild(a);
+                featuredAreas2Container.appendChild(a);
             });
         }
 
@@ -833,8 +861,10 @@
             populateNavItems();
             populateMobileMenu();
             populateAlphabetLinks();
-            populateVirtualCampuses();
-            populateFeaturedResearchAreas();
+            populateVirtualCampuses1();
+            populateVirtualCampuses2();
+            populateFeaturedResearchAreas1();
+            populateFeaturedResearchAreas2();
             populateFooterLinks();
 
             const mobileMenuButton = document.querySelector('.mobile-menu-button');
