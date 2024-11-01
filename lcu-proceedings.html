@@ -23,137 +23,68 @@
             color: white;
             padding: 1rem 0;
         }
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
         nav ul {
             list-style-type: none;
             padding: 0;
-            display: flex;
         }
         nav ul li {
-            margin-left: 1rem;
+            display: inline;
+            margin-right: 10px;
         }
         nav ul li a {
             color: white;
             text-decoration: none;
         }
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
         .search-container {
+            display: inline-block;
             position: relative;
         }
-        .search-input {
-            padding: 0.5rem 1rem 0.5rem 2rem;
-            border-radius: 9999px;
-            border: 1px solid #ccc;
+        .search-container input {
+            padding: 5px 30px 5px 10px;
+            border-radius: 15px;
+            border: none;
         }
-        .search-icon {
+        .search-container .search-icon {
             position: absolute;
-            left: 0.75rem;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
         }
         main {
             padding: 2rem 0;
         }
-        h2 {
-            font-size: 1.875rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
         .grid {
             display: grid;
-            gap: 1.5rem;
-        }
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-        }
-        @media (min-width: 768px) {
-            .md\:grid-cols-2 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-        @media (min-width: 1024px) {
-            .lg\:grid-cols-4 {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
         }
         .card {
             background-color: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         .card img {
             width: 100%;
-            height: 12rem;
+            height: 200px;
             object-fit: cover;
         }
         .card-content {
             padding: 1rem;
         }
-        .card-type {
-            font-size: 0.875rem;
-            color: #dc2626;
-            font-weight: 600;
-        }
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin: 0.5rem 0;
-        }
-        .card-description {
-            color: #6b7280;
-            margin-bottom: 1rem;
-        }
-        .card-link {
-            color: #3b82f6;
+        .btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        .card-link:hover {
-            text-decoration: underline;
+            border-radius: 4px;
         }
         footer {
             background-color: #f3f4f6;
             color: #4b5563;
             padding: 2rem 0;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        .footer-section h3 {
-            font-size: 1.125rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        .footer-section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        .footer-section ul li a {
-            color: #4b5563;
-            text-decoration: none;
-        }
-        .footer-section ul li a:hover {
-            text-decoration: underline;
-        }
-        .footer-bottom {
             margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #d1d5db;
-            text-align: center;
-            font-size: 0.875rem;
         }
     </style>
 </head>
@@ -175,7 +106,7 @@
 
     <nav style="background-color: #f3f4f6; padding: 1rem 0;">
         <div class="container">
-            <ul style="display: flex; justify-content: space-between; align-items: center;">
+            <ul>
                 <li><a href="#" style="color: #3b82f6;">Articles</a></li>
                 <li><a href="#" style="color: #3b82f6;">Publish</a></li>
                 <li><a href="#" style="color: #3b82f6;">Topics</a></li>
@@ -183,141 +114,118 @@
                 <li><a href="#" style="color: #3b82f6;">CME</a></li>
                 <li><a href="#" style="color: #3b82f6;">About</a></li>
                 <li><a href="#" style="color: #3b82f6;">Contact</a></li>
-                <li>
-                    <div class="search-container">
-                        <input type="text" placeholder="Search for..." class="search-input">
-                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </div>
-                </li>
             </ul>
+            <div class="search-container">
+                <input type="text" placeholder="Search for...">
+                <span class="search-icon">🔍</span>
+            </div>
         </div>
     </nav>
 
     <main class="container">
         <section>
             <h2>Featured this Month</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div class="grid">
                 <div class="card">
-                    <img src="/placeholder.svg?height=200&width=300" alt="AI-Driven Diagnostics in Modern Healthcare">
+                    <img src="/placeholder.svg?height=200&width=300" alt="AI-Driven Diagnostics">
                     <div class="card-content">
-                        <span class="card-type">Review</span>
-                        <h3 class="card-title">AI-Driven Diagnostics in Modern Healthcare</h3>
-                        <p class="card-description">This article explores the latest advancements in AI-powered diagnostic tools and their impact on patient care.</p>
-                        <a href="#" class="card-link">
-                            Read more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.25rem;">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
+                        <span style="color: #dc2626;">Review</span>
+                        <h3>AI-Driven Diagnostics in Modern Healthcare</h3>
+                        <p>This article explores the latest advancements in AI-powered diagnostic tools and their impact on patient care.</p>
+                        <a href="#" class="btn">Read more</a>
                     </div>
                 </div>
                 <div class="card">
                     <img src="/placeholder.svg?height=200&width=300" alt="Quantum Computing in Drug Discovery">
                     <div class="card-content">
-                        <span class="card-type">Original Article</span>
-                        <h3 class="card-title">Quantum Computing in Drug Discovery</h3>
-                        <p class="card-description">A groundbreaking study on the application of quantum computing algorithms in accelerating drug discovery processes.</p>
-                        <a href="#" class="card-link">
-                            Read more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.25rem;">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
+                        <span style="color: #dc2626;">Original Article</span>
+                        <h3>Quantum Computing in Drug Discovery</h3>
+                        <p>A groundbreaking study on the application of quantum computing algorithms in accelerating drug discovery processes.</p>
+                        <a href="#" class="btn">Read more</a>
                     </div>
                 </div>
                 <div class="card">
                     <img src="/placeholder.svg?height=200&width=300" alt="Nanorobotics in Targeted Cancer Therapy">
                     <div class="card-content">
-                        <span class="card-type">Original Article</span>
-                        <h3 class="card-title">Nanorobotics in Targeted Cancer Therapy</h3>
-                        <p class="card-description">Investigating the potential of nanorobots in delivering precise and effective cancer treatments.</p>
-                        <a href="#" class="card-link">
-                            Read more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.25rem;">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
+                        <span style="color: #dc2626;">Original Article</span>
+                        <h3>Nanorobotics in Targeted Cancer Therapy</h3>
+                        <p>Investigating the potential of nanorobots in delivering precise and effective cancer treatments.</p>
+                        <a href="#" class="btn">Read more</a>
                     </div>
                 </div>
                 <div class="card">
                     <img src="/placeholder.svg?height=200&width=300" alt="The Future of Telemedicine">
                     <div class="card-content">
-                        <span class="card-type">COMING IN NOVEMBER</span>
-                        <h3 class="card-title">The Future of Telemedicine</h3>
-                        <p class="card-description">An in-depth look at how telemedicine is reshaping healthcare delivery and patient experiences.</p>
-                        <a href="#" class="card-link">
-                            Read more
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.25rem;">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </a>
+                        <span style="color: #dc2626;">COMING IN NOVEMBER</span>
+                        <h3>The Future of Telemedicine</h3>
+                        <p>An in-depth look at how telemedicine is reshaping healthcare delivery and patient experiences.</p>
+                        <a href="#" class="btn">Read more</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="margin-top: 3rem;">
-            <h2>Medical Images</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3">
-                <div class="card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Biett Sign as an Indicator of Secondary Syphilis">
-                    <div class="card-content">
-                        <h3 class="card-title">Biett Sign as an Indicator of Secondary Syphilis</h3>
-                    </div>
+        <section>
+            <h2>About LCU Proceedings</h2>
+            <div class="grid">
+                <div style="grid-column: span 2;">
+                    <img src="/placeholder.svg?height=200&width=300" alt="LCU Proceedings" style="max-width: 100%;">
+                    <p>One of the premier peer-reviewed clinical journals in general and internal medicine, LCU Proceedings is among the most widely read and highly cited scientific publications for physicians. While the Proceedings is sponsored by LCU, it welcomes submissions from authors worldwide, publishing articles that focus on clinical medicine and support the professional and educational needs of its readers.</p>
                 </div>
-                <div class="card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Eosinophilic Fasciitis: A Classic Presentation">
-                    <div class="card-content">
-                        <h3 class="card-title">Eosinophilic Fasciitis: A Classic Presentation</h3>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/placeholder.svg?height=200&width=400" alt="Relapsing Polychondritis With a Cobblestone Appearance of Tracheal Mucosa">
-                    <div class="card-content">
-                        <h3 class="card-title">Relapsing Polychondritis With a Cobblestone Appearance of Tracheal Mucosa</h3>
-                    </div>
-                </div>
-            </div>
-            <a href="#" style="display: inline-block; margin-top: 1rem; background-color: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">All Medical Images</a>
-        </section>
-
-        <section style="margin-top: 3rem;">
-            <h2>Features</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4">
-                <div class="card">
-                    <img src="/placeholder.svg?height=150&width=200" alt="Art at LCU">
-                    <div class="card-content">
-                        <h3 class="card-title">Art at LCU</h3>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/placeholder.svg?height=150&width=200" alt="CME">
-                    <div class="card-content">
-                        <h3 class="card-title">CME</h3>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/placeholder.svg?height=150&width=200" alt="Pseudoendocrine Sarcoma">
-                    <div class="card-content">
-                        <h3 class="card-title">Pseudoendocrine Sarcoma</h3>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="/placeholder.svg?height=150&width=200" alt="Stamp Vignette">
-                    <div class="card-content">
-                        <h3 class="card-title">Stamp Vignette</h3>
-                    </div>
+                <div>
+                    <h3>Metrics</h3>
+                    <p><strong style="color: #3b82f6; font-size: 1.5em;">7.1</strong><br>2023 Impact Factor</p>
+                    <p><strong style="color: #3b82f6; font-size: 1.5em;">26/345</strong><br>2023 General and Internal Medicine</p>
+                    <p><strong style="color: #3b82f6; font-size: 1.5em;">8.2</strong><br>2023 5-Year Impact Factor</p>
+                    <a href="#" class="btn">More Journal Metrics</a>
                 </div>
             </div>
         </section>
 
-        <section style="margin-top: 3rem;">
-            <h2>Author Interviews</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                <div class="card">
-                    <div style="position: relative;">
-                        <img src="/placeholder.svg?height=150&width=200" alt="Association of Trimethylamine-N-oxide and Related Metabolites With Increased Cardiovascular Risk">
-                        <div 
+        <!-- Add more sections here as needed -->
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div>
+                    <h3>Information for Reviewers</h3>
+                    <ul>
+                        <li><a href="#">Reviewer Login</a></li>
+                        <li><a href="#">About Open Access</a></li>
+                        <li><a href="#">About Proceedings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Articles & Issues</h3>
+                    <ul>
+                        <li><a href="#">Articles in Press</a></li>
+                        <li><a href="#">Current Issue</a></li>
+                        <li><a href="#">List of Issues</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Innovations in Medicine and Surgery</h3>
+                    <ul>
+                        <li><a href="#">In the Limelight</a></li>
+                        <li><a href="#">Letters</a></li>
+                        <li><a href="#">My Treatment Approach</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Thematic Reviews</h3>
+                    <ul>
+                        <li><a href="#">Forward Thinking on Clinical Trials in Clinical Practice</a></li>
+                        <li><a href="#">Perioperative Medicine</a></li>
+                        <li><a href="#">Aging and Geriatric Medicine</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #d1d5db;">
+                <p>&copy; 2024 Lifestyle Corp University Proceedings. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
