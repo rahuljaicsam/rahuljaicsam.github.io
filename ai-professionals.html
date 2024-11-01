@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AI Professionals</title>
+</head>
+<body style="font-family: sans-serif; margin: 0; padding: 0;">
+
+  <!-- Header -->
+  <header style="background-color: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 1rem 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+      <h1 style="font-size: 2.25rem; font-weight: bold; color: #2563eb; margin: 0;">AI Professionals</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
+    <!-- AI Updates and Referrals Section -->
+    <section style="margin-bottom: 3rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <!-- AI Updates -->
+        <div style="flex: 1 1 60%;">
+          <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">AI Updates</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <!-- Dynamic AI Updates -->
+            <script>
+              const clinicalUpdates = [
+                "AI-Driven Diagnostics", "Robotic Surgery Advancements", "Virtual Reality Therapy",
+                "Quantum Computing in Drug Discovery", "Nanorobotics in Medicine", "AI-Enhanced Genetic Engineering",
+                "Digital Twin Healthcare", "Brain-Computer Interfaces", "AI-Powered Mental Health Solutions",
+                "Robotic Prosthetics", "Synthetic Biology Breakthroughs", "AI in Personalized Medicine"
+              ];
+              document.write(
+                clinicalUpdates.map(update =>
+                  `<a href="#" style="color: #2563eb; text-decoration: none;">${update}</a>`
+                ).join('<br>')
+              );
+            </script>
+          </div>
+          <a href="#" style="display: inline-block; margin-top: 1rem; color: #2563eb; text-decoration: none;">Sign up for AI updates</a>
+        </div>
+        <!-- Referrals -->
+        <div style="flex: 1 1 30%;">
+          <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Referrals</h2>
+          <!-- Dynamic Referrals -->
+          <script>
+            const referrals = [
+              { location: "AI Research Hub", number: "866-629-6362" },
+              { location: "Robotics Center", number: "800-634-1417" },
+              { location: "Virtual Reality Lab", number: "800-533-1564" },
+            ];
+            document.write(
+              referrals.map(referral => `
+                <div style="margin-bottom: 0.5rem;">
+                  <p style="font-weight: 600; margin: 0;">${referral.location}</p>
+                  <p style="margin: 0;">${referral.number}</p>
+                </div>
+              `).join('')
+            );
+          </script>
+          <button style="margin-top: 1rem; background-color: #2563eb; color: #ffffff; padding: 0.5rem 1rem; border: none; border-radius: 0.25rem; cursor: pointer;">
+            AI-Link online referrals
+          </button>
+          <a href="#" style="display: block; margin-top: 0.5rem; color: #2563eb; text-decoration: none;">Download a fax referral form</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Provider Relations Section -->
+    <section style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">AI Provider Relations</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+        <div style="flex: 1 1 45%;">
+          <img src="/placeholder.svg?height=300&width=500" alt="AI Provider" style="width: 100%; border-radius: 0.5rem;">
+        </div>
+        <div style="flex: 1 1 45%;">
+          <p style="margin-bottom: 1rem;">
+            We welcome the opportunity to collaborate in the care of your patients using advanced AI technologies. Whether it's your first time or you already have an ongoing relationship with us and our AI systems, we can connect you with LCU AI experts and services, arrange a visit to your office, provide information about AI-enhanced continuing education, and help you find LCU AI-driven clinical trials.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <a href="#" style="color: #2563eb; text-decoration: none;">Refer an AI case</a>
+            <a href="#" style="color: #2563eb; text-decoration: none;">AI Resources and support</a>
+            <a href="#" style="color: #2563eb; text-decoration: none;">AI-Enhanced Information for patients</a>
+            <a href="#" style="color: #2563eb; text-decoration: none;">AI-Powered COVID-19 Resources for Providers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI-Enhanced Continuing Education Section -->
+    <section style="margin-bottom: 3rem;">
+      <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">AI-Enhanced Continuing Education</h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <p style="font-weight: 600; margin: 0;">LCU School of AI-Enhanced Continuous Professional Development</p>
+        <a href="#" style="color: #2563eb; text-decoration: none;">Courses tailored for AI professionals</a>
+        <p style="font-weight: 600; margin: 0;">Continuing AI Education</p>
+        <a href="#" style="color: #2563eb; text-decoration: none;">See AI course calendar</a>
+        <p style="font-weight: 600; margin: 0;">LCU AI Laboratories Continuing Education</p>
+        <a href="#" style="color: #2563eb; text-decoration: none;">Find online AI programs and conferences</a>
+      </div>
+    </section>
+
+    <!-- Featured Sections -->
+    <section style="margin-bottom: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <!-- Dynamic Featured Sections -->
+      <script>
+        const featuredSections = [
+          {
+            title: "AI Clinical Trials",
+            description: "AI-driven clinical trials open to patient recruitment",
+            link: "Find a trial",
+            image: "/placeholder.svg?height=200&width=300"
+          },
+          {
+            title: "LCU AI Laboratories",
+            description: "Partnering with hospitals to offer AI-powered reference laboratory services",
+            link: "Find and order tests",
+            image: "/placeholder.svg?height=200&width=300"
+          },
+          {
+            title: "LCU AI Care Network",
+            description: "Partnering with providers to bring LCU AI expertise to patients where they live",
+            link: "Find out more",
+            image: "/placeholder.svg?height=200&width=300"
+          },
+        ];
+        document.write(
+          featuredSections.map(section => `
+            <div style="border: 1px solid #e5e7eb; border-radius: 0.5rem; overflow: hidden;">
+              <img src="${section.image}" alt="${section.title}" style="width: 100%; height: 10rem; object-fit: cover;">
+              <div style="padding: 1rem;">
+                <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">${section.title}</h3>
+                <p style="margin-bottom: 1rem;">${section.description}</p>
+                <a href="#" style="color: #2563eb; text-decoration: none; display: flex; align-items: center;">
+                  ${section.link} <span style="margin-left: 0.25rem;">&#10132;</span> <!-- ExternalLink Icon -->
+                </a>
+              </div>
+            </div>
+          `).join('')
+        );
+      </script>
+    </section>
+
+    <!-- Additional Sections -->
+    <section style="margin-bottom: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <!-- Dynamic Additional Sections -->
+      <script>
+        const additionalSections = [
+          {
+            title: "Careers for AI professionals and data scientists",
+            description: "Learn about career opportunities for AI professionals and data scientists at Lifestyle Corp University.",
+            link: "Explore careers",
+            image: "/placeholder.svg?height=150&width=300"
+          },
+          {
+            title: "AI Professional Health Center",
+            description: "Offering comprehensive, personalized health care services to practicing AI professionals",
+            link: "Request appointment",
+            secondLink: "Our care services",
+            image: "/placeholder.svg?height=150&width=300"
+          },
+          {
+            title: "LCU AI Proceedings",
+            description: "A peer-reviewed AI journal sponsored by LCU and authored by AI professionals worldwide",
+            link: "Browse issues",
+            image: "/placeholder.svg?height=150&width=300"
+          },
+          {
+            title: "AI Publications",
+            description: "Keep up with new developments and trends in AI practice and research at Lifestyle Corp University.",
+            link: "See all publications",
+            image: "/placeholder.svg?height=150&width=300"
+          },
+        ];
+        document.write(
+          additionalSections.map(section => `
+            <div style="display: flex; gap: 1rem;">
+              <img src="${section.image}" alt="${section.title}" style="width: 33%; border-radius: 0.25rem;">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">${section.title}</h3>
+                <p style="margin-bottom: 0.5rem;">${section.description}</p>
+                <a href="#" style="color: #2563eb; text-decoration: none;">${section.link}</a>
+                ${section.secondLink ? `<br><a href="#" style="color: #2563eb; text-decoration: none; margin-top: 0.25rem;">${section.secondLink}</a>` : ''}
+              </div>
+            </div>
+          `).join('')
+        );
+      </script>
+    </section>
+
+    <!-- AI Video Center and Alumni Center -->
+    <section style="margin-bottom: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+      <!-- AI Video Center -->
+      <div>
+        <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">AI Video Center</h3>
+        <img src="/placeholder.svg?height=200&width=300" alt="AI Video Center" style="width: 100%; height: 10rem; object-fit: cover; border-radius: 0.25rem; margin-bottom: 0.5rem;">
+        <p style="margin-bottom: 0.5rem;">Watch videos on advances in AI-driven disease treatment, procedures and surgeries, and select AI Grand Rounds. New AI presentations are added regularly.</p>
+        <a href="#" style="color: #2563eb; text-decoration: none;">See all AI videos</a>
+      </div>
+      <!-- LCU AI Alumni Center -->
+      <div>
+        <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">LCU AI Alumni Center</h3>
+        <img src="/placeholder.svg?height=200&width=300" alt="LCU AI Alumni Center" style="width: 100%; height: 10rem; object-fit: cover; border-radius: 0.25rem; margin-bottom: 0.5rem;">
+        <p style="margin-bottom: 0.5rem;">Keeping AI alumni connected with each other and Lifestyle Corp University</p>
+        <a href="#" style="color: #2563eb; text-decoration: none;">Connect now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background-color: #1e3a8a; color: #ffffff; padding: 3rem 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+        <!-- Footer Columns -->
+        <div>
+          <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;">AI Professionals</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AskLCUAI</a></li>
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AI Clinical Trials</a></li>
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">LCU AI Alumni Association</a></li>
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">Refer an AI Case</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;">AI Researchers</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AI Research Faculty</a></li>
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AI Laboratories</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;">AI Students</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AI Admissions Requirements</a></li>
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AI Degree Programs</a></li>
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AI Student & Faculty Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;">For Patients</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">Request AI Consultation</a></li>
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AI-Enhanced Patient Care</a></li>
+            <li><a href="#" style="color: #ffffff; text-decoration: none;">AI in Clinical Trials</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top: 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <p style="margin: 0;">&copy; 2024 Lifestyle Corp University. All rights reserved.</p>
+        <div style="display: flex; gap: 1rem;">
+          <a href="#" style="color: #ffffff; text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: #ffffff; text-decoration: none;">Terms of Use</a>
+          <a href="#" style="color: #ffffff; text-decoration: none;">AI Ethics Guidelines</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
