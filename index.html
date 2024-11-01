@@ -203,7 +203,12 @@
         .featured-areas a:hover {
             text-decoration: underline;
         }
-        .virtual-campuses {
+        .virtual-campuses1 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .virtual-campuses2 {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
@@ -779,6 +784,16 @@
                     </div>
                 `;
                 virtualCampuses2Container.appendChild(div);
+            });
+        }
+
+        function populateFeaturedResearchAreas() {
+            const featuredAreasContainer = document.querySelector('.featured-areas');
+            featuredResearchAreas.forEach(area => {
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = `${area} >`;
+                featuredAreasContainer.appendChild(a);
             });
         }
 
