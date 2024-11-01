@@ -402,7 +402,7 @@
                 <h2 class="section-title">Virtual Campuses for AI , Robotics and Entrepreneurship</h2>
                 <p>Explore our digital research hubs on Discord or choose a specific area of focus.</p>
                 <a href="#" class="btn-primary" style="display: inline-block; margin-bottom: 2rem;">Explore all virtual campuses</a>
-                <div class="virtual-campuses">
+                <div class="virtual-campuses1">
                     <!-- Virtual campuses will be populated by JavaScript -->
                 </div>
             </div>
@@ -413,7 +413,7 @@
                 <h2 class="section-title">Virtual Campuses for all medical specialty</h2>
                 <p>Explore our digital research hubs on Discord or choose a specific area of focus.</p>
                 <a href="#" class="btn-primary" style="display: inline-block; margin-bottom: 2rem;">Explore all virtual campuses</a>
-                <div class="virtual-campuses">
+                <div class="virtual-campuses2">
                     <!-- Virtual campuses will be populated by JavaScript -->
                 </div>
             </div>
@@ -601,12 +601,20 @@
             "AI-powered mental health solutions", "Robotic prosthetics", "Synthetic biology breakthroughs", "AI in personalized medicine"
         ];
 
-        const virtualCampuses = [
+        const virtualCampuses1 = [
             { name: "LCU AI Research Hub", location: "Discord: #ai-research", image: "/placeholder.svg?height=200&width=300" },
             { name: "LCU Robotics Innovation", location: "Discord: #robotics-lab", image: "/placeholder.svg?height=200&width=300" },
             { name: "LCU Digital Health Center", location: "Discord: #digital-health", image: "/placeholder.svg?height=200&width=300" },
             { name: "LCU Quantum Computing", location: "Discord: #quantum-lab", image: "/placeholder.svg?height=200&width=300" },
             { name: "LCU Global Collaboration", location: "Discord: #global-research", image: "/placeholder.svg?height=200&width=300" }
+        ];
+
+        const virtualCampuses2 = [
+            { name: "Cardiology", location: "Discord: #ai-research", image: "/placeholder.svg?height=200&width=300" },
+            { name: "Neurology", location: "Discord: #robotics-lab", image: "/placeholder.svg?height=200&width=300" },
+            { name: "Dermatology", location: "Discord: #digital-health", image: "/placeholder.svg?height=200&width=300" },
+            { name: "Lifestyle Medicine", location: "Discord: #quantum-lab", image: "/placeholder.svg?height=200&width=300" },
+            { name: "Anatomy", location: "Discord: #global-research", image: "/placeholder.svg?height=200&width=300" }
         ];
 
         const footerLinks = [
@@ -742,9 +750,9 @@
             });
         }
 
-        function populateVirtualCampuses() {
-            const virtualCampusesContainer = document.querySelector('.virtual-campuses');
-            virtualCampuses.forEach(campus => {
+        function populateVirtualCampuses1() {
+            const virtualCampuses1Container = document.querySelector('.virtual-campuses1');
+            virtualCampuses1.forEach(campus => {
                 const div = document.createElement('div');
                 div.className = 'campus-card';
                 div.innerHTML = `
@@ -754,7 +762,23 @@
                         <p>${campus.location}</p>
                     </div>
                 `;
-                virtualCampusesContainer.appendChild(div);
+                virtualCampuses1Container.appendChild(div);
+            });
+        }
+
+        function populateVirtualCampuses2() {
+            const virtualCampuses2Container = document.querySelector('.virtual-campuses2');
+            virtualCampuses2.forEach(campus => {
+                const div = document.createElement('div');
+                div.className = 'campus-card';
+                div.innerHTML = `
+                    <img src="${campus.image}" alt="${campus.name}">
+                    <div class="campus-info">
+                        <h3>${campus.name}</h3>
+                        <p>${campus.location}</p>
+                    </div>
+                `;
+                virtualCampuses2Container.appendChild(div);
             });
         }
 
