@@ -3,81 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Research University</title>
+    <title>Lifestyle Corp University</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 1em 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #333;
-            padding: 0.5em;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 1em;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
         }
         .container {
-            padding: 2em;
-            background-color: white;
-            margin: 2em auto;
-            max-width: 800px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
-        h1, h2 {
-            color: #007BFF;
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .dropdown h3 {
+            padding: 0.5rem 1rem;
+            margin: 0;
+            font-size: 0.875rem;
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to right, #8b5cf6, #3b82f6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-content {
+            z-index: 1;
+        }
+        .hero h1 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .hero-buttons a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn-primary {
+            background-color: white;
+            color: #2563eb;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        .section {
+            padding: 3rem 0;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .alphabet-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .alphabet-links a {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #d1d5db;
+            border-radius: 9999px;
+            text-decoration: none;
+            color: #374151;
+        }
+        .alphabet-links a:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        .search-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+        }
+        .two-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .featured-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .featured-areas a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .featured-areas a:hover {
+            text-decoration: underline;
+        }
+        .virtual-campuses {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .campus-card {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .campus-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .campus-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        .campus-info h3 {
+            margin: 0;
+            font-size: 1.25rem;
         }
         footer {
-            background-color: #333;
+            background-color: #1e3a8a;
             color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) {
+            .nav-items {
+                display: flex;
+            }
+            .mobile-menu-button {
+                display: none;
+            }
+            .two-column {
+                flex-direction: row;
+            }
+            .two-column > div {
+                width: 50%;
+            }
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <h1>Medical Research University</h1>
+        <div class="container">
+            <nav>
+                <img src="/placeholder.svg?height=40&width=100" alt="Lifestyle Corp University Logo" style="height: 40px;">
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
     </header>
 
-    <nav>
-        <a href="#about">About Us</a>
-        <a href="#research">Research</a>
-        <a href="#faculty">Faculty</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <main>
+        <section class="hero">
+            <img src="/placeholder.svg?height=500&width=1200" alt="AI and Robotics in Medicine" style="position: absolute; width: 100%; height: 100%; object-fit: cover;">
+            <div class="hero-content container">
+                <h1>Transforming Healthcare with AI and Robotics</h1>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">Explore Our Innovations</a>
+                    <a href="#" class="btn-secondary">Apply for Membership</a>
+                </div>
+            </div>
+        </section>
 
-    <div class="container" id="about">
-        <h2>About Us</h2>
-        <p>Welcome to Medical Research University, where cutting-edge research meets compassionate care. Our mission is to advance medical knowledge and improve patient outcomes through innovative research and education.</p>
-    </div>
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Explore Our Research Areas</h2>
+                <div class="alphabet-links">
+                    <!-- Alphabet links will be populated by JavaScript -->
+                </div>
+                <input type="text" placeholder="Search research areas" class="search-input">
+            </div>
+        </section>
 
-    <div class="container" id="research">
-        <h2>Research</h2>
-        <p>Our research spans a wide range of medical disciplines, from cancer biology to neuroscience. We are committed to pushing the boundaries of what is possible in medical research.</p>
-    </div>
+        <section class="section">
+            <div class="container">
+                <div class="two-column">
+                    <div>
+                        <h2 class="section-title">Innovation Starts Here</h2>
+                        <p>Cutting-edge solutions powered by AI and robotics</p>
+                        <p>Our high-IQ researchers and advanced AI systems collaborate to solve the most complex medical challenges of our time.</p>
+                        <p><strong>Leading the Digital Health Revolution</strong></p>
+                        <p>Lifestyle Corp University is at the forefront of AI and robotics integration in healthcare.</p>
+                        <a href="#" class="btn-primary" style="display: inline-block; margin-top: 1rem;">Why Choose LCU</a>
+                    </div>
+                    <div>
+                        <img src="/placeholder.svg?height=300&width=500" alt="AI and Robotics in Healthcare" style="width: 100%; height: auto; border-radius: 0.5rem;">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="container" id="faculty">
-        <h2>Faculty</h2>
-        <p>Our faculty members are leaders in their fields, dedicated to teaching and research. Meet our distinguished faculty and learn about their groundbreaking work.</p>
-    </div>
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <div class="two-column">
+                    <div>
+                        <img src="/placeholder.svg?height=400&width=600" alt="Global Digital Collaboration" style="width: 100%; height: auto; border-radius: 0.5rem;">
+                    </div>
+                    <div>
+                        <h2 class="section-title">World-class research for a global community</h2>
+                        <p>Our digital platform enables seamless collaboration between high-IQ individuals worldwide.</p>
+                        <a href="#" class="btn-primary" style="display: inline-block; margin-top: 1rem;">Join Our Discord</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Virtual Campuses</h2>
+                <p>Explore our digital research hubs on Discord or choose a specific area of focus.</p>
+                <a href="#" class="btn-primary" style="display: inline-block; margin-bottom: 2rem;">Explore all virtual campuses</a>
+                <div class="virtual-campuses">
+                    <!-- Virtual campuses will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Featured Research Areas</h2>
+                <p>We're tackling the world's most complex medical challenges with AI and robotics.</p>
+                <div class="featured-areas">
+                    <!-- Featured research areas will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
 
     <div class="container" id="contact">
         <h2>Contact Us</h2>
@@ -97,8 +395,275 @@
     </div>
 
     <footer>
-        <p>&copy; 2023 Medical Research University. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">🧠</span>
+                        <span>Take the IQ Test</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">💻</span>
+                        <span>Explore AI Career Opportunities</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">📰</span>
+                        <span>Subscribe to our Digital Journal</span>
+                    </a>
+                </div>
+                <!-- Footer links will be populated by JavaScript -->
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">AI Ethics Guidelines</a>
+                    <a href="#">Non-Discrimination Policy</a>
+                </div>
+                <p>&copy; 2020-2024 Lifestyle Corp University. All rights reserved. Powered by AI and high-IQ individuals.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        const navItems = [
+            { 
+                title: "Research at LCU", 
+                items: ["AI-Driven Research", "Robotics Innovation", "Virtual Labs", "Digital Health Initiatives", "Join Our Discord", "Apply for Membership", "Current Projects", "Research Ethics", "AI Partnerships", "Robotics Collaborations"]
+            },
+            { 
+                title: "Digital Library", 
+                items: ["AI in Medicine", "Advanced Robotics", "Cognitive Enhancement", "Digital Health Solutions", "Virtual Reality in Healthcare", "Blockchain in Medical Records"]
+            },
+            { 
+                
+                title: "For High-IQ Professionals", 
+                items: ["IQ Test Applications", "Virtual Networking Events", "AI-Assisted Continuing Education", "Robotic Surgery Simulations", "Advanced Research Opportunities", "Digital Publications"]
+            },
+            { 
+                title: "Innovation & Education at LCU", 
+                items: {
+                    "Innovation": ["AI Research Labs", "Robotics Development Centers", "Virtual Reality Medical Training", "Quantum Computing in Healthcare", "Nanotechnology Advancements", "Biotechnology Breakthroughs"],
+                    "Education": ["LCU Virtual Academy", "AI-Assisted Learning Programs", "Robotic Surgery Training", "Digital Health Informatics", "Cognitive Science Programs", "Advanced Biotechnology Courses"]
+                }
+            },
+            {
+                title: "For Medical Professionals",
+                items: ["AI-Enhanced Medical Resources", "Virtual Referral System", "AI-Assisted Continuing Education", "Advanced Robotic Surgery Simulations", "Digital Health Informatics", "AI-Powered Clinical Decision Support"]
+            },
+            {
+                title: "Research & Education at LCU",
+                items: {
+                    "Research": ["AI in Healthcare Research", "Robotics in Medicine", "Virtual Reality in Medical Training", "Quantum Computing for Drug Discovery", "Nanotechnology in Medicine", "AI Ethics in Healthcare"],
+                    "Education": ["LCU Virtual Medical School", "AI-Enhanced Medical Curriculum", "Robotic Surgery Training Programs", "Digital Health Informatics Courses", "AI in Medical Diagnostics", "Future of Healthcare Symposiums"]
+                }
+            },
+            { 
+                title: "Supporting LCU", 
+                items: ["Donate Compute Power", "Virtual Fundraising Events", "Sponsor AI Research", "Partner in Robotics Development"]
+            }
+        ];
+
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('');
+
+        const featuredResearchAreas = [
+            "AI-driven diagnostics", "Robotic surgery advancements", "Virtual reality therapy", "Quantum computing in drug discovery",
+            "Nanorobotics in medicine", "AI-enhanced genetic engineering", "Digital twin healthcare", "Brain-computer interfaces",
+            "AI-powered mental health solutions", "Robotic prosthetics", "Synthetic biology breakthroughs", "AI in personalized medicine"
+        ];
+
+        const virtualCampuses = [
+            { name: "LCU AI Research Hub", location: "Discord: #ai-research", image: "/placeholder.svg?height=200&width=300" },
+            { name: "LCU Robotics Innovation", location: "Discord: #robotics-lab", image: "/placeholder.svg?height=200&width=300" },
+            { name: "LCU Digital Health Center", location: "Discord: #digital-health", image: "/placeholder.svg?height=200&width=300" },
+            { name: "LCU Quantum Computing", location: "Discord: #quantum-lab", image: "/placeholder.svg?height=200&width=300" },
+            { name: "LCU Global Collaboration", location: "Discord: #global-research", image: "/placeholder.svg?height=200&width=300" }
+        ];
+
+        const footerLinks = [
+            {
+                title: "High-IQ Professionals",
+                items: ["AI Research Opportunities", "Robotics Collaborations", "Virtual Networking", "Apply for Membership"]
+            },
+            {
+                title: "Researchers",
+                items: ["AI Labs", "Robotics Centers"]
+            },
+            {
+                title: "International Collaborators",
+                items: ["Global AI Initiatives", "Cross-Border Robotics Projects", "Virtual Research Exchanges"]
+            },
+            {
+                title: "Industry Partners",
+                items: ["AI in Healthcare", "Robotics in Medicine", "Digital Health Solutions", "Research Sponsorships"]
+            },
+            {
+                title: "Prospective Members",
+                items: ["IQ Test Information", "Application Process", "Virtual Campus Tour"]
+            },
+            {
+                title: "Ethical AI & Robotics",
+                items: ["AI Ethics Guidelines", "Responsible Robotics Development", "Digital Privacy Policies", "Ethical Review Board"]
+            }
+        ];
+
+        function populateNavItems() {
+            const navItemsContainer = document.querySelector('.nav-items');
+            navItems.forEach(item => {
+                const div = document.createElement('div');
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                div.appendChild(button);
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'dropdown';
+
+                if (Array.isArray(item.items)) {
+                    item.items.forEach(subItem => {
+                        const a = document.createElement('a');
+                        a.href = '#';
+                        a.textContent = subItem;
+                        dropdown.appendChild(a);
+                    });
+                } else {
+                    for (const [title, subitems] of Object.entries(item.items)) {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = title;
+                        dropdown.appendChild(h3);
+                        subitems.forEach(subItem => {
+                            const a = document.createElement('a');
+                            a.href = '#';
+                            a.textContent = subItem;
+                            dropdown.appendChild(a);
+                        });
+                    }
+                }
+
+                div.appendChild(dropdown);
+                navItemsContainer.appendChild(div);
+
+                button.addEventListener('mouseenter', () => {
+                    dropdown.style.display = 'block';
+                });
+                div.addEventListener('mouseleave', () => {
+                    dropdown.style.display = 'none';
+                });
+            });
+        }
+
+        function populateMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            navItems.forEach(item => {
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                mobileMenu.appendChild(button);
+
+                const submenu = document.createElement('div');
+                submenu.className = 'mobile-submenu';
+
+                if (Array.isArray(item.items)) {
+                    item.items.forEach(subItem => {
+                        const a = document.createElement('a');
+                        a.href = '#';
+                        a.textContent = subItem;
+                        submenu.appendChild(a);
+                    });
+                } else {
+                    for (const [title, subitems] of Object.entries(item.items)) {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = title;
+                        submenu.appendChild(h3);
+                        subitems.forEach(subItem => {
+                            const a = document.createElement('a');
+                            a.href = '#';
+                            a.textContent = subItem;
+                            submenu.appendChild(a);
+                        });
+                    }
+                }
+
+                mobileMenu.appendChild(submenu);
+
+                button.addEventListener('click', () => {
+                    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        }
+
+        function populateAlphabetLinks() {
+            const alphabetLinksContainer = document.querySelector('.alphabet-links');
+            alphabet.forEach(letter => {
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = letter;
+                alphabetLinksContainer.appendChild(a);
+            });
+        }
+
+        function populateVirtualCampuses() {
+            const virtualCampusesContainer = document.querySelector('.virtual-campuses');
+            virtualCampuses.forEach(campus => {
+                const div = document.createElement('div');
+                div.className = 'campus-card';
+                div.innerHTML = `
+                    <img src="${campus.image}" alt="${campus.name}">
+                    <div class="campus-info">
+                        <h3>${campus.name}</h3>
+                        <p>${campus.location}</p>
+                    </div>
+                `;
+                virtualCampusesContainer.appendChild(div);
+            });
+        }
+
+        function populateFeaturedResearchAreas() {
+            const featuredAreasContainer = document.querySelector('.featured-areas');
+            featuredResearchAreas.forEach(area => {
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = `${area} >`;
+                featuredAreasContainer.appendChild(a);
+            });
+        }
+
+        function populateFooterLinks() {
+            const footerGrid = document.querySelector('.footer-grid');
+            footerLinks.forEach(column => {
+                const div = document.createElement('div');
+                div.className = 'footer-column';
+                const h3 = document.createElement('h3');
+                h3.textContent = column.title;
+                div.appendChild(h3);
+                const ul = document.createElement('ul');
+                column.items.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.textContent = item;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                div.appendChild(ul);
+                footerGrid.appendChild(div);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateNavItems();
+            populateMobileMenu();
+            populateAlphabetLinks();
+            populateVirtualCampuses();
+            populateFeaturedResearchAreas();
+            populateFooterLinks();
+
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+
 
 </body>
 </html>
