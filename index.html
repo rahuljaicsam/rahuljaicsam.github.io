@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Research University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 2em;
+            background-color: white;
+            margin: 2em auto;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Medical Research University</h1>
+    </header>
+
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#research">Research</a>
+        <a href="#faculty">Faculty</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container" id="about">
+        <h2>About Us</h2>
+        <p>Welcome to Medical Research University, where cutting-edge research meets compassionate care. Our mission is to advance medical knowledge and improve patient outcomes through innovative research and education.</p>
+    </div>
+
+    <div class="container" id="research">
+        <h2>Research</h2>
+        <p>Our research spans a wide range of medical disciplines, from cancer biology to neuroscience. We are committed to pushing the boundaries of what is possible in medical research.</p>
+    </div>
+
+    <div class="container" id="faculty">
+        <h2>Faculty</h2>
+        <p>Our faculty members are leaders in their fields, dedicated to teaching and research. Meet our distinguished faculty and learn about their groundbreaking work.</p>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us!</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <br><br>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Medical Research University. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitForm() {
+            alert("Thank you for contacting us! We will get back to you soon.");
+            document.querySelector('form').reset();
+        }
+    </script>
+
+</body>
+</html>
