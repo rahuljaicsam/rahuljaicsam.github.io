@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests and Procedures | Lifestyle Corp University</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #3b82f6;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .utility-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .utility-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        h1 {
+            color: #0046be;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Alphabet Navigation */
+        .alphabet-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .letter-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #0046be;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .letter-btn:hover, .letter-btn.active {
+            background-color: #0046be;
+            color: white;
+        }
+
+        /* Tests List */
+        .tests-list {
+            margin-top: 2rem;
+        }
+
+        .current-letter {
+            font-size: 2rem;
+            color: #0046be;
+            margin-bottom: 1rem;
+        }
+
+        .tests-list a {
+            color: #0046be;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .tests-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Featured Topics */
+        .featured-topics {
+            margin-top: 3rem;
+            background-color: #f5f5f5;
+            padding: 2rem 0;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .topic-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .topic-content {
+            padding: 1.5rem;
+        }
+
+        .topic-content h3 {
+            color: #0046be;
+            margin-bottom: 1rem;
+        }
+
+        .topic-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .topic-links {
+            list-style: none;
+        }
+
+        .topic-links a {
+            color: #0046be;
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        .topic-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #002855;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <a href="/" class="logo">LCU</a>
+                <nav class="utility-nav">
+                    <a href="#">Request appointment</a>
+                    <a href="#">Find a Doctor</a>
+                    <a href="#">Log in</a>
+                </nav>
+            </div>
+            <nav class="main-nav">
+                <a href="#">Care at LCU</a>
+                <a href="#">Health Library</a>
+                <a href="#">For Medical Professionals</a>
+                <a href="#">Research & Education at LCU</a>
+                <a href="#">Giving to LCU</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1>Tests and Procedures</h1>
+            <p class="subtitle">What it is, how it's done, how to prepare, risks and results.</p>
+
+            <nav class="alphabet-nav">
+                <a href="#" class="letter-btn" data-letter="A">A</a>
+                <a href="#" class="letter-btn" data-letter="B">B</a>
+                <a href="#" class="letter-btn" data-letter="C">C</a>
+                <a href="#" class="letter-btn" data-letter="D">D</a>
+                <a href="#" class="letter-btn" data-letter="E">E</a>
+                <a href="#" class="letter-btn" data-letter="F">F</a>
+                <a href="#" class="letter-btn" data-letter="G">G</a>
+                <a href="#" class="letter-btn" data-letter="H">H</a>
+                <a href="#" class="letter-btn" data-letter="I">I</a>
+                <a href="#" class="letter-btn" data-letter="J">J</a>
+                <a href="#" class="letter-btn" data-letter="K">K</a>
+                <a href="#" class="letter-btn" data-letter="L">L</a>
+                <a href="#" class="letter-btn" data-letter="M">M</a>
+                <a href="#" class="letter-btn" data-letter="N">N</a>
+                <a href="#" class="letter-btn" data-letter="O">O</a>
+                <a href="#" class="letter-btn" data-letter="P">P</a>
+                <a href="#" class="letter-btn" data-letter="Q">Q</a>
+                <a href="#" class="letter-btn" data-letter="R">R</a>
+                <a href="#" class="letter-btn" data-letter="S">S</a>
+                <a href="#" class="letter-btn" data-letter="T">T</a>
+                <a href="#" class="letter-btn" data-letter="U">U</a>
+                <a href="#" class="letter-btn" data-letter="V">V</a>
+                <a href="#" class="letter-btn" data-letter="W">W</a>
+                <a href="#" class="letter-btn" data-letter="X">X</a>
+                <a href="#" class="letter-btn" data-letter="Y">Y</a>
+                <a href="#" class="letter-btn" data-letter="Z">Z</a>
+                <a href="#" class="letter-btn" data-letter="#">#</a>
+            </nav>
+
+            <div class="tests-list" id="testsContainer">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <section class="featured-topics">
+            <div class="container">
+                <h2>Featured topics</h2>
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Cancer treatment">
+                        <div class="topic-content">
+                            <h3>Cancer</h3>
+                            <p>LCU cancer specialists use innovative therapies to treat even the rarest of cancers while helping you maintain your quality of life.</p>
+                            <ul class="topic-links">
+                                <li><a href="#">Chemotherapy</a></li>
+                                <li><a href="#">Minimally invasive surgery</a></li>
+                                <li><a href="#">Radiation therapy</a></li>
+                                <li><a href="#">Proton Beam Therapy Program</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="topic-card">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Heart surgery">
+                        <div class="topic-content">
+                            <h3>Cardiovascular Diseases and Surgery</h3>
+                            <p>LCU heart specialists have extensive experience in treating heart disease, performing more than 10,000 cardiac procedures each year.</p>
+                            <ul class="topic-links">
+                                <li><a href="#">Cardiovascular Surgery</a></li>
+                                <li><a href="#">Cardiac ablation</a></li>
+                                <li><a href="#">Cardiac catheterization</a></li>
+                                <li><a href="#">Minimally invasive heart surgery</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Medical Professionals</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">AskLCUExpert</a></li>
+                        <li><a href="#">Clinical Trials</a></li>
+                        <li><a href="#">LCU Alumni Association</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Researchers</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Research Faculty</a></li>
+                        <li><a href="#">Laboratories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>International Patients</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Appointments</a></li>
+                        <li><a href="#">Financial Services</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Test data organized by letter
+        const testsByLetter = {
+            'A': [
+                { name: 'A1C test', link: '#' },
+                { name: 'Abdominal hysterectomy', link: '#' },
+                { name: 'Abdominal ultrasound', link: '#' },
+                { name: 'Ablation therapy', link: '#' },
+                { name: 'Acupuncture', link: '#' },
+                { name: 'Adrenalectomy', link: '#' },
+                { name: 'Allergy shots', link: '#' },
+                { name: 'Allergy skin tests', link: '#' },
+                { name: 'Amniocentesis', link: '#' },
+                { name: 'Ankle surgery', link: '#' }
+            ],
+            // Add more letters here...
+        };
+
+        // Function to display tests for a selected letter
+        function showTests(letter) {
+            const container = document.getElementById('testsContainer');
+            const tests = testsByLetter[letter] || [];
+            
+            let html = `<h2 class="current-letter">${letter}</h2>`;
+            tests.forEach(test => {
+                html += `<a href="${test.link}">${test.name}</a>`;
+            });
+            
+            container.innerHTML = html;
+
+            // Update active state of letter buttons
+            document.querySelectorAll('.letter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.letter === letter);
+            });
+        }
+
+        // Add click handlers to letter buttons
+        document.querySelectorAll('.letter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showTests(btn.dataset.letter);
+            });
+        });
+
+        // Show 'A' tests by default
+        showTests('A');
+    </script>
+</body>
+</html>
