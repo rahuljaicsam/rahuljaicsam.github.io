@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Diseases and Conditions</title>
+</head>
+<body style="font-family: sans-serif; margin: 0; padding: 0;">
+
+  <!-- Header -->
+  <header style="background-color: #2563eb; color: #ffffff; padding: 2rem 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+      <nav style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <img src="/placeholder.svg?height=40&width=100" alt="LCU Logo" style="height: 40px;">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <a href="#" style="color: #ffffff; text-decoration: none;">Request appointment</a>
+          <a href="#" style="color: #ffffff; text-decoration: none;">Log in</a>
+          <span style="font-size: 1.5rem;">&#128269;</span> <!-- Search Icon -->
+        </div>
+      </nav>
+      <div style="display: flex; align-items: center; font-size: 0.875rem; margin-bottom: 1rem;">
+        <a href="#" style="color: #ffffff; text-decoration: none;">Home</a>
+        <span style="margin: 0 0.5rem;">&#8250;</span> <!-- ChevronRight Icon -->
+        <span>Diseases & Conditions</span>
+      </div>
+      <h1 style="font-size: 2.25rem; font-weight: bold; margin-bottom: 1rem;">Diseases &amp; Conditions</h1>
+      <p style="margin-bottom: 1rem;">Easy-to-understand answers about diseases and conditions</p>
+      <div style="position: relative;">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search diseases &amp; conditions"
+          style="width: 100%; padding: 0.75rem 2.5rem 0.75rem 1rem; border-radius: 9999px; font-size: 1rem; color: #1f2937;"
+        />
+        <span style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #9ca3af; font-size: 1.5rem;">&#128269;</span> <!-- Search Icon -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
+    <!-- Find diseases & conditions by first letter -->
+    <section style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Find diseases &amp; conditions by first letter</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        <!-- Generate letters A-Z and # -->
+        <script>
+          const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('');
+          document.write(
+            alphabet.map(letter =>
+              `<a href="#" style="width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; background-color: #bfdbfe; border-radius: 9999px; color: #2563eb; text-decoration: none;">${letter}</a>`
+            ).join('')
+          );
+        </script>
+      </div>
+    </section>
+
+    <!-- Main Sections -->
+    <section style="display: grid; grid-template-columns: 1fr; grid-gap: 2rem; margin-bottom: 2rem;">
+      <!-- Symptom Checker -->
+      <div style="background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 0.5rem; overflow: hidden;">
+        <div style="padding: 1.5rem;">
+          <span style="font-size: 2rem; color: #2563eb;">&#128137;</span> <!-- Stethoscope Icon -->
+          <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Symptom Checker</h2>
+          <p style="margin-bottom: 1rem;">Find out what could be causing your symptoms and when to seek care.</p>
+          <a href="#" style="color: #2563eb; text-decoration: none; display: flex; align-items: center;">Check symptoms <span style="margin-left: 0.25rem;">&#8250;</span></a>
+        </div>
+        <img src="/placeholder.svg?height=200&width=400" alt="Symptom Checker" style="width: 100%; height: 12rem; object-fit: cover;">
+      </div>
+      <!-- Side Sections -->
+      <div>
+        <!-- Clinical Trials -->
+        <div style="background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 2rem; color: #2563eb;">&#128300;</span> <!-- Beaker Icon -->
+          <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Clinical trials</h2>
+          <p style="margin-bottom: 1rem;">Search for clinical trials by disease, treatment, or drug name.</p>
+          <a href="#" style="color: #2563eb; text-decoration: none; display: flex; align-items: center;">Search clinical trials <span style="margin-left: 0.25rem;">&#8250;</span></a>
+        </div>
+        <!-- Support Groups -->
+        <div style="background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 0.5rem; padding: 1.5rem;">
+          <span style="font-size: 2rem; color: #2563eb;">&#128101;</span> <!-- Users Icon -->
+          <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">Connect to support groups</h2>
+          <p style="margin-bottom: 1rem;">Share your experiences and find support in our online communities.</p>
+          <a href="#" style="color: #2563eb; text-decoration: none; display: flex; align-items: center;">Find a support group <span style="margin-left: 0.25rem;">&#8250;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The right answers, the first time -->
+    <section style="margin-top: 3rem; background-color: #f3f4f6; border-radius: 0.5rem; overflow: hidden;">
+      <div style="display: flex; flex-wrap: wrap;">
+        <div style="flex: 1; padding: 2rem;">
+          <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">The right answers, the first time</h2>
+          <p style="margin-bottom: 1rem;">LCU experts solve the world's toughest medical problems — one patient at a time.</p>
+          <a href="#" style="color: #2563eb; text-decoration: none; display: flex; align-items: center;">Learn about LCU <span style="margin-left: 0.25rem;">&#8250;</span></a>
+        </div>
+        <div style="flex: 1;">
+          <img src="/placeholder.svg?height=300&width=500" alt="LCU Expert" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Advertisement Notice -->
+    <aside style="margin-top: 2rem; background-color: #f3f4f6; padding: 1rem; border-radius: 0.5rem;">
+      <p style="font-size: 0.875rem; color: #6b7280;">
+        LCU does not endorse companies or products. Advertising revenue supports our non-profit mission.
+      </p>
+      <div style="margin-top: 0.5rem;">
+        <span style="font-size: 0.875rem; font-weight: 600;">Advertising &amp; Sponsorship</span>
+        <div style="margin-top: 0.25rem;">
+          <a href="#" style="font-size: 0.875rem; color: #2563eb; text-decoration: none; margin-right: 0.5rem;">Policy</a>
+          <a href="#" style="font-size: 0.875rem; color: #2563eb; text-decoration: none; margin-right: 0.5rem;">Opportunities</a>
+          <a href="#" style="font-size: 0.875rem; color: #2563eb; text-decoration: none;">Ad Choices</a>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background-color: #1e3a8a; color: #ffffff; padding: 3rem 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem;">
+        <!-- Footer Links -->
+        <script>
+          const footerLinks = [
+            {
+              title: "Medical Professionals",
+              items: ["AskLCUExpert", "Clinical Trials", "LCU Alumni Association", "Refer a Patient"]
+            },
+            {
+              title: "Researchers",
+              items: ["Research Faculty", "Laboratories"]
+            },
+            {
+              title: "International Patients",
+              items: ["Appointments", "Financial Services", "International Locations & Offices"]
+            },
+            {
+              title: "Businesses",
+              items: ["Executive Health Program", "International Business Collaborations", "Facilities & Real Estate", "Supplier Information"]
+            },
+            {
+              title: "Students",
+              items: ["Admissions Requirements", "Degree Programs", "Student & Faculty Portal"]
+            },
+            {
+              title: "Charitable Care & Financial Assistance",
+              items: ["Community Health Needs Assessment", "Financial Assistance Documents – Arizona", "Financial Assistance Documents – Florida", "Financial Assistance Documents – Minnesota"]
+            }
+          ];
+
+          document.write(
+            footerLinks.map(column => `
+              <div>
+                <h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;">${column.title}</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                  ${column.items.map(item => `<li style="margin-bottom: 0.5rem;"><a href="#" style="color: #ffffff; text-decoration: none;">${item}</a></li>`).join('')}
+                </ul>
+              </div>
+            `).join('')
+          );
+        </script>
+      </div>
+
+      <!-- Social Media and App Buttons -->
+      <div style="margin-top: 3rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <div style="display: flex; gap: 1rem;">
+          <a href="#" style="font-size: 1.5rem; color: #ffffff; text-decoration: none;" aria-label="Twitter">&#120299;</a>
+          <a href="#" style="font-size: 1.5rem; color: #ffffff; text-decoration: none;" aria-label="YouTube">&#9654;</a>
+          <a href="#" style="font-size: 1.5rem; color: #ffffff; text-decoration: none;" aria-label="Facebook">f</a>
+          <a href="#" style="font-size: 1.5rem; color: #ffffff; text-decoration: none;" aria-label="LinkedIn">in</a>
+          <a href="#" style="font-size: 1.5rem; color: #ffffff; text-decoration: none;" aria-label="Instagram">&#128247;</a>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="#" style="display: flex; align-items: center; background-color: #000000; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+            <span style="margin-right: 0.5rem;">GET IT ON</span>
+            <span>Google Play</span>
+          </a>
+          <a href="#" style="display: flex; align-items: center; background-color: #000000; color: #ffffff; padding: 0.5rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+            <span style="margin-right: 0.5rem;">Download on the</span>
+            <span>App Store</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bottom Bar -->
+  <div style="background-color: #f3f4f6; padding: 1rem 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; font-size: 0.875rem; color: #6b7280; text-align: center;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 1rem;">
+        <a href="#" style="color: #6b7280; text-decoration: none;">Terms &amp; Conditions</a>
+        <a href="#" style="color: #6b7280; text-decoration: none;">Privacy Policy</a>
+        <a href="#" style="color: #6b7280; text-decoration: none;">Notice of Privacy Practices</a>
+        <a href="#" style="color: #6b7280; text-decoration: none;">Notice of Nondiscrimination</a>
+        <a href="#" style="color: #6b7280; text-decoration: none;">Accessibility Statement</a>
+        <a href="#" style="color: #6b7280; text-decoration: none;">Advertising &amp; Sponsorship Policy</a>
+        <a href="#" style="color: #6b7280; text-decoration: none;">Site Map</a>
+      </div>
+      <p>
+        © 1998-2024 Lifestyle Corp University Foundation for Medical Education and Research (LCUFMER). All rights reserved.
+      </p>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Handle Search Input
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      const searchTerm = e.target.value;
+      // Implement search functionality here
+      console.log('Search term:', searchTerm);
+    });
+  </script>
+
+</body>
+</html>
