@@ -51,15 +51,16 @@
             position: absolute;
             top: 100%;
             left: 0;
-            width: 100%; /* Span the full width of the page */
+            width: 100vw; /* Span the entire viewport width */
             background-color: white;
             padding: 20px;
             border-top: 1px solid #e5e7eb;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 10;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around; /* Space the sections evenly */
             gap: 20px;
+            box-sizing: border-box;
         }
 
         /* Dropdown Sections */
@@ -96,6 +97,7 @@
 
         .dropdown-image img {
             width: 100%;
+            height: auto;
             border-radius: 8px;
         }
 
@@ -109,6 +111,7 @@
                 display: none; /* Hide image on mobile for simplicity */
             }
         }
+
 
         .mobile-menu-button {
             background: none;
@@ -583,10 +586,10 @@
                 const dropdown = document.createElement('div');
                 dropdown.className = 'dropdown';
 
+                // Content section within the dropdown
                 const contentSection = document.createElement('div');
                 contentSection.className = 'dropdown-section';
 
-                // Create sections within the dropdown
                 if (Array.isArray(item.items)) {
                     item.items.forEach(subItem => {
                         const a = document.createElement('a');
@@ -617,7 +620,7 @@
                 const imageSection = document.createElement('div');
                 imageSection.className = 'dropdown-image';
                 const img = document.createElement('img');
-                img.src = '/path/to/your/image.jpg'; // Replace with your image URL
+                img.src = '/path/to/your/image.jpg'; // Replace with actual image path
                 img.alt = 'Additional Image';
                 imageSection.appendChild(img);
 
@@ -629,7 +632,7 @@
                 div.appendChild(button);
                 div.appendChild(dropdown);
 
-                // Add hover behavior
+                // Display dropdown on hover
                 div.addEventListener('mouseenter', () => {
                     dropdown.style.display = 'flex';
                 });
@@ -640,6 +643,7 @@
                 navItemsContainer.appendChild(div);
             });
         }
+
 
 
         function populateMobileMenu() {
