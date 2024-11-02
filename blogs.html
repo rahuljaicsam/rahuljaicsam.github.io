@@ -48,17 +48,17 @@
         /* Full-width Dropdown */
         .dropdown {
             display: none;
-            position: absolute;
+            position: fixed; /* Position fixed to span across the viewport */
             top: 100%;
             left: 0;
-            width: 100vw; /* Span the entire viewport width */
+            width: 100vw; /* Full viewport width */
             background-color: white;
             padding: 20px;
             border-top: 1px solid #e5e7eb;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             z-index: 10;
             display: flex;
-            justify-content: space-around; /* Space the sections evenly */
+            justify-content: space-around;
             gap: 20px;
             box-sizing: border-box;
         }
@@ -111,6 +111,7 @@
                 display: none; /* Hide image on mobile for simplicity */
             }
         }
+
 
 
         .mobile-menu-button {
@@ -632,7 +633,7 @@
                 div.appendChild(button);
                 div.appendChild(dropdown);
 
-                // Display dropdown on hover
+                // Add hover behavior
                 div.addEventListener('mouseenter', () => {
                     dropdown.style.display = 'flex';
                 });
