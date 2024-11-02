@@ -1,0 +1,86 @@
+/* Reset any existing container max-width for dropdowns */
+.container {
+    position: relative;
+}
+
+/* Full-width Dropdown Styling */
+.dropdown {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position relative to viewport */
+    left: 0;
+    right: 0;
+    top: 64px; /* Adjust based on your header height */
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 1000;
+    padding: 2rem 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Container for dropdown content */
+.dropdown-content {
+    max-width: 1200px; /* Match your site's main container width */
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust number of columns as needed */
+    gap: 2rem;
+}
+
+/* Dropdown section styling */
+.dropdown-section {
+    min-width: 200px;
+}
+
+.dropdown-section h3 {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.dropdown-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.dropdown-section ul li a {
+    color: #4B5563;
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.dropdown-section ul li a:hover {
+    color: #2563EB;
+}
+
+/* Show dropdown when parent is hovered or clicked */
+.nav-item:hover .dropdown,
+.nav-item.active .dropdown {
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dropdown-content {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .dropdown-section {
+        padding: 1rem 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .dropdown-section:last-child {
+        border-bottom: none;
+    }
+}
