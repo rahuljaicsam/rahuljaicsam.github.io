@@ -10,6 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f9fafb;
         }
         .container {
             max-width: 1200px;
@@ -21,6 +22,9 @@
         header {
             background-color: white;
             border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav {
             display: flex;
@@ -82,6 +86,8 @@
         .mobile-menu {
             display: none;
             padding: 1rem;
+            background-color: white;
+            border-top: 1px solid #e5e7eb;
         }
         .mobile-menu button {
             width: 100%;
@@ -91,6 +97,7 @@
             padding: 0.5rem 0;
             font-size: 1rem;
             cursor: pointer;
+            border-bottom: 1px solid #e5e7eb;
         }
         .mobile-submenu {
             display: none;
@@ -103,149 +110,152 @@
             text-decoration: none;
             font-size: 0.875rem;
         }
+        .mobile-submenu a:hover {
+            color: #2563eb;
+        }
         
         /* Hero Section */
         .hero {
             display: flex;
             flex-direction: column;
-        }
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Hero Buttons */
-        .hero-buttons {
+            align-items: center;
             text-align: center;
-            padding: 2rem 0;
+            padding: 4rem 1rem;
+            background-color: #2563eb;
+            color: white;
         }
-        .buttons-wrapper {
-            display: inline-flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
-        .buttons-wrapper a {
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        .hero-buttons a {
             display: inline-block;
             padding: 0.75rem 1.5rem;
             border-radius: 9999px;
             text-decoration: none;
             font-weight: 600;
+            margin: 0 0.5rem;
         }
-        /* Button Styles */
         .btn-primary {
-            background-color: #2563eb;
+            background-color: #4f46e5;
             color: white;
         }
         .btn-secondary {
-            background-color: transparent;
-            border: 2px solid #2563eb;
-            color: #2563eb;
+            background-color: white;
+            color: #4f46e5;
+            border: 2px solid #4f46e5;
         }
         
-        /* Section Styles */
-        .section {
-            padding: 3rem 0;
+        /* Membership Plans Section */
+        .membership-section {
+            padding: 3rem 1rem;
+            background-color: #ffffff;
         }
-        .section-title {
-            font-size: 1.875rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
-        .alphabet-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        .alphabet-links a {
-            width: 2.5rem;
-            height: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #d1d5db;
-            border-radius: 9999px;
-            text-decoration: none;
-            color: #374151;
-        }
-        .alphabet-links a:hover {
-            background-color: #2563eb;
-            color: white;
-        }
-        .search-input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.375rem;
-        }
-        .two-column {
+        .membership-container {
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .featured-areas1 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        .featured-areas1 a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .featured-areas1 a:hover {
-            text-decoration: underline;
-        }
-        .featured-areas2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        .featured-areas2 a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-        .featured-areas2 a:hover {
-            text-decoration: underline;
-        }
-        .virtual-campuses1 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        .virtual-campuses2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        .campus-card {
-            position: relative;
+        .membership-card {
+            border: 1px solid #e5e7eb;
             border-radius: 0.5rem;
-            overflow: hidden;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .campus-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .membership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.15);
         }
-        .campus-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem;
-            background-color: rgba(0, 0, 0, 0.5);
+        .membership-card h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        .membership-card ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .membership-card ul li {
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+        }
+        .membership-card .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+        .membership-card .payment-methods {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .membership-card .payment-methods img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .membership-card button {
+            padding: 0.75rem 1.5rem;
+            background-color: #2563eb;
             color: white;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
         }
-        .campus-info h3 {
-            margin: 0;
-            font-size: 1.25rem;
+        .membership-card button:hover {
+            background-color: #1d4ed8;
         }
-        
+
+        /* IQ Test List Modal */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5); 
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto; 
+            padding: 2rem;
+            border: 1px solid #888;
+            width: 80%; 
+            max-width: 600px;
+            border-radius: 0.5rem;
+            position: relative;
+        }
+        .close-modal {
+            color: #aaa;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-modal:hover,
+        .close-modal:focus {
+            color: black;
+            text-decoration: none;
+        }
+
         /* Footer Styles */
         footer {
             background-color: #1e3a8a;
@@ -289,6 +299,14 @@
             gap: 1rem;
             margin-bottom: 1rem;
         }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
         
         /* Responsive Design */
         @media (min-width: 768px) {
@@ -316,6 +334,7 @@
             .hero {
                 flex-direction: row;
                 align-items: center;
+                text-align: left;
             }
             .hero-image, .hero-content {
                 flex: 1;
@@ -326,9 +345,17 @@
             .hero h1 {
                 font-size: 3rem;
             }
+            /* Membership Plans */
+            .membership-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .membership-card {
+                width: 45%;
+            }
         }
     </style>
-    
 </head>
 <body>
     <header>
@@ -349,7 +376,92 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Lifestyle Corp University</h1>
+            <p>Empowering high-IQ individuals with cutting-edge research, education, and exclusive membership benefits.</p>
+            <div class="hero-buttons">
+                <a href="#membership" class="btn-primary">Join Now</a>
+                <a href="#iq-test" class="btn-secondary">Take IQ Test</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/assets/hero-image.jpg" alt="Hero Image">
+        </div>
+    </section>
 
+    <!-- Membership Plans Section -->
+    <section class="membership-section" id="membership">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Membership Plans</h2>
+            <div class="membership-container">
+                <!-- Genius Membership Card -->
+                <div class="membership-card">
+                    <h2>Genius Membership</h2>
+                    <p>Achieve lifetime access by passing our genius-level IQ tests.</p>
+                    <ul>
+                        <li>Access to all IQ tests:</li>
+                        <ul>
+                            <li>Wechsler Adult Intelligence Scale (WAIS)</li>
+                            <li>Stanford-Binet Intelligence Scales</li>
+                            <li>Mensa IQ Test</li>
+                            <li>Cattell Culture Fair III</li>
+                            <li>Raven's Progressive Matrices</li>
+                            <li>Woodcock-Johnson Tests of Cognitive Abilities</li>
+                            <li>Kaufman Assessment Battery for Children (KABC)</li>
+                            <li>And more...</li>
+                        </ul>
+                        <li>Lifetime access to exclusive resources</li>
+                        <li>Invitation to elite networking events</li>
+                        <li>Priority access to research publications</li>
+                    </ul>
+                    <div class="price">One-Time Payment: $499</div>
+                    <button id="genius-join">Join Genius Membership</button>
+                </div>
+                <!-- Elite Membership Card -->
+                <div class="membership-card">
+                    <h2>Elite Membership</h2>
+                    <p>Enjoy premium benefits with our monthly Elite Membership plan.</p>
+                    <ul>
+                        <li>Unlimited access to all courses and materials</li>
+                        <li>Monthly IQ assessments and progress tracking</li>
+                        <li>Exclusive webinars and workshops</li>
+                        <li>Dedicated support and mentorship</li>
+                        <li>Access to private forums and communities</li>
+                    </ul>
+                    <div class="price">$149 USD / month</div>
+                    <div class="payment-methods">
+                        <img src="/assets/paypal.png" alt="PayPal">
+                        <img src="/assets/upi.png" alt="UPI">
+                        <img src="/assets/stripe.png" alt="Stripe">
+                        <img src="/assets/bitcoin.png" alt="Bitcoin">
+                        <img src="/assets/ethereum.png" alt="Ethereum">
+                    </div>
+                    <button id="elite-join">Join Elite Membership</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IQ Test Modal -->
+    <div id="iq-test-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Available IQ Tests</h2>
+            <ul>
+                <li>Wechsler Adult Intelligence Scale (WAIS)</li>
+                <li>Stanford-Binet Intelligence Scales</li>
+                <li>Mensa IQ Test</li>
+                <li>Cattell Culture Fair III</li>
+                <li>Raven's Progressive Matrices</li>
+                <li>Woodcock-Johnson Tests of Cognitive Abilities</li>
+                <li>Kaufman Assessment Battery for Children (KABC)</li>
+                <li>And more...</li>
+            </ul>
+            <p>Pass the designated IQ tests to achieve genius-level IQ and unlock lifetime access.</p>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -407,7 +519,7 @@
                     { text: "Advanced Robotics", link: "advanced-robotics.html" },
                     { text: "Cognitive Enhancement", link: "cognitive-enhancement.html" },
                     { text: "Digital Health Solutions", link: "digital-health-solutions.html" },
-                    { text: "Digital Twin  in Healthcare", link: "digital-twin-in-healthcare.html" },
+                    { text: "Digital Twin in Healthcare", link: "digital-twin-in-healthcare.html" },
                     { text: "Blockchain in Medical Records", link: "blockchain-in-medical-records.html" }
                 ]
             },
@@ -561,61 +673,60 @@
         ];
 
         function populateNavItems() {
-        const navItemsContainer = document.querySelector('.nav-items');
-        if (!navItemsContainer) {
-            console.error('Navigation container not found.');
-            return;
-        }
+            const navItemsContainer = document.querySelector('.nav-items');
+            if (!navItemsContainer) {
+                console.error('Navigation container not found.');
+                return;
+            }
 
-        navItems.forEach(item => {
-            const div = document.createElement('div');
-            div.style.position = 'relative';
-            div.style.marginRight = '1rem';
+            navItems.forEach(item => {
+                const div = document.createElement('div');
+                div.style.position = 'relative';
+                div.style.marginRight = '1rem';
 
-            const button = document.createElement('button');
-            button.textContent = item.title;
-            button.style.background = 'none';
-            button.style.border = 'none';
-            button.style.cursor = 'pointer';
-            button.style.fontSize = '1rem';
-            button.style.color = '#374151';
-            button.addEventListener('mouseenter', () => {
-                dropdown.style.display = 'block';
-            });
-            div.addEventListener('mouseleave', () => {
-                dropdown.style.display = 'none';
-            });
-
-            const dropdown = document.createElement('div');
-            dropdown.className = 'dropdown';
-
-            if (Array.isArray(item.items)) {
-                item.items.forEach(subItem => {
-                    const a = document.createElement('a');
-                    a.href = subItem.link; // Set the href attribute
-                    a.textContent = subItem.text;
-                    dropdown.appendChild(a);
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                button.style.background = 'none';
+                button.style.border = 'none';
+                button.style.cursor = 'pointer';
+                button.style.fontSize = '1rem';
+                button.style.color = '#374151';
+                button.addEventListener('mouseenter', () => {
+                    dropdown.style.display = 'block';
                 });
-            } else {
-                for (const [category, subitems] of Object.entries(item.items)) {
-                    const h3 = document.createElement('h3');
-                    h3.textContent = category;
-                    dropdown.appendChild(h3);
-                    subitems.forEach(subItem => {
+                div.addEventListener('mouseleave', () => {
+                    dropdown.style.display = 'none';
+                });
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'dropdown';
+
+                if (Array.isArray(item.items)) {
+                    item.items.forEach(subItem => {
                         const a = document.createElement('a');
                         a.href = subItem.link; // Set the href attribute
                         a.textContent = subItem.text;
                         dropdown.appendChild(a);
                     });
+                } else {
+                    for (const [category, subitems] of Object.entries(item.items)) {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = category;
+                        dropdown.appendChild(h3);
+                        subitems.forEach(subItem => {
+                            const a = document.createElement('a');
+                            a.href = subItem.link; // Set the href attribute
+                            a.textContent = subItem.text;
+                            dropdown.appendChild(a);
+                        });
+                    }
                 }
-            }
 
-        div.appendChild(button);
-        div.appendChild(dropdown);
-        navItemsContainer.appendChild(div);
-    });
-}
-
+                div.appendChild(button);
+                div.appendChild(dropdown);
+                navItemsContainer.appendChild(div);
+            });
+        }
 
         function populateMobileMenu() {
             const mobileMenu = document.querySelector('.mobile-menu');
@@ -755,9 +866,37 @@
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
             });
+
+            // IQ Test Modal Functionality
+            const iqTestButton = document.querySelector('.btn-secondary');
+            const iqTestModal = document.getElementById('iq-test-modal');
+            const closeModal = document.querySelector('.close-modal');
+
+            iqTestButton.addEventListener('click', () => {
+                iqTestModal.style.display = 'block';
+            });
+
+            closeModal.addEventListener('click', () => {
+                iqTestModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == iqTestModal) {
+                    iqTestModal.style.display = 'none';
+                }
+            });
+
+            // Membership Buttons Functionality (Placeholder)
+            document.getElementById('genius-join').addEventListener('click', () => {
+                alert('Redirecting to Genius Membership sign-up page...');
+                // Redirect to sign-up page or initiate sign-up process
+            });
+
+            document.getElementById('elite-join').addEventListener('click', () => {
+                alert('Redirecting to Elite Membership sign-up page...');
+                // Redirect to sign-up page or initiate payment process
+            });
         });
     </script>
-
-
 </body>
 </html>
