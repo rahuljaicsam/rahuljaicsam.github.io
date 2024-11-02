@@ -375,18 +375,6 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav>
-                <img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;">
-                <div class="nav-items">
-                    <!-- Navigation items will be populated by JavaScript -->
-                </div>
-                <div>
-                    <button class="btn-primary" style="display: none;">Apply Now</button>
-                    <button class="mobile-menu-button">☰</button>
-                </div>
-            </nav>
-        </div>
         <div class="mobile-menu">
             <!-- Mobile menu items will be populated by JavaScript -->
         </div>
@@ -590,83 +578,6 @@
                 items: ["AI Ethics Guidelines", "Responsible Robotics Development", "Digital Privacy Policies", "Ethical Review Board"]
             }
         ];
-
-        function populateNavItems() {
-            const navItemsContainer = document.querySelector('.nav-items');
-            if (!navItemsContainer) {
-                console.error('Navigation container not found.');
-                return;
-            }
-
-            navItems.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'nav-item';
-
-                const button = document.createElement('button');
-                button.textContent = item.title;
-                button.className = 'nav-button';
-
-                const dropdown = document.createElement('div');
-                dropdown.className = 'dropdown';
-
-                // Content section within the dropdown
-                const contentSection = document.createElement('div');
-                contentSection.className = 'dropdown-section';
-
-                if (Array.isArray(item.items)) {
-                    item.items.forEach(subItem => {
-                        const a = document.createElement('a');
-                        a.href = subItem.link;
-                        a.textContent = subItem.text;
-                        contentSection.appendChild(a);
-                    });
-                } else {
-                    for (const [category, subitems] of Object.entries(item.items)) {
-                        const h4 = document.createElement('h4');
-                        h4.textContent = category;
-                        contentSection.appendChild(h4);
-
-                        const ul = document.createElement('ul');
-                        subitems.forEach(subItem => {
-                            const li = document.createElement('li');
-                            const a = document.createElement('a');
-                            a.href = subItem.link;
-                            a.textContent = subItem.text;
-                            li.appendChild(a);
-                            ul.appendChild(li);
-                        });
-                        contentSection.appendChild(ul);
-                    }
-                }
-
-                // Image section for the dropdown
-                const imageSection = document.createElement('div');
-                imageSection.className = 'dropdown-image';
-                const img = document.createElement('img');
-                img.src = '/path/to/your/image.jpg'; // Replace with actual image path
-                img.alt = 'Additional Image';
-                imageSection.appendChild(img);
-
-                // Append sections to the dropdown
-                dropdown.appendChild(contentSection);
-                dropdown.appendChild(imageSection);
-
-                // Append dropdown to nav item
-                div.appendChild(button);
-                div.appendChild(dropdown);
-
-                // Add hover behavior
-                div.addEventListener('mouseenter', () => {
-                    dropdown.style.display = 'flex';
-                });
-                div.addEventListener('mouseleave', () => {
-                    dropdown.style.display = 'none';
-                });
-
-                navItemsContainer.appendChild(div);
-            });
-        }
-
 
 
         function populateMobileMenu() {
