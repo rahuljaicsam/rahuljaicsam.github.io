@@ -503,36 +503,6 @@
             }
         ];
 
-        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#'.split('');
-
-        const featuredResearchAreas1 = [
-            "AI-driven diagnostics", "Robotic surgery advancements", "Virtual reality therapy", "AI in drug discovery",
-            "Humanoid robotics in medicine", "AI-enhanced genetic engineering", "Digital twin healthcare", "Brain-computer interfaces",
-            "AI-Safety in Healthcare", "Healthcare UBI Economics", "Synthetic biology breakthroughs", "AI in personalized medicine"
-        ];
-
-        const featuredResearchAreas2 = [
-            "Preventive Cardiology", "Diabetic Reversal", "Anti-Aging", "Sarcopenia Reversal",
-            "Cognitive Enhancement", "Cancer Prevention", "Cancer Treatment", "Stroke Prevention",
-            "Atherosclerotic Plaque Reversal", "Alzheimers Prevention", "Dementia Reversal", "Infertility","Mental Disorder Reversal"
-        ];
-
-        const virtualCampuses1 = [
-            { name: "Medical AI", location: "Discord: #medical-ai-research", image: "/assets/ai+health.png?height=200&width=300" },
-            { name: "Medical Robotics", location: "Discord: #medical-robotics-lab", image: "/assets/robot+health.jpeg?height=200&width=300" },
-            { name: "Medical Digital Twin", location: "Discord: #medical-digital-twin", image: "/assets/digitaltwin+health.png?height=200&width=300" },
-            { name: "Medical Entrepreneurship", location: "Discord: #med/acc", image: "/assets/medacc.webp?height=200&width=300" },
-            { name: "Philosophy of Medicine", location: "Discord: #Philosophy of Medicine", image: "/assets/philosophy.jpg?height=200&width=300" },
-            { name: "Healthcare Economics", location: "Discord: #Healthcare Economics", image: "/assets/economics.jpg?height=200&width=300" }
-        ];
-
-        const virtualCampuses2 = [
-            { name: "Cardiology", location: "Discord: #Cardiology Official Server", image: "/assets/cardiology.jpeg?height=200&width=300" },
-            { name: "Neurology", location: "Discord: #Neurology Official Server", image: "/assets/neurology.gif?height=200&width=300" },
-            { name: "Dermatology", location: "Discord: #Dermatology Official Server", image: "/assets/dermatology.jpeg?height=200&width=300" },
-            { name: "Lifestyle Medicine", location: "Discord: #Lifestyle Medicine Server", image: "/assets/lifestyle.jpg?height=200&width=300" },
-            { name: "Anatomy", location: "Discord: #Anatomy Official Server", image: "/assets/anatomy.webp?height=200&width=300" }
-        ];
 
         const footerLinks = [
             {
@@ -657,67 +627,6 @@
             });
         }
 
-        function populateAlphabetLinks() {
-            const alphabetLinksContainer = document.querySelector('.alphabet-links');
-            alphabet.forEach(letter => {
-                const a = document.createElement('a');
-                a.href = '#';
-                a.textContent = letter;
-                alphabetLinksContainer.appendChild(a);
-            });
-        }
-
-        function populateVirtualCampuses1() {
-            const virtualCampuses1Container = document.querySelector('.virtual-campuses1');
-            virtualCampuses1.forEach(campus => {
-                const div = document.createElement('div');
-                div.className = 'campus-card';
-                div.innerHTML = `
-                    <img src="${campus.image}" alt="${campus.name}">
-                    <div class="campus-info">
-                        <h3>${campus.name}</h3>
-                        <p>${campus.location}</p>
-                    </div>
-                `;
-                virtualCampuses1Container.appendChild(div);
-            });
-        }
-
-        function populateVirtualCampuses2() {
-            const virtualCampuses2Container = document.querySelector('.virtual-campuses2');
-            virtualCampuses2.forEach(campus => {
-                const div = document.createElement('div');
-                div.className = 'campus-card';
-                div.innerHTML = `
-                    <img src="${campus.image}" alt="${campus.name}">
-                    <div class="campus-info">
-                        <h3>${campus.name}</h3>
-                        <p>${campus.location}</p>
-                    </div>
-                `;
-                virtualCampuses2Container.appendChild(div);
-            });
-        }
-
-        function populateFeaturedResearchAreas1() {
-            const featuredAreas1Container = document.querySelector('.featured-areas1');
-            featuredResearchAreas1.forEach(area => {
-                const a = document.createElement('a');
-                a.href = '#';
-                a.textContent = `${area} >`;
-                featuredAreas1Container.appendChild(a);
-            });
-        }
-
-        function populateFeaturedResearchAreas2() {
-            const featuredAreas2Container = document.querySelector('.featured-areas2');
-            featuredResearchAreas2.forEach(area => {
-                const a = document.createElement('a');
-                a.href = '#';
-                a.textContent = `${area} >`;
-                featuredAreas2Container.appendChild(a);
-            });
-        }
 
         function populateFooterLinks() {
             const footerGrid = document.querySelector('.footer-grid');
@@ -744,11 +653,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             populateNavItems();
             populateMobileMenu();
-            populateAlphabetLinks();
-            populateVirtualCampuses1();
-            populateVirtualCampuses2();
-            populateFeaturedResearchAreas1();
-            populateFeaturedResearchAreas2();
             populateFooterLinks();
 
             const mobileMenuButton = document.querySelector('.mobile-menu-button');
