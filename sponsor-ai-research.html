@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor AI Research - LCU Medical Research</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <script src="header-styles.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/ai+health.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s;
+        }
+
+        /* Resource Cards */
+        .resource-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin: 2rem 0;
+            color: #1e3a8a;
+        }
+
+        .resource-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .resource-title {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .resource-description {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            min-height: 4.5em;
+        }
+
+        .resource-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+            background: #f8fafc;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        /* Sponsorship Calculator */
+        .calculator-section {
+            background: white;
+            padding: 3rem 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .calculator-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input {
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.1);
+        }
+
+        .calculator-result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 0.375rem;
+            text-align: center;
+        }
+
+        /* Project Showcase */
+        .project-showcase {
+            padding: 4rem 2rem;
+            background: linear-gradient(to bottom, #f8fafc, white);
+        }
+
+        .project-carousel {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            padding: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            z-index: 1;
+        }
+
+        .carousel-button.prev {
+            left: 1rem;
+        }
+
+        .carousel-button.next {
+            right: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .resource-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-section {
+                margin: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <img src="/assets/ai+health.png" alt="LCU Logo" style="height: 40px; margin-right: 10px;">
+                        <span>LCU Medical Research</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Research & Innovation</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Research Areas</h3>
+                                    <a href="ai-driven-research.html">AI-Driven Research</a>
+                                    <a href="robotics-innovation.html">Robotics Innovation</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality in Medical Training</a>
+                                    <a href="quantum-computing-for-drug-discovery.html">Quantum Computing for Drug Discovery</a>
+                                    <a href="nanotechnology-in-medicine.html">Nanotechnology in Medicine</a>
+                                    <a href="ai-ethics-in-healthcare.html">AI Ethics in Healthcare</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Innovation Centers</h3>
+                                    <a href="ai-research-labs.html">AI Research Labs</a>
+                                    <a href="robotics-development-centers.html">Robotics Development Centers</a>
+                                    <a href="virtual-labs.html">Virtual Labs</a>
+                                    <a href="research-departments.html">Research Departments</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="research-databases.html">Research Databases</a>
+                                    <a href="digital-publications.html">Digital Publications</a>
+                                    <a href="e-journals.html">E-Journals</a>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Education & Training</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Programs</h3>
+                                    <a href="ai-assisted-continuing-education.html">AI-Assisted Continuing Education</a>
+                                    <a href="robotic-surgery-simulations.html">Robotic Surgery Simulations</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality Training</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="digital-collections.html">Digital Collections</a>
+                                    <a href="online-resources.html">Online Resources</a>
+                                    <a href="research-databases.html">Research Databases</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Opportunities</h3>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                    <a href="advanced-research-opportunities.html">Advanced Research</a>
+                                    <a href="laboratories.html">Laboratories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Community & Events</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Connect</h3>
+                                    <a href="virtual-networking-events.html">Virtual Networking Events</a>
+                                    <a href="join-our-discord.html">Join Our Discord</a>
+                                    <a href="membership.html">Membership</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Support</h3>
+                                    <a href="donation.html">Make a Donation</a>
+                                    <a href="donate-compute-power.html">Donate Compute Power</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Sponsor AI Research</h1>
+                <p class="hero-subtitle">Support groundbreaking medical research by contributing your computing resources</p>
+            </div>
+        </section>
+
+        <section class="resource-cards">
+            <div class="resource-card">
+                <div class="resource-content">
+                    <div class="resource-icon">🖥️</div>
+                    <h3 class="resource-title">GPU Processing Power</h3>
+                    <p class="resource-description">Contribute GPU resources to accelerate our AI model training and research computations.</p>
+                    <div class="resource-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="gpuCount">0</div>
+                            <div class="stat-label">Active GPUs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="gpuHours">0</div>
+                            <div class="stat-label">GPU Hours</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-content">
+                    <div class="resource-icon">☁️</div>
+                    <h3 class="resource-title">Cloud Computing</h3>
+                    <p class="resource-description">Share cloud computing resources to power our distributed research infrastructure.</p>
+                    <div class="resource-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="cloudNodes">0</div>
+                            <div class="stat-label">Cloud Nodes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="computeHours">0</div>
+                            <div class="stat-label">Compute Hours</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-content">
+                    <div class="resource-icon">🖧</div>
+                    <h3 class="resource-title">Server Resources</h3>
+                    <p class="resource-description">Donate server capacity to host our AI models and research applications.</p>
+                    <div class="resource-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="serverCount">0</div>
+                            <div class="stat-label">Active Servers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="uptime">0</div>
+                            <div class="stat-label">Uptime Days</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-content">
+                    <div class="resource-icon">💾</div>
+                    <h3 class="resource-title">Storage Resources</h3>
+                    <p class="resource-description">Provide storage space for our extensive medical research datasets.</p>
+                    <div class="resource-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="storageAmount">0</div>
+                            <div class="stat-label">TB Storage</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="datasetCount">0</div>
+                            <div class="stat-label">Datasets</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 4rem 2rem; background: linear-gradient(to bottom, #f8fafc, white);">
+            <h2 style="text-align: center; color: #1e3a8a; margin-bottom: 3rem;">Medical Datasets Sponsorship</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                <div style="background: white; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🏥</div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Clinical Data</h3>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">Contribute anonymized patient records, treatment outcomes, and clinical observations to advance AI-driven healthcare solutions.</p>
+                    <a href="research-databases.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #1e3a8a; color: white; text-decoration: none; border-radius: 0.375rem; transition: background-color 0.3s;">Learn More</a>
+                </div>
+
+                <div style="background: white; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🔬</div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Research Data</h3>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">Share research findings, trial results, and experimental data to enhance our understanding of medical AI applications.</p>
+                    <a href="research-opportunities.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #1e3a8a; color: white; text-decoration: none; border-radius: 0.375rem; transition: background-color 0.3s;">Contribute Data</a>
+                </div>
+
+                <div style="background: white; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🎯</div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Specialized Collections</h3>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">Provide specialized medical imaging, genomic data, or disease-specific datasets to power targeted AI research initiatives.</p>
+                    <a href="digital-collections.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #1e3a8a; color: white; text-decoration: none; border-radius: 0.375rem; transition: background-color 0.3s;">Browse Collections</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-section">
+            <h2 style="text-align: center; color: #1e3a8a;">Resource Impact Calculator</h2>
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label class="form-label">GPU Processing Power (TFLOPS)</label>
+                    <input type="number" id="gpuPower" class="form-input" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Cloud Computing Hours/Month</label>
+                    <input type="number" id="cloudHours" class="form-input" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Server Capacity (CPU Cores)</label>
+                    <input type="number" id="serverCores" class="form-input" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Storage Space (TB)</label>
+                    <input type="number" id="storageSpace" class="form-input" min="0" value="0">
+                </div>
+            </div>
+            <div class="calculator-result">
+                <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Your Impact</h3>
+                <p id="calculatorResult" style="font-size: 1.25rem; color: #374151;">Calculate your contribution's impact on our research</p>
+            </div>
+        </section>
+
+        <section style="padding: 4rem 2rem; background: linear-gradient(to bottom, white, #f8fafc);">
+            <h2 style="text-align: center; color: #1e3a8a; margin-bottom: 3rem;">Additional Ways to Sponsor</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                <div style="background: white; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🎓</div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Research Grants</h3>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">Fund specific research projects or provide general research grants to support our AI initiatives.</p>
+                    <a href="research-opportunities.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #1e3a8a; color: white; text-decoration: none; border-radius: 0.375rem; transition: background-color 0.3s;">Learn More</a>
+                </div>
+
+                <div style="background: white; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🔬</div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Equipment Donations</h3>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">Donate specialized equipment, hardware, or technology to enhance our research capabilities.</p>
+                    <a href="donation.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #1e3a8a; color: white; text-decoration: none; border-radius: 0.375rem; transition: background-color 0.3s;">Donate Equipment</a>
+                </div>
+
+                <div style="background: white; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">🤝</div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Academic Partnerships</h3>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">Partner with us through joint research initiatives, knowledge sharing, and collaborative projects.</p>
+                    <a href="ai-partnerships.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #1e3a8a; color: white; text-decoration: none; border-radius: 0.375rem; transition: background-color 0.3s;">Partner With Us</a>
+                </div>
+
+                <div style="background: white; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 2rem; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1.5rem;">👥</div>
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Mentorship Programs</h3>
+                    <p style="color: #4b5563; margin-bottom: 1.5rem;">Share your expertise by mentoring our researchers and contributing to their professional development.</p>
+                    <a href="research-faculty.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: #1e3a8a; color: white; text-decoration: none; border-radius: 0.375rem; transition: background-color 0.3s;">Become a Mentor</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-showcase">
+            <h2 style="text-align: center; color: #1e3a8a; margin-bottom: 3rem;">Current Research Projects</h2>
+            <div class="project-carousel">
+                <button class="carousel-button prev" onclick="moveCarousel(-1)">❮</button>
+                <button class="carousel-button next" onclick="moveCarousel(1)">❯</button>
+                <div class="carousel-container" id="carouselContainer">
+                    <!-- Projects will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: #1e3a8a; color: white; padding: 4rem 2rem; margin-top: 4rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.25rem;">About Us</h3>
+                <p style="margin: 0;">LCU Medical Research is dedicated to advancing healthcare through innovative technology and research.</p>
+            </div>
+            <div>
+                <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.25rem;">Quick Links</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.75rem;"><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+                    <li style="margin-bottom: 0.75rem;"><a href="research-opportunities.html" style="color: white; text-decoration: none;">Research</a></li>
+                    <li style="margin-bottom: 0.75rem;"><a href="donation.html" style="color: white; text-decoration: none;">Support Us</a></li>
+                    <li style="margin-bottom: 0.75rem;"><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.25rem;">Connect With Us</h3>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: white; text-decoration: none;">FB</a>
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: white; text-decoration: none;">TW</a>
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: white; text-decoration: none;">LI</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <p style="margin: 0;">&copy; 2023 LCU Medical Research. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Resource Stats Animation
+        function animateStats() {
+            const stats = {
+                gpuCount: { target: 156, current: 0 },
+                gpuHours: { target: 24000, current: 0 },
+                cloudNodes: { target: 342, current: 0 },
+                computeHours: { target: 48000, current: 0 },
+                serverCount: { target: 89, current: 0 },
+                uptime: { target: 365, current: 0 },
+                storageAmount: { target: 2048, current: 0 },
+                datasetCount: { target: 1250, current: 0 }
+            };
+
+            for (const [id, data] of Object.entries(stats)) {
+                animateValue(id, data.current, data.target, 2000);
+            }
+        }
+
+        function animateValue(id, start, end, duration) {
+            const element = document.getElementById(id);
+            const range = end - start;
+            const increment = range / (duration / 16);
+            let current = start;
+
+            const animate = () => {
+                current += increment;
+                if (current >= end) {
+                    element.textContent = Math.round(end).toLocaleString();
+                } else {
+                    element.textContent = Math.round(current).toLocaleString();
+                    requestAnimationFrame(animate);
+                }
+            };
+
+            animate();
+        }
+
+        // Impact Calculator
+        const calculatorInputs = ['gpuPower', 'cloudHours', 'serverCores', 'storageSpace'];
+        calculatorInputs.forEach(id => {
+            document.getElementById(id).addEventListener('input', calculateImpact);
+        });
+
+        function calculateImpact() {
+            const gpuPower = parseFloat(document.getElementById('gpuPower').value) || 0;
+            const cloudHours = parseFloat(document.getElementById('cloudHours').value) || 0;
+            const serverCores = parseFloat(document.getElementById('serverCores').value) || 0;
+            const storageSpace = parseFloat(document.getElementById('storageSpace').value) || 0;
+
+            const researchHours = (gpuPower * 24 + cloudHours + serverCores * 12) * 30;
+            const datasetsProcessed = Math.floor(storageSpace * 10);
+
+            document.getElementById('calculatorResult').innerHTML = `
+                Your contribution could enable:<br>
+                ${Math.round(researchHours).toLocaleString()} research hours per month<br>
+                ${datasetsProcessed.toLocaleString()} medical datasets processed
+            `;
+        }
+
+        // Project Carousel
+        const projects = [
+            {
+                title: 'AI-Powered Disease Detection',
+                description: 'Developing advanced neural networks for early disease detection using medical imaging.',
+                image: '/assets/ai+health.png'
+            },
+            {
+                title: 'Medical Data Analysis',
+                description: 'Processing large-scale medical datasets to identify patterns and improve treatment outcomes.',
+                image: '/assets/robot+health.jpeg'
+            },
+            {
+                title: 'Drug Discovery Acceleration',
+                description: 'Using AI to accelerate the drug discovery process through molecular simulation.',
+                image: '/assets/global.jpeg'
+            }
+        ];
+
+        let currentSlide = 0;
+
+        function initializeCarousel() {
+            const container = document.getElementById('carouselContainer');
+            projects.forEach(project => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.innerHTML = `
+                    <div class="project-card">
+                        <img src="${project.image}" alt="${project.title}" class="project-image">
+                        <h3 style="color: #1e3a8a; margin-bottom: 1rem;">${project.title}</h3>
+                        <p style="color: #4b5563;">${project.description}</p>
+                    </div>
+                `;
+                container.appendChild(slide);
+            });
+            updateCarousel();
+        }
+
+        function moveCarousel(direction) {
+            currentSlide = (currentSlide + direction + projects.length) % projects.length;
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const container = document.getElementById('carouselContainer');
+            container.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Initialize everything when the page loads
+        window.addEventListener('load', () => {
+            animateStats();
+            initializeCarousel();
+            calculateImpact();
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.resource-card, .calculator-section, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratories - Lifestyle Corp University</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        /* Page Content Styles */
+        .page-header {
+            background-color: #f3f4f6;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        .page-description {
+            font-size: 1.125rem;
+            color: #4b5563;
+            max-width: 800px;
+        }
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .lab-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: transform 0.2s;
+            background-color: white;
+        }
+        .lab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .lab-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .lab-card-content {
+            padding: 1.5rem;
+        }
+        .lab-card h3 {
+            font-size: 1.25rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .lab-features {
+            margin-top: 1rem;
+        }
+        .lab-features h4 {
+            font-size: 0.875rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .lab-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .lab-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+        .lab-features li:before {
+            content: "•";
+            color: #2563eb;
+            margin-right: 0.5rem;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+            margin-top: 1rem;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Research Laboratories</h1>
+                <p class="page-description">Explore our state-of-the-art research facilities equipped with cutting-edge technology for breakthrough medical research and innovation.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="lab-grid">
+                <div class="lab-card">
+                    <img src="/assets/ai+health.png" alt="AI Research Lab">
+                    <div class="lab-card-content">
+                        <h3>AI Research Laboratory</h3>
+                        <p>Advanced computing facility dedicated to developing AI solutions for healthcare applications.</p>
+                        <div class="lab-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>High-performance Computing Clusters</li>
+                                <li>Deep Learning Workstations</li>
+                                <li>Medical Imaging Processing Units</li>
+                                <li>Data Analysis Suites</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-primary">View Lab Details</a>
+                    </div>
+                </div>
+                <div class="lab-card">
+                    <img src="/assets/robot+health.jpeg" alt="Robotics Lab">
+                    <div class="lab-card-content">
+                        <h3>Medical Robotics Laboratory</h3>
+                        <p>Specialized facility for developing and testing surgical robots and automated medical systems.</p>
+                        <div class="lab-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Robotic Surgery Simulators</li>
+                                <li>Precision Engineering Workshop</li>
+                                <li>Motion Capture Systems</li>
+                                <li>Testing and Validation Units</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-primary">View Lab Details</a>
+                    </div>
+                </div>
+                <div class="lab-card">
+                    <img src="/assets/digitaltwin+health.png" alt="Digital Health Lab">
+                    <div class="lab-card-content">
+                        <h3>Digital Health Innovation Lab</h3>
+                        <p>Modern facility focused on developing digital health solutions and telemedicine platforms.</p>
+                        <div class="lab-features">
+                            <h4>Key Features:</h4>
+                            <ul>
+                                <li>Telemedicine Testing Suites</li>
+                                <li>Virtual Reality Development Lab</li>
+                                <li>Health Monitoring Systems</li>
+                                <li>User Experience Testing Facility</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-primary">View Lab Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About LCU</h3>
+                    <ul>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Research</h3>
+                    <ul>
+                        <li><a href="#">Research Areas</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Facilities</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="header-styles.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <!-- Gradient for the main badge body - Calming Blue/Purple -->
+    <linearGradient id="psychBadgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7E57C2; stop-opacity:1" /> <!-- Deep Purple -->
+      <stop offset="100%" style="stop-color:#42A5F5; stop-opacity:1" /> <!-- Light Blue -->
+    </linearGradient>
+    <!-- Gradient for the border - Silver/Light Gold -->
+    <linearGradient id="psychBorderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#CFD8DC; stop-opacity:1" /> <!-- Light Silver -->
+      <stop offset="100%" style="stop-color:#90A4AE; stop-opacity:1" /> <!-- Darker Silver -->
+    </linearGradient>
+    <!-- Gradient for the Psi Symbol - Bright Cyan/White -->
+     <linearGradient id="psiSymbolGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+       <stop offset="0%" style="stop-color:#FFFFFF; stop-opacity:1" />
+       <stop offset="100%" style="stop-color:#B2EBF2; stop-opacity:0.9" /> <!-- Pale Cyan -->
+    </linearGradient>
+  </defs>
+
+  <!-- Badge Border -->
+  <path d="M 50,5
+           C 70,10 90,25 95,50
+           S 80,90 65,95
+           L 35,95
+           C 20,90 5,75 5,50
+           S 30,10 50,5 Z"
+        fill="url(#psychBorderGradient)" stroke="#546E7A" stroke-width="1.5"/>
+
+  <!-- Main Badge Shape (Slightly smaller inset) -->
+  <path d="M 50,10
+           C 68,14 85,28 89,50
+           S 77,86 63,89
+           L 37,89
+           C 23,86 11,72 11,50
+           S 32,14 50,10 Z"
+        fill="url(#psychBadgeGradient)" />
+
+  <!-- Central Symbol: Psi (Ψ) -->
+  <g stroke="url(#psiSymbolGradient)" stroke-width="7" stroke-linecap="round" fill="none">
+      <!-- Stem -->
+      <line x1="50" y1="35" x2="50" y2="75" />
+      <!-- Top Curves -->
+      <path d="M 35 50 C 35 35, 45 25, 50 25 C 55 25, 65 35, 65 50" />
+  </g>
+   <!-- Optional subtle highlight on Psi symbol stem -->
+   <line x1="50" y1="36" x2="50" y2="74" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.5" stroke-linecap="round"/>
+
+
+</svg>

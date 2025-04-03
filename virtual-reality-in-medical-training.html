@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Reality Medical Training - LCU</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="full-width-dropdown.css" rel="stylesheet">
+    <style>
+        /* Custom Styles for VR Training Page */
+        .vr-gradient-bg {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #2563eb;
+        }
+        .tech-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+            transition: transform 0.3s ease;
+        }
+        .tech-card:hover .tech-icon {
+            transform: scale(1.2);
+        }
+        .testimonial-card {
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(37, 99, 235, 0.1);
+            font-family: serif;
+        }
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            transition: height 0.3s ease;
+            z-index: -1;
+        }
+        .cta-button:hover::after {
+            height: 100%;
+        }
+        .module-card {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .module-card:hover {
+            transform: translateY(-10px);
+        }
+        .module-card img {
+            transition: all 0.5s ease;
+        }
+        .module-card:hover img {
+            transform: scale(1.05);
+        }
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        .animated-bg {
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600">LCU</a>
+                <div class="nav-items flex space-x-6"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="vr-gradient-bg text-white py-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-5xl font-bold mb-6" style="text-shadow: 0 2px 4px rgba(0,0,0,0.2);">Virtual Reality Medical Training</h1>
+                    <p class="text-xl mb-8">Experience the future of medical education through immersive virtual reality training programs at Lifestyle Corp University.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#training-modules" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition duration-300 shadow-lg">Explore Modules</a>
+                        <a href="#request-demo" class="bg-transparent border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300">Request Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Revolutionizing Medical Education</h2>
+                    <p class="text-gray-600 mb-10 text-lg leading-relaxed">
+                        At LCU's Virtual Reality Medical Training Center, we harness the power of immersive technology to transform how medical professionals learn, practice, and perfect their skills. Our state-of-the-art VR training programs provide realistic, risk-free environments where students and practitioners can engage with anatomically accurate simulations, rare medical scenarios, and complex procedures—all without risk to actual patients.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-8 mb-12">
+                        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                            <div class="text-blue-600 text-4xl mb-4">🔬</div>
+                            <h3 class="font-semibold text-gray-800 text-xl mb-3">Precision Learning</h3>
+                            <p class="text-gray-600">Master complex procedures through repetition and detailed feedback in anatomically accurate environments.</p>
+                        </div>
+                        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                            <div class="text-blue-600 text-4xl mb-4">🧠</div>
+                            <h3 class="font-semibold text-gray-800 text-xl mb-3">Cognitive Development</h3>
+                            <p class="text-gray-600">Enhance decision-making skills through simulated high-pressure medical scenarios and emergencies.</p>
+                        </div>
+                        <div class="feature-card bg-gray-50 p-6 rounded-lg shadow-md">
+                            <div class="text-blue-600 text-4xl mb-4">📊</div>
+                            <h3 class="font-semibold text-gray-800 text-xl mb-3">Performance Analytics</h3>
+                            <p class="text-gray-600">Track progress with comprehensive metrics and AI-powered performance analysis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-8 rounded-xl">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                                <h3 class="text-2xl font-bold text-blue-700 mb-4">Why Virtual Reality Training?</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <span class="text-green-500 mr-2">✓</span>
+                                        <span class="text-gray-700">Reduces training costs by 60% compared to traditional methods</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-green-500 mr-2">✓</span>
+                                        <span class="text-gray-700">Improves procedural accuracy by up to 40%</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-green-500 mr-2">✓</span>
+                                        <span class="text-gray-700">Decreases learning time by 50% through immersive experiences</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-green-500 mr-2">✓</span>
+                                        <span class="text-gray-700">Enables practice of rare scenarios that may occur once in a career</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-green-500 mr-2">✓</span>
+                                        <span class="text-gray-700">Provides safe environment for error-based learning</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2 flex justify-center">
+                                <div class="relative" style="width: 300px; height: 300px;">
+                                    <div class="absolute inset-0 bg-blue-600 rounded-full opacity-10 animate-pulse"></div>
+                                    <div class="absolute inset-4 bg-blue-500 rounded-full opacity-20 animate-pulse" style="animation-delay: 0.5s"></div>
+                                    <div class="absolute inset-8 bg-blue-400 rounded-full opacity-30 animate-pulse" style="animation-delay: 1s"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-blue-600 text-7xl">VR</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Modules Section -->
+        <section id="training-modules" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Training Modules</h2>
+                    <p class="text-gray-600 mb-12 text-center max-w-3xl mx-auto">Our comprehensive VR training modules cover a wide range of medical specialties and procedures, designed by leading medical experts and VR specialists.</p>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="module-card bg-white shadow-lg">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/anatomy.webp" alt="Anatomy Training" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Anatomical Exploration</h3>
+                                <p class="text-gray-600 mb-4">Immersive 3D exploration of human anatomy with layer-by-layer visualization and interactive labeling.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-blue-600 font-semibold">12 Modules</span>
+                                    <button class="text-blue-600 hover:text-blue-800 font-medium" onclick="alert('Module details would display here');">Learn More →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="module-card bg-white shadow-lg">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/cardiology.jpeg" alt="Surgical Training" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Surgical Procedures</h3>
+                                <p class="text-gray-600 mb-4">Practice complex surgical techniques with haptic feedback and real-time guidance from virtual instructors.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-blue-600 font-semibold">24 Procedures</span>
+                                    <button class="text-blue-600 hover:text-blue-800 font-medium" onclick="alert('Module details would display here');">Learn More →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="module-card bg-white shadow-lg">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/neurology.gif" alt="Emergency Medicine" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Emergency Medicine</h3>
+                                <p class="text-gray-600 mb-4">Respond to realistic emergency scenarios with time pressure and dynamic patient conditions.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-blue-600 font-semibold">18 Scenarios</span>
+                                    <button class="text-blue-600 hover:text-blue-800 font-medium" onclick="alert('Module details would display here');">Learn More →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="module-card bg-white shadow-lg">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/dermatology.jpeg" alt="Diagnostic Training" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Diagnostic Training</h3>
+                                <p class="text-gray-600 mb-4">Develop diagnostic skills through interactive patient cases with thousands of possible conditions.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-blue-600 font-semibold">30+ Case Studies</span>
+                                    <button class="text-blue-600 hover:text-blue-800 font-medium" onclick="alert('Module details would display here');">Learn More →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="module-card bg-white shadow-lg">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/robot+health.jpeg" alt="Patient Interaction" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Patient Interaction</h3>
+                                <p class="text-gray-600 mb-4">Practice communication skills with AI-powered virtual patients across diverse scenarios.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-blue-600 font-semibold">15 Interaction Types</span>
+                                    <button class="text-blue-600 hover:text-blue-800 font-medium" onclick="alert('Module details would display here');">Learn More →</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="module-card bg-white shadow-lg">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/medacc.webp" alt="Medical Equipment" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Medical Equipment Training</h3>
+                                <p class="text-gray-600 mb-4">Learn to operate complex medical equipment in a risk-free virtual environment.</p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm text-blue-600 font-semibold">20 Equipment Types</span>
+                                    <button class="text-blue-600 hover:text-blue-800 font-medium" onclick="alert('Module details would display here');">Learn More →</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Our VR Technology</h2>
+                    <p class="text-gray-600 mb-12 text-center">Powered by cutting-edge hardware and proprietary software for the most realistic medical training experience.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-8 mb-16">
+                        <div class="tech-card text-center p-6 rounded-lg hover:bg-blue-50 transition duration-300">
+                            <div class="tech-icon">🥽</div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">High-Fidelity Headsets</h3>
+                            <p class="text-gray-600">Ultra-high resolution displays with 200° field of view for complete immersion.</p>
+                        </div>
+                        
+                        <div class="tech-card text-center p-6 rounded-lg hover:bg-blue-50 transition duration-300">
+                            <div class="tech-icon">👐</div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Haptic Feedback</h3>
+                            <p class="text-gray-600">Advanced force-feedback gloves providing realistic tactile sensations.</p>
+                        </div>
+                        
+                        <div class="tech-card text-center p-6 rounded-lg hover:bg-blue-50 transition duration-300">
+                            <div class="tech-icon">🧠</div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">AI Integration</h3>
+                            <p class="text-gray-600">Machine learning algorithms that adapt scenarios to your skill level.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-900 text-white rounded-xl overflow-hidden">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-4">LCU MediSim™ Platform</h3>
+                            <p class="mb-6 text-gray-300">Our proprietary medical simulation platform combines photorealistic rendering with advanced physics and AI to create the most realistic medical training environment available.</p>
+                            
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                    <div class="stats-counter">99.8%</div>
+                                    <div class="text-gray-400 text-sm">Anatomical Accuracy</div>
+                                </div>
+                                <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                    <div class="stats-counter">120Hz</div>
+                                    <div class="text-gray-400 text-sm">Refresh Rate</div>
+                                </div>
+                                <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                    <div class="stats-counter">0.5ms</div>
+                                    <div class="text-gray-400 text-sm">Response Time</div>
+                                </div>
+                                <div class="text-center p-4 bg-gray-800 rounded-lg">
+                                    <div class="stats-counter">10K+</div>
+                                    <div class="text-gray-400 text-sm">Medical Assets</div>
+                                </div>
+                            </div>
+                            
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300 w-full md:w-auto" onclick="alert('Technical specifications would display here');">View Technical Specifications</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">What Medical Professionals Say</h2>
+                    <p class="text-gray-600 mb-12 text-center">Hear from doctors, surgeons, and medical educators who have experienced our VR training programs.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                            <p class="text-gray-600 mb-6 italic">"The surgical simulation modules have transformed how I train residents. The level of detail and realism is unprecedented, allowing for mistakes and learning in a completely safe environment."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-blue-600 font-bold">DR</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Dr. Rebecca Chen</h4>
+                                    <p class="text-gray-500 text-sm">Chief of Surgery, Metro General Hospital</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                            <p class="text-gray-600 mb-6 italic">"As a medical educator, I've seen a dramatic improvement in student engagement and knowledge retention since implementing LCU's VR training. Students are more confident when they transition to real patients."</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-blue-600 font-bold">JT</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Prof. James Thompson</h4>
+                                    <p class="text-gray-500 text-sm">Director of Medical Education, University Medical Center</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="request-demo" class="py-16 animated-bg" style="background: linear-gradient(45deg, #2563eb, #7c3aed, #2563eb); background-size: 200% 200%;">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center text-white">
+                    <h2 class="text-3xl font-bold mb-6">Experience the Future of Medical Training</h2>
+                    <p class="text-xl mb-8">Schedule a personalized demo of our VR medical training platform and discover how it can transform your educational program or medical practice.</p>
+                    
+                    <form class="bg-white p-8 rounded-lg shadow-lg text-left" onsubmit="event.preventDefault(); alert('Demo request submitted! Our team will contact you shortly.');">
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="name">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="email">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="organization">Organization</label>
+                                <input type="text" id="organization" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 font-medium mb-2" for="role">Professional Role</label>
+                                <select id="role" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                    <option value="">Select your role</option>
+                                    <option value="physician">Physician</option>
+                                    <option value="surgeon">Surgeon</option>
+                                    <option value="educator">Medical Educator</option>
+                                    <option value="administrator">Healthcare Administrator</option>
+                                    <option value="student">Medical Student</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2" for="interest">Areas of Interest</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-gray-600">Surgical Training</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-gray-600">Anatomical Education</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-gray-600">Emergency Medicine</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-gray-600">Diagnostic Training</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-gray-600">Patient Communication</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="mr-2">
+                                    <span class="text-gray-600">Equipment Training</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2" for="message">Additional Information</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 w-full">Request Demo</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- Equipment Specifications Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Equipment Specifications</h2>
+                    <p class="text-gray-600 mb-12 text-center max-w-3xl mx-auto">Our VR medical training programs utilize state-of-the-art equipment to deliver the most realistic and effective learning experience.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-10">
+                        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md">
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold text-blue-600 mb-4">Hardware Components</h3>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">MediVision Pro Headset</h4>
+                                            <p class="text-gray-600">8K resolution per eye, 200° FOV, integrated eye tracking, and spatial audio for complete immersion.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">TactileSense Gloves</h4>
+                                            <p class="text-gray-600">Haptic feedback with 120 individual actuators per hand, providing realistic tactile sensations for surgical procedures.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">BodyTrack Sensors</h4>
+                                            <p class="text-gray-600">Full-body tracking system with 16 wireless sensors for precise movement capture and analysis.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">Instrument Replicas</h4>
+                                            <p class="text-gray-600">Physical replicas of medical instruments with embedded sensors for realistic handling and feedback.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md">
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold text-blue-600 mb-4">Software Features</h3>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">Adaptive Learning AI</h4>
+                                            <p class="text-gray-600">Machine learning algorithms that adjust difficulty and scenarios based on user performance and learning patterns.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">Real-time Feedback System</h4>
+                                            <p class="text-gray-600">Instant visual and haptic feedback on technique, precision, and decision-making during procedures.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">Multi-user Collaboration</h4>
+                                            <p class="text-gray-600">Support for up to 20 simultaneous users in the same virtual environment for team training exercises.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4 mt-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800">Comprehensive Analytics</h4>
+                                            <p class="text-gray-600">Detailed performance metrics, learning progress tracking, and personalized improvement recommendations.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Outcomes Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Research Outcomes</h2>
+                    <p class="text-gray-600 mb-12 text-center max-w-3xl mx-auto">Our VR medical training programs have been extensively studied and validated through rigorous research.</p>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Key Research Findings</h3>
+                            
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-blue-600 text-2xl font-bold">85%</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 text-lg">Skill Retention</h4>
+                                            <p class="text-gray-600">Higher retention rate compared to traditional training methods</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-blue-600 text-2xl font-bold">42%</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 text-lg">Error Reduction</h4>
+                                            <p class="text-gray-600">Decrease in procedural errors during actual patient care</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-blue-600 text-2xl font-bold">3.2x</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 text-lg">Learning Speed</h4>
+                                            <p class="text-gray-600">Faster acquisition of complex medical skills</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-blue-600 text-2xl font-bold">94%</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 text-lg">User Satisfaction</h4>
+                                            <p class="text-gray-600">Students and educators reporting positive experiences</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-blue-600 text-2xl font-bold">68%</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 text-lg">Confidence Boost</h4>
+                                            <p class="text-gray-600">Increase in practitioner confidence levels</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center">
+                                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-blue-600 text-2xl font-bold">57%</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-800 text-lg">Cost Reduction</h4>
+                                            <p class="text-gray-600">Decrease in overall training program expenses</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="text-blue-600 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Published Studies</h3>
+                            <p class="text-gray-600 mb-4">Our research has been published in leading medical journals including JAMA, The Lancet, and the New England Journal of Medicine.</p>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Publications →</a>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="text-blue-600 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Ongoing Research</h3>
+                            <p class="text-gray-600 mb-4">Current studies focus on long-term skill retention, application in diverse medical specialties, and integration with AI diagnostics.</p>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Research Opportunities →</a>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="text-blue-600 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Case Studies</h3>
+                            <p class="text-gray-600 mb-4">Detailed analysis of VR training implementation at leading medical institutions worldwide with measurable outcomes.</p>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read Case Studies →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curriculum Integration Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Curriculum Integration</h2>
+                    <p class="text-gray-600 mb-12 text-center max-w-3xl mx-auto">Our VR medical training programs are designed to seamlessly integrate with existing medical curricula at all levels of education.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-10 mb-16">
+                        <div>
+                            <img src="assets/ai+health.png" alt="Medical Students Using VR" class="rounded-lg shadow-lg w-full h-auto mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">For Medical Schools</h3>
+                            <p class="text-gray-600 mb-6">Our VR training modules align with AAMC and LCME standards, providing a structured approach to incorporating virtual reality into medical education. Programs can be customized to match your specific curriculum requirements and learning objectives.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700">Preclinical anatomy and physiology visualization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700">Clinical skills development and assessment</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700">Standardized patient interactions</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700">Objective structured clinical examination (OSCE) preparation</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <img src="assets/digitaltwin+health.png" alt="Medical Residents Training" class="rounded-lg shadow-lg w-full h-auto mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">For Residency Programs</h3>
+                            <p class="text-gray-600 mb-6">Enhance residency training with specialty-specific VR modules that allow for repeated practice of complex procedures in a risk-free environment. Our programs help meet ACGME competency requirements while providing objective assessment metrics.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700">Specialty-specific procedural training</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700">Rare case scenario management</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700">Team-based training and interdisciplinary collaboration</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-1" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-gray-700">Milestone-based competency assessment</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold text-blue-700 mb-6 text-center">Implementation Process</h3>
+                        <div class="grid md:grid-cols-4 gap-4 text-center">
+                            <div class="bg-white p-6 rounded-lg shadow-md relative">
+                                <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
+                                <h4 class="font-semibold text-gray-800 mb-2 mt-2">Assessment</h4>
+                                <p class="text-gray-600 text-sm">Evaluation of current curriculum and identification of integration points</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md relative">
+                                <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
+                                <h4 class="font-semibold text-gray-800 mb-2 mt-2">Customization</h4>
+                                <p class="text-gray-600 text-sm">Tailoring of VR modules to match specific learning objectives</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md relative">
+                                <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
+                                <h4 class="font-semibold text-gray-800 mb-2 mt-2">Implementation</h4>
+                                <p class="text-gray-600 text-sm">Faculty training and phased rollout of VR training modules</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md relative">
+                                <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
+                                <h4 class="font-semibold text-gray-800 mb-2 mt-2">Evaluation</h4>
+                                <p class="text-gray-600 text-sm">Continuous assessment and refinement based on outcomes and feedback</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Frequently Asked Questions</h2>
+                    <p class="text-gray-600 mb-12 text-center">Find answers to common questions about our VR medical training programs.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition duration-300 flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+                                <span>What equipment is required to use your VR training programs?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="px-6 py-4 bg-gray-50 hidden">
+                                <p class="text-gray-600">Our VR training programs are compatible with a range of VR hardware, including Oculus Quest 2/3, HTC Vive Pro, and Valve Index. For the full experience with haptic feedback, we recommend using our specialized MediVision Pro Headset and TactileSense Gloves, which can be purchased or leased as part of your institutional package. We also offer a complete turnkey solution that includes all necessary hardware, software, and support services.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition duration-300 flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+                                <span>How do you ensure the anatomical accuracy of your simulations?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="px-6 py-4 bg-gray-50 hidden">
+                                <p class="text-gray-600">Our anatomical models are developed using a combination of high-resolution medical imaging data (CT, MRI, and ultrasound), cadaveric studies, and input from leading medical specialists. Each model undergoes rigorous validation by a panel of anatomists and practicing physicians to ensure 99.8% anatomical accuracy. We regularly update our models based on the latest research and feedback from medical professionals.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition duration-300 flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+                                <span>Can your VR training programs be customized for our specific needs?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="px-6 py-4 bg-gray-50 hidden">
+                                <p class="text-gray-600">Yes, customization is one of our core strengths. We work closely with each institution to tailor our VR training modules to their specific curriculum, specialty focus, and learning objectives. Our development team can create custom scenarios, procedures, and assessment metrics based on your requirements. We also offer an SDK for institutions with in-house development capabilities who wish to create their own content within our platform.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition duration-300 flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+                                <span>How do you measure the effectiveness of VR training?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="px-6 py-4 bg-gray-50 hidden">
+                                <p class="text-gray-600">Our platform includes comprehensive analytics that track various performance metrics, including procedural accuracy, decision-making speed, error rates, and learning progression over time. We also conduct pre- and post-training assessments to measure knowledge retention and skill transfer. Additionally, we work with institutions to design research studies that evaluate the impact of VR training on clinical outcomes, comparing traditional training methods with our VR-based approach.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <button class="w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-50 transition duration-300 flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
+                                <span>What technical support and training do you provide?</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div class="px-6 py-4 bg-gray-50 hidden">
+                                <p class="text-gray-600">We provide comprehensive technical support and training as part of our service package. This includes initial setup and installation, faculty training workshops, ongoing technical support via phone, email, and remote assistance, regular software updates, and access to our online knowledge base and community forum. Our dedicated customer success team works with each institution to ensure smooth implementation and optimal utilization of our VR training programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2 text-center">Success Stories</h2>
+                    <p class="text-gray-600 mb-12 text-center max-w-3xl mx-auto">See how leading medical institutions have transformed their training programs with our VR technology.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/global.jpeg" alt="University Medical Center" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">University Medical Center</h3>
+                                <p class="text-gray-600 mb-4">Reduced surgical training time by 40% and improved procedural accuracy by 35% after implementing our VR surgical training modules.</p>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read Full Case Study →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/lifestyle.jpeg" alt="Regional Health System" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Regional Health System</h3>
+                                <p class="text-gray-600 mb-4">Standardized emergency medicine training across 12 hospitals, resulting in improved team coordination and patient outcomes.</p>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read Full Case Study →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg shadow-md overflow-hidden">
+                            <div class="h-48 overflow-hidden">
+                                <img src="assets/robot+health.jpeg" alt="Medical School" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Elite Medical School</h3>
+                                <p class="text-gray-600 mb-4">Integrated VR anatomy training led to 28% higher test scores and significantly increased student engagement and satisfaction.</p>
+                                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Read Full Case Study →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">About LCU</h3>
+                    <p class="text-gray-400">Leading the future of medical education and research through innovation and collaboration.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white">Home</a></li>
+                        <li><a href="membership.html" class="hover:text-white">Membership</a></li>
+                        <li><a href="virtual-reality-medical-training.html" class="hover:text-white">VR Training</a></li>
+                        <li><a href="#" class="hover:text-white">Research</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Training Programs</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#training-modules" class="hover:text-white">Training Modules</a></li>
+                        <li><a href="#" class="hover:text-white">Equipment Specifications</a></li>
+                        <li><a href="#" class="hover:text-white">Research Outcomes</a></li>
+                        <li><a href="#" class="hover:text-white">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#request-demo" class="hover:text-white">Request a Demo</a></li>
+                        <li><a href="#" class="hover:text-white">Support</a></li>
+                        <li><a href="#" class="hover:text-white">Partnerships</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Lifestyle Corp University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

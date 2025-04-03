@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Healthcare Research - LCU Medical Research</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <script src="header-styles.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/ai+health.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .research-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .research-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .research-content {
+            padding: 1.5rem;
+        }
+
+        .ai-model-demo {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 4rem 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .demo-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .stats-section {
+            padding: 4rem 2rem;
+            background: #f1f5f9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-timeline {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #1e3a8a;
+        }
+
+        .timeline-item {
+            margin: 2rem 0;
+            position: relative;
+            width: 50%;
+            padding: 0 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .publications-section {
+            padding: 4rem 2rem;
+            background: #fff;
+        }
+
+        .publication-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .publication-card:hover {
+            transform: translateX(10px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .timeline-container::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <img src="/assets/ai+health.png" alt="LCU Logo" style="height: 40px; margin-right: 10px;">
+                        <span>LCU Medical Research</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Research & Innovation</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Research Areas</h3>
+                                    <a href="ai-driven-research.html">AI-Driven Research</a>
+                                    <a href="robotics-innovation.html">Robotics Innovation</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality in Medical Training</a>
+                                    <a href="quantum-computing-for-drug-discovery.html">Quantum Computing for Drug Discovery</a>
+                                    <a href="nanotechnology-in-medicine.html">Nanotechnology in Medicine</a>
+                                    <a href="ai-ethics-in-healthcare.html">AI Ethics in Healthcare</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Innovation Centers</h3>
+                                    <a href="ai-research-labs.html">AI Research Labs</a>
+                                    <a href="robotics-development-centers.html">Robotics Development Centers</a>
+                                    <a href="virtual-labs.html">Virtual Labs</a>
+                                    <a href="research-departments.html">Research Departments</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="research-databases.html">Research Databases</a>
+                                    <a href="digital-publications.html">Digital Publications</a>
+                                    <a href="e-journals.html">E-Journals</a>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Education & Training</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Programs</h3>
+                                    <a href="ai-assisted-continuing-education.html">AI-Assisted Continuing Education</a>
+                                    <a href="robotic-surgery-simulations.html">Robotic Surgery Simulations</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality Training</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="digital-collections.html">Digital Collections</a>
+                                    <a href="online-resources.html">Online Resources</a>
+                                    <a href="research-databases.html">Research Databases</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Opportunities</h3>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                    <a href="advanced-research-opportunities.html">Advanced Research</a>
+                                    <a href="laboratories.html">Laboratories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Community & Events</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Connect</h3>
+                                    <a href="virtual-networking-events.html">Virtual Networking Events</a>
+                                    <a href="join-our-discord.html">Join Our Discord</a>
+                                    <a href="membership.html">Membership</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Support</h3>
+                                    <a href="donation.html">Make a Donation</a>
+                                    <a href="donate-compute-power.html">Donate Compute Power</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">AI in Healthcare Research</h1>
+                <p class="hero-subtitle">Pioneering the future of medicine through artificial intelligence</p>
+            </div>
+        </section>
+
+        <section class="research-grid">
+            <div class="research-card">
+                <img src="/assets/ai+health.png" alt="Machine Learning in Diagnosis" class="research-image">
+                <div class="research-content">
+                    <h3 style="color: #1e3a8a;">Machine Learning in Diagnosis</h3>
+                    <p>Advanced algorithms for accurate disease detection and prediction</p>
+                </div>
+            </div>
+
+            <div class="research-card">
+                <img src="/assets/digitaltwin+health.png" alt="Predictive Analytics" class="research-image">
+                <div class="research-content">
+                    <h3 style="color: #1e3a8a;">Predictive Analytics</h3>
+                    <p>AI-driven patient outcome prediction and treatment optimization</p>
+                </div>
+            </div>
+
+            <div class="research-card">
+                <img src="/assets/robot+health.jpeg" alt="Drug Discovery" class="research-image">
+                <div class="research-content">
+                    <h3 style="color: #1e3a8a;">AI in Drug Discovery</h3>
+                    <p>Accelerating pharmaceutical research through machine learning</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-model-demo">
+            <h2>AI Model Demonstrations</h2>
+            <div class="demo-container">
+                <div class="demo-item" onclick="showAIDemo('diagnosis')">
+                    <h3>Diagnostic AI</h3>
+                    <p>Experience our diagnostic algorithms in action</p>
+                </div>
+                <div class="demo-item" onclick="showAIDemo('imaging')">
+                    <h3>Medical Imaging AI</h3>
+                    <p>See how AI analyzes medical images</p>
+                </div>
+                <div class="demo-item" onclick="showAIDemo('prediction')">
+                    <h3>Predictive Models</h3>
+                    <p>Explore our predictive healthcare models</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="accuracyRate">0%</div>
+                    <div class="stat-label">Diagnostic Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="patientsHelped">0</div>
+                    <div class="stat-label">Patients Assisted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="researchPapers">0</div>
+                    <div class="stat-label">Research Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="aiModels">0</div>
+                    <div class="stat-label">AI Models Deployed</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="research-timeline">
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <p>Launch of AI Research Initiative</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <p>First AI Diagnostic Model Deployment</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <p>Breakthrough in Predictive Analytics</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Integration with Global Healthcare Systems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="publications-section">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="color: #1e3a8a; margin-bottom: 2rem;">Latest Publications</h2>
+                <div class="publication-card">
+                    <h3 style="color: #1e3a8a;">AI-Driven Diagnostic Accuracy Improvement</h3>
+                    <p>Published in Medical AI Journal, 2023</p>
+                </div>
+                <div class="publication-card">
+                    <h3 style="color: #1e3a8a;">Machine Learning in Patient Care Optimization</h3>
+                    <p>Published in Healthcare Innovations, 2023</p>
+                </div>
+                <div class="publication-card">
+                    <h3 style="color: #1e3a8a;">Predictive Analytics in Disease Prevention</h3>
+                    <p>Published in Preventive Medicine Today, 2023</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // AI Demo Functions
+        function showAIDemo(type) {
+            const demos = {
+                diagnosis: {
+                    title: 'Diagnostic AI Demo',
+                    description: 'Our AI system analyzes patient data to provide accurate diagnostic suggestions.'
+                },
+                imaging: {
+                    title: 'Medical Imaging AI Demo',
+                    description: 'Advanced image recognition for detecting abnormalities in medical scans.'
+                },
+                prediction: {
+                    title: 'Predictive Healthcare Demo',
+                    description: 'AI-powered prediction of patient outcomes and treatment effectiveness.'
+                }
+            };
+
+            const demo = demos[type];
+            alert(`${demo.title}\n\n${demo.description}`);
+        }
+
+        // Animated Statistics
+        function animateStats() {
+            const stats = {
+                accuracyRate: { start: 0, end: 97, suffix: '%' },
+                patientsHelped: { start: 0, end: 50000, suffix: '+' },
+                researchPapers: { start: 0, end: 150, suffix: '+' },
+                aiModels: { start: 0, end: 25, suffix: '' }
+            };
+
+            for (const [id, { start, end, suffix }] of Object.entries(stats)) {
+                animateValue(id, start, end, suffix);
+            }
+        }
+
+        function animateValue(id, start, end, suffix = '') {
+            const element = document.getElementById(id);
+            const duration = 2000;
+            const steps = 60;
+            const increment = (end - start) / steps;
+            let current = start;
+            let step = 0;
+
+            const timer = setInterval(() => {
+                step++;
+                current += increment;
+                if (step >= steps) {
+                    clearInterval(timer);
+                    current = end;
+                }
+                element.textContent = Math.round(current).toLocaleString() + suffix;
+            }, duration / steps);
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            animateStats();
+        });
+
+        // Intersection Observer for animation triggers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                }
+            });
+        });
+
+        document.querySelectorAll('.research-card, .timeline-item, .publication-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

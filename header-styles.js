@@ -1,26 +1,84 @@
 // First, the JavaScript to populate navigation items
+
 const navData = {
-    'Research at LCU': {
-        'Research Opportunities': '#',
-        'Research Faculty': '#',
-        'Laboratories': '#',
-        'Core Facilities': '#',
-        'Centers & Programs': '#'
+    'Research at LCU' : {
+        'AI-Driven Research': 'ai-driven-research.html' ,
+         'Robotics Innovation' : 'robotics-innovation.html' ,
+         'Virtual Labs' : 'virtual-labs.html' ,
+         "Digital Health Initiatives" : "digital-health-initiatives.html" ,
+         "Join Our Discord" : "join-our-discord.html" ,
+         "Apply for Membership": "membership.html" ,
+         "Current Projects": "current-projects.html" ,
+         "Research Ethics": "research-ethics.html" ,
+         "AI Partnerships": "ai-partnerships.html" ,
+        "Robotics Collaborations" : "robotics-collaborations.html" 
     },
-    'Digital Library': {
-        'Online Resources': '#',
-        'Digital Collections': '#',
-        'Research Databases': '#',
-        'E-Journals': '#'
+    'For High-IQ Professionals': {
+        'Blogs': 'blogs.html',
+        'IQ Test Applications': 'membership.html',
+        'Virtual Networking Events': 'virtual-networking-events.html',
+        'AI-Assisted Continuing Education': 'ai-assisted-continuing-education.html',
+        'Robotic Surgery Simulations': 'robotic-surgery-simulations.html',
+        'Advanced Research Opportunities': 'advanced-research-opportunities.html',
+        'Digital Publications': 'digital-publications.html'
     },
-    'For Patients': {
-        'Patient Services': '#',
-        'Find a Doctor': '#',
-        'Appointments': '#',
-        'Patient Portal': '#'
+    'Innovation & Education at LCU': {
+        'Innovation': {
+            'AI Research Labs': 'ai-research-labs.html',
+            'Robotics Development Centers': 'robotics-development-centers.html',
+            'Virtual Reality Medical Training': 'virtual-reality-medical-training.html',
+            'Quantum Computing in Healthcare': 'quantum-computing-in-healthcare.html',
+            'Nanotechnology Advancements': 'nanotechnology-advancements.html',
+            'Biotechnology Breakthroughs': 'biotechnology-breakthroughs.html'
+        },
+        'Education': {
+            'LCU Virtual Academy': 'lcu-virtual-academy.html',
+            'AI-Assisted Learning Programs': 'ai-assisted-learning-programs.html',
+            'Robotic Surgery Training': 'robotic-surgery-training.html',
+            'Digital Health Informatics': 'digital-health-informatics.html',
+            'Cognitive Science Programs': 'cognitive-science-programs.html',
+            'Advanced Biotechnology Courses': 'advanced-biotechnology-courses.html'
+        }
     },
-    // Add more navigation items as needed
+    'For Medical and AI Professionals': {
+        'Blogs': 'blogs.html',
+        'AI Professionals': 'ai-professionals.html',
+        'LCU Proceedings': 'lcu-proceedings.html',
+        'Research Departments': 'research-departments.html',
+        'AI-Enhanced Medical Resources': 'ai-enhanced-medical-resources.html',
+        'Virtual Referral System': 'virtual-referral-system.html',
+        'AI-Assisted Continuing Education': 'ai-assisted-continuing-education.html',
+        'Advanced Robotic Surgery Simulations': 'advanced-robotic-surgery-simulations.html',
+        'Digital Health Informatics': 'digital-health-informatics.html',
+        'AI-Powered Clinical Decision Support': 'ai-powered-clinical-decision-support.html'
+    },
+    'Research & Education at LCU': {
+        'Research': {
+            'AI in Healthcare Research': 'ai-in-healthcare-research.html',
+            'Robotics in Medicine': 'robotics-in-medicine.html',
+            'Virtual Reality in Medical Training': 'virtual-reality-in-medical-training.html',
+            'Quantum Computing for Drug Discovery': 'quantum-computing-for-drug-discovery.html',
+            'Nanotechnology in Medicine': 'nanotechnology-in-medicine.html',
+            'AI Ethics in Healthcare': 'ai-ethics-in-healthcare.html'
+        },
+        'Education': {
+            'LCU Virtual Medical School': 'lcu-virtual-medical-school.html',
+            'AI-Enhanced Medical Curriculum': 'ai-enhanced-medical-curriculum.html',
+            'Robotic Surgery Training Programs': 'robotic-surgery-training-programs.html',
+            'Digital Health Informatics Courses': 'digital-health-informatics-courses.html',
+            'AI in Medical Diagnostics': 'ai-in-medical-diagnostics.html',
+            'Future of Healthcare Symposiums': 'future-of-healthcare-symposiums.html'
+        }
+    },
+    'Supporting LCU': {
+        'Donate as a Gift': 'donation.html',
+        'Donate Compute Power': 'donate-compute-power.html',
+        'Virtual Fundraising Events': 'virtual-fundraising-events.html',
+        'Sponsor AI Research': 'sponsor-ai-research.html',
+        'Partner in Robotics Development': 'partner-in-robotics-development.html'
+    }
 };
+
 
 // Function to create navigation items
 function createNavItems() {

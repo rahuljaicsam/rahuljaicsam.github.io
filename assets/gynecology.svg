@@ -1,0 +1,72 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <!-- Gradient for the main badge body - Purple/Magenta -->
+    <linearGradient id="gynBadgeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#BA68C8; stop-opacity:1" /> <!-- Light Purple -->
+      <stop offset="100%" style="stop-color:#8E24AA; stop-opacity:1" /> <!-- Purple -->
+    </linearGradient>
+    <!-- Gradient for the border - Silver -->
+    <linearGradient id="gynBorderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0; stop-opacity:1" /> <!-- Light Grey/Silver -->
+      <stop offset="100%" style="stop-color:#9E9E9E; stop-opacity:1" /> <!-- Medium Grey/Silver -->
+    </linearGradient>
+    <!-- Gradient for the Flower Petals - Pink/Rose -->
+    <radialGradient id="flowerGradient" cx="50%" cy="50%" r="50%">
+       <stop offset="0%" style="stop-color:#F48FB1; stop-opacity:1" /> <!-- Light Pink -->
+       <stop offset="100%" style="stop-color:#EC407A; stop-opacity:1" /> <!-- Stronger Pink -->
+    </radialGradient>
+     <!-- Simple white/light grey for the symbol itself -->
+     <linearGradient id="symbolGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ECEFF1; stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Badge Border -->
+  <path d="M 50,5
+           L 75,15 Q 95,30 90,50
+           Q 85,75 70,85
+           L 50,95
+           L 30,85 Q 15,75 10,50
+           Q 5,30 25,15
+           Z"
+        fill="url(#gynBorderGradient)" stroke="#616161" stroke-width="1.5"/>
+
+  <!-- Main Badge Shape (Slightly smaller inset) -->
+  <path d="M 50,10
+           L 72,20 Q 90,33 86,50
+           Q 82,72 68,81
+           L 50,90
+           L 32,81 Q 18,72 14,50
+           Q 10,33 28,20
+           Z"
+        fill="url(#gynBadgeGradient)" />
+
+  <!-- Central Symbol: Stylized Flower + Female Symbol (♀) -->
+  <g transform="translate(0, -3)"> <!-- Adjust vertical position -->
+
+    <!-- Flower Petals (behind symbol) -->
+    <g fill="url(#flowerGradient)" stroke="#AD1457" stroke-width="1">
+        <path d="M 50 25 C 40 35, 40 45, 50 50 C 60 45, 60 35, 50 25 Z" transform="rotate(0 50 50)"/>
+        <path d="M 50 25 C 40 35, 40 45, 50 50 C 60 45, 60 35, 50 25 Z" transform="rotate(60 50 50)"/>
+        <path d="M 50 25 C 40 35, 40 45, 50 50 C 60 45, 60 35, 50 25 Z" transform="rotate(120 50 50)"/>
+        <path d="M 50 25 C 40 35, 40 45, 50 50 C 60 45, 60 35, 50 25 Z" transform="rotate(180 50 50)"/>
+        <path d="M 50 25 C 40 35, 40 45, 50 50 C 60 45, 60 35, 50 25 Z" transform="rotate(240 50 50)"/>
+        <path d="M 50 25 C 40 35, 40 45, 50 50 C 60 45, 60 35, 50 25 Z" transform="rotate(300 50 50)"/>
+    </g>
+
+    <!-- Female Symbol (♀) -->
+    <g fill="url(#symbolGradient)" stroke="#7B1FA2" stroke-width="2"> <!-- Purple stroke -->
+        <!-- Circle part -->
+        <circle cx="50" cy="50" r="15"/>
+        <!-- Cross part -->
+        <line x1="50" y1="65" x2="50" y2="85" stroke-linecap="round"/>
+        <line x1="40" y1="75" x2="60" y2="75" stroke-linecap="round"/>
+    </g>
+     <!-- Inner highlight/detail on circle -->
+     <circle cx="50" cy="50" r="12" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.5"/>
+
+  </g>
+
+</svg>

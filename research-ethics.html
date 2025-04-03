@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Ethics | Lifestyle Corp University</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .dropdown h3 {
+            padding: 0.5rem 1rem;
+            margin: 0;
+            font-size: 0.875rem;
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 3rem 0;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+        }
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        
+        /* Ethics Principles Cards */
+        .ethics-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .principle-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .principle-card h3 {
+            color: #2563eb;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .principle-card h3 span {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Ethics Timeline */
+        .ethics-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #2563eb;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 2rem;
+            width: 50%;
+        }
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            margin-left: 50%;
+        }
+        .timeline-content {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            position: relative;
+        }
+        .timeline-content h3 {
+            margin-top: 0;
+            color: #2563eb;
+        }
+        .timeline-dot {
+            position: absolute;
+            right: -8px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #2563eb;
+            border: 4px solid white;
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -8px;
+        }
+        
+        /* Ethics Committee */
+        .committee-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .member-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #1e3a8a;
+        }
+        .member-name {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .member-role {
+            color: #6b7280;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        /* Ethics Case Studies */
+        .case-studies {
+            margin-top: 2rem;
+        }
+        .case-study {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .case-study h3 {
+            color: #2563eb;
+            margin-top: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .case-study h3::after {
+            content: '+';
+            font-size: 1.5rem;
+        }
+        .case-study.active h3::after {
+            content: '-';
+        }
+        .case-content {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .case-study.active .case-content {
+            display: block;
+        }
+        
+        /* Ethics Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .resource-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .resource-card h3 {
+            color: #2563eb;
+            margin-top: 0;
+        }
+        .resource-card p {
+            flex-grow: 1;
+        }
+        .resource-card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+        }
+        .resource-card a::after {
+            content: '→';
+            margin-left: 0.5rem;
+        }
+        
+        /* Ethics FAQ */
+        .ethics-faq {
+            margin-top: 2rem;
+        }
+        .faq-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #1e3a8a;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.25rem;
+        }
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+        .faq-answer {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        /* Ethics Contact Form */
+        .ethics-contact {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Animation for Timeline */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .timeline-item {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(5) { animation-delay: 1s; }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Navigation */
+            .nav-items {
+                display: none;
+            }
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            /* Timeline */
+            .timeline-line {
+                left: 0;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 30px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+            }
+            .timeline-dot {
+                left: -8px;
+                right: auto;
+            }
+            
+            /* Ethics Principles */
+            .ethics-principles {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Committee Members */
+            .committee-members {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Resources Grid */
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Footer */
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* Ethics Principles */
+            .ethics-principles {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Committee Members */
+            .committee-members {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Resources Grid */
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Research Ethics at Lifestyle Corp University</h1>
+            <p>Pioneering ethical standards for AI and medical research in the digital age</p>
+        </div>
+    </div>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Ethical Framework</h2>
+                <p>At Lifestyle Corp University, we believe that ethical considerations must be at the forefront of all research involving AI, robotics, and medical innovation. Our comprehensive ethical framework guides all research activities and ensures that our technological advancements benefit humanity while minimizing potential harms.</p>
+                
+                <div class="ethics-principles">
+                    <div class="principle-card" style="border-top: 4px solid #2563eb;">
+                        <h3><span>🧠</span> Cognitive Liberty</h3>
+                        <p>We respect and protect the right of individuals to cognitive liberty, mental privacy, and freedom of thought in all AI and neurotechnology research.</p>
+                    </div>
+                    
+                    <div class="principle-card" style="border-top: 4px solid #7c3aed;">
+                        <h3><span>⚖️</span> Justice & Fairness</h3>
+                        <p>We ensure that AI systems and medical technologies are developed and deployed in ways that promote fairness, reduce bias, and advance health equity across all populations.</p>
+                    </div>
+                    
+                    <div class="principle-card" style="border-top: 4px solid #10b981;">
+                        <h3><span>🔒</span> Privacy & Data Protection</h3>
+                        <p>We implement rigorous safeguards to protect personal and medical data, ensuring confidentiality and security while enabling beneficial research.</p>
+                    </div>
+                    
+                    <div class="principle-card" style="border-top: 4px solid #f59e0b;">
+                        <h3><span>🤝</span> Informed Consent</h3>
+                        <p>We uphold the highest standards of informed consent, ensuring that research participants fully understand the nature, purpose, and potential implications of their involvement.</p>
+                    </div>
+                    
+                    <div class="principle-card" style="border-top: 4px solid #ef4444;">
+                        <h3><span>🔍</span> Transparency</h3>
+                        <p>We commit to transparency in our research methodologies, funding sources, and potential conflicts of interest to maintain public trust and scientific integrity.</p>
+                    </div>
+                    
+                    <div class="principle-card" style="border-top: 4px solid #06b6d4;">
+                        <h3><span>🌍</span> Global Responsibility</h3>
+                        <p>We recognize our responsibility to consider the global implications of our research, particularly for vulnerable populations and developing regions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our research ethics policies and procedures.</p>
+                
+                <div class="ethics-faq">
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I submit my research for ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>All research proposals should be submitted through our online Ethics Review Portal. The portal will guide you through the submission process and required documentation. You'll need to create an account if you don't already have one, and you can save your application and return to it later if needed.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How long does the ethics review process take?</h3>
+                        <div class="faq-answer">
+                            <p>The timeline varies depending on the complexity of your research and the ethical considerations involved:</p>
+                            <ul>
+                                <li>Expedited review (minimal risk): 2-3 weeks</li>
+                                <li>Standard review: 4-6 weeks</li>
+                                <li>Complex review (novel technologies, vulnerable populations): 6-8 weeks</li>
+                            </ul>
+                            <p>We recommend submitting your proposal well in advance of your planned start date.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What ethical standards does Lifestyle Corp University follow?</h3>
+                        <div class="faq-answer">
+                            <p>Our ethical framework integrates multiple established standards, including:</p>
+                            <ul>
+                                <li>The Declaration of Helsinki for medical research</li>
+                                <li>The IEEE Global Initiative on Ethics of Autonomous and Intelligent Systems</li>
+                                <li>The UNESCO Universal Declaration on Bioethics and Human Rights</li>
+                                <li>The Belmont Report principles</li>
+                                <li>Our own supplementary guidelines for emerging technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do student research projects require ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>Yes, all research involving human subjects, personal data, or AI systems that may impact individuals requires ethics review, regardless of whether it's conducted by students or faculty. However, we have a streamlined process for student projects that pose minimal risk.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How does the Ethics Committee handle disagreements about ethical assessments?</h3>
+                        <div class="faq-answer">
+                            <p>Our Ethics Committee operates on a consensus model, but when disagreements arise, we have a structured resolution process:</p>
+                            <ol>
+                                <li>Additional expert consultation on the specific issue</li>
+                                <li>Structured deliberation with all committee members</li>
+                                <li>If necessary, escalation to the University Research Integrity Office</li>
+                            </ol>
+                            <p>Researchers are always given the opportunity to respond to concerns and propose modifications to address ethical issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact the Ethics Committee</h2>
+                <p>Have questions about research ethics or need guidance on your project? Our Ethics Committee is here to help.</p>
+                
+                <div class="ethics-contact">
+                    <form id="ethics-contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">Your Role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="faculty">Faculty Researcher</option>
+                                <option value="student">Student Researcher</option>
+                                <option value="staff">Research Staff</option>
+                                <option value="external">External Collaborator</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-type">Type of Inquiry</label>
+                            <select id="inquiry-type" name="inquiry-type" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="review">Ethics Review Process</option>
+                                <option value="consultation">Ethics Consultation</option>
+                                <option value="report">Report an Ethical Concern</option>
+                                <option value="resources">Ethics Resources</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="privacy-consent" required>
+                                I consent to the processing of my personal data in accordance with the University's Privacy Policy.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Ethics Review Process</h2>
+                <p>All research conducted at Lifestyle Corp University undergoes a rigorous ethics review process. Our digital-first approach ensures efficient yet thorough evaluation of ethical considerations across all research domains.</p>
+                
+                <div class="ethics-timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Initial Proposal Submission</h3>
+                            <p>Researchers submit detailed proposals through our AI-enhanced ethics portal, which automatically flags potential ethical concerns for review.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Preliminary AI Ethics Screening</h3>
+                            <p>Our advanced AI system conducts an initial screening to identify potential ethical issues, biases, or conflicts with established ethical principles.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Human Ethics Committee Review</h3>
+                            <p>A diverse committee of ethics experts, researchers, and community representatives evaluates each proposal, considering both AI recommendations and human perspectives.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Iterative Refinement</h3>
+                            <p>Researchers work collaboratively with the ethics committee to address concerns and refine protocols to meet ethical standards.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Ongoing Ethical Monitoring</h3>
+                            <p>Approved research undergoes continuous ethical monitoring through our AI-human hybrid oversight system, ensuring adherence to ethical guidelines throughout the research lifecycle.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our research ethics policies and procedures.</p>
+                
+                <div class="ethics-faq">
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I submit my research for ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>All research proposals should be submitted through our online Ethics Review Portal. The portal will guide you through the submission process and required documentation. You'll need to create an account if you don't already have one, and you can save your application and return to it later if needed.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How long does the ethics review process take?</h3>
+                        <div class="faq-answer">
+                            <p>The timeline varies depending on the complexity of your research and the ethical considerations involved:</p>
+                            <ul>
+                                <li>Expedited review (minimal risk): 2-3 weeks</li>
+                                <li>Standard review: 4-6 weeks</li>
+                                <li>Complex review (novel technologies, vulnerable populations): 6-8 weeks</li>
+                            </ul>
+                            <p>We recommend submitting your proposal well in advance of your planned start date.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What ethical standards does Lifestyle Corp University follow?</h3>
+                        <div class="faq-answer">
+                            <p>Our ethical framework integrates multiple established standards, including:</p>
+                            <ul>
+                                <li>The Declaration of Helsinki for medical research</li>
+                                <li>The IEEE Global Initiative on Ethics of Autonomous and Intelligent Systems</li>
+                                <li>The UNESCO Universal Declaration on Bioethics and Human Rights</li>
+                                <li>The Belmont Report principles</li>
+                                <li>Our own supplementary guidelines for emerging technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do student research projects require ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>Yes, all research involving human subjects, personal data, or AI systems that may impact individuals requires ethics review, regardless of whether it's conducted by students or faculty. However, we have a streamlined process for student projects that pose minimal risk.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How does the Ethics Committee handle disagreements about ethical assessments?</h3>
+                        <div class="faq-answer">
+                            <p>Our Ethics Committee operates on a consensus model, but when disagreements arise, we have a structured resolution process:</p>
+                            <ol>
+                                <li>Additional expert consultation on the specific issue</li>
+                                <li>Structured deliberation with all committee members</li>
+                                <li>If necessary, escalation to the University Research Integrity Office</li>
+                            </ol>
+                            <p>Researchers are always given the opportunity to respond to concerns and propose modifications to address ethical issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact the Ethics Committee</h2>
+                <p>Have questions about research ethics or need guidance on your project? Our Ethics Committee is here to help.</p>
+                
+                <div class="ethics-contact">
+                    <form id="ethics-contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">Your Role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="faculty">Faculty Researcher</option>
+                                <option value="student">Student Researcher</option>
+                                <option value="staff">Research Staff</option>
+                                <option value="external">External Collaborator</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-type">Type of Inquiry</label>
+                            <select id="inquiry-type" name="inquiry-type" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="review">Ethics Review Process</option>
+                                <option value="consultation">Ethics Consultation</option>
+                                <option value="report">Report an Ethical Concern</option>
+                                <option value="resources">Ethics Resources</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="privacy-consent" required>
+                                I consent to the processing of my personal data in accordance with the University's Privacy Policy.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Ethics Committee</h2>
+                <p>Our Ethics Committee brings together diverse expertise from AI, medicine, philosophy, law, and community advocacy to ensure comprehensive ethical oversight of all research activities.</p>
+                
+                <div class="committee-members">
+                    <div class="member-card">
+                        <div class="member-avatar">👩‍⚕️</div>
+                        <div class="member-name">Dr. Elena Morales</div>
+                        <div class="member-role">Chair, Medical Ethics</div>
+                        <p>Specializes in the ethical implications of AI in clinical decision-making and personalized medicine.</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">👨‍💻</div>
+                        <div class="member-name">Prof. Raj Patel</div>
+                        <div class="member-role">AI Ethics Specialist</div>
+                        <p>Focuses on algorithmic fairness, transparency, and the societal impacts of medical AI systems.</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">👩‍⚖️</div>
+                        <div class="member-name">Atty. Sarah Chen</div>
+                        <div class="member-role">Legal Expert</div>
+                        <p>Specializes in health data privacy, intellectual property, and regulatory compliance in digital health.</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">🧠</div>
+                        <div class="member-name">Dr. Marcus Johnson</div>
+                        <div class="member-role">Neuroscience Ethics</div>
+                        <p>Researches ethical considerations in brain-computer interfaces and cognitive enhancement technologies.</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">👨‍🔬</div>
+                        <div class="member-name">Dr. Aisha Nkosi</div>
+                        <div class="member-role">Global Health Ethics</div>
+                        <p>Focuses on ensuring ethical research practices across diverse global populations and healthcare systems.</p>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-avatar">👩‍🦽</div>
+                        <div class="member-name">Maya Rodriguez</div>
+                        <div class="member-role">Patient Advocate</div>
+                        <p>Represents patient perspectives and ensures research respects patient autonomy and dignity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our research ethics policies and procedures.</p>
+                
+                <div class="ethics-faq">
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I submit my research for ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>All research proposals should be submitted through our online Ethics Review Portal. The portal will guide you through the submission process and required documentation. You'll need to create an account if you don't already have one, and you can save your application and return to it later if needed.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How long does the ethics review process take?</h3>
+                        <div class="faq-answer">
+                            <p>The timeline varies depending on the complexity of your research and the ethical considerations involved:</p>
+                            <ul>
+                                <li>Expedited review (minimal risk): 2-3 weeks</li>
+                                <li>Standard review: 4-6 weeks</li>
+                                <li>Complex review (novel technologies, vulnerable populations): 6-8 weeks</li>
+                            </ul>
+                            <p>We recommend submitting your proposal well in advance of your planned start date.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What ethical standards does Lifestyle Corp University follow?</h3>
+                        <div class="faq-answer">
+                            <p>Our ethical framework integrates multiple established standards, including:</p>
+                            <ul>
+                                <li>The Declaration of Helsinki for medical research</li>
+                                <li>The IEEE Global Initiative on Ethics of Autonomous and Intelligent Systems</li>
+                                <li>The UNESCO Universal Declaration on Bioethics and Human Rights</li>
+                                <li>The Belmont Report principles</li>
+                                <li>Our own supplementary guidelines for emerging technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do student research projects require ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>Yes, all research involving human subjects, personal data, or AI systems that may impact individuals requires ethics review, regardless of whether it's conducted by students or faculty. However, we have a streamlined process for student projects that pose minimal risk.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How does the Ethics Committee handle disagreements about ethical assessments?</h3>
+                        <div class="faq-answer">
+                            <p>Our Ethics Committee operates on a consensus model, but when disagreements arise, we have a structured resolution process:</p>
+                            <ol>
+                                <li>Additional expert consultation on the specific issue</li>
+                                <li>Structured deliberation with all committee members</li>
+                                <li>If necessary, escalation to the University Research Integrity Office</li>
+                            </ol>
+                            <p>Researchers are always given the opportunity to respond to concerns and propose modifications to address ethical issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact the Ethics Committee</h2>
+                <p>Have questions about research ethics or need guidance on your project? Our Ethics Committee is here to help.</p>
+                
+                <div class="ethics-contact">
+                    <form id="ethics-contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">Your Role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="faculty">Faculty Researcher</option>
+                                <option value="student">Student Researcher</option>
+                                <option value="staff">Research Staff</option>
+                                <option value="external">External Collaborator</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-type">Type of Inquiry</label>
+                            <select id="inquiry-type" name="inquiry-type" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="review">Ethics Review Process</option>
+                                <option value="consultation">Ethics Consultation</option>
+                                <option value="report">Report an Ethical Concern</option>
+                                <option value="resources">Ethics Resources</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="privacy-consent" required>
+                                I consent to the processing of my personal data in accordance with the University's Privacy Policy.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Ethics Case Studies</h2>
+                <p>Explore real-world ethical challenges we've addressed in our research and how our ethical framework guided our decision-making process.</p>
+                
+                <div class="case-studies">
+                    <div class="case-study">
+                        <h3>AI Diagnostic Algorithm Bias Detection</h3>
+                        <div class="case-content">
+                            <p><strong>Challenge:</strong> An AI diagnostic system for dermatological conditions showed lower accuracy for darker skin tones during validation testing.</p>
+                            <p><strong>Ethical Considerations:</strong> Fairness, non-discrimination, health equity, and potential harm from misdiagnosis.</p>
+                            <p><strong>Resolution:</strong> The research team implemented a comprehensive bias mitigation strategy, including:</p>
+                            <ul>
+                                <li>Diversifying the training dataset with balanced representation across skin tones</li>
+                                <li>Implementing fairness constraints in the algorithm design</li>
+                                <li>Conducting extensive validation testing across diverse populations</li>
+                                <li>Establishing ongoing monitoring for algorithmic bias</li>
+                            </ul>
+                            <p><strong>Outcome:</strong> The revised system achieved equitable diagnostic accuracy across all skin tones and included transparent documentation of performance metrics by demographic groups.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study">
+                        <h3>Brain-Computer Interface Privacy Protocols</h3>
+                        <div class="case-content">
+                            <p><strong>Challenge:</strong> A research project developing brain-computer interfaces raised concerns about mental privacy and the potential for unauthorized access to neural data.</p>
+                            <p><strong>Ethical Considerations:</strong> Cognitive liberty, data security, informed consent, and long-term implications.</p>
+                            <p><strong>Resolution:</strong> The Ethics Committee worked with researchers to develop:</p>
+                            <ul>
+                                <li>A tiered consent model allowing participants to specify which types of neural data could be collected and how they could be used</li>
+                                <li>Advanced encryption and security protocols for neural data</li>
+                                <li>Clear boundaries between therapeutic applications and enhancement capabilities</li>
+                                <li>An independent monitoring system to prevent function creep</li>
+                            </ul>
+                            <p><strong>Outcome:</strong> The project established new standards for neural data protection that have been adopted by other research institutions globally.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="case-study">
+                        <h3>Global AI Healthcare Deployment Ethics</h3>
+                        <div class="case-content">
+                            <p><strong>Challenge:</strong> Deploying an AI-powered diagnostic system in resource-limited healthcare settings raised concerns about technological dependency, cultural appropriateness, and sustainability.</p>
+                            <p><strong>Ethical Considerations:</strong> Global justice, cultural sensitivity, sustainability, and avoiding technological colonialism.</p>
+                            <p><strong>Resolution:</strong> The research team implemented a collaborative approach that included:</p>
+                            <ul>
+                                <li>Co-development with local healthcare providers and communities</li>
+                                <li>Adaptation of the system to work with locally available technology</li>
+                                <li>Knowledge transfer programs to build local capacity</li>
+                                <li>Long-term sustainability planning with local stakeholders</li>
+                            </ul>
+                            <p><strong>Outcome:</strong> The project created a model for ethical global AI deployment that respects local autonomy while providing meaningful health benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our research ethics policies and procedures.</p>
+                
+                <div class="ethics-faq">
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I submit my research for ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>All research proposals should be submitted through our online Ethics Review Portal. The portal will guide you through the submission process and required documentation. You'll need to create an account if you don't already have one, and you can save your application and return to it later if needed.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How long does the ethics review process take?</h3>
+                        <div class="faq-answer">
+                            <p>The timeline varies depending on the complexity of your research and the ethical considerations involved:</p>
+                            <ul>
+                                <li>Expedited review (minimal risk): 2-3 weeks</li>
+                                <li>Standard review: 4-6 weeks</li>
+                                <li>Complex review (novel technologies, vulnerable populations): 6-8 weeks</li>
+                            </ul>
+                            <p>We recommend submitting your proposal well in advance of your planned start date.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What ethical standards does Lifestyle Corp University follow?</h3>
+                        <div class="faq-answer">
+                            <p>Our ethical framework integrates multiple established standards, including:</p>
+                            <ul>
+                                <li>The Declaration of Helsinki for medical research</li>
+                                <li>The IEEE Global Initiative on Ethics of Autonomous and Intelligent Systems</li>
+                                <li>The UNESCO Universal Declaration on Bioethics and Human Rights</li>
+                                <li>The Belmont Report principles</li>
+                                <li>Our own supplementary guidelines for emerging technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do student research projects require ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>Yes, all research involving human subjects, personal data, or AI systems that may impact individuals requires ethics review, regardless of whether it's conducted by students or faculty. However, we have a streamlined process for student projects that pose minimal risk.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How does the Ethics Committee handle disagreements about ethical assessments?</h3>
+                        <div class="faq-answer">
+                            <p>Our Ethics Committee operates on a consensus model, but when disagreements arise, we have a structured resolution process:</p>
+                            <ol>
+                                <li>Additional expert consultation on the specific issue</li>
+                                <li>Structured deliberation with all committee members</li>
+                                <li>If necessary, escalation to the University Research Integrity Office</li>
+                            </ol>
+                            <p>Researchers are always given the opportunity to respond to concerns and propose modifications to address ethical issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact the Ethics Committee</h2>
+                <p>Have questions about research ethics or need guidance on your project? Our Ethics Committee is here to help.</p>
+                
+                <div class="ethics-contact">
+                    <form id="ethics-contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">Your Role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="faculty">Faculty Researcher</option>
+                                <option value="student">Student Researcher</option>
+                                <option value="staff">Research Staff</option>
+                                <option value="external">External Collaborator</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-type">Type of Inquiry</label>
+                            <select id="inquiry-type" name="inquiry-type" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="review">Ethics Review Process</option>
+                                <option value="consultation">Ethics Consultation</option>
+                                <option value="report">Report an Ethical Concern</option>
+                                <option value="resources">Ethics Resources</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="privacy-consent" required>
+                                I consent to the processing of my personal data in accordance with the University's Privacy Policy.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Ethics Resources</h2>
+                <p>Explore our extensive collection of resources to deepen your understanding of ethical considerations in AI and medical research.</p>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>AI Ethics Guidelines</h3>
+                        <p>Comprehensive guidelines for ethical AI development in healthcare, covering fairness, transparency, privacy, and accountability.</p>
+                        <a href="#">Access Guidelines</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Ethics Training Modules</h3>
+                        <p>Interactive training modules for researchers, covering ethical considerations in AI and medical research.</p>
+                        <a href="#">Explore Modules</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Ethics Case Repository</h3>
+                        <p>A searchable database of ethical case studies and resolutions from real-world research scenarios.</p>
+                        <a href="#">Browse Cases</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Ethics Webinar Series</h3>
+                        <p>Recorded webinars featuring experts discussing emerging ethical challenges in AI and medical research.</p>
+                        <a href="#">Watch Webinars</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Ethics Consultation Service</h3>
+                        <p>Information about our ethics consultation service, available to researchers at all stages of their projects.</p>
+                        <a href="#">Learn More</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Ethics Publications</h3>
+                        <p>Scholarly articles, white papers, and policy briefs on ethical issues in AI and medical research.</p>
+                        <a href="#">View Publications</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our research ethics policies and procedures.</p>
+                
+                <div class="ethics-faq">
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I submit my research for ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>All research proposals should be submitted through our online Ethics Review Portal. The portal will guide you through the submission process and required documentation. You'll need to create an account if you don't already have one, and you can save your application and return to it later if needed.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How long does the ethics review process take?</h3>
+                        <div class="faq-answer">
+                            <p>The timeline varies depending on the complexity of your research and the ethical considerations involved:</p>
+                            <ul>
+                                <li>Expedited review (minimal risk): 2-3 weeks</li>
+                                <li>Standard review: 4-6 weeks</li>
+                                <li>Complex review (novel technologies, vulnerable populations): 6-8 weeks</li>
+                            </ul>
+                            <p>We recommend submitting your proposal well in advance of your planned start date.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What ethical standards does Lifestyle Corp University follow?</h3>
+                        <div class="faq-answer">
+                            <p>Our ethical framework integrates multiple established standards, including:</p>
+                            <ul>
+                                <li>The Declaration of Helsinki for medical research</li>
+                                <li>The IEEE Global Initiative on Ethics of Autonomous and Intelligent Systems</li>
+                                <li>The UNESCO Universal Declaration on Bioethics and Human Rights</li>
+                                <li>The Belmont Report principles</li>
+                                <li>Our own supplementary guidelines for emerging technologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do student research projects require ethics review?</h3>
+                        <div class="faq-answer">
+                            <p>Yes, all research involving human subjects, personal data, or AI systems that may impact individuals requires ethics review, regardless of whether it's conducted by students or faculty. However, we have a streamlined process for student projects that pose minimal risk.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How does the Ethics Committee handle disagreements about ethical assessments?</h3>
+                        <div class="faq-answer">
+                            <p>Our Ethics Committee operates on a consensus model, but when disagreements arise, we have a structured resolution process:</p>
+                            <ol>
+                                <li>Additional expert consultation on the specific issue</li>
+                                <li>Structured deliberation with all committee members</li>
+                                <li>If necessary, escalation to the University Research Integrity Office</li>
+                            </ol>
+                            <p>Researchers are always given the opportunity to respond to concerns and propose modifications to address ethical issues.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact the Ethics Committee</h2>
+                <p>Have questions about research ethics or need guidance on your project? Our Ethics Committee is here to help.</p>
+                
+                <div class="ethics-contact">
+                    <form id="ethics-contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">Your Role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="faculty">Faculty Researcher</option>
+                                <option value="student">Student Researcher</option>
+                                <option value="staff">Research Staff</option>
+                                <option value="external">External Collaborator</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-type">Type of Inquiry</label>
+                            <select id="inquiry-type" name="inquiry-type" required>
+                                <option value="">Select inquiry type</option>
+                                <option value="review">Ethics Review Process</option>
+                                <option value="consultation">Ethics Consultation</option>
+                                <option value="report">Report an Ethical Concern</option>
+                                <option value="resources">Ethics Resources</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="privacy-consent" required>
+                                I consent to the processing of my personal data in accordance with the University's Privacy Policy.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="https://www.riotiq.com" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">🧠</span>
+                        <span>Take the IQ Test</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">💻</span>
+                        <span>Explore AI Career Opportunities</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">📰</span>
+                        <span>Subscribe to our Digital Journal</span>
+                    </a>
+                </div>
+                <!-- Footer links will be populated by JavaScript -->
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">AI Ethics Guidelines</a>
+                    <a href="#">Non-Discrimination Policy</a>
+                </div>
+                <p>&copy; 2020-2024 Lifestyle Corp University. All rights reserved. Powered by AI and high-IQ individuals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navItems = [
+        { 
+                title: "Research at LCU", 
+                items: [
+                    { text: "AI-Driven Research", link: "ai-driven-research.html" },
+                    { text: "Robotics Innovation", link: "robotics-innovation.html" },
+                    { text: "Virtual Labs", link: "virtual-labs.html" },
+                    { text: "Digital Health Initiatives", link: "digital-health-initiatives.html" },
+                    { text: "Join Our Discord", link: "join-our-discord.html" },
+                    { text: "Apply for Membership", link: "membership.html" },
+                    { text: "Current Projects", link: "current-projects.html" },
+                    { text: "Research Ethics", link: "research-ethics.html" },
+                    { text: "AI Partnerships", link: "ai-partnerships.html" },
+                    { text: "Robotics Collaborations", link: "robotics-collaborations.html" }
+                ]
+            },
+            { 
+                title: "Digital Library", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "AI in Medicine", link: "ai-in-medicine.html" },
+                    { text: "E-Journals", link: "e-journals.html" },
+                    { text: "Advanced Robotics", link: "advanced-robotics.html" },
+                    { text: "Cognitive Enhancement", link: "cognitive-enhancement.html" },
+                    { text: "Digital Health Solutions", link: "digital-health-solutions.html" },
+                    { text: "Digital Twin  in Healthcare", link: "digital-twin-in-healthcare.html" },
+                    { text: "Blockchain in Medical Records", link: "blockchain-in-medical-records.html" }
+                ]
+            },
+            { 
+                title: "For Patients", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "Diseases & Conditions", link: "diseases-and-conditions.html" },
+                    { text: "Healthy Lifestyle", link: "healthy-lifestyle.html" },
+                    { text: "Tests & Procedures", link: "tests-procedures.html" },
+                    { text: "Drugs & Supplements", link: "drugs-and-supplements.html" }
+                ]
+            },
+            { 
+                title: "For High-IQ Professionals", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "IQ Test Applications", link: "membership.html" },
+                    { text: "Virtual Networking Events", link: "virtual-networking-events.html" },
+                    { text: "AI-Assisted Continuing Education", link: "ai-assisted-continuing-education.html" },
+                    { text: "Robotic Surgery Simulations", link: "robotic-surgery-simulations.html" },
+                    { text: "Advanced Research Opportunities", link: "advanced-research-opportunities.html" },
+                    { text: "Digital Publications", link: "digital-publications.html" }
+                ]
+            },
+            { 
+                title: "Innovation & Education at LCU", 
+                items: {
+                    "Innovation": [
+                        { text: "AI Research Labs", link: "ai-research-labs.html" },
+                        { text: "Robotics Development Centers", link: "robotics-development-centers.html" },
+                        { text: "Virtual Reality Medical Training", link: "virtual-reality-medical-training.html" },
+                        { text: "Quantum Computing in Healthcare", link: "quantum-computing-in-healthcare.html" },
+                        { text: "Nanotechnology Advancements", link: "nanotechnology-advancements.html" },
+                        { text: "Biotechnology Breakthroughs", link: "biotechnology-breakthroughs.html" }
+                    ],
+                    "Education": [
+                        { text: "LCU Virtual Academy", link: "lcu-virtual-academy.html" },
+                        { text: "AI-Assisted Learning Programs", link: "ai-assisted-learning-programs.html" },
+                        { text: "Robotic Surgery Training", link: "robotic-surgery-training.html" },
+                        { text: "Digital Health Informatics", link: "digital-health-informatics.html" },
+                        { text: "Cognitive Science Programs", link: "cognitive-science-programs.html" },
+                        { text: "Advanced Biotechnology Courses", link: "advanced-biotechnology-courses.html" }
+                    ]
+                }
+            },
+            {
+                title: "For Medical and AI Professionals",
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "AI Professionals", link: "ai-professionals.html" },
+                    { text: "LCU Proceedings", link: "lcu-proceedings.html" },
+                    { text: "Research Departments", link: "research-departments.html" },
+                    { text: "AI-Enhanced Medical Resources", link: "ai-enhanced-medical-resources.html" },
+                    { text: "Virtual Referral System", link: "virtual-referral-system.html" },
+                    { text: "AI-Assisted Continuing Education", link: "ai-assisted-continuing-education.html" },
+                    { text: "Advanced Robotic Surgery Simulations", link: "advanced-robotic-surgery-simulations.html" },
+                    { text: "Digital Health Informatics", link: "digital-health-informatics.html" },
+                    { text: "AI-Powered Clinical Decision Support", link: "ai-powered-clinical-decision-support.html" }
+                ]
+            },
+            {
+                title: "Research & Education at LCU",
+                items: {
+                    "Research": [
+                        { text: "AI in Healthcare Research", link: "ai-in-healthcare-research.html" },
+                        { text: "Robotics in Medicine", link: "robotics-in-medicine.html" },
+                        { text: "Virtual Reality in Medical Training", link: "virtual-reality-in-medical-training.html" },
+                        { text: "Quantum Computing for Drug Discovery", link: "quantum-computing-for-drug-discovery.html" },
+                        { text: "Nanotechnology in Medicine", link: "nanotechnology-in-medicine.html" },
+                        { text: "AI Ethics in Healthcare", link: "ai-ethics-in-healthcare.html" }
+                    ],
+                    "Education": [
+                        { text: "LCU Virtual Medical School", link: "lcu-virtual-medical-school.html" },
+                        { text: "AI-Enhanced Medical Curriculum", link: "ai-enhanced-medical-curriculum.html" },
+                        { text: "Robotic Surgery Training Programs", link: "robotic-surgery-training-programs.html" },
+                        { text: "Digital Health Informatics Courses", link: "digital-health-informatics-courses.html" },
+                        { text: "AI in Medical Diagnostics", link: "ai-in-medical-diagnostics.html" },
+                        { text: "Future of Healthcare Symposiums", link: "future-of-healthcare-symposiums.html" }
+                    ]
+                }
+            },
+            { 
+                title: "Supporting LCU", 
+                items: [
+                    { text: "Donate as a Gift", link: "donation.html" },
+                    { text: "Donate Compute Power", link: "donate-compute-power.html" },
+                    { text: "Virtual Fundraising Events", link: "virtual-fundraising-events.html" },
+                    { text: "Sponsor AI Research", link: "sponsor-ai-research.html" },
+                    { text: "Partner in Robotics Development", link: "partner-in-robotics-development.html" }
+                ]
+            }
+        ];
+
+            
+        function populateNavItems() {
+        const navItemsContainer = document.querySelector('.nav-items');
+        if (!navItemsContainer) {
+            console.error('Navigation container not found.');
+            return;
+        }
+
+        navItems.forEach(item => {
+            const div = document.createElement('div');
+            div.style.position = 'relative';
+            div.style.marginRight = '1rem';
+
+            const button = document.createElement('button');
+            button.textContent = item.title;
+            button.style.background = 'none';
+            button.style.border = 'none';
+            button.style.cursor = 'pointer';
+            button.style.fontSize = '1rem';
+            button.style.color = '#374151';
+            button.addEventListener('mouseenter', () => {
+                dropdown.style.display = 'block';
+            });
+            div.addEventListener('mouseleave', () => {
+                dropdown.style.display = 'none';
+            });
+
+            const dropdown = document.createElement('div');
+            dropdown.className = 'dropdown';
+
+            if (Array.isArray(item.items)) {
+                item.items.forEach(subItem => {
+                    const a = document.createElement('a');
+                    a.href = subItem.link; // Set the href attribute
+                    a.textContent = subItem.text;
+                    dropdown.appendChild(a);
+                });
+            } else {
+                for (const [category, subitems] of Object.entries(item.items)) {
+                    const h3 = document.createElement('h3');
+                    h3.textContent = category;
+                    dropdown.appendChild(h3);
+                    subitems.forEach(subItem => {
+                        const a = document.createElement('a');
+                        a.href = subItem.link; // Set the href attribute
+                        a.textContent = subItem.text;
+                        dropdown.appendChild(a);
+                    });
+                }
+            }
+
+        div.appendChild(button);
+        div.appendChild(dropdown);
+        navItemsContainer.appendChild(div);
+    });
+}
+
+
+        function populateMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            navItems.forEach(item => {
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                mobileMenu.appendChild(button);
+
+                const submenu = document.createElement('div');
+                submenu.className = 'mobile-submenu';
+
+                if (Array.isArray(item.items)) {
+                    item.items.forEach(subItem => {
+                        const a = document.createElement('a');
+                        a.href = subItem.link; // Set the href attribute
+                        a.textContent = subItem.text;
+                        submenu.appendChild(a);
+                    });
+                } else {
+                    for (const [category, subitems] of Object.entries(item.items)) {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = category;
+                        submenu.appendChild(h3);
+                        subitems.forEach(subItem => {
+                            const a = document.createElement('a');
+                            a.href = subItem.link; // Set the href attribute
+                            a.textContent = subItem.text;
+                            submenu.appendChild(a);
+                        });
+                    }
+                }
+
+                mobileMenu.appendChild(submenu);
+
+                button.addEventListener('click', () => {
+                    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        }
+
+        function populateFooterLinks() {
+            const footerGrid = document.querySelector('.footer-grid');
+            footerLinks.forEach(column => {
+                const div = document.createElement('div');
+                div.className = 'footer-column';
+                const h3 = document.createElement('h3');
+                h3.textContent = column.title;
+                div.appendChild(h3);
+                const ul = document.createElement('ul');
+                column.items.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.textContent = item;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                div.appendChild(ul);
+                footerGrid.appendChild(div);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateNavItems();
+            populateMobileMenu();
+            populateAlphabetLinks();
+            populateVirtualCampuses1();
+            populateVirtualCampuses2();
+            populateFeaturedResearchAreas1();
+            populateFeaturedResearchAreas2();
+            populateFooterLinks();
+
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+    </script>
+</body>
+</html>

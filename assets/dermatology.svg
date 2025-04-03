@@ -1,0 +1,65 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <!-- Gradient for the main badge body - Clean Teal -->
+    <linearGradient id="dermBadgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4DB6AC; stop-opacity:1" /> <!-- Medium Teal -->
+      <stop offset="100%" style="stop-color:#00796B; stop-opacity:1" /> <!-- Dark Teal -->
+    </linearGradient>
+    <!-- Gradient for the border - Silver -->
+    <linearGradient id="dermBorderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0; stop-opacity:1" /> <!-- Light Silver -->
+      <stop offset="100%" style="stop-color:#9E9E9E; stop-opacity:1" /> <!-- Medium Silver -->
+    </linearGradient>
+    <!-- Gradient for the Magnifying Glass Metal -->
+    <linearGradient id="dermMetalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CFD8DC; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#78909C; stop-opacity:1" />
+    </linearGradient>
+     <!-- Gradient for the lens -->
+    <radialGradient id="dermLensGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF; stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#E0F7FA; stop-opacity:0.1" /> <!-- Light cyan tint -->
+    </radialGradient>
+    <!-- Color for Skin Cells - Pink/Peach tone -->
+    <color id="skinCellColor">#FFCCBC</color> <!-- Light Peach -->
+    <color id="skinCellStroke">#FF8A65</color> <!-- Darker Peach/Orange -->
+
+  </defs>
+
+  <!-- Badge Border -->
+  <path d="M 50,5
+           L 85,20 L 95,50 L 85,80
+           L 50,95
+           L 15,80 L 5,50 L 15,20
+           Z"
+        fill="url(#dermBorderGradient)" stroke="#616161" stroke-width="1.5"/>
+
+  <!-- Main Badge Shape (Slightly smaller inset) -->
+  <path d="M 50,10
+           L 82,23 L 90,50 L 82,77
+           L 50,90
+           L 18,77 L 10,50 L 18,23
+           Z"
+        fill="url(#dermBadgeGradient)" />
+
+  <!-- Magnifying Glass -->
+  <g transform="translate(0, 0)">
+    <!-- Handle -->
+    <rect x="65" y="62" width="8" height="22" rx="2" ry="2" transform="rotate(45 69 73)" fill="url(#dermMetalGradient)" stroke="#546E7A" stroke-width="1"/>
+    <!-- Rim -->
+    <circle cx="50" cy="50" r="24" fill="none" stroke="url(#dermMetalGradient)" stroke-width="4"/>
+    <!-- Lens Effect -->
+    <circle cx="50" cy="50" r="24" fill="url(#dermLensGradient)" />
+
+    <!-- Stylized Skin Cells / Layers (under the lens) -->
+    <g transform="scale(0.9) translate(5, 5)"> <!-- Scale and center the cells slightly -->
+        <circle cx="45" cy="48" r="5" fill="#FFCCBC" stroke="#FF8A65" stroke-width="0.8"/>
+        <circle cx="55" cy="48" r="6" fill="#FFCCBC" stroke="#FF8A65" stroke-width="0.8"/>
+        <circle cx="50" cy="58" r="5" fill="#FFCCBC" stroke="#FF8A65" stroke-width="0.8"/>
+        <circle cx="60" cy="58" r="4" fill="#FFCCBC" stroke="#FF8A65" stroke-width="0.8"/>
+         <circle cx="40" cy="58" r="3" fill="#FFCCBC" stroke="#FF8A65" stroke-width="0.8"/>
+    </g>
+  </g>
+
+</svg>

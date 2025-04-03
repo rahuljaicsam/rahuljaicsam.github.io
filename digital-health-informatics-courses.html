@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Health Informatics Courses - LCU Medical Research</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <script src="header-styles.js" defer></script>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #2563eb;
+            --text-color: #1a1a1a;
+            --bg-color: #f8f9fa;
+            --transition-speed: 0.3s;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/digitaltwin+health.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            color: #1e3a8a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-description {
+            color: #4b5563;
+            margin-bottom: 1rem;
+            height: 4.5em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .course-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .course-duration {
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        .course-level {
+            background: #1e3a8a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .learning-paths {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .paths-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .paths-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .path-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .path-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .path-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .path-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: white;
+        }
+
+        .path-item::after {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: calc(50% - 5px);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .skills-section {
+            padding: 4rem 2rem;
+            background: #f1f5f9;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .skill-title {
+            font-size: 1.25rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-description {
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+
+        .enrollment-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .enrollment-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .enrollment-title {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 2rem;
+        }
+
+        .enrollment-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #1e3a8a;
+        }
+
+        .submit-button {
+            background: #1e3a8a;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #2563eb;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <img src="/assets/ai+health.png" alt="LCU Logo" style="height: 40px; margin-right: 10px;">
+                        <span>LCU Medical Research</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Research & Innovation</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Research Areas</h3>
+                                    <a href="ai-driven-research.html">AI-Driven Research</a>
+                                    <a href="robotics-innovation.html">Robotics Innovation</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality in Medical Training</a>
+                                    <a href="quantum-computing-for-drug-discovery.html">Quantum Computing for Drug Discovery</a>
+                                    <a href="nanotechnology-in-medicine.html">Nanotechnology in Medicine</a>
+                                    <a href="ai-ethics-in-healthcare.html">AI Ethics in Healthcare</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Innovation Centers</h3>
+                                    <a href="ai-research-labs.html">AI Research Labs</a>
+                                    <a href="robotics-development-centers.html">Robotics Development Centers</a>
+                                    <a href="virtual-labs.html">Virtual Labs</a>
+                                    <a href="research-departments.html">Research Departments</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="research-databases.html">Research Databases</a>
+                                    <a href="digital-publications.html">Digital Publications</a>
+                                    <a href="e-journals.html">E-Journals</a>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Education & Training</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Programs</h3>
+                                    <a href="ai-assisted-continuing-education.html">AI-Assisted Continuing Education</a>
+                                    <a href="robotic-surgery-simulations.html">Robotic Surgery Simulations</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality Training</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="digital-collections.html">Digital Collections</a>
+                                    <a href="online-resources.html">Online Resources</a>
+                                    <a href="research-databases.html">Research Databases</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Opportunities</h3>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                    <a href="advanced-research-opportunities.html">Advanced Research</a>
+                                    <a href="laboratories.html">Laboratories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Community & Events</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Connect</h3>
+                                    <a href="virtual-networking-events.html">Virtual Networking Events</a>
+                                    <a href="join-our-discord.html">Join Our Discord</a>
+                                    <a href="membership.html">Membership</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Support</h3>
+                                    <a href="donation.html">Make a Donation</a>
+                                    <a href="donate-compute-power.html">Donate Compute Power</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Digital Health Informatics Courses</h1>
+                <p class="hero-subtitle">Master the future of healthcare with our comprehensive digital health informatics programs</p>
+            </div>
+        </section>
+
+        <section class="course-grid">
+            <div class="course-filters" style="margin-bottom: 2rem; text-align: center;">
+                <button class="filter-btn active" onclick="filterCourses('all')" style="background: var(--primary-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem; cursor: pointer; transition: all var(--transition-speed);">All Courses</button>
+                <button class="filter-btn" onclick="filterCourses('beginner')" style="background: white; color: var(--primary-color); border: 2px solid var(--primary-color); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem; cursor: pointer; transition: all var(--transition-speed);">Beginner</button>
+                <button class="filter-btn" onclick="filterCourses('intermediate')" style="background: white; color: var(--primary-color); border: 2px solid var(--primary-color); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem; cursor: pointer; transition: all var(--transition-speed);">Intermediate</button>
+                <button class="filter-btn" onclick="filterCourses('advanced')" style="background: white; color: var(--primary-color); border: 2px solid var(--primary-color); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem; cursor: pointer; transition: all var(--transition-speed);">Advanced</button>
+            </div>
+            <div class="course-card" onclick="showCourseDetails('foundations')">
+                <img src="/assets/ai+health.png" alt="Foundations Course" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Foundations of Health Informatics</h3>
+                    <p class="course-description">Introduction to healthcare data management, electronic health records, and basic analytics.</p>
+                    <div class="course-details">
+                        <span class="course-duration">8 weeks</span>
+                        <span class="course-level">Beginner</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" onclick="showCourseDetails('analytics')">
+                <img src="/assets/digitaltwin+health.png" alt="Analytics Course" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Healthcare Data Analytics</h3>
+                    <p class="course-description">Advanced techniques in healthcare data analysis, visualization, and predictive modeling.</p>
+                    <div class="course-details">
+                        <span class="course-duration">12 weeks</span>
+                        <span class="course-level">Intermediate</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-card" onclick="showCourseDetails('systems')">
+                <img src="/assets/robot+health.jpeg" alt="Systems Course" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Healthcare IT Systems</h3>
+                    <p class="course-description">Design, implementation, and management of healthcare information systems.</p>
+                    <div class="course-details">
+                        <span class="course-duration">16 weeks</span>
+                        <span class="course-level">Advanced</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="learning-paths">
+            <div class="paths-container">
+                <h2 class="paths-title">Learning Paths</h2>
+                <div class="path-timeline">
+                    <div class="path-item" onclick="showPathDetails('clinical')">
+                        <h3>Clinical Informatics Specialist</h3>
+                        <p>Focus on clinical data management and decision support systems</p>
+                    </div>
+                    <div class="path-item" onclick="showPathDetails('analytics')">
+                        <h3>Healthcare Data Analyst</h3>
+                        <p>Specialize in healthcare analytics and population health management</p>
+                    </div>
+                    <div class="path-item" onclick="showPathDetails('systems')">
+                        <h3>Health IT Systems Manager</h3>
+                        <p>Master healthcare information systems and technology infrastructure</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="skills-container">
+                <h2 class="skills-title">Key Skills You'll Learn</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">📊</div>
+                        <h3 class="skill-title">Data Analysis</h3>
+                        <p class="skill-description">Master healthcare data analysis techniques and tools</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h3 class="skill-title">System Design</h3>
+                        <p class="skill-description">Learn to design and implement healthcare IT systems</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🔒</div>
+                        <h3 class="skill-title">Security & Privacy</h3>
+                        <p class="skill-description">Understand healthcare data security and privacy regulations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="enrollment-section">
+            <div class="enrollment-container">
+                <h2 class="enrollment-title">Enroll Now</h2>
+                <form class="enrollment-form" id="enrollmentForm" onsubmit="handleEnrollment(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input type="text" id="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="course">Select Course</label>
+                        <select id="course" class="form-input" required>
+                            <option value="">Choose a course...</option>
+                            <option value="foundations">Foundations of Health Informatics</option>
+                            <option value="analytics">Healthcare Data Analytics</option>
+                            <option value="systems">Healthcare IT Systems</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-button">Submit Application</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Course filtering functionality
+        function filterCourses(level) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.style.background = btn.textContent.toLowerCase().includes(level) ? 'var(--primary-color)' : 'white';
+                btn.style.color = btn.textContent.toLowerCase().includes(level) ? 'white' : 'var(--primary-color)';
+            });
+
+            const cards = document.querySelectorAll('.course-card');
+            cards.forEach(card => {
+                const cardLevel = card.querySelector('.course-level').textContent.toLowerCase();
+                if (level === 'all' || cardLevel === level.toLowerCase()) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease-out';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Enhanced modal animations
+        function createAnimatedModal(content) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.7);
+                opacity: 0;
+                background: white;
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                max-width: 600px;
+                width: 90%;
+                max-height: 80vh;
+                overflow-y: auto;
+                z-index: 1000;
+                transition: all 0.3s ease-out;
+            `;
+            modal.innerHTML = content;
+            
+            setTimeout(() => {
+                modal.style.transform = 'translate(-50%, -50%) scale(1)';
+                modal.style.opacity = '1';
+            }, 50);
+
+            return modal;
+        }
+
+        function showCourseDetails(courseType) {
+            const courses = {
+                foundations: {
+                    title: 'Foundations of Health Informatics',
+                    description: 'This comprehensive course introduces you to the fundamentals of health informatics, covering essential concepts in healthcare data management, electronic health records, and basic analytics. Perfect for beginners looking to enter the field of health informatics.',
+                    duration: '8 weeks',
+                    prerequisites: 'No prior experience required',
+                    startDates: 'Monthly enrollments available'
+                },
+                analytics: {
+                    title: 'Healthcare Data Analytics',
+                    description: 'Dive deep into healthcare data analysis with this intermediate course. Learn advanced techniques in data visualization, predictive modeling, and population health analytics. Ideal for those with basic health informatics knowledge.',
+                    duration: '12 weeks',
+                    prerequisites: 'Basic understanding of health informatics',
+                    startDates: 'Quarterly enrollments'
+                },
+                systems: {
+                    title: 'Healthcare IT Systems',
+                    description: 'Master the design, implementation, and management of healthcare information systems. This advanced course covers system architecture, integration, and security considerations in healthcare IT infrastructure.',
+                    duration: '16 weeks',
+                    prerequisites: 'Intermediate health informatics knowledge',
+                    startDates: 'Limited enrollment periods'
+                }
+            };
+
+            const course = courses[courseType];
+            const detailsHTML = `
+                <div class="modal-content" style="animation: slideIn 0.3s ease-out">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">${course.title}</h2>
+                    <p style="line-height: 1.6;"><strong>Description:</strong> ${course.description}</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                            <strong style="color: var(--primary-color);">Duration:</strong>
+                            <p>${course.duration}</p>
+                        </div>
+                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
+                            <strong style="color: var(--primary-color);">Prerequisites:</strong>
+                            <p>${course.prerequisites}</p>
+                        </div>
+                    </div>
+                    <div style="background: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; text-align: center;">
+                        <strong>Start Dates:</strong> ${course.startDates}
+                    </div>
+                    <button onclick="this.closest('.modal-content').classList.add('slide-out'); setTimeout(() => this.closest('.modal-wrapper').remove(), 300)" 
+                            style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-color);">×</button>
+                </div>
+            `;
+
+            const modalWrapper = document.createElement('div');
+            modalWrapper.className = 'modal-wrapper';
+            modalWrapper.innerHTML = detailsHTML;
+
+            const modal = createAnimatedModal(modalWrapper.innerHTML);
+
+            // Create overlay with fade effect
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0);
+                z-index: 999;
+                transition: background 0.3s ease;
+            `;
+            setTimeout(() => overlay.style.background = 'rgba(0,0,0,0.5)', 50);
+
+            overlay.onclick = () => {
+                modal.style.transform = 'translate(-50%, -50%) scale(0.7)';
+                modal.style.opacity = '0';
+                overlay.style.background = 'rgba(0,0,0,0)';
+                setTimeout(() => {
+                    modal.remove();
+                    overlay.remove();
+                }, 300);
+            };
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(modal);
+        }
+
+        function showPathDetails(pathType) {
+            const paths = {
+                clinical: {
+                    title: 'Clinical Informatics Specialist',
+                    description: 'Become an expert in clinical data management and decision support systems. This path focuses on the intersection of clinical practice and information technology.',
+                    courses: ['Foundations of Health Informatics', 'Clinical Decision Support Systems', 'Healthcare Data Integration'],
+                    career: 'Lead clinical informatics initiatives in healthcare organizations'
+                },
+                analytics: {
+                    title: 'Healthcare Data Analyst',
+                    description: 'Specialize in healthcare analytics and population health management. Master the tools and techniques for deriving insights from healthcare data.',
+                    courses: ['Healthcare Data Analytics', 'Population Health Informatics', 'Advanced Analytics Methods'],
+                    career: 'Drive data-driven decision making in healthcare settings'
+                },
+                systems: {
+                    title: 'Health IT Systems Manager',
+                    description: 'Focus on the technical aspects of healthcare information systems. Learn to design, implement, and manage healthcare IT infrastructure.',
+                    courses: ['Healthcare IT Systems', 'System Integration & Security', 'IT Project Management'],
+                    career: 'Lead healthcare IT departments and system implementations'
+                }
+            };
+
+            const path = paths[pathType];
+            const detailsHTML = `
+                <div class="modal-content" style="animation: slideIn 0.3s ease-out">
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">${path.title}</h2>
+                    <p style="line-height: 1.6; margin-bottom: 1.5rem;"><strong>Description:</strong> ${path.description}</p>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Key Courses</h3>
+                        <ul style="list-style-type: none; padding: 0; margin: 0;">
+                            ${path.courses.map(course => `
+                                <li style="padding: 0.5rem; margin-bottom: 0.5rem; background: white; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                                    <span style="color: var(--primary-color); margin-right: 0.5rem;">▶</span>
+                                    ${course}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div style="background: var(--primary-color); color: white; padding: 1rem; border-radius: 8px; text-align: center;">
+                        <strong>Career Outcome:</strong> ${path.career}
+                    </div>
+                    <button onclick="this.closest('.modal-content').classList.add('slide-out'); setTimeout(() => this.closest('.modal-wrapper').remove(), 300)" 
+                            style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-color);">×</button>
+                </div>
+            `;
+
+            const modalWrapper = document.createElement('div');
+            modalWrapper.className = 'modal-wrapper';
+            modalWrapper.innerHTML = detailsHTML;
+
+            const modal = createAnimatedModal(modalWrapper.innerHTML);
+
+            // Create and show modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 2rem;
+                border-radius: 15px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                max-width: 600px;
+                width: 90%;
+                max-height: 80vh;
+                overflow-y: auto;
+                z-index: 1000;
+            `;
+            modal.innerHTML = detailsHTML + '<button onclick="this.parentElement.remove()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>';
+
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            `;
+            overlay.onclick = () => {
+                modal.remove();
+                overlay.remove();
+            };
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(modal);
+        }
+
+        function validateForm() {
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const course = document.getElementById('course');
+            let isValid = true;
+
+            // Reset previous validation styles
+            [name, email, course].forEach(input => {
+                input.style.borderColor = '';
+                const errorMsg = input.parentElement.querySelector('.error-message');
+                if (errorMsg) errorMsg.remove();
+            });
+
+            // Validate name
+            if (name.value.trim().length < 2) {
+                showError(name, 'Name must be at least 2 characters long');
+                isValid = false;
+            }
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                showError(email, 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            // Validate course selection
+            if (!course.value) {
+                showError(course, 'Please select a course');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function showError(input, message) {
+            input.style.borderColor = '#dc2626';
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.style.cssText = `
+                color: #dc2626;
+                font-size: 0.875rem;
+                margin-top: 0.25rem;
+                animation: fadeIn 0.3s ease-out;
+            `;
+            errorDiv.textContent = message;
+            input.parentElement.appendChild(errorDiv);
+        }
+
+        function handleEnrollment(event) {
+            event.preventDefault();
+            
+            if (!validateForm()) return;
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                course: document.getElementById('course').value
+            };
+
+            // Show success message with enhanced animation
+            const successContent = `
+                <div class="modal-content" style="animation: slideIn 0.3s ease-out">
+                    <div style="text-align: center;">
+                        <div style="color: #059669; font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Application Submitted!</h3>
+                        <p style="margin-bottom: 1.5rem;">Thank you for your interest in our program. We'll contact you shortly with next steps.</p>
+                        <button onclick="this.closest('.modal-content').classList.add('slide-out'); setTimeout(() => this.closest('.modal-wrapper').remove(), 300)" 
+                                style="background: var(--primary-color); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; transition: background 0.3s ease;">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const modalWrapper = document.createElement('div');
+            modalWrapper.className = 'modal-wrapper';
+            modalWrapper.innerHTML = successContent;
+
+            const modal = createAnimatedModal(modalWrapper.innerHTML);
+
+            // Create overlay with fade effect
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0);
+                z-index: 999;
+                transition: background 0.3s ease;
+            `;
+            setTimeout(() => overlay.style.background = 'rgba(0,0,0,0.5)', 50);
+
+            overlay.onclick = () => {
+                modal.style.transform = 'translate(-50%, -50%) scale(0.7)';
+                modal.style.opacity = '0';
+                overlay.style.background = 'rgba(0,0,0,0)';
+                setTimeout(() => {
+                    modal.remove();
+                    overlay.remove();
+                }, 300);
+            };
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(modal);
+
+            // Reset form with animation
+            const form = event.target;
+            form.style.opacity = '0.5';
+            form.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                form.reset();
+                form.style.opacity = '1';
+                form.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        // Intersection Observer for Animation Triggers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <!-- Gradient for the main badge body - Magenta/Rose blend -->
+    <linearGradient id="obgynBadgeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC407A; stop-opacity:1" /> <!-- Medium Pink/Rose -->
+      <stop offset="100%" style="stop-color:#AB47BC; stop-opacity:1" /> <!-- Medium Purple -->
+    </linearGradient>
+    <!-- Gradient for the border - Silver -->
+    <linearGradient id="obgynBorderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0E0E0; stop-opacity:1" /> <!-- Light Grey/Silver -->
+      <stop offset="100%" style="stop-color:#9E9E9E; stop-opacity:1" /> <!-- Medium Grey/Silver -->
+    </linearGradient>
+    <!-- Gradient for the main symbol -->
+     <linearGradient id="obgynSymbolGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CFD8DC; stop-opacity:1" /> <!-- Light Blue Grey -->
+    </linearGradient>
+    <!-- Gradient for the inner sparkle/bud -->
+     <radialGradient id="obgynSparkleGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#FFF9C4; stop-opacity:1" /> <!-- Pale Yellow -->
+      <stop offset="100%" style="stop-color:#FFF176; stop-opacity:1" /> <!-- Light Yellow -->
+    </radialGradient>
+  </defs>
+
+  <!-- Badge Border -->
+  <path d="M 50,5
+           C 80,15 95,30 90,55
+           Q 85,85 50,95
+           Q 15,85 10,55
+           C 5,30 20,15 50,5 Z"
+        fill="url(#obgynBorderGradient)" stroke="#616161" stroke-width="1.5"/>
+
+  <!-- Main Badge Shape (Slightly smaller inset) -->
+  <path d="M 50,10
+           C 75,20 88,33 84,56
+           Q 80,80 50,90
+           Q 20,80 16,56
+           C 12,33 25,20 50,10 Z"
+        fill="url(#obgynBadgeGradient)" />
+
+  <!-- Central Symbol: Female Symbol (♀) with integrated Sparkle -->
+  <g transform="translate(0, -2)"> <!-- Adjust vertical position slightly -->
+
+    <!-- Female Symbol (♀) -->
+    <g fill="url(#obgynSymbolGradient)" stroke="#7B1FA2" stroke-width="2.5"> <!-- Slightly thicker purple stroke -->
+        <!-- Circle part -->
+        <circle cx="50" cy="50" r="18"/>
+        <!-- Cross part -->
+        <line x1="50" y1="68" x2="50" y2="88" stroke-linecap="round"/>
+        <line x1="40" y1="78" x2="60" y2="78" stroke-linecap="round"/>
+    </g>
+
+    <!-- Sparkle/Bud inside the circle (representing new life/growth) -->
+    <g transform="translate(50 50) scale(0.7)"> <!-- Center and scale the sparkle -->
+       <polygon points="0,-10 2.5,-2.5 10,0 2.5,2.5 0,10 -2.5,2.5 -10,0 -2.5,-2.5"
+               fill="url(#obgynSparkleGradient)"
+               stroke="#FBC02D" stroke-width="1"/> <!-- Gold stroke -->
+    </g>
+     <!-- Inner highlight/detail on circle -->
+     <circle cx="50" cy="50" r="15" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.4"/>
+
+  </g>
+
+</svg>

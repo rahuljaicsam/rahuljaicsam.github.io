@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotic Surgery Training Programs - LCU Medical Research</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <script src="header-styles.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/robot+health.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .program-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-title {
+            color: #1e3a8a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-description {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .program-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .program-duration {
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        .program-level {
+            background: #1e3a8a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .simulation-section {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .simulation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .simulation-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .simulation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .simulation-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .simulation-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .certification-section {
+            padding: 4rem 2rem;
+            background: #f1f5f9;
+        }
+
+        .certification-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certification-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 3rem;
+        }
+
+        .certification-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: #1e3a8a;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: calc(50% - 5px);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #1e3a8a;
+        }
+
+        .progress-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .progress-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .progress-title {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 3rem;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .progress-item {
+            position: relative;
+        }
+
+        .progress-circle {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .progress-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+
+        .progress-label {
+            margin-top: 1rem;
+            color: #4b5563;
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .simulation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <img src="/assets/ai+health.png" alt="LCU Logo" style="height: 40px; margin-right: 10px;">
+                        <span>LCU Medical Research</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Research & Innovation</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Research Areas</h3>
+                                    <a href="ai-driven-research.html">AI-Driven Research</a>
+                                    <a href="robotics-innovation.html">Robotics Innovation</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality in Medical Training</a>
+                                    <a href="quantum-computing-for-drug-discovery.html">Quantum Computing for Drug Discovery</a>
+                                    <a href="nanotechnology-in-medicine.html">Nanotechnology in Medicine</a>
+                                    <a href="ai-ethics-in-healthcare.html">AI Ethics in Healthcare</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Innovation Centers</h3>
+                                    <a href="ai-research-labs.html">AI Research Labs</a>
+                                    <a href="robotics-development-centers.html">Robotics Development Centers</a>
+                                    <a href="virtual-labs.html">Virtual Labs</a>
+                                    <a href="research-departments.html">Research Departments</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="research-databases.html">Research Databases</a>
+                                    <a href="digital-publications.html">Digital Publications</a>
+                                    <a href="e-journals.html">E-Journals</a>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Education & Training</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Programs</h3>
+                                    <a href="ai-assisted-continuing-education.html">AI-Assisted Continuing Education</a>
+                                    <a href="robotic-surgery-simulations.html">Robotic Surgery Simulations</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality Training</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="digital-collections.html">Digital Collections</a>
+                                    <a href="online-resources.html">Online Resources</a>
+                                    <a href="research-databases.html">Research Databases</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Opportunities</h3>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                    <a href="advanced-research-opportunities.html">Advanced Research</a>
+                                    <a href="laboratories.html">Laboratories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Community & Events</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Connect</h3>
+                                    <a href="virtual-networking-events.html">Virtual Networking Events</a>
+                                    <a href="join-our-discord.html">Join Our Discord</a>
+                                    <a href="membership.html">Membership</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Support</h3>
+                                    <a href="donation.html">Make a Donation</a>
+                                    <a href="donate-compute-power.html">Donate Compute Power</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Robotic Surgery Training Programs</h1>
+                <p class="hero-subtitle">Advanced training in cutting-edge robotic surgical techniques</p>
+            </div>
+        </section>
+
+        <section class="program-grid">
+            <div class="program-card">
+                <img src="/assets/robot+health.jpeg" alt="Basic Training" class="program-image">
+                <div class="program-content">
+                    <h3 class="program-title">Basic Robotic Surgery Training</h3>
+                    <p class="program-description">Introduction to robotic surgical systems and fundamental techniques.</p>
+                    <div class="program-details">
+                        <span class="program-duration">6 weeks</span>
+                        <span class="program-level">Beginner</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <img src="/assets/ai+health.png" alt="Advanced Training" class="program-image">
+                <div class="program-content">
+                    <h3 class="program-title">Advanced Procedures Training</h3>
+                    <p class="program-description">Specialized training in complex robotic surgical procedures.</p>
+                    <div class="program-details">
+                        <span class="program-duration">12 weeks</span>
+                        <span class="program-level">Advanced</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <img src="/assets/digitaltwin+health.png" alt="Specialty Training" class="program-image">
+                <div class="program-content">
+                    <h3 class="program-title">Specialty-Specific Training</h3>
+                    <p class="program-description">Focused training in specific surgical specialties using robotic systems.</p>
+                    <div class="program-details">
+                        <span class="program-duration">16 weeks</span>
+                        <span class="program-level">Expert</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="simulation-section">
+            <div class="simulation-container">
+                <h2 class="simulation-title">State-of-the-Art Simulation Labs</h2>
+                <div class="simulation-grid">
+                    <div class="simulation-item" onclick="showSimulationDetails('basic')">
+                        <h3>Basic Skills Lab</h3>
+                        <p>Practice fundamental robotic control and manipulation</p>
+                    </div>
+                    <div class="simulation-item" onclick="showSimulationDetails('advanced')">
+                        <h3>Advanced Procedures Lab</h3>
+                        <p>Simulate complex surgical scenarios and techniques</p>
+                    </div>
+                    <div class="simulation-item" onclick="showSimulationDetails('emergency')">
+                        <h3>Emergency Response Lab</h3>
+                        <p>Train for critical situations and complications</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="certification-section">
+            <div class="certification-container">
+                <h2 class="certification-title">Certification Path</h2>
+                <div class="certification-timeline">
+                    <div class="timeline-item">
+                        <h3>Level 1: Basic Certification</h3>
+                        <p>Foundation in robotic surgical systems and basic procedures</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Level 2: Advanced Certification</h3>
+                        <p>Mastery of complex procedures and specialized techniques</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Level 3: Expert Certification</h3>
+                        <p>Specialty-specific expertise and advanced competencies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="progress-section">
+            <div class="progress-container">
+                <h2 class="progress-title">Training Progress Tracking</h2>
+                <div class="progress-grid">
+                    <div class="progress-item">
+                        <div class="progress-circle" id="skillsProgress">
+                            <div class="progress-value">0%</div>
+                        </div>
+                        <div class="progress-label">Skills Mastery</div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-circle" id="proceduresProgress">
+                            <div class="progress-value">0%</div>
+                        </div>
+                        <div class="progress-label">Procedures Completed</div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-circle" id="certificationProgress">
+                            <div class="progress-value">0%</div>
+                        </div>
+                        <div class="progress-label">Certification Progress</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simulation Details Function
+        function showSimulationDetails(type) {
+            const simulations = {
+                basic: {
+                    title: 'Basic Skills Laboratory',
+                    description: 'Our basic skills lab provides hands-on training with state-of-the-art robotic surgical simulators. Practice fundamental techniques in a risk-free environment.'
+                },
+                advanced: {
+                    title: 'Advanced Procedures Laboratory',
+                    description: 'The advanced lab offers complex scenario simulations and specialized procedure training using high-fidelity robotic systems.'
+                },
+                emergency: {
+                    title: 'Emergency Response Training',
+                    description: 'Learn to handle critical situations and complications through realistic emergency scenario simulations.'
+                }
+            };
+
+            const simulation = simulations[type];
+            alert(`${simulation.title}\n\n${simulation.description}`);
+        }
+
+        // Progress Circle Animation
+        function animateProgress(elementId, targetValue) {
+            const element = document.getElementById(elementId);
+            const valueDisplay = element.querySelector('.progress-value');
+            let currentValue = 0;
+
+            const interval = setInterval(() => {
+                if (currentValue >= targetValue) {
+                    clearInterval(interval);
+                    return;
+                }
+                currentValue++;
+                valueDisplay.textContent = `${currentValue}%`;
+                element.style.background = `conic-gradient(
+                    #1e3a8a ${currentValue * 3.6}deg,
+                    #e5e7eb ${currentValue * 3.6}deg
+                )`;
+            }, 20);
+        }
+
+        // Initialize Progress Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simulate different progress values
+            setTimeout(() => {
+                animateProgress('skillsProgress', 85);
+                animateProgress('proceduresProgress', 70);
+                animateProgress('certificationProgress', 60);
+            }, 500);
+        });
+
+        // Intersection Observer for Animation Triggers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 1s ease-out forwards';
+                }
+            });
+        });
+
+        document.querySelectorAll('.program-card, .simulation-item, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

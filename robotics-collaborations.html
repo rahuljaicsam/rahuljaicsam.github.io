@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Collaborations | Lifestyle Corp University</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .dropdown h3 {
+            padding: 0.5rem 1rem;
+            margin: 0;
+            font-size: 0.875rem;
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.9)), url('/assets/robot+health.jpeg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 3rem 0;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #2563eb;
+        }
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        
+        /* Collaboration Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .benefit-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #2563eb;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-card h3 {
+            color: #2563eb;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .benefit-card h3 span {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Collaboration Showcase */
+        .collaboration-showcase {
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .showcase-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .showcase-slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+        @media (min-width: 768px) {
+            .showcase-slide {
+                flex-direction: row;
+            }
+        }
+        .showcase-image {
+            flex: 1;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        .showcase-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        .showcase-content h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .showcase-content p {
+            margin-bottom: 1.5rem;
+        }
+        .showcase-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .showcase-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background-color: #d1d5db;
+            margin: 0 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .showcase-nav button.active {
+            background-color: #2563eb;
+        }
+        .showcase-arrows {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 1;
+            padding: 0 1rem;
+        }
+        .showcase-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Collaboration Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .stat-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        .stat-label {
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+        
+        /* Collaboration Types */
+        .collaboration-types {
+            margin-top: 2rem;
+        }
+        .collaboration-type {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #2563eb;
+        }
+        .collaboration-type h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .collaboration-type h3::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .collaboration-type.active h3::after {
+            content: '-';
+        }
+        .collaboration-content {
+            display: none;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .collaboration-type.active .collaboration-content {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Success Stories */
+        .success-stories {
+            margin-top: 2rem;
+        }
+        .story-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .story-card {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        .story-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+        @media (min-width: 768px) {
+            .story-logo {
+                margin-right: 1.5rem;
+                margin-bottom: 0;
+            }
+        }
+        .story-content h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .story-content p {
+            margin-bottom: 1rem;
+        }
+        .story-quote {
+            font-style: italic;
+            color: #4b5563;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 3px solid #2563eb;
+        }
+        
+        /* Collaboration Process */
+        .process-steps {
+            margin-top: 2rem;
+            position: relative;
+        }
+        .process-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+        .process-step {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+        .step-content {
+            padding-left: 1.5rem;
+        }
+        .step-content h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Collaboration Map */
+        .collaboration-map {
+            height: 400px;
+            background-color: #f3f4f6;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            position: relative;
+            margin-top: 2rem;
+        }
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+        }
+        .map-overlay h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .map-pins {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .map-pin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #2563eb;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .map-pin:hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: #1d4ed8;
+        }
+        .map-pin::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .map-tooltip {
+            position: absolute;
+            background-color: white;
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            z-index: 2;
+            display: none;
+        }
+        .map-pin:hover .map-tooltip {
+            display: block;
+        }
+        
+        /* Collaboration Form */
+        .collaboration-form {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .form-row {
+                flex-direction: row;
+            }
+            .form-row .form-group {
+                flex: 1;
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .footer-content p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Navigation */
+            .nav-items {
+                display: none;
+            }
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            /* Benefits Grid */
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Stats Container */
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            /* Footer */
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* Benefits Grid */
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Stats Container */
+            .stats-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Robotics Collaborations at Lifestyle Corp University</h1>
+            <p>Partnering with industry leaders to advance robotics innovation in healthcare and beyond</p>
+        </div>
+    </div>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Strategic Robotics Partnerships</h2>
+                <p>At Lifestyle Corp University, we believe that the future of healthcare innovation lies in strategic partnerships between academia, industry, and healthcare providers. Our robotics collaboration program brings together the brightest minds and most advanced technologies to solve complex medical challenges and improve patient outcomes worldwide.</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3><span>🔬</span> Research Acceleration</h3>
+                        <p>Access cutting-edge robotics research facilities and collaborate with our team of high-IQ researchers to accelerate your organization's innovation pipeline.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>🤖</span> Technology Transfer</h3>
+                        <p>Transform groundbreaking robotics research into practical healthcare applications through our established pathways for technology commercialization.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>👥</span> Talent Access</h3>
+                        <p>Connect with our network of robotics specialists, medical professionals, and high-IQ individuals for recruitment, consultation, or collaborative projects.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>💡</span> Innovation Ecosystem</h3>
+                        <p>Join our thriving ecosystem of robotics startups, established healthcare companies, and research institutions to foster cross-disciplinary innovation.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>🌐</span> Global Network</h3>
+                        <p>Leverage our international connections to expand your organization's reach and impact in the global robotics healthcare landscape.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>🏆</span> Competitive Advantage</h3>
+                        <p>Stay ahead of the curve with early access to emerging robotics technologies and methodologies developed in our research labs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Our Robotics Collaboration Impact</h2>
+                <p>Through strategic partnerships with industry leaders, healthcare providers, and research institutions, we're making significant strides in advancing robotics technology for healthcare applications.</p>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number" id="partners-count">0</div>
+                        <div class="stat-label">Global Partners</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="projects-count">0</div>
+                        <div class="stat-label">Active Projects</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="patents-count">0</div>
+                        <div class="stat-label">Patents Filed</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="publications-count">0</div>
+                        <div class="stat-label">Research Publications</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Featured Robotics Collaborations</h2>
+                <p>Explore some of our most impactful partnerships that are revolutionizing healthcare through advanced robotics.</p>
+                
+                <div class="collaboration-showcase">
+                    <div class="showcase-slides" id="showcase-slides">
+                        <div class="showcase-slide">
+                            <div class="showcase-image" style="background-image: url('/assets/robot+health.jpeg');"></div>
+                            <div class="showcase-content">
+                                <h3>Surgical Robotics Initiative with MedTech Innovations</h3>
+                                <p>A groundbreaking partnership developing next-generation surgical robots that enhance precision, reduce recovery time, and improve patient outcomes across complex procedures.</p>
+                                <p><strong>Key Achievements:</strong></p>
+                                <ul>
+                                    <li>Development of miniaturized surgical robots for minimally invasive procedures</li>
+                                    <li>Implementation of haptic feedback systems for enhanced surgeon control</li>
+                                    <li>Integration of AI-driven surgical planning and guidance</li>
+                                </ul>
+                                <a href="#" class="btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="showcase-slide">
+                            <div class="showcase-image" style="background-image: url('/assets/ai+health.png');"></div>
+                            <div class="showcase-content">
+                                <h3>Rehabilitation Robotics with NeuroAssist Technologies</h3>
+                                <p>Collaborating to create advanced robotic exoskeletons and assistive devices that help patients recover from stroke, spinal cord injuries, and other neurological conditions.</p>
+                                <p><strong>Key Achievements:</strong></p>
+                                <ul>
+                                    <li>Development of adaptive exoskeletons that learn from patient movements</li>
+                                    <li>Creation of portable rehabilitation robots for home use</li>
+                                    <li>Integration of virtual reality for engaging therapy sessions</li>
+                                </ul>
+                                <a href="#" class="btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-arrows">
+                        <button class="showcase-arrow" id="prev-slide">❮</button>
+                        <button class="showcase-arrow" id="next-slide">❯</button>
+                    </div>
+                    
+                    <div class="showcase-nav" id="showcase-nav">
+                        <button class="active" data-index="0"></button>
+                        <button data-index="1"></button>
+                        <button data-index="2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Collaboration Types</h2>
+                <p>We offer various collaboration models to meet the diverse needs of our partners in the robotics healthcare ecosystem.</p>
+                
+                <div class="collaboration-types">
+                    <div class="collaboration-type">
+                        <h3>Research Partnerships</h3>
+                        <div class="collaboration-content">
+                            <p>Join forces with our world-class researchers to tackle complex challenges in medical robotics. Research partnerships provide access to our state-of-the-art facilities, high-IQ talent pool, and interdisciplinary expertise.</p>
+                            <p><strong>Benefits include:</strong></p>
+                            <ul>
+                                <li>Co-authored research publications in prestigious journals</li>
+                                <li>Joint intellectual property rights</li>
+                                <li>Access to specialized robotics laboratories and equipment</li>
+                                <li>Collaboration with our network of medical institutions for clinical validation</li>
+                            </ul>
+                            <p><strong>Ideal for:</strong> Research institutions, R&D departments, and companies focused on breakthrough innovations in healthcare robotics.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-type">
+                        <h3>Technology Licensing</h3>
+                        <div class="collaboration-content">
+                            <p>License our cutting-edge robotics technologies to accelerate your product development and gain a competitive advantage in the healthcare market.</p>
+                            <p><strong>Available technologies include:</strong></p>
+                            <ul>
+                                <li>Precision surgical robotics systems and components</li>
+                                <li>Adaptive control algorithms for rehabilitation robots</li>
+                                <li>Human-robot interaction frameworks for caregiving applications</li>
+                                <li>Sensor fusion technologies for enhanced robot perception</li>
+                            </ul>
+                            <p><strong>Ideal for:</strong> Medical device manufacturers, healthcare technology companies, and startups looking to incorporate advanced robotics into their products.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-type">
+                        <h3>Industry-Sponsored Projects</h3>
+                        <div class="collaboration-content">
+                            <p>Fund specific research initiatives aligned with your organization's strategic goals. Our team will work closely with your experts to deliver tailored solutions to your robotics challenges.</p>
+                            <p><strong>Project types include:</strong></p>
+                            <ul>
+                                <li>Proof-of-concept development for novel robotics applications</li>
+                                <li>Optimization of existing robotic systems for specific medical procedures</li>
+                                <li>Customization of robotics platforms for specialized healthcare environments</li>
+                                <li>Validation studies for regulatory approval processes</li>
+                            </ul>
+                            <p><strong>Ideal for:</strong> Healthcare providers, medical technology companies, and pharmaceutical firms seeking targeted robotics solutions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="collaboration-type">
+                        <h3>Educational Partnerships</h3>
+                        <div class="collaboration-content">
+                            <p>Collaborate on training programs to develop the next generation of robotics specialists for healthcare applications. We offer customized educational experiences for your technical teams.</p>
+                            <p><strong>Offerings include:</strong></p>
+                            <ul>
+                                <li>Specialized workshops on medical robotics design and implementation</li>
+                                <li>Executive education programs on robotics strategy in healthcare</li>
+                                <li>Technical training for clinical staff on robotic system operation</li>
+                                <li>Joint development of robotics curricula for healthcare professionals</li>
+                            </ul>
+                            <p><strong>Ideal for:</strong> Hospitals, medical schools, continuing education providers, and companies investing in workforce development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Success Stories</h2>
+                <p>Discover how our robotics collaborations have transformed healthcare delivery and patient outcomes around the world.</p>
+                
+                <div class="success-stories">
+                    <div class="story-card">
+                        <div class="story-logo">🏥</div>
+                        <div class="story-content">
+                            <h3>Memorial Healthcare System</h3>
+                            <p>Implemented our collaborative surgical robotics platform across their network of hospitals, resulting in a 30% reduction in recovery time for complex procedures and a 25% increase in surgical precision.</p>
+                            <div class="story-quote">
+                                "The partnership with Lifestyle Corp University has revolutionized how we approach complex surgeries. The robotics systems developed through our collaboration have enabled our surgeons to perform procedures that were previously impossible, while significantly improving patient outcomes."
+                                <p>— Dr. Sarah Chen, Chief of Surgical Innovation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-logo">🔬</div>
+                        <div class="story-content">
+                            <h3>BioTech Robotics</h3>
+                            <p>A startup that emerged from our robotics incubator program, now valued at $500 million after developing a breakthrough microrobotic platform for targeted drug delivery based on research conducted in our laboratories.</p>
+                            <div class="story-quote">
+                                "The mentorship, resources, and collaborative environment at Lifestyle Corp University were instrumental in helping us transform our concept into a market-ready product. The university's network of clinical partners provided invaluable feedback during our development process."
+                                <p>— Michael Rodriguez, CEO and Co-founder</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-logo">👵</div>
+                        <div class="story-content">
+                            <h3>SilverCare Assisted Living Network</h3>
+                            <p>Deployed our caregiving robotics assistants across 50 facilities, resulting in improved medication adherence, reduced fall incidents, and enhanced quality of life for residents while optimizing staff efficiency.</p>
+                            <div class="story-quote">
+                                "The caregiving robots developed through our collaboration with Lifestyle Corp University have transformed our ability to provide personalized care. Our residents have embraced these compassionate assistants, and our staff can now focus more on complex care needs while the robots handle routine tasks."
+                                <p>— Emma Thompson, Director of Innovation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Collaboration Process</h2>
+                <p>Our streamlined process makes it easy to establish and maintain productive partnerships in robotics innovation.</p>
+                
+                <div class="process-steps">
+                    <div class="process-line"></div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Initial Consultation</h3>
+                            <p>Begin with a comprehensive discussion of your organization's goals, challenges, and vision for robotics in healthcare. Our team will help identify potential collaboration opportunities aligned with your strategic objectives.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Partnership Design</h3>
+                            <p>Work with our collaboration specialists to craft a customized partnership model that addresses your specific needs, timeline, and resource considerations. We'll define clear objectives, deliverables, and success metrics.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Agreement Formalization</h3>
+                            <p>Establish the legal and operational framework for our collaboration, including intellectual property rights, resource commitments, confidentiality provisions, and governance structure.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Project Implementation</h3>
+                            <p>Launch the collaborative initiative with dedicated project teams, regular progress reviews, and agile adaptation to emerging challenges and opportunities in the rapidly evolving robotics landscape.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Evaluation & Expansion</h3>
+                            <p>Assess outcomes against established metrics, document lessons learned, and explore opportunities to expand or evolve our partnership based on achieved successes and emerging priorities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Global Collaboration Network</h2>
+                <p>Our robotics partnerships span the globe, creating a powerful network of innovation hubs advancing healthcare through technology.</p>
+                
+                <div class="collaboration-map">
+                    <div class="map-pins" id="map-pins">
+                        <!-- Map pins will be populated by JavaScript -->
+                    </div>
+                    <div class="map-overlay">
+                        <h3>Discover Our Global Network</h3>
+                        <p>Click the button below to explore our worldwide robotics collaboration network and find partners near you.</p>
+                        <button class="btn-primary" id="show-map">View Interactive Map</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Start a Collaboration</h2>
+                <p>Interested in partnering with us? Complete the form below to begin a conversation about robotics innovation.</p>
+                
+                <div class="collaboration-form">
+                    <form id="collaboration-inquiry-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="organization-name">Organization Name</label>
+                                <input type="text" id="organization-name" name="organization-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="organization-type">Organization Type</label>
+                                <select id="organization-type" name="organization-type" required>
+                                    <option value="">Select an option</option>
+                                    <option value="healthcare-provider">Healthcare Provider</option>
+                                    <option value="research-institution">Research Institution</option>
+                                    <option value="technology-company">Technology Company</option>
+                                    <option value="startup">Startup</option>
+                                    <option value="non-profit">Non-Profit Organization</option>
+                                    <option value="government">Government Agency</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Contact Name</label>
+                                <input type="text" id="contact-name" name="contact-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-email">Contact Email</label>
+                                <input type="email" id="contact-email" name="contact-email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="collaboration-type">Collaboration Interest</label>
+                            <select id="collaboration-type" name="collaboration-type" required>
+                                <option value="">Select an option</option>
+                                <option value="research-partnership">Research Partnership</option>
+                                <option value="technology-licensing">Technology Licensing</option>
+                                <option value="sponsored-project">Industry-Sponsored Project</option>
+                                <option value="educational-partnership">Educational Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="robotics-focus">Robotics Focus Area</label>
+                            <select id="robotics-focus" name="robotics-focus" required>
+                                <option value="">Select an option</option>
+                                <option value="surgical-robotics">Surgical Robotics</option>
+                                <option value="rehabilitation-robotics">Rehabilitation Robotics</option>
+                                <option value="caregiving-robotics">Caregiving Robotics</option>
+                                <option value="diagnostic-robotics">Diagnostic Robotics</option>
+                                <option value="logistics-robotics">Healthcare Logistics Robotics</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="collaboration-goals">Collaboration Goals</label>
+                            <textarea id="collaboration-goals" name="collaboration-goals" rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Lifestyle Corp University. All rights reserved.</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Accessibility</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+                });
+            }
+            
+            // Collaboration type accordions
+            const collaborationTypes = document.querySelectorAll('.collaboration-type h3');
+            
+            collaborationTypes.forEach(type => {
+                type.addEventListener('click', function() {
+                    const parent = this.parentElement;
+                    parent.classList.toggle('active');
+                });
+            });
+            
+            // Showcase slider functionality
+            const slides = document.querySelectorAll('.showcase-slide');
+            const slidesContainer = document.getElementById('showcase-slides');
+            const navButtons = document.querySelectorAll('#showcase-nav button');
+            const prevButton = document.getElementById('prev-slide');
+            const nextButton = document.getElementById('next-slide');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                if (slidesContainer) {
+                    slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+                    
+                    // Update nav buttons
+                    navButtons.forEach((btn, i) => {
+                        btn.classList.toggle('active', i === index);
+                    });
+                    
+                    currentSlide = index;
+                }
+            }
+            
+            // Nav button click handlers
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    showSlide(index);
+                });
+            });
+            
+            // Arrow button handlers
+            if (prevButton) {
+                prevButton.addEventListener('click', function() {
+                    let index = currentSlide - 1;
+                    if (index < 0) index = slides.length - 1;
+                    showSlide(index);
+                });
+            }
+            
+            if (nextButton) {
+                nextButton.addEventListener('click', function() {
+                    let index = currentSlide + 1;
+                    if (index >= slides.length) index = 0;
+                    showSlide(index);
+                });
+            }
+            
+            // Auto-increment stats
+            function animateStats() {
+                const stats = [
+                    { id: 'partners-count', target: 75 },
+                    { id: 'projects-count', target: 120 },
+                    { id: 'patents-count', target: 45 },
+                    { id: 'publications-count', target: 230 }
+                ];
+                
+                stats.forEach(stat => {
+                    const element = document.getElementById(stat.id);
+                    if (element) {
+                        let current = 0;
+                        const increment = Math.ceil(stat.target / 50);
+                        const interval = setInterval(() => {
+                            current += increment;
+                            if (current >= stat.target) {
+                                current = stat.target;
+                                clearInterval(interval);
+                            }
+                            element.textContent = current;
+                        }, 50);
+                    }
+                });
+            }
+            
+            // Interactive map functionality
+            const mapPins = document.getElementById('map-pins');
+            const showMapButton = document.getElementById('show-map');
+            const mapOverlay = document.querySelector('.map-overlay');
+            
+            // Sample collaboration locations
+            const locations = [
+                { x: 25, y: 30, name: 'Boston Medical Center', type: 'Hospital Partner' },
+                { x: 40, y: 20, name: 'European Robotics Institute', type: 'Research Partner' },
+                { x: 70, y: 35, name: 'Tokyo Health Technologies', type: 'Industry Partner' },
+                { x: 50, y: 60, name: 'Sydney Innovation Hub', type: 'Research Partner' },
+                { x: 30, y: 50, name: 'African Medical Robotics Center', type: 'Hospital Partner' },
+                { x: 80, y: 50, name: 'Singapore Robotics Lab', type: 'Industry Partner' },
+                { x: 60, y: 25, name: 'Moscow Health Innovations', type: 'Hospital Partner' },
+                { x: 20, y: 40, name: 'Canadian Robotics Alliance', type: 'Research Partner' }
+            ];
+            
+            function createMapPins() {
+                if (mapPins) {
+                    locations.forEach(location => {
+                        const pin = document.createElement('div');
+                        pin.className = 'map-pin';
+                        pin.style.left = `${location.x}%`;
+                        pin.style.top = `${location.y}%`;
+                        
+                        const tooltip = document.createElement('div');
+                        tooltip.className = 'map-tooltip';
+                        tooltip.innerHTML = `<strong>${location.name}</strong><br>${location.type}`;
+                        
+                        pin.appendChild(tooltip);
+                        mapPins.appendChild(pin);
+                    });
+                }
+            }
+            
+            if (showMapButton && mapOverlay) {
+                showMapButton.addEventListener('click', function() {
+                    mapOverlay.style.display = 'none';
+                    createMapPins();
+                });
+            }
+            
+            // Form submission handler
+            const collaborationForm = document.getElementById('collaboration-inquiry-form');
+            
+            if (collaborationForm) {
+                collaborationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest in collaborating with Lifestyle Corp University. Our team will contact you shortly to discuss your inquiry.');
+                    collaborationForm.reset();
+                });
+            }
+            
+            // Initialize animations when elements are in viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('stats-container')) {
+                            animateStats();
+                        }
+                        entry.target.classList.add('animate-fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            const animatedElements = document.querySelectorAll('.benefit-card, .stats-container, .collaboration-type, .story-card, .process-step');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

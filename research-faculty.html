@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Faculty - Lifestyle Corp University</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        /* Page Content Styles */
+        .page-header {
+            background-color: #f3f4f6;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        .page-description {
+            font-size: 1.125rem;
+            color: #4b5563;
+            max-width: 800px;
+        }
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .faculty-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: transform 0.2s;
+            background-color: white;
+        }
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .faculty-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .faculty-card-content {
+            padding: 1.5rem;
+        }
+        .faculty-card h3 {
+            font-size: 1.25rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .faculty-title {
+            color: #4b5563;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .faculty-card p {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+        .research-interests {
+            margin-top: 1rem;
+        }
+        .research-interests h4 {
+            font-size: 0.875rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .research-interests ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .research-interests li {
+            display: inline-block;
+            background-color: #e5e7eb;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: #4b5563;
+            margin: 0.25rem;
+        }
+        .btn-primary {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Research Faculty</h1>
+                <p class="page-description">Meet our distinguished faculty members who are leading groundbreaking research in healthcare, technology, and medical innovation.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <img src="/assets/iq.jpeg" alt="Dr. Sarah Chen">
+                    <div class="faculty-card-content">
+                        <h3>Dr. Sarah Chen</h3>
+                        <div class="faculty-title">Professor of AI in Healthcare</div>
+                        <p>Leading research in AI-driven diagnostic systems and personalized medicine algorithms.</p>
+                        <div class="research-interests">
+                            <h4>Research Interests:</h4>
+                            <ul>
+                                <li>Machine Learning in Healthcare</li>
+                                <li>Medical Imaging AI</li>
+                                <li>Predictive Analytics</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-primary">View Profile</a>
+                    </div>
+                </div>
+                <div class="faculty-card">
+                    <img src="/assets/neurology.gif" alt="Dr. James Rodriguez">
+                    <div class="faculty-card-content">
+                        <h3>Dr. James Rodriguez</h3>
+                        <div class="faculty-title">Associate Professor of Medical Robotics</div>
+                        <p>Specializing in robotic surgery systems and automated medical procedures.</p>
+                        <div class="research-interests">
+                            <h4>Research Interests:</h4>
+                            <ul>
+                                <li>Surgical Robotics</li>
+                                <li>Medical Automation</li>
+                                <li>Human-Robot Interaction</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-primary">View Profile</a>
+                    </div>
+                </div>
+                <div class="faculty-card">
+                    <img src="/assets/cardiology.jpeg" alt="Dr. Emily Thompson">
+                    <div class="faculty-card-content">
+                        <h3>Dr. Emily Thompson</h3>
+                        <div class="faculty-title">Professor of Digital Health</div>
+                        <p>Pioneering research in telemedicine and digital health platforms.</p>
+                        <div class="research-interests">
+                            <h4>Research Interests:</h4>
+                            <ul>
+                                <li>Telemedicine Systems</li>
+                                <li>Digital Health Platforms</li>
+                                <li>Remote Patient Monitoring</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="btn-primary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About LCU</h3>
+                    <ul>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Research</h3>
+                    <ul>
+                        <li><a href="#">Research Areas</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Facilities</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="header-styles.js"></script>
+</body>
+</html>

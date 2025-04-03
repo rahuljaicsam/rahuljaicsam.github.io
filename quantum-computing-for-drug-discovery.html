@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Computing for Drug Discovery - LCU</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="full-width-dropdown.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2c5364;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        .card p {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+        .feature-description {
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #2563eb;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #2563eb;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #2563eb;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #2563eb;
+        }
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #2563eb;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #2563eb transparent transparent;
+        }
+        .right::after {
+            left: -16px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .timeline-content h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        
+        /* Interactive Elements */
+        .interactive-demo {
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .demo-container {
+            height: 300px;
+            background-color: #0f172a;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .qubit {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #60a5fa, #2563eb);
+            box-shadow: 0 0 15px #60a5fa;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 8px;
+            margin: 4rem 0;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background-color: white;
+            color: #2563eb;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #f8fafc;
+            transform: translateY(-3px);
+        }
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid #2563eb;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #2563eb transparent transparent;
+            }
+            .left::after, .right::after {
+                left: 15px;
+            }
+            .right {
+                left: 0%;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Quantum Computing for Drug Discovery</h1>
+                <p>Harnessing the power of quantum mechanics to revolutionize pharmaceutical research and accelerate the development of life-saving medications</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Quantum Advantage in Pharmaceutical Research</h2>
+                
+                <div class="card">
+                    <h3>Transforming Drug Discovery with Quantum Computing</h3>
+                    <p>At Lifestyle Corp University, our quantum computing initiative is at the forefront of a pharmaceutical revolution. Traditional drug discovery is a time-consuming and expensive process, often taking over a decade and billions of dollars to bring a single drug to market. Quantum computing offers a paradigm shift in this field by enabling researchers to simulate molecular interactions at unprecedented scales and accuracy.</p>
+                    <p style="margin-top: 1rem;">Our quantum systems can model complex biological systems and predict how potential drug candidates might interact with target proteins, significantly accelerating the early stages of drug discovery and reducing costs by orders of magnitude.</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">⚛️</div>
+                        <h3 class="feature-title">Molecular Simulation</h3>
+                        <p class="feature-description">Quantum computers can accurately simulate molecular structures and interactions that are impossible for classical computers to process efficiently.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🧬</div>
+                        <h3 class="feature-title">Protein Folding</h3>
+                        <p class="feature-description">Our quantum algorithms can predict protein folding patterns with unprecedented accuracy, a critical step in understanding disease mechanisms.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">🔍</div>
+                        <h3 class="feature-title">Drug Candidate Screening</h3>
+                        <p class="feature-description">Quantum-powered virtual screening can evaluate billions of potential drug compounds in a fraction of the time required by traditional methods.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f0f9ff;">
+            <div class="container">
+                <h2 class="section-title">Our Quantum Computing Approaches</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-container left">
+                        <div class="timeline-content">
+                            <h3>Quantum Annealing</h3>
+                            <p>We utilize quantum annealing to solve optimization problems in drug discovery, such as finding the most stable molecular configurations and optimal binding sites.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-container right">
+                        <div class="timeline-content">
+                            <h3>Quantum Machine Learning</h3>
+                            <p>Our hybrid quantum-classical machine learning algorithms analyze vast pharmaceutical datasets to identify patterns and predict drug efficacy with greater accuracy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-container left">
+                        <div class="timeline-content">
+                            <h3>Variational Quantum Eigensolver (VQE)</h3>
+                            <p>We employ VQE algorithms to calculate molecular ground states and electronic structures, essential for understanding drug-target interactions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-container right">
+                        <div class="timeline-content">
+                            <h3>Quantum Phase Estimation</h3>
+                            <p>This technique allows us to determine energy levels of molecular systems with unprecedented precision, critical for drug design and optimization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Current Research Projects</h2>
+                
+                <div class="card">
+                    <h3>Quantum-Accelerated COVID-19 Therapeutics</h3>
+                    <p>Our team is using quantum computing to identify novel antiviral compounds that can target SARS-CoV-2 variants. By simulating protein-ligand interactions at the quantum level, we've identified several promising candidates currently undergoing preclinical testing.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Neurodegenerative Disease Treatment</h3>
+                    <p>We're applying quantum algorithms to model protein misfolding in conditions like Alzheimer's and Parkinson's disease. Our quantum simulations have revealed new insights into the mechanisms of these diseases and identified potential therapeutic targets.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Cancer Drug Resistance Prediction</h3>
+                    <p>Using quantum machine learning, we're developing models to predict how cancer cells might develop resistance to treatments, allowing for the design of more effective combination therapies and personalized treatment protocols.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="interactive-demo">
+            <div class="container">
+                <h2>Interactive Quantum Computing Visualization</h2>
+                <p>Experience how quantum superposition and entanglement enable exponentially faster drug candidate screening</p>
+                <div class="demo-container" id="quantum-demo">
+                    <!-- Quantum particles will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Quantum Computing Infrastructure</h2>
+                
+                <div class="card">
+                    <h3>Our Quantum Hardware</h3>
+                    <p>LCU has invested in state-of-the-art quantum computing systems, including:</p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Superconducting qubit processors with 100+ qubits</li>
+                        <li style="margin-bottom: 0.5rem;">Trapped-ion quantum computers for high-fidelity operations</li>
+                        <li style="margin-bottom: 0.5rem;">Quantum annealers optimized for drug discovery applications</li>
+                        <li>Hybrid quantum-classical computing clusters</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Quantum Software Development</h3>
+                    <p>Our team has developed proprietary quantum algorithms and software tools specifically designed for pharmaceutical applications:</p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">QuantumDock™: A quantum-enhanced molecular docking platform</li>
+                        <li style="margin-bottom: 0.5rem;">QFold: Quantum algorithms for protein folding prediction</li>
+                        <li style="margin-bottom: 0.5rem;">PharmQML: Quantum machine learning library for drug discovery</li>
+                        <li>BioQuant: Quantum simulation framework for biological systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <div class="container">
+                <h2>Join Our Quantum Computing for Drug Discovery Initiative</h2>
+                <p>Collaborate with our team of quantum physicists, computational chemists, and AI researchers to accelerate the development of life-saving medications</p>
+                <div class="cta-buttons">
+                    <a href="research-opportunities.html" class="btn-primary">Research Opportunities</a>
+                    <a href="membership.html" class="btn-secondary">Apply for Membership</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Partnerships and Collaborations</h2>
+                
+                <div class="card">
+                    <h3>Industry Partnerships</h3>
+                    <p>We collaborate with leading pharmaceutical companies, quantum hardware providers, and research institutions to advance the field of quantum-accelerated drug discovery:</p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Strategic partnerships with major pharmaceutical companies</li>
+                        <li style="margin-bottom: 0.5rem;">Collaborations with quantum hardware manufacturers</li>
+                        <li style="margin-bottom: 0.5rem;">Joint research initiatives with academic institutions</li>
+                        <li>Participation in global quantum computing consortia</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Educational Initiatives</h3>
+                    <p>We're committed to training the next generation of quantum computing experts in pharmaceutical research:</p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Graduate programs in quantum computational chemistry</li>
+                        <li style="margin-bottom: 0.5rem;">Professional development courses for pharmaceutical researchers</li>
+                        <li style="margin-bottom: 0.5rem;">Quantum programming workshops for computational biologists</li>
+                        <li>Online learning resources and certification programs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="https://www.riotiq.com" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">🧠</span>
+                        <span>Take the IQ Test</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">💻</span>
+                        <span>Explore AI Career Opportunities</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">📰</span>
+                        <span>Subscribe to our Digital Journal</span>
+                    </a>
+                </div>
+                <!-- Footer links will be populated by JavaScript -->
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">AI Ethics Guidelines</a>
+                    <a href="#">Non-Discrimination Policy</a>
+                </div>
+                <p>&copy; 2020-2024 Lifestyle Corp University. All rights reserved. Powered by AI and high-IQ individuals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="header-styles.js"></script>
+    <script>
+        // Interactive Quantum Demo
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoContainer = document.getElementById('quantum-demo');
+            const containerWidth = demoContainer.offsetWidth;
+            const containerHeight = demoContainer.offsetHeight;
+            
+            // Create quantum particles (qubits)
+            for (let i = 0; i < 15; i++) {
+                createQubit(demoContainer, containerWidth, containerHeight);
+            }
+            
+            // Simulate quantum entanglement on click
+            demoContainer.addEventListener('click', function(e) {
+                // Create entanglement effect
+                const entanglementPoint = document.createElement('div');
+                entanglementPoint.style.position = 'absolute';
+                entanglementPoint.style.left = (e.clientX - demoContainer.getBoundingClientRect().left) + 'px';
+                entanglementPoint.style.top = (e.clientY - demoContainer.getBoundingClientRect().top) + 'px';
+                entanglementPoint.style.width = '0';
+                entanglementPoint.style.height = '0';
+                entanglementPoint.style.borderRadius = '50%';
+                entanglementPoint.style.backgroundColor = 'rgba(59, 130, 246, 0.5)';
+                entanglementPoint.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.8)';
+                entanglementPoint.style.zIndex = '1';
+                demoContainer.appendChild(entanglementPoint);
+                
+                // Animate the entanglement effect
+                let size = 0;
+                const entanglementAnimation = setInterval(function() {
+                    size += 5;
+                    entanglementPoint.style.width = size + 'px';
+                    entanglementPoint.style.height = size + 'px';
+                    entanglementPoint.style.left = (parseInt(entanglementPoint.style.left) - 2.5) + 'px';
+                    entanglementPoint.style.top = (parseInt(entanglementPoint.style.top) - 2.5) + 'px';
+                    
+                    if (size >= 200) {
+                        clearInterval(entanglementAnimation);
+                        entanglementPoint.style.opacity = '0';
+                        setTimeout(function() {
+                            demoContainer.removeChild(entanglementPoint);
+                        }, 500);
+                    }
+                }, 20);
+                
+                // Affect nearby qubits
+                const qubits = document.querySelectorAll('.qubit');
+                qubits.forEach(qubit => {
+                    const qubitX = parseInt(qubit.style.left);
+                    const qubitY = parseInt(qubit.style.top);
+                    const clickX = e.clientX - demoContainer.getBoundingClientRect().left;
+                    const clickY = e.clientY - demoContainer.getBoundingClientRect().top;
+                    
+                    const distance = Math.sqrt(Math.pow(qubitX - clickX, 2) + Math.pow(qubitY - clickY, 2));
+                    
+                    if (distance < 150) {
+                        // Change color to show entanglement
+                        qubit.style.backgroundColor = '#f472b6';
+                        qubit.style.boxShadow = '0 0 15px #f472b6';
+                        
+                        // Move toward click point
+                        const angle = Math.atan2(clickY - qubitY, clickX - qubitX);
+                        const newX = qubitX + Math.cos(angle) * 50;
+                        const newY = qubitY + Math.sin(angle) * 50;
+                        
+                        qubit.style.transition = 'all 0.5s ease-out';
+                        qubit.style.left = newX + 'px';
+                        qubit.style.top = newY + 'px';
+                        
+                        // Reset after a delay
+                        setTimeout(function() {
+                            qubit.style.backgroundColor = '';
+                            qubit.style.boxShadow = '';
+                            qubit.style.transition = '';
+                            
+                            // Return to random movement
+                            moveQubit(qubit, containerWidth, containerHeight);
+                        }, 2000);
+                    }
+                });
+            });
+        });
+        
+        function createQubit(container, maxWidth, maxHeight) {
+            const qubit = document.createElement('div');
+            qubit.className = 'qubit';
+            qubit.style.left = Math.random() * (maxWidth - 40) + 'px';
+            qubit.style.top = Math.random() * (maxHeight - 40) + 'px';
+            container.appendChild(qubit);
+            
+            // Start random movement
+            moveQubit(qubit, maxWidth, maxHeight);
+        }
+        
+        function moveQubit(qubit, maxWidth, maxHeight) {
+            const speed = 0.5 + Math.random() * 1.5;
+            const angle = Math.random() * Math.PI * 2;
+            let dx = Math.cos(angle) * speed;
+            let dy = Math.sin(angle) * speed;
+            
+            function animate() {
+                const x = parseInt(qubit.style.left);
+                const y = parseInt(qubit.style.top);
+                
+                // Bounce off walls
+                if (x <= 0 || x >= maxWidth - 40) dx = -dx;
+                if (y <= 0 || y >= maxHeight - 40) dy = -dy;
+                
+                qubit.style.left = (x + dx) + 'px';
+                qubit.style.top = (y + dy) + 'px';
+                
+                // Subtle pulsing effect
+                const scale = 0.9 + Math.sin(Date.now() / 500) * 0.1;
+                qubit.style.transform = `scale(${scale})`;
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        // Add interactive timeline animations
+        const timelineItems = document.querySelectorAll('.timeline-container');
+        timelineItems.forEach((item, index) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            item.style.opacity = '0';
+            item.style.transform = item.classList.contains('left') ? 'translateX(-50px)' : 'translateX(50px)';
+            item.style.transition = 'all 0.8s ease-out';
+            observer.observe(item);
+        });
+
+        // Populate footer links dynamically
+        const footerLinksContainer = document.querySelector('.footer-links');
+        const additionalLinks = [
+            { text: 'Contact Us', href: '#' },
+            { text: 'Research Publications', href: '#' },
+            { text: 'Quantum Computing Resources', href: '#' },
+            { text: 'Career Opportunities', href: '#' }
+        ];
+
+        additionalLinks.forEach(link => {
+            const anchor = document.createElement('a');
+            anchor.href = link.href;
+            anchor.textContent = link.text;
+            footerLinksContainer.appendChild(anchor);
+        });
+
+        // Add scroll-triggered animations for feature cards
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Partnerships | Lifestyle Corp University</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .dropdown h3 {
+            padding: 0.5rem 1rem;
+            margin: 0;
+            font-size: 0.875rem;
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.9)), url('/assets/ai+health.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        .page-header p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 3rem 0;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #2563eb;
+        }
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        
+        /* Partnership Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .benefit-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #2563eb;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-card h3 {
+            color: #2563eb;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .benefit-card h3 span {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Partnership Showcase */
+        .partnership-showcase {
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .showcase-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .showcase-slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+        }
+        @media (min-width: 768px) {
+            .showcase-slide {
+                flex-direction: row;
+            }
+        }
+        .showcase-image {
+            flex: 1;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        .showcase-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        .showcase-content h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .showcase-content p {
+            margin-bottom: 1.5rem;
+        }
+        .showcase-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .showcase-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background-color: #d1d5db;
+            margin: 0 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .showcase-nav button.active {
+            background-color: #2563eb;
+        }
+        .showcase-arrows {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 1;
+            padding: 0 1rem;
+        }
+        .showcase-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Partnership Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .stat-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        .stat-label {
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+        
+        /* Partnership Types */
+        .partnership-types {
+            margin-top: 2rem;
+        }
+        .partnership-type {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #2563eb;
+        }
+        .partnership-type h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .partnership-type h3::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .partnership-type.active h3::after {
+            content: '-';
+        }
+        .partnership-content {
+            display: none;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .partnership-type.active .partnership-content {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Success Stories */
+        .success-stories {
+            margin-top: 2rem;
+        }
+        .story-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .story-card {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        .story-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+        @media (min-width: 768px) {
+            .story-logo {
+                margin-right: 1.5rem;
+                margin-bottom: 0;
+            }
+        }
+        .story-content h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .story-content p {
+            margin-bottom: 1rem;
+        }
+        .story-quote {
+            font-style: italic;
+            color: #4b5563;
+            position: relative;
+            padding-left: 1rem;
+            border-left: 3px solid #2563eb;
+        }
+        
+        /* Partnership Process */
+        .process-steps {
+            margin-top: 2rem;
+            position: relative;
+        }
+        .process-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+        .process-step {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+        .step-content {
+            padding-left: 1.5rem;
+        }
+        .step-content h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Partnership Form */
+        .partnership-form {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .form-row {
+                flex-direction: row;
+            }
+            .form-row .form-group {
+                flex: 1;
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Navigation */
+            .nav-items {
+                display: none;
+            }
+            .mobile-menu-button {
+                display: block;
+            }
+            
+            /* Benefits Grid */
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Stats Container */
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            /* Footer */
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* Benefits Grid */
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Stats Container */
+            .stats-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>AI Partnerships at Lifestyle Corp University</h1>
+            <p>Collaborating with industry leaders to advance AI innovation in healthcare and beyond</p>
+        </div>
+    </div>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Strategic AI Partnerships</h2>
+                <p>At Lifestyle Corp University, we believe that the future of healthcare innovation lies in strategic partnerships between academia, industry, and healthcare providers. Our AI partnership program brings together the brightest minds and most advanced technologies to solve complex medical challenges and improve patient outcomes worldwide.</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <h3><span>🔬</span> Research Acceleration</h3>
+                        <p>Access cutting-edge AI research facilities and collaborate with our team of high-IQ researchers to accelerate your organization's innovation pipeline.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>🤖</span> Technology Transfer</h3>
+                        <p>Transform groundbreaking AI research into practical healthcare applications through our established pathways for technology commercialization.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>👥</span> Talent Access</h3>
+                        <p>Connect with our network of AI specialists, medical professionals, and high-IQ individuals for recruitment, consultation, or collaborative projects.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>💡</span> Innovation Ecosystem</h3>
+                        <p>Join our thriving ecosystem of AI startups, established healthcare companies, and research institutions to foster cross-disciplinary innovation.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>🌐</span> Global Network</h3>
+                        <p>Leverage our international connections to expand your organization's reach and impact in the global AI healthcare landscape.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <h3><span>🏆</span> Competitive Advantage</h3>
+                        <p>Stay ahead of the curve with early access to emerging AI technologies and methodologies developed in our research labs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Featured Partnerships</h2>
+                <p>Explore some of our most impactful collaborations with industry leaders and research institutions.</p>
+                
+                <div class="partnership-showcase">
+                    <div class="showcase-slides" id="showcase-slides">
+                        <div class="showcase-slide">
+                            <div class="showcase-image" style="background-image: url('/assets/ai+health.png');"></div>
+                            <div class="showcase-content">
+                                <h3>NeuroTech AI Collaboration</h3>
+                                <p>Our partnership with NeuroTech AI has led to groundbreaking advancements in neural interface technologies for patients with mobility impairments. Together, we've developed AI systems that can interpret neural signals with unprecedented accuracy.</p>
+                                <p><strong>Key Achievements:</strong></p>
+                                <ul>
+                                    <li>Developed neural decoding algorithms with 95% accuracy</li>
+                                    <li>Created adaptive learning systems for personalized neural interfaces</li>
+                                    <li>Published 12 joint research papers in top-tier journals</li>
+                                </ul>
+                                <a href="#" class="btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="showcase-slide">
+                            <div class="showcase-image" style="background-image: url('/assets/robot+health.jpeg');"></div>
+                            <div class="showcase-content">
+                                <h3>MedRobotics Initiative</h3>
+                                <p>Our collaboration with MedRobotics has revolutionized minimally invasive surgical procedures through AI-enhanced robotic systems. This partnership combines our AI expertise with industry-leading robotics technology.</p>
+                                <p><strong>Key Achievements:</strong></p>
+                                <ul>
+                                    <li>Reduced surgical error rates by 43% through AI assistance</li>
+                                    <li>Developed predictive algorithms for surgical planning</li>
+                                    <li>Created virtual training simulations for surgeons</li>
+                                </ul>
+                                <a href="#" class="btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="showcase-slide">
+                            <div class="showcase-image" style="background-image: url('/assets/digitaltwin+health.png');"></div>
+                            <div class="showcase-content">
+                                <h3>Digital Twin Health Consortium</h3>
+                                <p>Our partnership with the Digital Twin Health Consortium is creating personalized digital replicas of patients to revolutionize treatment planning and disease prevention through advanced AI modeling.</p>
+                                <p><strong>Key Achievements:</strong></p>
+                                <ul>
+                                    <li>Created comprehensive digital twin models for cardiovascular health</li>
+                                    <li>Developed predictive algorithms for medication response</li>
+                                    <li>Implemented AI-driven personalized treatment recommendations</li>
+                                </ul>
+                                <a href="#" class="btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-arrows">
+                        <button class="showcase-arrow" id="prev-slide">❮</button>
+                        <button class="showcase-arrow" id="next-slide">❯</button>
+                    </div>
+                    
+                    <div class="showcase-nav" id="showcase-nav">
+                        <button class="active" data-slide="0"></button>
+                        <button data-slide="1"></button>
+                        <button data-slide="2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Partnership Impact</h2>
+                <p>Our collaborative approach to AI research and development has yielded significant results across multiple domains of healthcare and technology.</p>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-partners">0</div>
+                        <div class="stat-label">Active Partners</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-projects">0</div>
+                        <div class="stat-label">Collaborative Projects</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-publications">0</div>
+                        <div class="stat-label">Joint Publications</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat-patents">0</div>
+                        <div class="stat-label">Patents Filed</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Partnership Types</h2>
+                <p>We offer various partnership models tailored to your organization's goals and resources.</p>
+                
+                <div class="partnership-types">
+                    <div class="partnership-type">
+                        <h3>Research Partnerships</h3>
+                        <div class="partnership-content">
+                            <p>Collaborate with our AI researchers on joint projects that advance the frontiers of healthcare technology. Research partnerships typically involve:</p>
+                            <ul>
+                                <li>Co-development of research proposals and methodologies</li>
+                                <li>Shared access to research facilities and resources</li>
+                                <li>Joint publication of research findings</li>
+                                <li>Collaborative grant applications</li>
+                                <li>Exchange of researchers and knowledge</li>
+                            </ul>
+                            <p><strong>Ideal for:</strong> Academic institutions, research organizations, and companies with strong R&D departments.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="partnership-type">
+                        <h3>Industry Collaborations</h3>
+                        <div class="partnership-content">
+                            <p>Work with us to translate cutting-edge AI research into commercial applications that solve real-world healthcare challenges. Industry collaborations typically involve:</p>
+                            <ul>
+                                <li>Technology licensing opportunities</li>
+                                <li>Joint product development initiatives</li>
+                                <li>Clinical validation studies</li>
+                                <li>Regulatory pathway support</li>
+                                <li>Market access strategies</li>
+                            </ul>
+                            <p><strong>Ideal for:</strong> Healthcare technology companies, pharmaceutical firms, medical device manufacturers, and digital health startups.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="partnership-type">
+                        <h3>Educational Partnerships</h3>
+                        <div class="partnership-content">
+                            <p>Collaborate with us on educational initiatives that prepare the next generation of AI healthcare professionals. Educational partnerships typically involve:</p>
+                            <ul>
+                                <li>Joint curriculum development</li>
+                                <li>Student exchange programs</li>
+                                <li>Shared teaching resources</li>
+                                <li>Collaborative workshops and seminars</li>
+                                <li>Internship and mentorship opportunities</li>
+                            </ul>
+                            <p><strong>Ideal for:</strong> Universities, medical schools, professional training organizations, and continuing education providers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Success Stories</h2>
+                <p>Discover how our AI partnerships have led to transformative innovations in healthcare and beyond.</p>
+                
+                <div class="success-stories">
+                    <div class="story-card">
+                        <div class="story-logo">🏥</div>
+                        <div class="story-content">
+                            <h3>Global Health Systems</h3>
+                            <p>Our partnership with Global Health Systems led to the development of an AI diagnostic tool that has improved early detection rates for rare diseases by 67%.</p>
+                            <div class="story-quote">
+                                "The collaboration with Lifestyle Corp University's AI team has transformed our approach to rare disease diagnosis. The technology we've developed together is now helping patients worldwide receive faster, more accurate diagnoses." - Dr. Sarah Chen, Chief Innovation Officer
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-logo">🧬</div>
+                        <div class="story-content">
+                            <h3>BioGenAI</h3>
+                            <p>Working with BioGenAI, we created an AI platform that accelerated drug discovery timelines by 40%, leading to breakthrough treatments for previously untreatable conditions.</p>
+                            <div class="story-quote">
+                                "The AI algorithms developed through our partnership have revolutionized our R&D process. We've been able to bring life-changing treatments to market in record time." - James Wilson, Head of Research
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-logo">🤖</div>
+                        <div class="story-content">
+                            <h3>Assistive Robotics Inc.</h3>
+                            <p>Our collaboration with Assistive Robotics Inc. resulted in AI-powered mobility devices that have restored independence to thousands of individuals with physical disabilities.</p>
+                            <div class="story-quote">
+                                "The high-IQ researchers at Lifestyle Corp University helped us overcome complex challenges in human-robot interaction. Together, we've created technology that truly changes lives." - Maria Lopez, CEO
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Partnership Process</h2>
+                <p>Our streamlined process makes it easy to establish and maintain productive partnerships with Lifestyle Corp University.</p>
+                
+                <div class="process-steps">
+                    <div class="process-line"></div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Initial Consultation</h3>
+                            <p>Begin with a consultation to discuss your organization's goals, challenges, and how a partnership with our AI research team could create mutual value.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Partnership Design</h3>
+                            <p>Our team works with you to design a customized partnership model that aligns with your objectives, timeline, and resources.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Agreement Finalization</h3>
+                            <p>Once we've aligned on the partnership structure, we formalize the agreement, including project scope, resource commitments, and intellectual property arrangements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Project Launch</h3>
+                            <p>We assemble the right team of researchers, clinicians, and technical experts to kick off the partnership with a clear roadmap for success.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Ongoing Collaboration</h3>
+                            <p>Regular check-ins, progress reports, and milestone celebrations ensure the partnership remains productive and aligned with evolving goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Partner With Us</h2>
+                <p>Ready to explore how a partnership with Lifestyle Corp University can accelerate your AI healthcare initiatives? Complete the form below to start the conversation.</p>
+                
+                <div class="partnership-form">
+                    <form id="partnership-inquiry-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="organization-name">Organization Name</label>
+                                <input type="text" id="organization-name" name="organization-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="organization-type">Organization Type</label>
+                                <select id="organization-type" name="organization-type" required>
+                                    <option value="">Select an option</option>
+                                    <option value="academic">Academic Institution</option>
+                                    <option value="healthcare">Healthcare Provider</option>
+                                    <option value="pharma">Pharmaceutical Company</option>
+                                    <option value="tech">Technology Company</option>
+                                    <option value="startup">Startup</option>
+                                    <option value="nonprofit">Non-Profit Organization</option>
+                                    <option value="government">Government Agency</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Contact Name</label>
+                                <input type="text" id="contact-name" name="contact-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-title">Job Title</label>
+                                <input type="text" id="contact-title" name="contact-title" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="contact-email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number</label>
+                                <input type="tel" id="contact-phone" name="contact-phone">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="partnership-type">Partnership Interest</label>
+                            <select id="partnership-type" name="partnership-type" required>
+                                <option value="">Select an option</option>
+                                <option value="research">Research Partnership</option>
+                                <option value="industry">Industry Collaboration</option>
+                                <option value="education">Educational Partnership</option>
+                                <option value="multiple">Multiple Areas</option>
+                                <option value="unsure">Not Sure Yet</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="partnership-goals">Partnership Goals and Objectives</label>
+                            <textarea id="partnership-goals" name="partnership-goals" rows="4" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additional-info">Additional Information</label>
+                            <textarea id="additional-info" name="additional-info" rows="3"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="https://www.riotiq.com" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">🧠</span>
+                        <span>Take the IQ Test</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">💻</span>
+                        <span>Explore AI Career Opportunities</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">📰</span>
+                        <span>Subscribe to our Digital Journal</span>
+                    </a>
+                </div>
+                <!-- Footer links will be populated by JavaScript -->
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">AI Ethics Guidelines</a>
+                    <a href="#">Non-Discrimination Policy</a>
+                </div>
+                <p>&copy; 2020-2024 Lifestyle Corp University. All rights reserved. Powered by AI and high-IQ individuals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Partnership Showcase Slider
+        function initShowcaseSlider() {
+            const slidesContainer = document.getElementById('showcase-slides');
+            const navButtons = document.querySelectorAll('#showcase-nav button');
+            const prevButton = document.getElementById('prev-slide');
+            const nextButton = document.getElementById('next-slide');
+            let currentSlide = 0;
+            const totalSlides = document.querySelectorAll('.showcase-slide').length;
+            
+            function goToSlide(slideIndex) {
+                if (slideIndex < 0) slideIndex = totalSlides - 1;
+                if (slideIndex >= totalSlides) slideIndex = 0;
+                
+                currentSlide = slideIndex;
+                slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update nav buttons
+                navButtons.forEach((btn, index) => {
+                    if (index === currentSlide) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Set up event listeners for nav buttons
+            navButtons.forEach((btn, index) => {
+                btn.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // Set up event listeners for arrow buttons
+            prevButton.addEventListener('click', () => goToSlide(currentSlide - 1));
+            nextButton.addEventListener('click', () => goToSlide(currentSlide + 1));
+            
+            // Auto-advance slides every 7 seconds
+            setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 7000);
+        }
+        
+        // Stats Counter Animation
+        function initStatsCounter() {
+            const stats = [
+                { id: 'stat-partners', target: 75, duration: 2000 },
+                { id: 'stat-projects', target: 120, duration: 2500 },
+                { id: 'stat-publications', target: 230, duration: 3000 },
+                { id: 'stat-patents', target: 45, duration: 2000 }
+            ];
+            
+            function animateCounter(element, target, duration) {
+                let start = 0;
+                const increment = target / (duration / 16); // Update every 16ms (60fps)
+                
+                function updateCounter() {
+                    start += increment;
+                    if (start >= target) {
+                        element.textContent = Math.round(target);
+                        return;
+                    }
+                    
+                    element.textContent = Math.round(start);
+                    requestAnimationFrame(updateCounter);
+                }
+                
+                updateCounter();
+            }
+            
+            // Start animation when element is in viewport
+            function checkIfInView() {
+                const statsContainer = document.querySelector('.stats-container');
+                if (!statsContainer) return;
+                
+                const rect = statsContainer.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight && rect.bottom >= 0;
+                
+                if (isInView) {
+                    stats.forEach(stat => {
+                        const element = document.getElementById(stat.id);
+                        if (element && element.textContent === '0') {
+                            animateCounter(element, stat.target, stat.duration);
+                        }
+                    });
+                    window.removeEventListener('scroll', checkIfInView);
+                }
+            }
+            
+            window.addEventListener('scroll', checkIfInView);
+            checkIfInView(); // Check on initial load
+        }
+        
+        // Partnership Types Toggle
+        function initPartnershipToggle() {
+            const partnershipTypes = document.querySelectorAll('.partnership-type h3');
+            
+            partnershipTypes.forEach(heading => {
+                if (!heading.textContent.trim()) return; // Skip empty headings
+                
+                heading.addEventListener('click', () => {
+                    const parent = heading.parentElement;
+                    const isActive = parent.classList.contains('active');
+                    
+                    // Close all other sections
+                    document.querySelectorAll('.partnership-type').forEach(type => {
+                        type.classList.remove('active');
+                    });
+                    
+                    // Toggle current section
+                    if (!isActive) {
+                        parent.classList.add('active');
+                    }
+                });
+            });
+            
+            // Open first partnership type by default
+            if (partnershipTypes.length > 0 && partnershipTypes[0].textContent.trim()) {
+                partnershipTypes[0].parentElement.classList.add('active');
+            }
+        }
+        
+        // Form Submission
+        function initFormSubmission() {
+            const form = document.getElementById('partnership-inquiry-form');
+            if (!form) return;
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Simulate form submission
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                submitButton.textContent = 'Submitting...';
+                submitButton.disabled = true;
+                
+                setTimeout(() => {
+                    // Show success message
+                    form.innerHTML = `
+                        <div style="text-align: center; padding: 2rem;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+                            <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Thank You for Your Interest!</h3>
+                            <p>Your partnership inquiry has been submitted successfully. A member of our team will contact you within 2 business days to discuss next steps.</p>
+                        </div>
+                    `;
+                }, 1500);
+            });
+        }
+        
+        // Footer Links
+        const footerLinks = [
+            {
+                title: "About LCU",
+                items: ["Our Mission", "Leadership Team", "AI Research Focus", "Global Impact", "Careers"]
+            },
+            {
+                title: "Resources",
+                items: ["AI Publications", "Research Database", "Digital Library", "Virtual Events", "Webinars"]
+            },
+            {
+                title: "Connect",
+                items: ["Contact Us", "Partnership Inquiries", "Media Relations", "Support", "Feedback"]
+            }
+        ];
+        
+        // Helper functions for navigation
+        function populateAlphabetLinks() {
+            // This function is referenced but not needed for this page
+            return;
+        }
+        
+        function populateVirtualCampuses1() {
+            // This function is referenced but not needed for this page
+            return;
+        }
+        
+        function populateVirtualCampuses2() {
+            // This function is referenced but not needed for this page
+            return;
+        }
+        
+        function populateFeaturedResearchAreas1() {
+            // This function is referenced but not needed for this page
+            return;
+        }
+        
+        function populateFeaturedResearchAreas2() {
+            // This function is referenced but not needed for this page
+            return;
+        }
+        
+        const navItems = [
+        { 
+                title: "Research at LCU", 
+                items: [
+                    { text: "AI-Driven Research", link: "ai-driven-research.html" },
+                    { text: "Robotics Innovation", link: "robotics-innovation.html" },
+                    { text: "Virtual Labs", link: "virtual-labs.html" },
+                    { text: "Digital Health Initiatives", link: "digital-health-initiatives.html" },
+                    { text: "Join Our Discord", link: "join-our-discord.html" },
+                    { text: "Apply for Membership", link: "membership.html" },
+                    { text: "Current Projects", link: "current-projects.html" },
+                    { text: "Research Ethics", link: "research-ethics.html" },
+                    { text: "AI Partnerships", link: "ai-partnerships.html" },
+                    { text: "Robotics Collaborations", link: "robotics-collaborations.html" }
+                ]
+            },
+            { 
+                title: "Digital Library", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "AI in Medicine", link: "ai-in-medicine.html" },
+                    { text: "E-Journals", link: "e-journals.html" },
+                    { text: "Advanced Robotics", link: "advanced-robotics.html" },
+                    { text: "Cognitive Enhancement", link: "cognitive-enhancement.html" },
+                    { text: "Digital Health Solutions", link: "digital-health-solutions.html" },
+                    { text: "Digital Twin  in Healthcare", link: "digital-twin-in-healthcare.html" },
+                    { text: "Blockchain in Medical Records", link: "blockchain-in-medical-records.html" }
+                ]
+            },
+            { 
+                title: "For Patients", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "Diseases & Conditions", link: "diseases-and-conditions.html" },
+                    { text: "Healthy Lifestyle", link: "healthy-lifestyle.html" },
+                    { text: "Tests & Procedures", link: "tests-procedures.html" },
+                    { text: "Drugs & Supplements", link: "drugs-and-supplements.html" }
+                ]
+            },
+            { 
+                title: "For High-IQ Professionals", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "IQ Test Applications", link: "membership.html" },
+                    { text: "Virtual Networking Events", link: "virtual-networking-events.html" },
+                    { text: "AI-Assisted Continuing Education", link: "ai-assisted-continuing-education.html" },
+                    { text: "Robotic Surgery Simulations", link: "robotic-surgery-simulations.html" },
+                    { text: "Advanced Research Opportunities", link: "advanced-research-opportunities.html" },
+                    { text: "Digital Publications", link: "digital-publications.html" }
+                ]
+            },
+            { 
+                title: "Innovation & Education at LCU", 
+                items: {
+                    "Innovation": [
+                        { text: "AI Research Labs", link: "ai-research-labs.html" },
+                        { text: "Robotics Development Centers", link: "robotics-development-centers.html" },
+                        { text: "Virtual Reality Medical Training", link: "virtual-reality-medical-training.html" },
+                        { text: "Quantum Computing in Healthcare", link: "quantum-computing-in-healthcare.html" },
+                        { text: "Nanotechnology Advancements", link: "nanotechnology-advancements.html" },
+                        { text: "Biotechnology Breakthroughs", link: "biotechnology-breakthroughs.html" }
+                    ],
+                    "Education": [
+                        { text: "LCU Virtual Academy", link: "lcu-virtual-academy.html" },
+                        { text: "AI-Assisted Learning Programs", link: "ai-assisted-learning-programs.html" },
+                        { text: "Robotic Surgery Training", link: "robotic-surgery-training.html" },
+                        { text: "Digital Health Informatics", link: "digital-health-informatics.html" },
+                        { text: "Cognitive Science Programs", link: "cognitive-science-programs.html" },
+                        { text: "Advanced Biotechnology Courses", link: "advanced-biotechnology-courses.html" }
+                    ]
+                }
+            },
+            {
+                title: "For Medical and AI Professionals",
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "AI Professionals", link: "ai-professionals.html" },
+                    { text: "LCU Proceedings", link: "lcu-proceedings.html" },
+                    { text: "Research Departments", link: "research-departments.html" },
+                    { text: "AI-Enhanced Medical Resources", link: "ai-enhanced-medical-resources.html" },
+                    { text: "Virtual Referral System", link: "virtual-referral-system.html" },
+                    { text: "AI-Assisted Continuing Education", link: "ai-assisted-continuing-education.html" },
+                    { text: "Advanced Robotic Surgery Simulations", link: "advanced-robotic-surgery-simulations.html" },
+                    { text: "Digital Health Informatics", link: "digital-health-informatics.html" },
+                    { text: "AI-Powered Clinical Decision Support", link: "ai-powered-clinical-decision-support.html" }
+                ]
+            },
+            {
+                title: "Research & Education at LCU",
+                items: {
+                    "Research": [
+                        { text: "AI in Healthcare Research", link: "ai-in-healthcare-research.html" },
+                        { text: "Robotics in Medicine", link: "robotics-in-medicine.html" },
+                        { text: "Virtual Reality in Medical Training", link: "virtual-reality-in-medical-training.html" },
+                        { text: "Quantum Computing for Drug Discovery", link: "quantum-computing-for-drug-discovery.html" },
+                        { text: "Nanotechnology in Medicine", link: "nanotechnology-in-medicine.html" },
+                        { text: "AI Ethics in Healthcare", link: "ai-ethics-in-healthcare.html" }
+                    ],
+                    "Education": [
+                        { text: "LCU Virtual Medical School", link: "lcu-virtual-medical-school.html" },
+                        { text: "AI-Enhanced Medical Curriculum", link: "ai-enhanced-medical-curriculum.html" },
+                        { text: "Robotic Surgery Training Programs", link: "robotic-surgery-training-programs.html" },
+                        { text: "Digital Health Informatics Courses", link: "digital-health-informatics-courses.html" },
+                        { text: "AI in Medical Diagnostics", link: "ai-in-medical-diagnostics.html" },
+                        { text: "Future of Healthcare Symposiums", link: "future-of-healthcare-symposiums.html" }
+                    ]
+                }
+            },
+            { 
+                title: "Supporting LCU", 
+                items: [
+                    { text: "Donate as a Gift", link: "donation.html" },
+                    { text: "Donate Compute Power", link: "donate-compute-power.html" },
+                    { text: "Virtual Fundraising Events", link: "virtual-fundraising-events.html" },
+                    { text: "Sponsor AI Research", link: "sponsor-ai-research.html" },
+                    { text: "Partner in Robotics Development", link: "partner-in-robotics-development.html" }
+                ]
+            }
+        ];
+
+            
+        function populateNavItems() {
+        const navItemsContainer = document.querySelector('.nav-items');
+        if (!navItemsContainer) {
+            console.error('Navigation container not found.');
+            return;
+        }
+
+        navItems.forEach(item => {
+            const div = document.createElement('div');
+            div.style.position = 'relative';
+            div.style.marginRight = '1rem';
+
+            const button = document.createElement('button');
+            button.textContent = item.title;
+            button.style.background = 'none';
+            button.style.border = 'none';
+            button.style.cursor = 'pointer';
+            button.style.fontSize = '1rem';
+            button.style.color = '#374151';
+            button.addEventListener('mouseenter', () => {
+                dropdown.style.display = 'block';
+            });
+            div.addEventListener('mouseleave', () => {
+                dropdown.style.display = 'none';
+            });
+
+            const dropdown = document.createElement('div');
+            dropdown.className = 'dropdown';
+
+            if (Array.isArray(item.items)) {
+                item.items.forEach(subItem => {
+                    const a = document.createElement('a');
+                    a.href = subItem.link; // Set the href attribute
+                    a.textContent = subItem.text;
+                    dropdown.appendChild(a);
+                });
+            } else {
+                for (const [category, subitems] of Object.entries(item.items)) {
+                    const h3 = document.createElement('h3');
+                    h3.textContent = category;
+                    dropdown.appendChild(h3);
+                    subitems.forEach(subItem => {
+                        const a = document.createElement('a');
+                        a.href = subItem.link; // Set the href attribute
+                        a.textContent = subItem.text;
+                        dropdown.appendChild(a);
+                    });
+                }
+            }
+
+        div.appendChild(button);
+        div.appendChild(dropdown);
+        navItemsContainer.appendChild(div);
+    });
+}
+
+
+        function populateMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            navItems.forEach(item => {
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                mobileMenu.appendChild(button);
+
+                const submenu = document.createElement('div');
+                submenu.className = 'mobile-submenu';
+
+                if (Array.isArray(item.items)) {
+                    item.items.forEach(subItem => {
+                        const a = document.createElement('a');
+                        a.href = subItem.link; // Set the href attribute
+                        a.textContent = subItem.text;
+                        submenu.appendChild(a);
+                    });
+                } else {
+                    for (const [category, subitems] of Object.entries(item.items)) {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = category;
+                        submenu.appendChild(h3);
+                        subitems.forEach(subItem => {
+                            const a = document.createElement('a');
+                            a.href = subItem.link; // Set the href attribute
+                            a.textContent = subItem.text;
+                            submenu.appendChild(a);
+                        });
+                    }
+                }
+
+                mobileMenu.appendChild(submenu);
+
+                button.addEventListener('click', () => {
+                    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        }
+
+        function populateFooterLinks() {
+            const footerGrid = document.querySelector('.footer-grid');
+            footerLinks.forEach(column => {
+                const div = document.createElement('div');
+                div.className = 'footer-column';
+                const h3 = document.createElement('h3');
+                h3.textContent = column.title;
+                div.appendChild(h3);
+                const ul = document.createElement('ul');
+                column.items.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.textContent = item;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                div.appendChild(ul);
+                footerGrid.appendChild(div);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize navigation and menu
+            populateNavItems();
+            populateMobileMenu();
+            populateFooterLinks();
+
+            // Initialize empty functions referenced in the code
+            populateAlphabetLinks();
+            populateVirtualCampuses1();
+            populateVirtualCampuses2();
+            populateFeaturedResearchAreas1();
+            populateFeaturedResearchAreas2();
+
+            // Initialize interactive components
+            initShowcaseSlider();
+            initStatsCounter();
+            initPartnershipToggle();
+            initFormSubmission();
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+    </script>
+</body>
+</html>

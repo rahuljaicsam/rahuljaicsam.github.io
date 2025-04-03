@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Badge background -->
+  <polygon points="150,20 240,75 240,225 150,280 60,225 60,75" fill="#5D9BEC" stroke="#2E5C9E" stroke-width="8"/>
+  
+  <!-- Inner badge shape -->
+  <polygon points="150,40 225,85 225,215 150,260 75,215 75,85" fill="#84B5F5" stroke="#2E5C9E" stroke-width="4"/>
+  
+  <!-- Ear symbol (left) -->
+  <path d="M95,130 C80,115 75,100 85,90 C95,80 110,85 120,95 C125,100 125,120 120,125 L110,130" fill="#FFF" stroke="#2E5C9E" stroke-width="4"/>
+  <circle cx="105" cy="115" r="10" fill="#2E5C9E"/>
+  
+  <!-- Nose symbol (center) -->
+  <path d="M140,180 L160,180 C170,180 175,160 170,150 C165,140 155,140 150,140 C145,140 135,140 130,150 C125,160 130,180 140,180 Z" fill="#FFF" stroke="#2E5C9E" stroke-width="4"/>
+  <circle cx="145" cy="155" r="5" fill="#2E5C9E"/>
+  <circle cx="155" cy="155" r="5" fill="#2E5C9E"/>
+  
+  <!-- Throat symbol (bottom) -->
+  <path d="M135,200 C135,220 165,220 165,200" fill="none" stroke="#2E5C9E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M125,190 C125,225 175,225 175,190" fill="none" stroke="#2E5C9E" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Middle ear symbol (right) -->
+  <path d="M205,130 C220,115 225,100 215,90 C205,80 190,85 180,95 C175,100 175,120 180,125 L190,130" fill="#FFF" stroke="#2E5C9E" stroke-width="4"/>
+  <circle cx="195" cy="115" r="10" fill="#2E5C9E"/>
+  
+  <!-- Metallic shine -->
+  <path d="M90,75 L150,40 L210,75" fill="#FFFFFF" fill-opacity="0.5" stroke="none"/>
+  
+  <!-- Badge outline shine -->
+  <polygon points="150,20 240,75 240,225 150,280 60,225 60,75" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.5"/>
+</svg>

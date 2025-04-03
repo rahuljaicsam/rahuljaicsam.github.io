@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Compute Power - LCU Medical Research</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <script src="header-styles.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/robot+health.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Resource Cards */
+        .resource-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .resource-card-header {
+            padding: 1.5rem;
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+        }
+
+        .resource-card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .resource-card-body {
+            padding: 1.5rem;
+        }
+
+        .resource-card-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+        }
+
+        /* Form Styles */
+        .donation-form {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #1e3a8a;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1c3177;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        /* Resource Selector */
+        .resource-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-option {
+            flex: 1;
+            min-width: 150px;
+            padding: 1rem;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .resource-option:hover {
+            border-color: #1e3a8a;
+        }
+
+        .resource-option.selected {
+            border-color: #1e3a8a;
+            background-color: rgba(30, 58, 138, 0.05);
+        }
+
+        .resource-option i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Impact Visualization */
+        .impact-visualization {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .impact-title {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1.5rem;
+        }
+
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .metric {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #4b5563;
+            font-size: 0.875rem;
+        }
+
+        /* Canvas for visualization */
+        #computePowerCanvas {
+            width: 100%;
+            height: 300px;
+            background: #000;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 4rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem;
+            background: #f9fafb;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.25rem;
+            max-height: 500px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-top: 4rem;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            flex: 0 0 100%;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            background: #1e3a8a;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .resource-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .resource-selector {
+                flex-direction: column;
+            }
+
+            .impact-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation for resource cards */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <img src="/assets/ai+health.png" alt="LCU Logo" style="height: 40px; margin-right: 10px;">
+                        <span>LCU Medical Research</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Research & Innovation</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Research Areas</h3>
+                                    <a href="ai-driven-research.html">AI-Driven Research</a>
+                                    <a href="robotics-innovation.html">Robotics Innovation</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality in Medical Training</a>
+                                    <a href="quantum-computing-for-drug-discovery.html">Quantum Computing for Drug Discovery</a>
+                                    <a href="nanotechnology-in-medicine.html">Nanotechnology in Medicine</a>
+                                    <a href="ai-ethics-in-healthcare.html">AI Ethics in Healthcare</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Innovation Centers</h3>
+                                    <a href="ai-research-labs.html">AI Research Labs</a>
+                                    <a href="robotics-development-centers.html">Robotics Development Centers</a>
+                                    <a href="virtual-labs.html">Virtual Labs</a>
+                                    <a href="research-departments.html">Research Departments</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="research-databases.html">Research Databases</a>
+                                    <a href="digital-publications.html">Digital Publications</a>
+                                    <a href="e-journals.html">E-Journals</a>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Education & Training</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Programs</h3>
+                                    <a href="ai-assisted-continuing-education.html">AI-Assisted Continuing Education</a>
+                                    <a href="robotic-surgery-simulations.html">Robotic Surgery Simulations</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality Training</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="digital-collections.html">Digital Collections</a>
+                                    <a href="online-resources.html">Online Resources</a>
+                                    <a href="research-databases.html">Research Databases</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Opportunities</h3>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                    <a href="advanced-research-opportunities.html">Advanced Research</a>
+                                    <a href="laboratories.html">Laboratories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Community & Events</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Connect</h3>
+                                    <a href="virtual-networking-events.html">Virtual Networking Events</a>
+                                    <a href="join-our-discord.html">Join Our Discord</a>
+                                    <a href="membership.html">Membership</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Support</h3>
+                                    <a href="donation.html">Make a Donation</a>
+                                    <a href="donate-compute-power.html">Donate Compute Power</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Donate Compute Power</h1>
+                <p class="hero-subtitle">Accelerate Medical Research with Your Computational Resources</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Power the Future of Medical Research</h2>
+                <p class="section-subtitle">Your unused computational resources can help us solve complex medical challenges and accelerate breakthroughs in healthcare technology.</p>
+                
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <h3>GPU Processing</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <span class="resource-icon">🖥️</span>
+                            <p>Donate GPU processing power to accelerate AI model training for medical image analysis, drug discovery, and disease prediction.</p>
+                            <p><strong>Impact:</strong> 1 hour of GPU time can process thousands of medical images for research.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <h3>Cloud Resources</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <span class="resource-icon">☁️</span>
+                            <p>Share your cloud computing resources to power distributed medical research projects and large-scale data analysis.</p>
+                            <p><strong>Impact:</strong> Cloud resources enable collaborative research across global institutions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <h3>Server Capacity</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <span class="resource-icon">🖧</span>
+                            <p>Donate server capacity to host medical research applications, databases, and computational workloads.</p>
+                            <p><strong>Impact:</strong> Reliable server infrastructure supports continuous research operations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <h3>Storage Space</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <span class="resource-icon">💾</span>
+                            <p>Contribute storage space for medical datasets, research results, and backup archives to ensure data preservation.</p>
+                            <p><strong>Impact:</strong> Secure storage enables long-term research data accessibility.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-visualization">
+                    <h3 class="impact-title">Your Contribution's Impact</h3>
+                    <div class="impact-metrics">
+                        <div class="metric">
+                            <div class="metric-value" id="researchProjects">0</div>
+                            <div class="metric-label">Research Projects Accelerated</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="computeHours">0</div>
+                            <div class="metric-label">Compute Hours Donated</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="contributors">0</div>
+                            <div class="metric-label">Active Contributors</div>
+                        </div>
+                    </div>
+                    
+                    <canvas id="computePowerCanvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f1f5f9;">
+            <div class="container">
+                <h2 class="section-title">How to Contribute</h2>
+                
+                <div class="donation-form">
+                    <form id="computePowerForm">
+                        <h3 style="margin-top: 0; color: #1e3a8a;">Compute Power Donation Form</h3>
+                        
+                        <div class="form-group">
+                            <label>Select Resource Type</label>
+                            <div class="resource-selector">
+                                <div class="resource-option" data-resource="gpu">
+                                    <i>🖥️</i>
+                                    <div>GPU</div>
+                                </div>
+                                <div class="resource-option" data-resource="cloud">
+                                    <i>☁️</i>
+                                    <div>Cloud</div>
+                                </div>
+                                <div class="resource-option" data-resource="server">
+                                    <i>🖧</i>
+                                    <div>Server</div>
+                                </div>
+                                <div class="resource-option" data-resource="storage">
+                                    <i>💾</i>
+                                    <div>Storage</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="serverAvailability">Availability</label>
+                                <select id="serverAvailability" name="serverAvailability">
+                                    <option value="">Select Availability</option>
+                                    <option value="24-7">24/7 (Always On)</option>
+                                    <option value="business-hours">Business Hours Only</option>
+                                    <option value="nights">Nights & Weekends</option>
+                                    <option value="custom">Custom Schedule</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="serverDetails">Additional Details</label>
+                                <textarea id="serverDetails" name="serverDetails" rows="3" placeholder="Please provide any additional details about your server resources"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div id="storageFields" class="resource-fields" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="storageType">Storage Type</label>
+                                    <select id="storageType" name="storageType">
+                                        <option value="">Select Type</option>
+                                        <option value="ssd">SSD</option>
+                                        <option value="hdd">HDD</option>
+                                        <option value="nas">NAS</option>
+                                        <option value="san">SAN</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="storageCapacity">Capacity (TB)</label>
+                                    <input type="number" id="storageCapacity" name="storageCapacity" min="0.1" step="0.1" placeholder="e.g., 2.0">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="storageDuration">Duration Available</label>
+                                <select id="storageDuration" name="storageDuration">
+                                    <option value="">Select Duration</option>
+                                    <option value="1-month">1 Month</option>
+                                    <option value="3-months">3 Months</option>
+                                    <option value="6-months">6 Months</option>
+                                    <option value="1-year">1 Year</option>
+                                    <option value="permanent">Permanent</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comments">Additional Comments</label>
+                            <textarea id="comments" name="comments" rows="3" placeholder="Any additional information you'd like to share about your donation"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" name="terms" required>
+                                I agree to the <a href="#" style="color: #1e3a8a;">Terms and Conditions</a> for compute power donation
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-block">Submit Donation</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <div class="faq-question">How does compute power donation work?</div>
+                        <div class="faq-answer">
+                            <p>When you donate compute power, you're allowing our research projects to utilize your unused computational resources. We provide secure software that runs in the background of your device, using resources only when they're not needed by you. The software automatically adjusts based on your usage patterns to ensure it never interferes with your work.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Is my data secure when I donate compute power?</div>
+                        <div class="faq-answer">
+                            <p>Absolutely. Our compute donation system is designed with security as the top priority. The software only accesses computational resources, never your personal data or files. All communication between your device and our servers is encrypted, and we implement strict isolation between the research workloads and your system.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What kind of research will my donation support?</div>
+                        <div class="faq-answer">
+                            <p>Your donated compute power supports a wide range of medical research initiatives, including:</p>
+                            <ul>
+                                <li>AI-driven analysis of medical imaging for early disease detection</li>
+                                <li>Protein folding simulations for drug discovery</li>
+                                <li>Genomic data processing for personalized medicine</li>
+                                <li>Medical robotics control systems development</li>
+                                <li>Virtual reality medical training simulations</li>
+                            </ul>
+                            <p>You can specify preferences for which research areas your donation supports.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                            
+                    <div class="faq-answer">
+                    </div>
+                                </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How can I track the impact of my donation?</div>
+                        <div class="faq-answer">
+                            <p>Once you register as a compute donor, you'll receive access to a personal dashboard that shows real-time statistics about your contribution, including compute hours donated, research projects supported, and the collective impact of our donor community. We also send monthly impact reports highlighting research breakthroughs made possible by our compute donation network.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" style="background-color: #f1f5f9;">
+            <div class="container">
+                <h2 class="section-title">What Our Contributors Say</h2>
+                
+                <div class="testimonials">
+                    <div class="testimonial-slider">
+                        <div class="testimonial-track">
+                            <div class="testimonial">
+                                <div class="testimonial-content">
+                                    "I've been donating my gaming PC's GPU power during off-hours for the past six months. It's incredibly rewarding to know that the same hardware I use for entertainment is helping advance medical research when I'm not using it."
+                                </div>
+                                <div class="testimonial-author">- Michael K., GPU Donor</div>
+                            </div>
+                            
+                            <div class="testimonial">
+                                <div class="testimonial-content">
+                                    "As a cloud solutions architect, I had access to unused compute resources that would otherwise go to waste. Donating them to LCU's medical research initiatives was a no-brainer. The setup process was seamless, and the impact reports keep me motivated."
+                                </div>
+                                <div class="testimonial-author">- Sarah J., Cloud Resources Donor</div>
+                            </div>
+                            
+                            <div class="testimonial">
+                                <div class="testimonial-content">
+                                    "Our data center had excess capacity during non-peak hours. By donating this unused server time to medical research, we're maximizing our infrastructure investment while contributing to potentially life-saving research. It's a win-win situation."
+                                </div>
+                                <div class="testimonial-author">- David L., Enterprise Server Donor</div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-nav">
+                            <div class="testimonial-dot active" data-slide="0"></div>
+                            <div class="testimonial-dot" data-slide="1"></div>
+                            <div class="testimonial-dot" data-slide="2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About LCU Medical Research</h3>
+                    <p>We are dedicated to advancing medical knowledge through innovative research and technology, improving healthcare outcomes worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i>📱</i></a>
+                        <a href="#"><i>📘</i></a>
+                        <a href="#"><i>📸</i></a>
+                        <a href="#"><i>🐦</i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ai-driven-research.html">Research Areas</a></li>
+                        <li><a href="ai-assisted-continuing-education.html">Education & Training</a></li>
+                        <li><a href="donation.html">Support Our Work</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>123 Research Avenue<br>Innovation District<br>San Francisco, CA 94103</p>
+                    <p>Email: info@lcumedical.org<br>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 LCU Medical Research. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Resource selector functionality
+        const resourceOptions = document.querySelectorAll('.resource-option');
+        const resourceFields = document.querySelectorAll('.resource-fields');
+        
+        resourceOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                resourceOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Hide all resource fields
+                resourceFields.forEach(field => field.style.display = 'none');
+                
+                // Show the selected resource field
+                const resourceType = option.getAttribute('data-resource');
+                document.getElementById(`${resourceType}Fields`).style.display = 'block';
+            });
+        });
+        
+        // Range slider value display
+        const gpuHoursSlider = document.getElementById('gpuHours');
+        const gpuHoursValue = document.getElementById('gpuHoursValue');
+        
+        if (gpuHoursSlider && gpuHoursValue) {
+            gpuHoursSlider.addEventListener('input', () => {
+                gpuHoursValue.textContent = `${gpuHoursSlider.value}h`;
+            });
+        }
+        
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Toggle active class on clicked item
+                item.classList.toggle('active');
+                
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Testimonial slider functionality
+        const testimonialTrack = document.querySelector('.testimonial-track');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                // Update active dot
+                testimonialDots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+                
+                // Move track to show selected testimonial
+                testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+            });
+        });
+        
+        // Auto-rotate testimonials
+        let currentSlide = 0;
+        const autoRotate = setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            
+            // Update active dot
+            testimonialDots.forEach(d => d.classList.remove('active'));
+            testimonialDots[currentSlide].classList.add('active');
+            
+            // Move track
+            testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }, 5000);
+        
+        // Impact metrics animation
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            const range = end - start;
+            const minTimer = 50;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            const startTime = new Date().getTime();
+            const endTime = startTime + duration;
+            let timer;
+            
+            function run() {
+                const now = new Date().getTime();
+                const remaining = Math.max((endTime - now) / duration, 0);
+                const value = Math.round(end - (remaining * range));
+                obj.innerHTML = value;
+                
+                if (value === end) {
+                    clearInterval(timer);
+                }
+            }
+            
+            timer = setInterval(run, stepTime);
+            run();
+        }
+        
+        // Start animations when page loads
+        window.addEventListener('load', () => {
+            animateValue('researchProjects', 0, 42, 2000);
+            animateValue('computeHours', 0, 15000, 2000);
+            animateValue('contributors', 0, 1250, 2000);
+            
+            // Initialize compute power visualization
+            initComputeVisualization();
+        });
+        
+        // Compute power visualization
+        function initComputeVisualization() {
+            const canvas = document.getElementById('computePowerCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            
+            const particles = [];
+            const particleCount = 100;
+            
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 3 + 1,
+                    color: `rgba(${Math.floor(Math.random() * 100) + 100}, ${Math.floor(Math.random() * 100) + 100}, 255, ${Math.random() * 0.5 + 0.5})`,
+                    speedX: Math.random() * 2 - 1,
+                    speedY: Math.random() * 2 - 1
+                });
+            }
+            
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw and update particles
+                particles.forEach(particle => {
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = particle.color;
+                    ctx.fill();
+                    
+                    // Update position
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    
+                    // Bounce off edges
+                    if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+                    
+                    // Draw connections
+                    particles.forEach(otherParticle => {
+                        const dx = particle.x - otherParticle.x;
+                        const dy = particle.y - otherParticle.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(100, 150, 255, ${0.2 * (1 - distance / 100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particle.x, particle.y);
+                            ctx.lineTo(otherParticle.x, otherParticle.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+            }
+            
+            animate();
+        }
+        
+        // Form submission
+        const computePowerForm = document.getElementById('computePowerForm');
+        
+        if (computePowerForm) {
+            computePowerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Validate form
+                const formData = new FormData(computePowerForm);
+                let isValid = true;
+                
+                // Check if a resource type is selected
+                if (!document.querySelector('.resource-option.selected')) {
+                    alert('Please select a resource type');
+                    isValid = false;
+                    return;
+                }
+                
+                // Basic validation
+                if (!formData.get('name') || !formData.get('email') || !formData.get('country')) {
+                    alert('Please fill in all required fields');
+                    isValid = false;
+                    return;
+                }
+                
+                if (isValid) {
+                    // Simulate form submission
+                    alert('Thank you for your compute power donation! We will contact you shortly with next steps.');
+                    computePowerForm.reset();
+                    document.querySelectorAll('.resource-option').forEach(opt => opt.classList.remove('selected'));
+                    document.querySelectorAll('.resource-fields').forEach(field => field.style.display = 'none');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+      

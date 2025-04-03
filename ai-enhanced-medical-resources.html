@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Enhanced Medical Resources - Lifestyle Corp University</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/digitaltwin+health.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Resource Categories */
+        .resource-categories {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .category-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Interactive Resource Explorer */
+        .resource-explorer {
+            padding: 4rem 0;
+            background: white;
+        }
+        .explorer-container {
+            background: #f8fafc;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .search-filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .filter-group label {
+            margin-bottom: 0.5rem;
+            color: #1e40af;
+            font-weight: bold;
+        }
+        .filter-group select,
+        .filter-group input {
+            padding: 0.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+        }
+
+        /* Resource List */
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .resource-item {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+        .resource-meta {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .resource-meta span {
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .resource-meta span:before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: #6b7280;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        /* AI Recommendation Section */
+        .ai-recommendations {
+            padding: 4rem 0;
+            background: #1e40af;
+            color: white;
+        }
+        .recommendation-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .recommendation-card {
+            background: white;
+            color: #1e40af;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .recommendation-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Resource Statistics */
+        .resource-stats {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-items {
+                display: flex;
+            }
+            .mobile-menu-button {
+                display: none;
+            }
+            .hero-section h1 {
+                font-size: 4rem;
+            }
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>AI-Enhanced Medical Resources</h1>
+                <p>Access cutting-edge medical resources powered by artificial intelligence, designed to enhance learning, research, and clinical practice.</p>
+            </div>
+        </section>
+
+        <section class="resource-categories">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e40af; font-size: 2.5rem; margin-bottom: 1rem;">Resource Categories</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #4b5563;">Explore our comprehensive collection of AI-enhanced medical resources across various specialties.</p>
+                
+                <div class="category-grid">
+                    <div class="category-card">
+                        <div class="category-icon">📚</div>
+                        <h3 style="color: #1e40af; margin-bottom: 1rem;">Digital Textbooks</h3>
+                        <p>Interactive medical textbooks with AI-powered annotations, summaries, and concept explanations.</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">🧬</div>
+                        <h3 style="color: #1e40af; margin-bottom: 1rem;">Research Databases</h3>
+                        <p>AI-curated research papers, clinical trials, and medical journals with smart filtering.</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">🎓</div>
+                        <h3 style="color: #1e40af; margin-bottom: 1rem;">Learning Modules</h3>
+                        <p>Adaptive learning modules that personalize content based on your knowledge and progress.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resource-explorer">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e40af; font-size: 2.5rem; margin-bottom: 1rem;">Interactive Resource Explorer</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #4b5563;">Find the perfect resources for your needs with our AI-powered search and filter system.</p>
+
+                <div class="explorer-container">
+                    <div class="search-filters">
+                        <div class="filter-group">
+                            <label for="specialty">Specialty</label>
+                            <select id="specialty">
+                                <option value="">All Specialties</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="pediatrics">Pediatrics</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="resource-type">Resource Type</label>
+                            <select id="resource-type">
+                                <option value="">All Types</option>
+                                <option value="textbook">Textbooks</option>
+                                <option value="journal">Journals</option>
+                                <option value="module">Learning Modules</option>
+                                <option value="case-study">Case Studies</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="difficulty">Difficulty Level</label>
+                            <select id="difficulty">
+                                <option value="">All Levels</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="resource-list" id="resource-list">
+                        <!-- Resource items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-recommendations">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Personalized Recommendations</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto;">Our AI system analyzes your interests and learning patterns to suggest the most relevant resources.</p>
+
+                <div class="recommendation-container">
+                    <div class="recommendation-grid" id="recommendation-grid">
+                        <!-- Recommendation cards will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resource-stats">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e40af; font-size: 2.5rem; margin-bottom: 1rem;">Resource Statistics</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #4b5563;">Our growing collection of AI-enhanced medical resources.</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">10,000+</div>
+                        <p>Digital Textbooks</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50,000+</div>
+                        <p>Research Papers</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5,000+</div>
+                        <p>Learning Modules</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1M+</div>
+                        <p>Active Users</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="https://www.riotiq.com" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">🧠</span>
+                        <span>Take the IQ Test</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">💻</span>
+                        <span>Explore AI Career Opportunities</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">📰</span>
+                        <span>Subscribe to our Digital Journal</span>
+                    </a>
+                </div>
+                <!-- Footer links will be populated by JavaScript -->
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">AI Ethics Guidelines</a>
+                    <a href="#">Non-Discrimination Policy</a>
+                </div>
+                <p>&copy; 2020-2024 Lifestyle Corp University. All rights reserved. Powered by AI and high-IQ individuals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Data
+        const navItems = [
+            { 
+                title: "Research at LCU", 
+                items: [
+                    { text: "AI-Driven Research", link: "ai-driven-research.html" },
+                    { text: "Robotics Innovation", link: "robotics-innovation.html" },
+                    { text: "Virtual Labs", link: "virtual-labs.html" },
+                    { text: "Digital Health Initiatives", link: "digital-health-initiatives.html" },
+                    { text: "Join Our Discord", link: "join-our-discord.html" },
+                    { text: "Apply for Membership", link: "membership.html" },
+                    { text: "Current Projects", link: "current-projects.html" },
+                    { text: "Research Ethics", link: "research-ethics.html" },
+                    { text: "AI Partnerships", link: "ai-partnerships.html" },
+                    { text: "Robotics Collaborations", link: "robotics-collaborations.html" }
+                ]
+            },
+            { 
+                title: "Digital Library", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "AI in Medicine", link: "ai-in-medicine.html" },
+                    { text: "E-Journals", link: "e-journals.html" },
+                    { text: "Advanced Robotics", link: "advanced-robotics.html" },
+                    { text: "Cognitive Enhancement", link: "cognitive-enhancement.html" },
+                    { text: "Digital Health Solutions", link: "digital-health-solutions.html" }
+                ]
+            }
+        ];
+
+        // Populate Navigation
+        function populateNavigation() {
+            const navItemsContainer = document.querySelector('.nav-items');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            navItems.forEach(item => {
+                // Desktop Navigation
+                const navItem = document.createElement('div');
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                const dropdown = document.createElement('div');
+                dropdown.className = 'dropdown';
+
+                item.items.forEach(subItem => {
+                    const link = document.createElement('a');
+                    link.href = subItem.link;
+                    link.textContent = subItem.text;
+                    dropdown.appendChild(link);
+                });
+
+                navItem.appendChild(button);
+                navItem.appendChild(dropdown);
+                navItemsContainer.appendChild(navItem);
+
+                // Show/hide dropdown
+                button.addEventListener('mouseenter', () => {
+                    dropdown.style.display = 'block';
+                });
+                navItem.addEventListener('mouseleave', () => {
+                    dropdown.style.display = 'none';
+                });
+
+                // Mobile Navigation
+                const mobileButton = document.createElement('button');
+                mobileButton.textContent = item.title;
+                const mobileSubmenu = document.createElement('div');
+                mobileSubmenu.className = 'mobile-submenu';
+
+                item.items.forEach(subItem => {
+                    const link = document.createElement('a');
+                    link.href = subItem.link;
+                    link.textContent = subItem.text;
+                    mobileSubmenu.appendChild(link);
+                });
+
+                mobileMenu.appendChild(mobileButton);
+                mobileMenu.appendChild(mobileSubmenu);
+
+                // Show/hide mobile submenu
+                mobileButton.addEventListener('click', () => {
+                    mobileSubmenu.style.display = 
+                        mobileSubmenu.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        }
+
+        // Toggle Mobile Menu
+        document.querySelector('.mobile-menu-button').addEventListener('click', () => {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.style.display = 
+                mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Sample Resource Data
+        const resources = [
+            {
+                title: "Advanced Cardiology Textbook",
+                type: "textbook",
+                specialty: "cardiology",
+                difficulty: "advanced",
+                description: "Comprehensive guide to cardiovascular medicine with AI-powered interactive diagrams.",
+                rating: 4.8,
+                users: 1500
+            },
+            {
+                title: "Neurology Case Studies",
+                type: "case-study",
+                specialty: "neurology",
+                difficulty: "intermediate",
+                description: "Collection of real-world neurological cases with AI analysis and treatment suggestions.",
+                rating: 4.9,
+                users: 2000
+            },
+            {
+                title: "Pediatric Medicine Essentials",
+                type: "module",
+                specialty: "pediatrics",
+                difficulty: "beginner",
+                description: "Interactive learning modules covering fundamental concepts in pediatric care.",
+                rating: 4.7,
+                users: 1200
+            }
+        ];
+
+        // Populate Resource List
+        function populateResources() {
+            const resourceList = document.getElementById('resource-list');
+            resourceList.innerHTML = '';
+
+            resources.forEach(resource => {
+                const resourceItem = document.createElement('div');
+                resourceItem.className = 'resource-item';
+                resourceItem.innerHTML = `
+                    <h3 style="color: #1e40af; margin-bottom: 0.5rem;">${resource.title}</h3>
+                    <p style="color: #4b5563; margin-bottom: 1rem;">${resource.description}</p>
+                    <div class="resource-meta">
+                        <span>⭐ ${resource.rating}</span>
+                        <span>👥 ${resource.users} users</span>
+                        <span>${resource.difficulty}</span>
+                    </div>
+                `;
+                resourceList.appendChild(resourceItem);
+            });
+        }
+
+        // Sample Recommendation Data
+        const recommendations = [
+            {
+                title: "Medical Imaging AI Course",
+                description: "Learn how AI is revolutionizing medical imaging analysis.",
+                match: 98
+            },
+            {
+                title: "Clinical Decision Support Systems",
+                description: "Understanding AI-powered clinical decision support tools.",
+                match: 95
+            },
+            {
+                title: "Healthcare Data Analytics",
+                description: "Master the fundamentals of healthcare data analysis with AI.",
+                match: 92
+            }
+        ];
+
+        // Populate Recommendations
+        function populateRecommendations() {
+            const recommendationGrid = document.getElementById('recommendation-grid');
+            recommendationGrid.innerHTML = '';
+
+            recommendations.forEach(rec => {
+                const card = document.createElement('div');
+                card.className = 'recommendation-card';
+                card.innerHTML = `
+                    <h3 style="margin-bottom: 0.5rem;">${rec.title}</h3>
+                    <p style="color: #4b5563; margin-bottom: 1rem;">${rec.description}</p>
+                    <div style="color: #2563eb; font-weight: bold;">${rec.match}% Match</div>
+                `;
+                recommendationGrid.appendChild(card);
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            populateNavigation();
+            populateResources();
+            populateRecommendations();
+
+            // Filter functionality
+            const filters = document.querySelectorAll('select');
+            filters.forEach(filter => {
+                filter.addEventListener('change', () => {
+                    // Implement filtering logic here
+                    populateResources(); // Refresh resource list
+                });
+            });
+        });
+    </script>
+</body>
+</html>

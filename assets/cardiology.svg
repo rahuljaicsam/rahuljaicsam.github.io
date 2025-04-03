@@ -1,0 +1,62 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <!-- Gradient for the main badge body - Deep Red -->
+    <linearGradient id="cardioBadgeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E53935; stop-opacity:1" /> <!-- Medium Red -->
+      <stop offset="100%" style="stop-color:#B71C1C; stop-opacity:1" /> <!-- Dark Red -->
+    </linearGradient>
+    <!-- Gradient for the border - Gold -->
+    <linearGradient id="cardioBorderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFEE58; stop-opacity:1" /> <!-- Light Yellow/Gold -->
+      <stop offset="100%" style="stop-color:#FBC02D; stop-opacity:1" /> <!-- Amber/Gold -->
+    </linearGradient>
+    <!-- Gradient for the Heart Symbol -->
+     <radialGradient id="heartSymbolGradient" cx="50%" cy="40%" r="60%">
+       <stop offset="0%" style="stop-color:#EF5350; stop-opacity:1" /> <!-- Slightly Lighter Red -->
+       <stop offset="100%" style="stop-color:#D32F2F; stop-opacity:1" /> <!-- Red -->
+    </radialGradient>
+    <!-- Color/Gradient for ECG line - Glowing Cyan/White -->
+     <linearGradient id="ecgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E0F7FA; stop-opacity:1" /> <!-- Light Cyan -->
+      <stop offset="50%" style="stop-color:#FFFFFF; stop-opacity:1" /> <!-- White -->
+      <stop offset="100%" style="stop-color:#B2EBF2; stop-opacity:1" /> <!-- Pale Cyan -->
+    </linearGradient>
+  </defs>
+
+  <!-- Badge Border -->
+  <path d="M 50,5
+           Q 20,15 10,40
+           L 10,70
+           C 20,95 50,95 50,95
+           C 50,95 80,95 90,70
+           L 90,40
+           Q 80,15 50,5 Z"
+        fill="url(#cardioBorderGradient)" stroke="#B8860B" stroke-width="1.5"/> <!-- Dark Gold stroke -->
+
+  <!-- Main Badge Shape (Slightly smaller inset) -->
+  <path d="M 50,10
+           Q 25,20 15,42
+           L 15,68
+           C 25,90 50,90 50,90
+           C 50,90 75,90 85,68
+           L 85,42
+           Q 75,20 50,10 Z"
+        fill="url(#cardioBadgeGradient)" />
+
+  <!-- Central Symbol: Heart + ECG Wave -->
+  <g>
+    <!-- Heart Shape -->
+    <path d="M 50,30
+             C 40,20 25,25 25,45
+             C 25,65 50,80 50,80
+             C 50,80 75,65 75,45
+             C 75,25 60,20 50,30 Z"
+          fill="url(#heartSymbolGradient)" stroke="#A01613" stroke-width="1.5"/>
+
+    <!-- ECG Rhythm Line -->
+    <path d="M 25 55 L 35 55 L 40 45 L 48 65 L 52 50 L 58 55 L 75 55"
+          stroke="url(#ecgGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+</svg>

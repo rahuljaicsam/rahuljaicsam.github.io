@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Ethics in Healthcare - LCU Medical Research</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <script src="header-styles.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/ai+health.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .principle-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .principle-icon {
+            width: 60px;
+            height: 60px;
+            margin: 2rem auto;
+            background: #1e3a8a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .principle-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .case-studies-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .case-study-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-study-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .case-study-card:hover {
+            transform: translateX(10px);
+        }
+
+        .ethical-scenario {
+            padding: 4rem 2rem;
+            background: #fff;
+        }
+
+        .scenario-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .scenario-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .scenario-card.active {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        .guidelines-section {
+            background: #f1f5f9;
+            padding: 4rem 2rem;
+        }
+
+        .guideline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .guideline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .guideline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .progress-indicator {
+            height: 4px;
+            background: #e2e8f0;
+            margin-top: 1rem;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #1e3a8a;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <img src="/assets/ai+health.png" alt="LCU Logo" style="height: 40px; margin-right: 10px;">
+                        <span>LCU Medical Research</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Research & Innovation</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Research Areas</h3>
+                                    <a href="ai-driven-research.html">AI-Driven Research</a>
+                                    <a href="robotics-innovation.html">Robotics Innovation</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality in Medical Training</a>
+                                    <a href="quantum-computing-for-drug-discovery.html">Quantum Computing for Drug Discovery</a>
+                                    <a href="nanotechnology-in-medicine.html">Nanotechnology in Medicine</a>
+                                    <a href="ai-ethics-in-healthcare.html">AI Ethics in Healthcare</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Innovation Centers</h3>
+                                    <a href="ai-research-labs.html">AI Research Labs</a>
+                                    <a href="robotics-development-centers.html">Robotics Development Centers</a>
+                                    <a href="virtual-labs.html">Virtual Labs</a>
+                                    <a href="research-departments.html">Research Departments</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="research-databases.html">Research Databases</a>
+                                    <a href="digital-publications.html">Digital Publications</a>
+                                    <a href="e-journals.html">E-Journals</a>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Education & Training</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Programs</h3>
+                                    <a href="ai-assisted-continuing-education.html">AI-Assisted Continuing Education</a>
+                                    <a href="robotic-surgery-simulations.html">Robotic Surgery Simulations</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality Training</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="digital-collections.html">Digital Collections</a>
+                                    <a href="online-resources.html">Online Resources</a>
+                                    <a href="research-databases.html">Research Databases</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Opportunities</h3>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                    <a href="advanced-research-opportunities.html">Advanced Research</a>
+                                    <a href="laboratories.html">Laboratories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Community & Events</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Connect</h3>
+                                    <a href="virtual-networking-events.html">Virtual Networking Events</a>
+                                    <a href="join-our-discord.html">Join Our Discord</a>
+                                    <a href="membership.html">Membership</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Support</h3>
+                                    <a href="donation.html">Make a Donation</a>
+                                    <a href="donate-compute-power.html">Donate Compute Power</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">AI Ethics in Healthcare</h1>
+                <p class="hero-subtitle">Ensuring responsible and ethical implementation of AI in medical practice</p>
+            </div>
+        </section>
+
+        <section class="principles-grid">
+            <div class="principle-card">
+                <div class="principle-icon">🔍</div>
+                <div class="principle-content">
+                    <h3 style="color: #1e3a8a;">Transparency</h3>
+                    <p>Clear communication of AI capabilities and limitations in healthcare</p>
+                </div>
+            </div>
+
+            <div class="principle-card">
+                <div class="principle-icon">⚖️</div>
+                <div class="principle-content">
+                    <h3 style="color: #1e3a8a;">Fairness</h3>
+                    <p>Ensuring equitable access and unbiased AI systems</p>
+                </div>
+            </div>
+
+            <div class="principle-card">
+                <div class="principle-icon">🔒</div>
+                <div class="principle-content">
+                    <h3 style="color: #1e3a8a;">Privacy</h3>
+                    <p>Protecting patient data and maintaining confidentiality</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-studies-section">
+            <div class="case-study-container">
+                <h2>Ethical Case Studies</h2>
+                <div class="case-study-card" onclick="expandCaseStudy(1)">
+                    <h3>AI Diagnosis Privacy</h3>
+                    <div id="case-study-1" style="display: none;">
+                        <p>Exploring the balance between AI diagnostic accuracy and patient privacy protection</p>
+                    </div>
+                </div>
+                <div class="case-study-card" onclick="expandCaseStudy(2)">
+                    <h3>Algorithm Bias in Treatment</h3>
+                    <div id="case-study-2" style="display: none;">
+                        <p>Addressing potential biases in AI-driven treatment recommendations</p>
+                    </div>
+                </div>
+                <div class="case-study-card" onclick="expandCaseStudy(3)">
+                    <h3>Data Consent Management</h3>
+                    <div id="case-study-3" style="display: none;">
+                        <p>Managing patient consent in AI-powered healthcare systems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ethical-scenario">
+            <div class="scenario-container">
+                <h2 style="color: #1e3a8a;">Interactive Ethical Scenarios</h2>
+                <div class="scenario-card" onclick="toggleScenario(this)">
+                    <h3>Scenario 1: AI Decision Override</h3>
+                    <div class="scenario-content" style="display: none;">
+                        <p>When should healthcare professionals override AI recommendations?</p>
+                        <div class="progress-indicator">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scenario-card" onclick="toggleScenario(this)">
+                    <h3>Scenario 2: Data Sharing Dilemma</h3>
+                    <div class="scenario-content" style="display: none;">
+                        <p>Balancing research needs with patient privacy in AI development</p>
+                        <div class="progress-indicator">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guidelines-section">
+            <div class="guideline-grid">
+                <div class="guideline-item">
+                    <h3 style="color: #1e3a8a;">Ethical Framework</h3>
+                    <p>Comprehensive guidelines for AI implementation in healthcare</p>
+                </div>
+                <div class="guideline-item">
+                    <h3 style="color: #1e3a8a;">Best Practices</h3>
+                    <p>Industry standards for ethical AI development</p>
+                </div>
+                <div class="guideline-item">
+                    <h3 style="color: #1e3a8a;">Compliance</h3>
+                    <p>Regulatory requirements and ethical standards</p>
+                </div>
+                <div class="guideline-item">
+                    <h3 style="color: #1e3a8a;">Future Directions</h3>
+                    <p>Emerging ethical considerations in AI healthcare</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function expandCaseStudy(id) {
+            const caseStudy = document.getElementById(`case-study-${id}`);
+            const allCaseStudies = document.querySelectorAll('[id^="case-study-"]');
+            
+            allCaseStudies.forEach(study => {
+                if (study.id !== `case-study-${id}`) {
+                    study.style.display = 'none';
+                }
+            });
+
+            caseStudy.style.display = caseStudy.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleScenario(element) {
+            const content = element.querySelector('.scenario-content');
+            const progressBar = element.querySelector('.progress-bar');
+            const allScenarios = document.querySelectorAll('.scenario-card');
+
+            allScenarios.forEach(scenario => {
+                if (scenario !== element) {
+                    scenario.classList.remove('active');
+                    scenario.querySelector('.scenario-content').style.display = 'none';
+                }
+            });
+
+            element.classList.toggle('active');
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+
+            if (content.style.display === 'block') {
+                progressBar.style.width = '100%';
+            } else {
+                progressBar.style.width = '0';
+            }
+        }
+
+        // Intersection Observer for animation triggers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                }
+            });
+        });
+
+        document.querySelectorAll('.principle-card, .case-study-card, .guideline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Hover effect for principle cards
+        document.querySelectorAll('.principle-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.querySelector('.principle-icon').style.animation = 'pulse 1s infinite';
+            });
+
+            card.addEventListener('mouseout', () => {
+                card.querySelector('.principle-icon').style.animation = '';
+            });
+        });
+    </script>
+</body>
+</html>

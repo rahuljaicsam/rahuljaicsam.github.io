@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics in Medicine - LCU Medical Research</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <script src="header-styles.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/robot+health.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s;
+        }
+
+        /* Interactive Robot Display */
+        .robot-display {
+            position: relative;
+            height: 500px;
+            background: #1a1a1a;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .robot-model {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+            animation: rotateRobot 20s infinite linear;
+        }
+
+        @keyframes rotateRobot {
+            from { transform: translate(-50%, -50%) rotateY(0deg); }
+            to { transform: translate(-50%, -50%) rotateY(360deg); }
+        }
+
+        /* Application Cards */
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .application-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .application-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .application-content {
+            padding: 1.5rem;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #1e3a8a;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin: 2rem 0;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-left: 30px;
+            padding-right: 0;
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Research Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+            color: white;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Interactive Elements */
+        .interactive-demo {
+            position: relative;
+            padding: 4rem 2rem;
+            background: #f1f5f9;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 30px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <img src="/assets/ai+health.png" alt="LCU Logo" style="height: 40px; margin-right: 10px;">
+                        <span>LCU Medical Research</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Research & Innovation</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Research Areas</h3>
+                                    <a href="ai-driven-research.html">AI-Driven Research</a>
+                                    <a href="robotics-innovation.html">Robotics Innovation</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality in Medical Training</a>
+                                    <a href="quantum-computing-for-drug-discovery.html">Quantum Computing for Drug Discovery</a>
+                                    <a href="nanotechnology-in-medicine.html">Nanotechnology in Medicine</a>
+                                    <a href="ai-ethics-in-healthcare.html">AI Ethics in Healthcare</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Innovation Centers</h3>
+                                    <a href="ai-research-labs.html">AI Research Labs</a>
+                                    <a href="robotics-development-centers.html">Robotics Development Centers</a>
+                                    <a href="virtual-labs.html">Virtual Labs</a>
+                                    <a href="research-departments.html">Research Departments</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="research-databases.html">Research Databases</a>
+                                    <a href="digital-publications.html">Digital Publications</a>
+                                    <a href="e-journals.html">E-Journals</a>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Education & Training</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Programs</h3>
+                                    <a href="ai-assisted-continuing-education.html">AI-Assisted Continuing Education</a>
+                                    <a href="robotic-surgery-simulations.html">Robotic Surgery Simulations</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality Training</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="digital-collections.html">Digital Collections</a>
+                                    <a href="online-resources.html">Online Resources</a>
+                                    <a href="research-databases.html">Research Databases</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Opportunities</h3>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                    <a href="advanced-research-opportunities.html">Advanced Research</a>
+                                    <a href="laboratories.html">Laboratories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Community & Events</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Connect</h3>
+                                    <a href="virtual-networking-events.html">Virtual Networking Events</a>
+                                    <a href="join-our-discord.html">Join Our Discord</a>
+                                    <a href="membership.html">Membership</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Support</h3>
+                                    <a href="donation.html">Make a Donation</a>
+                                    <a href="donate-compute-power.html">Donate Compute Power</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Robotics in Medicine</h1>
+                <p class="hero-subtitle">Revolutionizing healthcare through advanced robotic systems and automation</p>
+            </div>
+        </section>
+
+        <section class="robot-display">
+            <div class="robot-model">
+                <!-- 3D Robot Model Animation -->
+                <div style="width: 400px; height: 400px; background: url('/assets/robot+health.jpeg') center/cover; transform-style: preserve-3d;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(30, 58, 138, 0.3);"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="application-grid">
+            <div class="application-card">
+                <img src="/assets/robot+health.jpeg" alt="Surgical Robotics" class="application-image">
+                <div class="application-content">
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Surgical Robotics</h3>
+                    <p style="color: #4b5563;">Advanced robotic systems enabling precise and minimally invasive surgical procedures.</p>
+                </div>
+            </div>
+
+            <div class="application-card">
+                <img src="/assets/ai+health.png" alt="Medical Automation" class="application-image">
+                <div class="application-content">
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Medical Automation</h3>
+                    <p style="color: #4b5563;">Automated systems for medication dispensing, sample handling, and laboratory processes.</p>
+                </div>
+            </div>
+
+            <div class="application-card">
+                <img src="/assets/digitaltwin+health.png" alt="Rehabilitation Robotics" class="application-image">
+                <div class="application-content">
+                    <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Rehabilitation Robotics</h3>
+                    <p style="color: #4b5563;">Robotic systems assisting in physical therapy and rehabilitation procedures.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-container">
+            <div class="stat-item">
+                <div class="stat-value" id="surgeryCount">5000+</div>
+                <div class="stat-label">Robotic Surgeries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="accuracyRate">99.9%</div>
+                <div class="stat-label">Accuracy Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="recoveryImprovement">40%</div>
+                <div class="stat-label">Faster Recovery</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="researchProjects">200+</div>
+                <div class="stat-label">Research Projects</div>
+            </div>
+        </section>
+
+        <section class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 style="color: #1e3a8a;">First Robotic Surgery</h3>
+                    <p>Milestone achievement in minimally invasive surgical procedures.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 style="color: #1e3a8a;">AI Integration</h3>
+                    <p>Enhanced precision through artificial intelligence algorithms.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3 style="color: #1e3a8a;">Autonomous Systems</h3>
+                    <p>Development of self-operating medical robots.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-demo">
+            <div class="demo-container">
+                <div class="demo-card" onclick="showDemo('surgery')">
+                    <h3 style="color: #1e3a8a;">Surgical Procedures</h3>
+                    <p>Interactive demonstrations of robotic surgical techniques.</p>
+                </div>
+                <div class="demo-card" onclick="showDemo('automation')">
+                    <h3 style="color: #1e3a8a;">Automation Systems</h3>
+                    <p>Explore automated medical processes and workflows.</p>
+                </div>
+                <div class="demo-card" onclick="showDemo('rehabilitation')">
+                    <h3 style="color: #1e3a8a;">Rehabilitation Tools</h3>
+                    <p>Virtual tour of robotic rehabilitation equipment.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Interactive Demo Functions
+        function showDemo(type) {
+            const demos = {
+                surgery: {
+                    title: 'Robotic Surgery Demonstration',
+                    content: 'Experience a virtual demonstration of precision robotic surgery.'
+                },
+                automation: {
+                    title: 'Medical Automation Systems',
+                    content: 'Explore how automation is transforming medical processes.'
+                },
+                rehabilitation: {
+                    title: 'Rehabilitation Robotics',
+                    content: 'Learn about advanced robotic systems in physical therapy.'
+                }
+            };
+
+            const demo = demos[type];
+            alert(`${demo.title}\n\n${demo.content}`);
+        }
+
+        // Animated Statistics
+        function animateStats() {
+            const stats = {
+                surgeryCount: { start: 0, end: 5000, suffix: '+' },
+                accuracyRate: { start: 0, end: 99.9, suffix: '%' },
+                recoveryImprovement: { start: 0, end: 40, suffix: '%' },
+                researchProjects: { start: 0, end: 200, suffix: '+' }
+            };
+
+            for (const [id, { start, end, suffix }] of Object.entries(stats)) {
+                animateValue(id, start, end, suffix);
+            }
+        }
+
+        function animateValue(id, start, end, suffix = '') {
+            const element = document.getElementById(id);
+            const duration = 2000;
+            const steps = 60;
+            const increment = (end - start) / steps;
+            let current = start;
+            let step = 0;
+
+            const timer = setInterval(() => {
+                step++;
+                current += increment;
+                if (step >= steps) {
+                    clearInterval(timer);
+                    current = end;
+                }
+                element.textContent = current.toFixed(1).replace(/\.0$/, '') + suffix;
+            }, duration / steps);
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            animateStats();
+        });
+
+        // Intersection Observer for animation triggers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                }
+            });
+        });
+
+        document.querySelectorAll('.application-card, .timeline-item, .demo-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

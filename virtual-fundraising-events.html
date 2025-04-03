@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Fundraising Events - LCU Medical Research</title>
+    <link rel="stylesheet" href="full-width-dropdown.css">
+    <script src="header-styles.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background-color: #f8f9fa;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/global.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s;
+        }
+
+        /* Event Cards */
+        .event-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 1.5rem;
+        }
+
+        .event-title {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .event-description {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: #f3f4f6;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem;
+        }
+
+        .progress-bar {
+            background: #e5e7eb;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            background: #1e3a8a;
+            height: 100%;
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #4b5563;
+        }
+
+        /* Donation Methods */
+        .donation-methods {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .method-card {
+            padding: 2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            border-color: #1e3a8a;
+            background: #f8fafc;
+        }
+
+        .method-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        /* Donor Recognition */
+        .donor-wall {
+            padding: 4rem 2rem;
+            background: #f8fafc;
+        }
+
+        .donor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .donor-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .donor-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: #e5e7eb;
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            background: #1e3a8a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .countdown-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <img src="/assets/ai+health.png" alt="LCU Logo" style="height: 40px; margin-right: 10px;">
+                        <span>LCU Medical Research</span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="dropdown">
+                        <button class="dropbtn">Research & Innovation</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Research Areas</h3>
+                                    <a href="ai-driven-research.html">AI-Driven Research</a>
+                                    <a href="robotics-innovation.html">Robotics Innovation</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality in Medical Training</a>
+                                    <a href="quantum-computing-for-drug-discovery.html">Quantum Computing for Drug Discovery</a>
+                                    <a href="nanotechnology-in-medicine.html">Nanotechnology in Medicine</a>
+                                    <a href="ai-ethics-in-healthcare.html">AI Ethics in Healthcare</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Innovation Centers</h3>
+                                    <a href="ai-research-labs.html">AI Research Labs</a>
+                                    <a href="robotics-development-centers.html">Robotics Development Centers</a>
+                                    <a href="virtual-labs.html">Virtual Labs</a>
+                                    <a href="research-departments.html">Research Departments</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="research-databases.html">Research Databases</a>
+                                    <a href="digital-publications.html">Digital Publications</a>
+                                    <a href="e-journals.html">E-Journals</a>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Education & Training</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Programs</h3>
+                                    <a href="ai-assisted-continuing-education.html">AI-Assisted Continuing Education</a>
+                                    <a href="robotic-surgery-simulations.html">Robotic Surgery Simulations</a>
+                                    <a href="virtual-reality-in-medical-training.html">Virtual Reality Training</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Resources</h3>
+                                    <a href="digital-collections.html">Digital Collections</a>
+                                    <a href="online-resources.html">Online Resources</a>
+                                    <a href="research-databases.html">Research Databases</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Opportunities</h3>
+                                    <a href="research-opportunities.html">Research Opportunities</a>
+                                    <a href="advanced-research-opportunities.html">Advanced Research</a>
+                                    <a href="laboratories.html">Laboratories</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Community & Events</button>
+                        <div class="dropdown-content">
+                            <div class="mega-menu">
+                                <div class="menu-column">
+                                    <h3>Connect</h3>
+                                    <a href="virtual-networking-events.html">Virtual Networking Events</a>
+                                    <a href="join-our-discord.html">Join Our Discord</a>
+                                    <a href="membership.html">Membership</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h3>Support</h3>
+                                    <a href="donation.html">Make a Donation</a>
+                                    <a href="donate-compute-power.html">Donate Compute Power</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Virtual Fundraising Events</h1>
+                <p class="hero-subtitle">Join our online community in supporting groundbreaking medical research</p>
+            </div>
+        </section>
+
+        <section class="countdown-container">
+            <h2>Next Virtual Fundraising Event</h2>
+            <div class="countdown-grid">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="progress-container">
+            <h2>Current Fundraising Progress</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-stats">
+                <span>$<span id="currentAmount">0</span> raised</span>
+                <span>Goal: $1,000,000</span>
+            </div>
+        </section>
+
+        <section class="event-cards">
+            <div class="event-card">
+                <img src="/assets/ai+health.png" alt="Virtual Gala" class="event-image">
+                <div class="event-content">
+                    <h3 class="event-title">Annual Virtual Gala</h3>
+                    <p class="event-description">Join our prestigious online gala featuring keynote speakers, research presentations, and live entertainment.</p>
+                    <div class="event-meta">
+                        <span>Date: December 15, 2023</span>
+                        <span>7:00 PM EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <img src="/assets/robot+health.jpeg" alt="Research Showcase" class="event-image">
+                <div class="event-content">
+                    <h3 class="event-title">Research Showcase</h3>
+                    <p class="event-description">Experience virtual demonstrations of our latest research projects and technological innovations.</p>
+                    <div class="event-meta">
+                        <span>Date: January 20, 2024</span>
+                        <span>2:00 PM EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <img src="/assets/global.jpeg" alt="Global Hackathon" class="event-image">
+                <div class="event-content">
+                    <h3 class="event-title">Global Healthcare Hackathon</h3>
+                    <p class="event-description">Participate in our 24-hour virtual hackathon focused on solving critical healthcare challenges.</p>
+                    <div class="event-meta">
+                        <span>Date: February 10, 2024</span>
+                        <span>9:00 AM EST</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="donation-methods">
+            <h2>Ways to Contribute</h2>
+            <div class="method-grid">
+                <div class="method-card">
+                    <div class="method-icon">💻</div>
+                    <h3>GPU Processing Power</h3>
+                    <p>Share your GPU resources to accelerate our AI research initiatives.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">☁️</div>
+                    <h3>Cloud Computing</h3>
+                    <p>Donate cloud computing resources for distributed research projects.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">🖧</div>
+                    <h3>Server Space</h3>
+                    <p>Contribute server capacity to power our research applications.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">💾</div>
+                    <h3>Storage Resources</h3>
+                    <p>Help store and process large medical research datasets.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="donor-wall">
+            <h2>Donor Recognition Wall</h2>
+            <div class="donor-grid" id="donorWall">
+                <!-- Donor cards will be dynamically populated -->
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: #1e3a8a; color: white; padding: 4rem 2rem; margin-top: 4rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.25rem;">About Us</h3>
+                <p style="margin: 0;">LCU Medical Research is dedicated to advancing healthcare through innovative technology and research.</p>
+            </div>
+            <div>
+                <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.25rem;">Quick Links</h3>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.75rem;"><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+                    <li style="margin-bottom: 0.75rem;"><a href="research-opportunities.html" style="color: white; text-decoration: none;">Research</a></li>
+                    <li style="margin-bottom: 0.75rem;"><a href="donation.html" style="color: white; text-decoration: none;">Support Us</a></li>
+                    <li style="margin-bottom: 0.75rem;"><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.25rem;">Connect With Us</h3>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: white; text-decoration: none;">FB</a>
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: white; text-decoration: none;">TW</a>
+                    <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); color: white; text-decoration: none;">LI</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+            <p style="margin: 0;">&copy; 2023 LCU Medical Research. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('December 15, 2023 19:00:00 EST').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            document.getElementById('days').textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('minutes').textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('seconds').textContent = Math.floor((distance % (1000 * 60)) / 1000);
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Progress Bar Animation
+        function animateProgress() {
+            const currentAmount = 750000;
+            const goal = 1000000;
+            const progress = (currentAmount / goal) * 100;
+
+            const progressFill = document.getElementById('progressFill');
+            const currentAmountElement = document.getElementById('currentAmount');
+
+            progressFill.style.width = progress + '%';
+
+            const countUp = {
+                current: 0,
+                target: currentAmount,
+                increment: currentAmount / 100
+            };
+
+            function updateAmount() {
+                if (countUp.current < countUp.target) {
+                    countUp.current += countUp.increment;
+                    currentAmountElement.textContent = Math.round(countUp.current).toLocaleString();
+                    requestAnimationFrame(updateAmount);
+                } else {
+                    currentAmountElement.textContent = countUp.target.toLocaleString();
+                }
+            }
+
+            updateAmount();
+        }
+
+        // Donor Wall
+        function populateDonorWall() {
+            const donors = [
+                { name: 'Tech Innovation Labs', contribution: 'GPU Cluster' },
+                { name: 'Cloud Solutions Inc.', contribution: 'Cloud Infrastructure' },
+                { name: 'Data Center Pro', contribution: 'Server Resources' },
+                { name: 'Storage Systems Ltd.', contribution: 'Storage Array' },
+                { name: 'Computing Research Group', contribution: 'HPC Resources' },
+                { name: 'Digital Infrastructure Co.', contribution: 'Network Resources' }
+            ];
+
+            const donorWall = document.getElementById('donorWall');
+            donors.forEach(donor => {
+                const card = document.createElement('div');
+                card.className = 'donor-card';
+                card.innerHTML = `
+                    <div class="donor-avatar"></div>
+                    <h3>${donor.name}</h3>
+                    <p>${donor.contribution}</p>
+                `;
+                donorWall.appendChild(card);
+            });
+        }
+
+        // Initialize animations and dynamic content
+        document.addEventListener('DOMContentLoaded', () => {
+            animateProgress();
+            populateDonorWall();
+
+            // Add hover effect to method cards
+            const methodCards = document.querySelectorAll('.method-card');
+            methodCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future of Healthcare Symposiums - Lifestyle Corp University</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/global.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Upcoming Events Section */
+        .upcoming-events {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .event-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+        .event-date {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-bottom-left-radius: 1rem;
+        }
+        .countdown-timer {
+            display: flex;
+            justify-content: space-around;
+            margin: 1rem 0;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .countdown-item {
+            text-align: center;
+        }
+        .countdown-value {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+
+        /* Keynote Speakers Section */
+        .keynote-speakers {
+            padding: 4rem 0;
+            background: white;
+        }
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .speaker-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            background: #f8fafc;
+            transition: transform 0.3s ease;
+        }
+        .speaker-card:hover {
+            transform: scale(1.05);
+        }
+        .speaker-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #1e40af;
+        }
+
+        /* Registration Section */
+        .registration {
+            padding: 4rem 0;
+            background: #1e40af;
+            color: white;
+        }
+        .registration-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .registration-form {
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .register-button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .register-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* Past Events Gallery */
+        .past-events {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: #e5e7eb;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-items {
+                display: flex;
+            }
+            .mobile-menu-button {
+                display: none;
+            }
+            .hero-section h1 {
+                font-size: 4rem;
+            }
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Future of Healthcare Symposiums</h1>
+                <p>Join us for groundbreaking discussions on the intersection of technology and healthcare, featuring world-renowned experts and innovative solutions shaping the future of medicine.</p>
+            </div>
+        </section>
+
+        <section class="upcoming-events">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e40af; font-size: 2.5rem; margin-bottom: 1rem;">Upcoming Events</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #4b5563;">Discover our upcoming symposiums and secure your spot at the forefront of healthcare innovation.</p>
+                
+                <div class="events-grid" id="events-grid">
+                    <!-- Events will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="keynote-speakers">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e40af; font-size: 2.5rem; margin-bottom: 1rem;">Keynote Speakers</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #4b5563;">Learn from industry leaders and healthcare innovators who are shaping the future of medicine.</p>
+
+                <div class="speakers-grid" id="speakers-grid">
+                    <!-- Speakers will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="registration">
+            <div class="container">
+                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Register Now</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto;">Secure your place at our upcoming symposiums and be part of the healthcare revolution.</p>
+
+                <div class="registration-container">
+                    <form class="registration-form" id="registration-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name" required style="font-size: 1rem;">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required style="font-size: 1rem;">
+                        </div>
+                        <div class="form-group">
+                            <select required style="font-size: 1rem;">
+                                <option value="">Select Symposium</option>
+                                <option value="ai-healthcare">AI in Healthcare 2024</option>
+                                <option value="digital-health">Digital Health Summit</option>
+                                <option value="medical-robotics">Medical Robotics Conference</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="register-button">Register Now</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="past-events">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e40af; font-size: 2.5rem; margin-bottom: 1rem;">Past Events Gallery</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #4b5563;">Explore highlights from our previous symposiums and conferences.</p>
+
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="https://www.riotiq.com" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">🧠</span>
+                        <span>Take the IQ Test</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">💻</span>
+                        <span>Explore AI Career Opportunities</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">📰</span>
+                        <span>Subscribe to our Digital Journal</span>
+                    </a>
+                </div>
+                <!-- Footer links will be populated by JavaScript -->
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">AI Ethics Guidelines</a>
+                    <a href="#">Non-Discrimination Policy</a>
+                </div>
+                <p>&copy; 2020-2024 Lifestyle Corp University. All rights reserved. Powered by AI and high-IQ individuals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation Data
+        const navItems = [
+            { 
+                title: "Research at LCU", 
+                items: [
+                    { text: "AI-Driven Research", link: "ai-driven-research.html" },
+                    { text: "Robotics Innovation", link: "robotics-innovation.html" },
+                    { text: "Virtual Labs", link: "virtual-labs.html" },
+                    { text: "Digital Health Initiatives", link: "digital-health-initiatives.html" },
+                    { text: "Join Our Discord", link: "join-our-discord.html" },
+                    { text: "Apply for Membership", link: "membership.html" },
+                    { text: "Current Projects", link: "current-projects.html" },
+                    { text: "Research Ethics", link: "research-ethics.html" },
+                    { text: "AI Partnerships", link: "ai-partnerships.html" },
+                    { text: "Robotics Collaborations", link: "robotics-collaborations.html" }
+                ]
+            },
+            { 
+                title: "Digital Library", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "AI in Medicine", link: "ai-in-medicine.html" },
+                    { text: "E-Journals", link: "e-journals.html" },
+                    { text: "Advanced Robotics", link: "advanced-robotics.html" },
+                    { text: "Cognitive Enhancement", link: "cognitive-enhancement.html" },
+                    { text: "Digital Health Solutions", link: "digital-health-solutions.html" }
+                ]
+            }
+        ];
+
+        // Upcoming Events Data
+        const upcomingEvents = [
+            {
+                title: "AI in Healthcare 2024",
+                date: "2024-06-15",
+                description: "Exploring the latest advancements in AI-powered medical diagnostics and treatment planning.",
+                location: "Virtual & In-Person",
+                speakers: ["Dr. Sarah Chen", "Prof. Michael Roberts"]
+            },
+            {
+                title: "Digital Health Summit",
+                date: "2024-08-20",
+                description: "A comprehensive look at digital transformation in healthcare delivery and patient care.",
+                location: "Virtual Only",
+                speakers: ["Dr. James Wilson", "Dr. Emily Thompson"]
+            },
+            {
+                title: "Medical Robotics Conference",
+                date: "2024-10-05",
+                description: "Showcasing innovative robotic systems revolutionizing surgical procedures and patient care.",
+                location: "In-Person Only",
+                speakers: ["Prof. David Lee", "Dr. Rachel Adams"]
+            }
+        ];
+
+        // Keynote Speakers Data
+        const keynoteSpeakers = [
+            {
+                name: "Dr. Sarah Chen",
+                title: "Director of AI Research, Medical AI Institute",
+                topic: "The Future of AI-Driven Diagnostics",
+                bio: "Pioneer in implementing AI solutions for early disease detection"
+            },
+            {
+                name: "Prof. Michael Roberts",
+                title: "Chief of Digital Health, Global Health Tech",
+                topic: "Digital Transformation in Healthcare",
+                bio: "Leading expert in healthcare digitization and telemedicine"
+            },
+            {
+                name: "Dr. Emily Thompson",
+                title: "Head of Robotics Surgery, Tech Med Center",
+                topic: "Advances in Robotic Surgery",
+                bio: "Renowned surgeon specializing in robotic-assisted procedures"
+            },
+            {
+                name: "Prof. David Lee",
+                title: "Director, Institute of Medical Innovation",
+                topic: "Next-Gen Medical Technologies",
+                bio: "Researcher focusing on breakthrough medical technologies"
+            }
+        ];
+
+        // Past Events Gallery Data
+        const pastEvents = [
+            {
+                title: "AI in Healthcare 2023",
+                date: "June 2023",
+                image: "/assets/ai+health.png",
+                description: "Groundbreaking discussions on AI applications in healthcare"
+            },
+            {
+                title: "Digital Health Summit 2023",
+                date: "August 2023",
+                image: "/assets/digitaltwin+health.png",
+                description: "Exploring the digital transformation of healthcare"
+            },
+            {
+                title: "Medical Robotics Conference 2023",
+                date: "October 2023",
+                image: "/assets/robot+health.jpeg",
+                description: "Showcasing the latest in medical robotics"
+            }
+        ];
+
+        // Populate Navigation
+        function populateNavigation() {
+            const navItemsContainer = document.querySelector('.nav-items');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            navItems.forEach(item => {
+                // Desktop Navigation
+                const navItem = document.createElement('div');
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                const dropdown = document.createElement('div');
+                dropdown.className = 'dropdown';
+
+                item.items.forEach(subItem => {
+                    const link = document.createElement('a');
+                    link.href = subItem.link;
+                    link.textContent = subItem.text;
+                    dropdown.appendChild(link);
+                });
+
+                button.addEventListener('click', () => {
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+
+                navItem.appendChild(button);
+                navItem.appendChild(dropdown);
+                navItemsContainer.appendChild(navItem);
+
+                // Mobile Navigation
+                const mobileButton = document.createElement('button');
+                mobileButton.textContent = item.title;
+                const mobileSubmenu = document.createElement('div');
+                mobileSubmenu.className = 'mobile-submenu';
+
+                item.items.forEach(subItem => {
+                    const link = document.createElement('a');
+                    link.href = subItem.link;
+                    link.textContent = subItem.text;
+                    mobileSubmenu.appendChild(link);
+                });
+
+                mobileButton.addEventListener('click', () => {
+                    mobileSubmenu.style.display = mobileSubmenu.style.display === 'block' ? 'none' : 'block';
+                });
+
+                mobileMenu.appendChild(mobileButton);
+                mobileMenu.appendChild(mobileSubmenu);
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-items')) {
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.style.display = 'none';
+                    });
+                }
+            });
+        }
+
+        // Populate Upcoming Events
+        function populateUpcomingEvents() {
+            const eventsGrid = document.getElementById('events-grid');
+
+            upcomingEvents.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                
+                const eventDate = new Date(event.date);
+                const now = new Date();
+                const timeLeft = eventDate - now;
+
+                eventCard.innerHTML = `
+                    <div class="event-date">${eventDate.toLocaleDateString()}</div>
+                    <h3 style="color: #1e40af; margin-bottom: 1rem;">${event.title}</h3>
+                    <p style="color: #4b5563;">${event.description}</p>
+                    <p style="color: #2563eb; margin-top: 1rem;"><strong>Location:</strong> ${event.location}</p>
+                    <p style="color: #2563eb;"><strong>Speakers:</strong> ${event.speakers.join(', ')}</p>
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <div class="countdown-value">${Math.floor(timeLeft / (1000 * 60 * 60 * 24))}</div>
+                            <div>Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">${Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}</div>
+                            <div>Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">${Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))}</div>
+                            <div>Minutes</div>
+                        </div>
+                    </div>
+                `;
+
+                eventsGrid.appendChild(eventCard);
+            });
+        }
+
+        // Populate Keynote Speakers
+        function populateKeynoteSpeakers() {
+            const speakersGrid = document.getElementById('speakers-grid');
+
+            keynoteSpeakers.forEach(speaker => {
+                const speakerCard = document.createElement('div');
+                speakerCard.className = 'speaker-card';
+                
+                speakerCard.innerHTML = `
+                    <div class="speaker-image">👤</div>
+                    <h3 style="color: #1e40af; margin-bottom: 0.5rem;">${speaker.name}</h3>
+                    <p style="color: #2563eb; margin-bottom: 0.5rem;">${speaker.title}</p>
+                    <p style="color: #4b5563; margin-bottom: 0.5rem;">${speaker.topic}</p>
+                    <p style="color: #6b7280; font-size: 0.875rem;">${speaker.bio}</p>
+                `;
+
+                speakersGrid.appendChild(speakerCard);
+            });
+        }
+
+        // Populate Past Events Gallery
+        function populatePastEvents() {
+            const galleryGrid = document.getElementById('gallery-grid');
+
+            pastEvents.forEach(event => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                galleryItem.innerHTML = `
+                    <img src="${event.image}" alt="${event.title}">
+                    <div class="gallery-overlay">
+                        <h3 style="margin-bottom: 0.5rem;">${event.title}</h3>
+                        <p style="font-size: 0.875rem;">${event.date}</p>
+                        <p style="font-size: 0.875rem; margin-top: 0.5rem;">${event.description}</p>
+                    </div>
+                `;
+
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+
+        // Handle Registration Form
+        function handleRegistration() {
+            const form = document.getElementById('registration-form');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Thank you for registering! We will send you confirmation details shortly.');
+                form.reset();
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            populateNavigation();
+            populateUpcomingEvents();
+            populateKeynoteSpeakers();
+            populatePastEvents();
+            handleRegistration();
+
+            // Update countdown timers
+            setInterval(() => {
+                populateUpcomingEvents();
+            }, 60000); // Update every minute
+        });
+    </script>
+</body>
+</html>

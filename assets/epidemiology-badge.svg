@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Badge Outline -->
+  <polygon points="100,10 130,25 160,55 175,100 160,145 130,175 100,190 70,175 40,145 25,100 40,55 70,25" 
+           fill="#5A9CB8" stroke="#2C3E50" stroke-width="4"/>
+  
+  <!-- Inner Badge Outline -->
+  <polygon points="100,30 124,42 148,65 160,100 148,135 124,158 100,170 76,158 52,135 40,100 52,65 76,42" 
+           fill="#7FB3D5" stroke="#2C3E50" stroke-width="2"/>
+  
+  <!-- Virus/Network Node -->
+  <circle cx="100" cy="100" r="25" fill="#E74C3C" stroke="#2C3E50" stroke-width="2"/>
+  
+  <!-- Virus Spikes/Connections -->
+  <line x1="100" y1="75" x2="100" y2="45" stroke="#2C3E50" stroke-width="3"/>
+  <line x1="100" y1="125" x2="100" y2="155" stroke="#2C3E50" stroke-width="3"/>
+  <line x1="75" y1="100" x2="45" y2="100" stroke="#2C3E50" stroke-width="3"/>
+  <line x1="125" y1="100" x2="155" y2="100" stroke="#2C3E50" stroke-width="3"/>
+  <line x1="83" y1="83" x2="63" y2="63" stroke="#2C3E50" stroke-width="3"/>
+  <line x1="117" y1="117" x2="137" y2="137" stroke="#2C3E50" stroke-width="3"/>
+  <line x1="83" y1="117" x2="63" y2="137" stroke="#2C3E50" stroke-width="3"/>
+  <line x1="117" y1="83" x2="137" y2="63" stroke="#2C3E50" stroke-width="3"/>
+  
+  <!-- Connection Nodes -->
+  <circle cx="100" cy="45" r="6" fill="#F4D03F" stroke="#2C3E50" stroke-width="1"/>
+  <circle cx="100" cy="155" r="6" fill="#F4D03F" stroke="#2C3E50" stroke-width="1"/>
+  <circle cx="45" cy="100" r="6" fill="#F4D03F" stroke="#2C3E50" stroke-width="1"/>
+  <circle cx="155" cy="100" r="6" fill="#F4D03F" stroke="#2C3E50" stroke-width="1"/>
+  <circle cx="63" cy="63" r="6" fill="#F4D03F" stroke="#2C3E50" stroke-width="1"/>
+  <circle cx="137" cy="137" r="6" fill="#F4D03F" stroke="#2C3E50" stroke-width="1"/>
+  <circle cx="63" cy="137" r="6" fill="#F4D03F" stroke="#2C3E50" stroke-width="1"/>
+  <circle cx="137" cy="63" r="6" fill="#F4D03F" stroke="#2C3E50" stroke-width="1"/>
+  
+  <!-- Caduceus Symbol -->
+  <path d="M100,85 C97,85 95,87 95,90 C95,93 97,95 100,95 C103,95 105,93 105,90 C105,87 103,85 100,85 Z" fill="#F9E79F" stroke="#2C3E50" stroke-width="1"/>
+  <path d="M96,90 L96,105 C96,109 92,112 88,112 C84,112 80,109 80,105 C80,101 84,98 88,98" fill="none" stroke="#F9E79F" stroke-width="3"/>
+  <path d="M104,90 L104,105 C104,109 108,112 112,112 C116,112 120,109 120,105 C120,101 116,98 112,98" fill="none" stroke="#F9E79F" stroke-width="3"/>
+  
+  <!-- Metallic Shine Effects -->
+  <polygon points="100,30 124,42 124,52 100,40" fill="#ffffff" fill-opacity="0.3"/>
+  <polygon points="52,135 40,100 50,100 62,135" fill="#ffffff" fill-opacity="0.2"/>
+  
+  <!-- Badge Rim Highlights -->
+  <polygon points="100,10 130,25 160,55 175,100 160,145 130,175 100,190 100,180 125,165 150,140 165,100 150,60 125,35 100,20" fill="#ffffff" fill-opacity="0.2"/>
+</svg>

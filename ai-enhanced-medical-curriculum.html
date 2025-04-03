@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Enhanced Medical Curriculum | Lifestyle Corp University</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .dropdown h3 {
+            padding: 0.5rem 1rem;
+            margin: 0;
+            font-size: 0.875rem;
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Curriculum Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            background: #dbeafe;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .feature-title {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        .feature-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Interactive Learning Modules */
+        .learning-modules {
+            background: #f3f4f6;
+            padding: 4rem 0;
+        }
+        .module-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .module-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .module-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        .module-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .module-content {
+            padding: 1.5rem;
+        }
+        .module-title {
+            font-size: 1.25rem;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+        .module-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #3b82f6;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* AI Integration Section */
+        .ai-integration {
+            padding: 4rem 0;
+            background: white;
+        }
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            align-items: center;
+        }
+        .ai-content {
+            padding: 2rem;
+        }
+        .ai-title {
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 1.5rem;
+        }
+        .ai-description {
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .ai-features-list {
+            list-style: none;
+            padding: 0;
+        }
+        .ai-feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .ai-feature-item:hover {
+            transform: translateX(10px);
+        }
+        .ai-feature-icon {
+            margin-right: 1rem;
+            color: #3b82f6;
+        }
+
+        /* Personalized Learning Path */
+        .learning-path {
+            padding: 4rem 0;
+            background: #dbeafe;
+        }
+        .path-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .path-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: #3b82f6;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            padding: 0 2rem;
+        }
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+        }
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-dot {
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            background: #3b82f6;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -0.5rem;
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -0.5rem;
+        }
+
+        /* Assessment Section */
+        .assessment-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .assessment-card {
+            background: #f9fafb;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .assessment-card:hover {
+            background: #dbeafe;
+            transform: translateY(-5px);
+        }
+        .assessment-icon {
+            font-size: 2.5rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+        }
+        .assessment-title {
+            font-size: 1.25rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        .assessment-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .cta-description {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #1e3a8a;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-items {
+                display: none;
+            }
+            .mobile-menu-button {
+                display: block;
+            }
+            .ai-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 2rem;
+                padding-right: 0;
+            }
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+            }
+            .path-timeline::before {
+                left: 0;
+            }
+            .timeline-dot {
+                left: -0.5rem !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" style="text-decoration: none; color: #1e3a8a; font-weight: bold; font-size: 1.5rem;">
+                    LCU
+                </a>
+                <div class="nav-items"></div>
+                <button class="mobile-menu-button">☰</button>
+            </nav>
+        </div>
+        <div class="mobile-menu"></div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">AI-Enhanced Medical Curriculum</h1>
+                <p class="hero-subtitle">Experience the future of medical education with our innovative AI-integrated learning platform</p>
+            </div>
+        </section>
+
+        <section class="features-grid container">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">Adaptive Learning</h3>
+                <p class="feature-description">AI-powered system that adapts to your learning pace and style, ensuring optimal knowledge retention.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Real-time Analytics</h3>
+                <p class="feature-description">Comprehensive performance tracking and personalized feedback to enhance your learning journey.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Targeted Practice</h3>
+                <p class="feature-description">AI-generated practice questions and cases based on your performance and learning needs.</p>
+            </div>
+        </section>
+
+        <section class="learning-modules">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e3a8a; margin-bottom: 3rem;">Interactive Learning Modules</h2>
+                <div class="module-container">
+                    <div class="module-card">
+                        <img src="assets/anatomy.webp" alt="Anatomy Module" class="module-image">
+                        <div class="module-content">
+                            <h3 class="module-title">Advanced Anatomy</h3>
+                            <p class="module-description">3D interactive models with AI-guided exploration</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-card">
+                        <img src="assets/cardiology.jpeg" alt="Cardiology Module" class="module-image">
+                        <div class="module-content">
+                            <h3 class="module-title">Cardiology Essentials</h3>
+                            <p class="module-description">AI-simulated patient cases and diagnostics</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-card">
+                        <img src="assets/neurology.gif" alt="Neurology Module" class="module-image">
+                        <div class="module-content">
+                            <h3 class="module-title">Neurology Fundamentals</h3>
+                            <p class="module-description">Interactive neural pathway exploration</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-integration">
+            <div class="container">
+                <div class="ai-grid">
+                    <div class="ai-content">
+                        <h2 class="ai-title">AI-Powered Learning Experience</h2>
+                        <p class="ai-description">Our curriculum leverages cutting-edge artificial intelligence to provide a personalized and engaging learning experience.</p>
+                        <ul class="ai-features-list">
+                            <li class="ai-feature-item">
+                                <span class="ai-feature-icon">✓</span>
+                                <span>Intelligent content recommendation</span>
+                            </li>
+                            <li class="ai-feature-item">
+                                <span class="ai-feature-icon">✓</span>
+                                <span>Automated progress tracking</span>
+                            </li>
+                            <li class="ai-feature-item">
+                                <span class="ai-feature-icon">✓</span>
+                                <span>Virtual patient simulations</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="background: #f3f4f6; border-radius: 1rem; padding: 2rem; height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">🎓</div>
+                            <h3 style="color: #1e3a8a; margin-bottom: 1rem;">Smart Learning Assistant</h3>
+                            <p style="color: #6b7280;">24/7 AI-powered support for your studies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="learning-path">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e3a8a; margin-bottom: 3rem;">Your Personalized Learning Journey</h2>
+                <div class="path-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 style="color: #1e3a8a;">Assessment</h3>
+                            <p>AI evaluates your current knowledge and learning style</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 style="color: #1e3a8a;">Customization</h3>
+                            <p>Personalized curriculum path created just for you</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 style="color: #1e3a8a;">Active Learning</h3>
+                            <p>Interactive modules and real-time feedback</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 style="color: #1e3a8a;">Mastery</h3>
+                            <p>Comprehensive understanding and practical application</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="assessment-section">
+            <div class="container">
+                <h2 style="text-align: center; color: #1e3a8a; margin-bottom: 3rem;">Continuous Assessment & Growth</h2>
+                <div class="assessment-grid">
+                    <div class="assessment-card">
+                        <div class="assessment-icon">📝</div>
+                        <h3 class="assessment-title">Smart Quizzes</h3>
+                        <p class="assessment-description">AI-generated assessments that adapt to your knowledge level</p>
+                    </div>
+                    <div class="assessment-card">
+                        <div class="assessment-icon">📈</div>
+                        <h3 class="assessment-title">Progress Tracking</h3>
+                        <p class="assessment-description">Detailed analytics and performance insights</p>
+                    </div>
+                    <div class="assessment-card">
+                        <div class="assessment-icon">🎯</div>
+                        <h3 class="assessment-title">Skill Mastery</h3>
+                        <p class="assessment-description">Comprehensive competency evaluation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Ready to Transform Your Medical Education?</h2>
+                <p class="cta-description">Join our AI-enhanced medical curriculum and experience the future of medical education today.</p>
+                <a href="#" class="cta-button">Enroll Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About LCU</h3>
+                    <ul>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#">Medical School</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Continuing Education</a></li>
+                        <li><a href="#">Alumni</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Research Database</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Accessibility</a>
+                </div>
+                <p>© 2024 Lifestyle Corp University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation Data
+            const navData = [
+                {
+                    title: 'Programs',
+                    items: [
+                        { text: 'Virtual Medical School', url: 'lcu-virtual-medical-school.html' },
+                        { text: 'AI Research Labs', url: 'ai-research-labs.html' },
+                        { text: 'Digital Health Solutions', url: 'digital-health-solutions.html' }
+                    ]
+                },
+                {
+                    title: 'Research',
+                    items: [
+                        { text: 'Current Projects', url: 'current-projects.html' },
+                        { text: 'AI in Healthcare', url: 'ai-in-healthcare-research.html' },
+                        { text: 'Digital Twin Technology', url: 'digital-twin-in-healthcare.html' }
+                    ]
+                },
+                {
+                    title: 'Resources',
+                    items: [
+                        { text: 'Virtual Labs', url: 'virtual-labs.html' },
+                        { text: 'Digital Collections', url: 'digital-collections.html' },
+                        { text: 'E-Journals', url: 'e-journals.html' }
+                    ]
+                }
+            ];
+
+            // Build Navigation
+            const navItems = document.querySelector('.nav-items');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            navData.forEach(category => {
+                // Desktop Navigation
+                const navItem = document.createElement('div');
+                const button = document.createElement('button');
+                button.textContent = category.title;
+                const dropdown = document.createElement('div');
+                dropdown.className = 'dropdown';
+
+                category.items.forEach(item => {
+                    const link = document.createElement('a');
+                    link.href = item.url;
+                    link.textContent = item.text;
+                    dropdown.appendChild(link);
+                });
+
+                navItem.appendChild(button);
+                navItem.appendChild(dropdown);
+                navItems.appendChild(navItem);
+
+                // Show/hide dropdown
+                button.addEventListener('click', () => {
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+
+                // Mobile Navigation
+                const mobileButton = document.createElement('button');
+                mobileButton.textContent = category.title;
+                const mobileSubmenu = document.createElement('div');
+                mobileSubmenu.className = 'mobile-submenu';
+
+                category.items.forEach(item => {
+                    const link = document.createElement('a');
+                    link.href = item.url;
+                    link.textContent = item.text;
+                    mobileSubmenu.appendChild(link);
+                });
+
+                mobileMenu.appendChild(mobileButton);
+                mobileMenu.appendChild(mobileSubmenu);
+
+                // Show/hide mobile submenu
+                mobileButton.addEventListener('click', () => {
+                    mobileSubmenu.style.display = mobileSubmenu.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-items')) {
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.style.display = 'none';
+                    });
+                }
+            });
+
+            // Progress bar animation
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+
+            // Module card hover effects
+            const moduleCards = document.querySelectorAll('.module-card');
+            moduleCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'scale(1.02)';
+                    card.style.boxShadow = '0 8px 12px rgba(0, 0, 0, 0.15)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'scale(1)';
+                    card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                });
+            });
+
+            // AI feature items animation
+            const featureItems = document.querySelectorAll('.ai-feature-item');
+            featureItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateX(10px)';
+                    item.style.backgroundColor = '#dbeafe';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateX(0)';
+                    item.style.backgroundColor = '#f9fafb';
+                });
+            });
+
+            // Timeline animation on scroll
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px'
+            };
+
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.6s ease';
+                timelineObserver.observe(item);
+            });
+
+            // Assessment cards animation
+            const assessmentCards = document.querySelectorAll('.assessment-card');
+            assessmentCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px)';
+                    card.style.backgroundColor = '#dbeafe';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.backgroundColor = '#f9fafb';
+                });
+            });
+
+            // CTA button animation
+            const ctaButton = document.querySelector('.cta-button');
+            ctaButton.addEventListener('mouseenter', () => {
+                ctaButton.style.transform = 'scale(1.1)';
+                ctaButton.style.boxShadow = '0 6px 8px rgba(0, 0, 0, 0.2)';
+            });
+            ctaButton.addEventListener('mouseleave', () => {
+                ctaButton.style.transform = 'scale(1)';
+                ctaButton.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

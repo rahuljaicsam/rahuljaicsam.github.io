@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCU Virtual Medical School | Lifestyle Corp University</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .dropdown h3 {
+            padding: 0.5rem 1rem;
+            margin: 0;
+            font-size: 0.875rem;
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .page-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1e3a8a;
+        }
+        .section-subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: #4b5563;
+        }
+        
+        /* Two Column Layout */
+        .two-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        /* Card Styles */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+        .card-text {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+        
+        /* Feature List */
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: #dbeafe;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #2563eb;
+            flex-shrink: 0;
+        }
+        .feature-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+        .feature-content p {
+            color: #4b5563;
+        }
+        
+        /* Testimonial Section */
+        .testimonial-section {
+            background-color: #dbeafe;
+            padding: 4rem 0;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #4b5563;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .testimonial-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            object-fit: cover;
+        }
+        .testimonial-info h4 {
+            margin: 0;
+            font-size: 1rem;
+            color: #1e3a8a;
+        }
+        .testimonial-info p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #e5e7eb;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            margin-right: 2rem;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 2rem;
+            margin-right: auto;
+        }
+        .timeline-content {
+            width: calc(50% - 2rem);
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-dot {
+            position: absolute;
+            top: 1.5rem;
+            left: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #2563eb;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-date {
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: #dbeafe;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cta-title {
+            font-size: 2rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+        .cta-text {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        /* Faculty Section */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .faculty-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .faculty-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .faculty-info {
+            padding: 1.5rem;
+        }
+        .faculty-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #1e3a8a;
+        }
+        .faculty-title {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .faculty-bio {
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .social-link {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4b5563;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .social-link:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        /* Accordion */
+        .accordion {
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+        .accordion-item {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .accordion-header {
+            background-color: #f9fafb;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 1.125rem;
+            color: #1e3a8a;
+        }
+        .accordion-icon {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+        .accordion-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .accordion-content.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            /* Navigation */
+            .nav-items {
+                display: flex;
+            }
+            .mobile-menu-button {
+                display: none;
+            }
+            /* Two Column Layout */
+            .two-column {
+                flex-direction: row;
+            }
+            .two-column > div {
+                width: 50%;
+            }
+            /* Footer */
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            /* Timeline */
+            .timeline-item {
+                width: 100%;
+            }
+        }
+        
+        /* Animation Styles */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation Data
+            const navData = [
+                {
+                    title: 'Programs',
+                    items: [
+                        { text: 'Virtual Medical School', url: 'lcu-virtual-medical-school.html' },
+                        { text: 'AI Research Labs', url: 'ai-research-labs.html' },
+                        { text: 'Digital Health Solutions', url: 'digital-health-solutions.html' }
+                    ]
+                },
+                {
+                    title: 'Research',
+                    items: [
+                        { text: 'Current Projects', url: 'current-projects.html' },
+                        { text: 'AI in Healthcare', url: 'ai-in-healthcare-research.html' },
+                        { text: 'Digital Twin Technology', url: 'digital-twin-in-healthcare.html' }
+                    ]
+                },
+                {
+                    title: 'Resources',
+                    items: [
+                        { text: 'Virtual Labs', url: 'virtual-labs.html' },
+                        { text: 'Digital Collections', url: 'digital-collections.html' },
+                        { text: 'E-Journals', url: 'e-journals.html' }
+                    ]
+                }
+            ];
+
+            // Build Navigation
+            const navItems = document.querySelector('.nav-items');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            navData.forEach(category => {
+                // Desktop Navigation
+                const navItem = document.createElement('div');
+                const button = document.createElement('button');
+                button.textContent = category.title;
+                const dropdown = document.createElement('div');
+                dropdown.className = 'dropdown';
+
+                category.items.forEach(item => {
+                    const link = document.createElement('a');
+                    link.href = item.url;
+                    link.textContent = item.text;
+                    dropdown.appendChild(link);
+                });
+
+                navItem.appendChild(button);
+                navItem.appendChild(dropdown);
+                navItems.appendChild(navItem);
+
+                // Show/hide dropdown
+                button.addEventListener('click', () => {
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                });
+
+                // Mobile Navigation
+                const mobileButton = document.createElement('button');
+                mobileButton.textContent = category.title;
+                const mobileSubmenu = document.createElement('div');
+                mobileSubmenu.className = 'mobile-submenu';
+
+                category.items.forEach(item => {
+                    const link = document.createElement('a');
+                    link.href = item.url;
+                    link.textContent = item.text;
+                    mobileSubmenu.appendChild(link);
+                });
+
+                mobileMenu.appendChild(mobileButton);
+                mobileMenu.appendChild(mobileSubmenu);
+
+                // Show/hide mobile submenu
+                mobileButton.addEventListener('click', () => {
+                    mobileSubmenu.style.display = mobileSubmenu.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Accordion functionality
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                const content = item.querySelector('.accordion-content');
+                const icon = item.querySelector('.accordion-icon');
+
+                header.addEventListener('click', () => {
+                    content.classList.toggle('active');
+                    icon.textContent = content.classList.contains('active') ? '-' : '+';
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.nav-items')) {
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.style.display = 'none';
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title animate-fade-in">LCU Virtual Medical School</h1>
+                <p class="page-subtitle animate-fade-in delay-100">Revolutionizing medical education through AI-enhanced learning, virtual reality simulations, and personalized curriculum</p>
+                <div class="animate-fade-in delay-200">
+                    <a href="membership.html" class="btn-primary" style="margin-right: 1rem;">Apply for Admission</a>
+                    <a href="#curriculum" class="btn-secondary">Explore Curriculum</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title animate-fade-in">Program Timeline</h2>
+                <p class="section-subtitle animate-fade-in delay-100">Your journey to becoming a medical professional through our innovative virtual program</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item animate-fade-in delay-200">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Year 1</div>
+                            <h3 class="timeline-title">Foundations of Medicine</h3>
+                            <p>Master core medical sciences through AI-enhanced learning and virtual anatomy labs.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item animate-fade-in delay-300">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Year 2</div>
+                            <h3 class="timeline-title">Clinical Sciences</h3>
+                            <p>Develop clinical reasoning skills through virtual patient simulations and case studies.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item animate-fade-in delay-400">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Year 3</div>
+                            <h3 class="timeline-title">Virtual Clinical Rotations</h3>
+                            <p>Experience diverse medical specialties through our network of virtual teaching hospitals.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <div class="timeline-item animate-fade-in delay-500">
+                        <div class="timeline-content">
+                            <div class="timeline-date">Year 4</div>
+                            <h3 class="timeline-title">Advanced Clinical Practice</h3>
+                            <p>Specialize in your chosen field with advanced virtual rotations and research opportunities.</p>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title animate-fade-in">Frequently Asked Questions</h2>
+                <p class="section-subtitle animate-fade-in delay-100">Find answers to common questions about our virtual medical school program</p>
+
+                <div class="accordion">
+                    <div class="accordion-item animate-fade-in delay-200">
+                        <div class="accordion-header">
+                            <h3>How does virtual medical education work?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Our virtual medical education combines AI-driven learning platforms, VR simulations, and real-time interaction with faculty. Students access course materials, attend virtual lectures, participate in simulated clinical scenarios, and collaborate with peers through our advanced digital platform.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item animate-fade-in delay-300">
+                        <div class="accordion-header">
+                            <h3>Are virtual medical degrees accredited?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Yes, our virtual medical program is fully accredited by relevant medical education authorities. Our curriculum meets all standard requirements for medical education while incorporating innovative virtual learning methods.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item animate-fade-in delay-400">
+                        <div class="accordion-header">
+                            <h3>What technology requirements are needed?</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Students need a reliable high-speed internet connection, a modern computer with webcam, and VR equipment (provided by the school). We provide all necessary software and access to our virtual learning platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                
+                <div class="two-column">
+                    <div class="animate-fade-in delay-200">
+                        <h3 style="color: #1e3a8a; font-size: 1.5rem; margin-bottom: 1rem;">The Future of Medical Training</h3>
+                        <p style="margin-bottom: 1rem;">At LCU Virtual Medical School, we're pioneering a new approach to medical education that transcends traditional boundaries. Our innovative platform combines AI-driven personalized learning with immersive virtual reality experiences to create a comprehensive medical education that prepares students for the future of healthcare.</p>
+                        <p style="margin-bottom: 1rem;">Our curriculum is designed by world-renowned medical experts and AI researchers, ensuring that students receive the most current and relevant medical knowledge while developing the technological skills needed in today's rapidly evolving healthcare landscape.</p>
+                        <p style="margin-bottom: 1.5rem;">Whether you're pursuing a career as a physician, researcher, or healthcare innovator, LCU Virtual Medical School provides the foundation for excellence in the digital age of medicine.</p>
+                        <a href="#" class="btn-primary">Our Educational Philosophy</a>
+                    </div>
+                    <div class="animate-fade-in delay-300" style="position: relative;">
+                        <img src="/assets/ai+health.png" alt="Virtual Medical Education" style="width: 100%; height: auto; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+                        <div style="position: absolute; bottom: -20px; right: -20px; background-color: #2563eb; color: white; padding: 1rem; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                            <p style="margin: 0; font-weight: bold;">100% Virtual</p>
+                            <p style="margin: 0;">Learn Anywhere, Anytime</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f3f4f6;" id="curriculum">
+            <div class="container">
+                <h2 class="section-title animate-fade-in">Innovative Curriculum</h2>
+                <p class="section-subtitle animate-fade-in delay-100">Our comprehensive curriculum combines traditional medical knowledge with cutting-edge technology and innovation</p>
+                
+                <div class="cards-grid">
+                    <div class="card animate-fade-in delay-200">
+                        <img src="/assets/ai+health.png" alt="AI-Enhanced Learning" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">AI-Enhanced Learning</h3>
+                            <p class="card-text">Experience personalized learning through our advanced AI system that adapts to your learning style and pace.</p>
+                            <a href="#" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card animate-fade-in delay-300">
+                        <img src="/assets/digitaltwin+health.png" alt="Virtual Reality Training" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Virtual Reality Training</h3>
+                            <p class="card-text">Practice medical procedures in our state-of-the-art VR labs with real-time feedback and guidance.</p>
+                            <a href="#" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card animate-fade-in delay-400">
+                        <img src="/assets/robot+health.jpeg" alt="Clinical Rotations" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Clinical Rotations</h3>
+                            <p class="card-text">Gain hands-on experience through our network of partner hospitals and clinics worldwide.</p>
+                            <a href="#" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;" class="animate-fade-in delay-500">
+                    <a href="#" class="btn-primary">View Full Curriculum</a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title animate-fade-in">Revolutionary Learning Experience</h2>
+                <p class="section-subtitle animate-fade-in delay-100">Our virtual medical school offers unique advantages that traditional education cannot match</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item animate-fade-in delay-200">
+                        <div class="feature-icon">🧠</div>
+                        <div class="feature-content">
+                            <h3>AI-Powered Personalization</h3>
+                            <p>Our advanced AI algorithms analyze your learning patterns and adapt content delivery to optimize your educational experience and outcomes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item animate-fade-in delay-300">
+                        <div class="feature-icon">🌐</div>
+                        <div class="feature-content">
+                            <h3>Global Faculty Access</h3>
+                            <p>Learn from world-renowned medical experts and researchers from prestigious institutions around the globe without geographical limitations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item animate-fade-in delay-400">
+                        <div class="feature-icon">🔬</div>
+                        <div class="feature-content">
+                            <h3>Virtual Research Opportunities</h3>
+                            <p>Participate in cutting-edge research projects using advanced simulation tools and collaborate with researchers worldwide.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item animate-fade-in delay-200">
+                        <div class="feature-icon">👥</div>
+                        <div class="feature-content">
+                            <h3>Collaborative Learning</h3>
+                            <p>Engage with peers through virtual study groups, case discussions, and team-based learning activities in our digital collaboration spaces.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item animate-fade-in delay-300">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-content">
+                            <h3>Real-time Performance Analytics</h3>
+                            <p>Track your progress with comprehensive analytics that identify strengths and areas for improvement to guide your learning journey.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item animate-fade-in delay-400">
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-content">
+                            <h3>Robotic Surgery Training</h3>
+                            <p>Develop surgical skills using advanced haptic feedback systems and robotic surgery simulators that replicate real-world procedures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title animate-fade-in">Meet Our Distinguished Faculty</h2>
+                <p class="section-subtitle animate-fade-in delay-100">Learn from world-renowned medical educators and researchers at the forefront of medical innovation</p>
+                
+                <div class="faculty-grid">
+                    <div class="faculty-card animate-fade-in delay-200">
+                        <img src="/assets/ai+health.png" alt="Dr. Sarah Chen" class="faculty-image">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Dr. Sarah Chen</h3>
+                            <p class="faculty-title">Dean of AI Medicine</p>
+                            <p class="faculty-bio">Pioneer in AI-driven diagnostics with over 15 years of experience in medical AI research and implementation.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link">🔗</a>
+                                <a href="#" class="social-link">📧</a>
+                                <a href="#" class="social-link">🎓</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faculty-card animate-fade-in delay-300">
+                        <img src="/assets/robot+health.jpeg" alt="Dr. James Wilson" class="faculty-image">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Dr. James Wilson</h3>
+                            <p class="faculty-title">Director of Virtual Surgery</p>
+                            <p class="faculty-bio">Leading expert in robotic surgery and virtual reality surgical training methodologies.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link">🔗</a>
+                                <a href="#" class="social-link">📧</a>
+                                <a href="#" class="social-link">🎓</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faculty-card animate-fade-in delay-400">
+                        <img src="/assets/digitaltwin+health.png" alt="Dr. Maria Rodriguez" class="faculty-image">
+                        <div class="faculty-info">
+                            <h3 class="faculty-name">Dr. Maria Rodriguez</h3>
+                            <p class="faculty-title">Head of Digital Anatomy</p>
+                            <p class="faculty-bio">Specialist in 3D anatomical modeling and digital twin technology for medical education.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link">🔗</a>
+                                <a href="#" class="social-link">📧</a>
+                                <a href="#" class="social-link">🎓</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">LCU Virtual Medical School by the Numbers</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-item animate-fade-in delay-100">
+                        <h3>4,000+</h3>
+                        <p>High-IQ Students</p>
+                    </div>
+                    
+                    <div class="stat-item animate-fade-in delay-200">
+                        <h3>200+</h3>
+                        <p>Expert Faculty</p>
+                    </div>
+                    
+                    <div class="stat-item animate-fade-in delay-300">
+                        <h3>50+</h3>
+                        <p>Specializations</p>
+                    </div>
+                    
+                    <div class="stat-item animate-fade-in delay-400">
+                        <h3>1000+</h3>
+                        <p>VR Clinical Scenarios</p>
+                    </div>
+                    
+                    <div class="stat-item animate-fade-in delay-500">
+                        <h3>24/7</h3>
+                        <p>AI Learning Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title animate-fade-in">Admissions Information</h2>
+                <p class="section-subtitle animate-fade-in delay-100">Take the first step towards your future in virtual medical education</p>
+                <div class="admissions-info">
+                    <div class="admissions-item animate-fade-in delay-200">
+                        <h3>Application Deadline</h3>
+                        <p>Applications are now closed. We look forward to seeing you in our virtual medical program!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="/assets/logo.png" alt="LCU Virtual Medical School">
+                    </div>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Programs</a>
+                        <a href="#" class="footer-link">Faculty</a>
+                        <a href="#" class="footer-link">Contact</a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" class="footer-social-link">Facebook</a>
+                        <a href="#" class="footer-social-link">Twitter</a>
+                        <a href="#" class="footer-social-link">Instagram</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2023 LCU Virtual Medical School. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        <script src="/assets/script.js"></script>
+        </main>
+    </body>
+</html>

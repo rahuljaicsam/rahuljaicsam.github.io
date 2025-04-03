@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Discord - Lifestyle Corp University</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .nav-items {
+            display: none;
+        }
+        .nav-items > div {
+            position: relative;
+            margin-right: 1rem;
+        }
+        .nav-items button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .nav-items button:hover {
+            color: #2563eb;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            min-width: 200px;
+        }
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        .dropdown a:hover {
+            background-color: #f3f4f6;
+        }
+        .dropdown h3 {
+            padding: 0.5rem 1rem;
+            margin: 0;
+            font-size: 0.875rem;
+            background-color: #f3f4f6;
+        }
+        .mobile-menu-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            padding: 1rem;
+        }
+        .mobile-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            display: none;
+            padding-left: 1rem;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        /* Page Content Styles */
+        .page-header {
+            background-color: #f3f4f6;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #4b5563;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content-section {
+            padding: 3rem 0;
+        }
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+        }
+        .two-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            background-color: #2563eb;
+            color: white;
+        }
+        .btn-secondary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            background-color: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+        
+        /* Discord Section Styles */
+        .discord-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .benefit-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .benefit-card h3 {
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .discord-channels {
+            background-color: #f3f4f6;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .channel-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .channel-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .channel-list li:before {
+            content: '#';
+            position: absolute;
+            left: 0;
+            color: #6b7280;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        .footer-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            /* Navigation */
+            .nav-items {
+                display: flex;
+            }
+            .mobile-menu-button {
+                display: none;
+            }
+            /* Two Column Layout */
+            .two-column {
+                flex-direction: row;
+            }
+            .two-column > div {
+                width: 50%;
+            }
+            /* Footer */
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="/assets/lifestyle.jpeg" alt="Lifestyle Corp University Logo" style="height: 40px;"></a>
+                <div class="nav-items">
+                    <!-- Navigation items will be populated by JavaScript -->
+                </div>
+                <div>
+                    <button class="btn-primary" style="display: none;">Apply Now</button>
+                    <button class="mobile-menu-button">☰</button>
+                </div>
+            </nav>
+        </div>
+        <div class="mobile-menu">
+            <!-- Mobile menu items will be populated by JavaScript -->
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Join Our Discord Community</h1>
+                <p class="page-subtitle">Connect with high-IQ researchers, AI professionals, and medical experts in our vibrant digital community</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="two-column">
+                    <div>
+                        <h2 class="section-title">Why Join Our Discord?</h2>
+                        <p>Lifestyle Corp University's Discord server is the central hub for our global community of researchers, AI professionals, and medical experts. Join us to collaborate on cutting-edge projects, share insights, and advance the future of healthcare.</p>
+                        <p>Our Discord community offers:</p>
+                        <ul>
+                            <li>Direct access to high-IQ researchers and AI professionals</li>
+                            <li>Real-time collaboration on innovative projects</li>
+                            <li>Specialized channels for different research areas</li>
+                            <li>Regular virtual events, webinars, and discussions</li>
+                            <li>Opportunities to contribute to groundbreaking research</li>
+                        </ul>
+                        <a href="https://discord.gg/9vW2tZRUWP" class="btn-primary" style="margin-top: 1rem;">Join Discord Now</a>
+                    </div>
+                    <div>
+                        <img src="/assets/global.jpeg" alt="Global Digital Collaboration" style="width: 100%; height: auto; border-radius: 0.5rem;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Benefits of Our Discord Community</h2>
+                <div class="discord-benefits">
+                    <div class="benefit-card">
+                        <h3>Networking</h3>
+                        <p>Connect with thousands of high-IQ individuals and AI professionals from around the world who share your interests in healthcare innovation.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Knowledge Sharing</h3>
+                        <p>Access a wealth of knowledge through discussions, shared resources, and insights from experts in various medical and technological fields.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Collaboration</h3>
+                        <p>Find partners for research projects, collaborate on papers, and work together to solve complex medical challenges using AI and robotics.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Learning</h3>
+                        <p>Stay updated on the latest advancements in AI, robotics, and healthcare through regular webinars, discussions, and shared resources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2 class="section-title">Our Discord Channels</h2>
+                <p>Our Discord server is organized into specialized channels to facilitate focused discussions and collaboration:</p>
+                
+                <div class="discord-channels">
+                    <h3>Research Channels</h3>
+                    <ul class="channel-list">
+                        <li>medical-ai-research</li>
+                        <li>robotics-innovation</li>
+                        <li>digital-health</li>
+                        <li>virtual-labs</li>
+                        <li>research-ethics</li>
+                    </ul>
+                </div>
+                
+                <div class="discord-channels">
+                    <h3>Medical Specialty Channels</h3>
+                    <ul class="channel-list">
+                        <li>cardiology</li>
+                        <li>neurology</li>
+                        <li>dermatology</li>
+                        <li>lifestyle-medicine</li>
+                        <li>preventive-medicine</li>
+                    </ul>
+                </div>
+                
+                <div class="discord-channels">
+                    <h3>Technology Channels</h3>
+                    <ul class="channel-list">
+                        <li>ai-development</li>
+                        <li>robotics-engineering</li>
+                        <li>digital-twin-technology</li>
+                        <li>blockchain-healthcare</li>
+                        <li>quantum-computing</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="https://discord.gg/9vW2tZRUWP" class="btn-primary">Join Our Discord Community</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="https://www.riotiq.com" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">🧠</span>
+                        <span>Take the IQ Test</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">💻</span>
+                        <span>Explore AI Career Opportunities</span>
+                    </a>
+                    <a href="#" style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <span style="margin-right: 0.5rem;">📰</span>
+                        <span>Subscribe to our Digital Journal</span>
+                    </a>
+                </div>
+                <!-- Footer links will be populated by JavaScript -->
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">AI Ethics Guidelines</a>
+                    <a href="#">Non-Discrimination Policy</a>
+                </div>
+                <p>&copy; 2020-2024 Lifestyle Corp University. All rights reserved. Powered by AI and high-IQ individuals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Same JavaScript as in index.html to populate navigation and footer
+        const navItems = [
+            { 
+                title: "Research at LCU", 
+                items: [
+                    { text: "AI-Driven Research", link: "ai-driven-research.html" },
+                    { text: "Robotics Innovation", link: "robotics-innovation.html" },
+                    { text: "Virtual Labs", link: "virtual-labs.html" },
+                    { text: "Digital Health Initiatives", link: "digital-health-initiatives.html" },
+                    { text: "Join Our Discord", link: "join-our-discord.html" },
+                    { text: "Apply for Membership", link: "apply-for-membership.html" },
+                    { text: "Current Projects", link: "current-projects.html" },
+                    { text: "Research Ethics", link: "research-ethics.html" },
+                    { text: "AI Partnerships", link: "ai-partnerships.html" },
+                    { text: "Robotics Collaborations", link: "robotics-collaborations.html" }
+                ]
+            },
+            { 
+                title: "Digital Library", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "AI in Medicine", link: "ai-in-medicine.html" },
+                    { text: "Advanced Robotics", link: "advanced-robotics.html" },
+                    { text: "Cognitive Enhancement", link: "cognitive-enhancement.html" },
+                    { text: "Digital Health Solutions", link: "digital-health-solutions.html" },
+                    { text: "Digital Twin  in Healthcare", link: "digital-twin-in-healthcare.html" },
+                    { text: "Blockchain in Medical Records", link: "blockchain-in-medical-records.html" }
+                ]
+            },
+            { 
+                title: "For Patients", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "Diseases & Conditions", link: "diseases-and-conditions.html" },
+                    { text: "Healthy Lifestyle", link: "healthy-lifestyle.html" },
+                    { text: "Tests & Procedures", link: "tests-procedures.html" },
+                    { text: "Drugs & Supplements", link: "drugs-and-supplements.html" }
+                ]
+            },
+            { 
+                title: "For High-IQ Professionals", 
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "IQ Test Applications", link: "membership.html" },
+                    { text: "Virtual Networking Events", link: "virtual-networking-events.html" },
+                    { text: "AI-Assisted Continuing Education", link: "ai-assisted-continuing-education.html" },
+                    { text: "Robotic Surgery Simulations", link: "robotic-surgery-simulations.html" },
+                    { text: "Advanced Research Opportunities", link: "advanced-research-opportunities.html" },
+                    { text: "Digital Publications", link: "digital-publications.html" }
+                ]
+            },
+            { 
+                title: "Innovation & Education at LCU", 
+                items: {
+                    "Innovation": [
+                        { text: "AI Research Labs", link: "ai-research-labs.html" },
+                        { text: "Robotics Development Centers", link: "robotics-development-centers.html" },
+                        { text: "Virtual Reality Medical Training", link: "virtual-reality-medical-training.html" },
+                        { text: "Quantum Computing in Healthcare", link: "quantum-computing-in-healthcare.html" },
+                        { text: "Nanotechnology Advancements", link: "nanotechnology-advancements.html" },
+                        { text: "Biotechnology Breakthroughs", link: "biotechnology-breakthroughs.html" }
+                    ],
+                    "Education": [
+                        { text: "LCU Virtual Academy", link: "lcu-virtual-academy.html" },
+                        { text: "AI-Assisted Learning Programs", link: "ai-assisted-learning-programs.html" },
+                        { text: "Robotic Surgery Training", link: "robotic-surgery-training.html" },
+                        { text: "Digital Health Informatics", link: "digital-health-informatics.html" },
+                        { text: "Cognitive Science Programs", link: "cognitive-science-programs.html" },
+                        { text: "Advanced Biotechnology Courses", link: "advanced-biotechnology-courses.html" }
+                    ]
+                }
+            },
+            {
+                title: "For Medical and AI Professionals",
+                items: [
+                    { text: "Blogs", link: "blogs.html" },
+                    { text: "AI Professionals", link: "ai-professionals.html" },
+                    { text: "LCU Proceedings", link: "lcu-proceedings.html" },
+                    { text: "Research Departments", link: "research-departments.html" },
+                    { text: "AI-Enhanced Medical Resources", link: "ai-enhanced-medical-resources.html" },
+                    { text: "Virtual Referral System", link: "virtual-referral-system.html" },
+                    { text: "AI-Assisted Continuing Education", link: "ai-assisted-continuing-education.html" },
+                    { text: "Advanced Robotic Surgery Simulations", link: "advanced-robotic-surgery-simulations.html" },
+                    { text: "Digital Health Informatics", link: "digital-health-informatics.html" },
+                    { text: "AI-Powered Clinical Decision Support", link: "ai-powered-clinical-decision-support.html" }
+                ]
+            },
+            {
+                title: "Research & Education at LCU",
+                items: {
+                    "Research": [
+                        { text: "AI in Healthcare Research", link: "ai-in-healthcare-research.html" },
+                        { text: "Robotics in Medicine", link: "robotics-in-medicine.html" },
+                        { text: "Virtual Reality in Medical Training", link: "virtual-reality-in-medical-training.html" },
+                        { text: "Quantum Computing for Drug Discovery", link: "quantum-computing-for-drug-discovery.html" },
+                        { text: "Nanotechnology in Medicine", link: "nanotechnology-in-medicine.html" },
+                        { text: "AI Ethics in Healthcare", link: "ai-ethics-in-healthcare.html" }
+                    ],
+                    "Education": [
+                        { text: "LCU Virtual Medical School", link: "lcu-virtual-medical-school.html" },
+                        { text: "AI-Enhanced Medical Curriculum", link: "ai-enhanced-medical-curriculum.html" },
+                        { text: "Robotic Surgery Training Programs", link: "robotic-surgery-training-programs.html" },
+                        { text: "Digital Health Informatics Courses", link: "digital-health-informatics-courses.html" },
+                        { text: "AI in Medical Diagnostics", link: "ai-in-medical-diagnostics.html" },
+                        { text: "Future of Healthcare Symposiums", link: "future-of-healthcare-symposiums.html" }
+                    ]
+                }
+            },
+            { 
+                title: "Supporting LCU", 
+                items: [
+                    { text: "Donate as a Gift", link: "donation.html" },
+                    { text: "Donate Compute Power", link: "donate-compute-power.html" },
+                    { text: "Virtual Fundraising Events", link: "virtual-fundraising-events.html" },
+                    { text: "Sponsor AI Research", link: "sponsor-ai-research.html" },
+                    { text: "Partner in Robotics Development", link: "partner-in-robotics-development.html" }
+                ]
+            }
+        ];
+
+        const footerLinks = [
+            {
+                title: "High-IQ Professionals",
+                items: ["AI Research Opportunities", "Robotics Collaborations", "Virtual Networking", "Apply for Membership"]
+            },
+            {
+                title: "Researchers",
+                items: ["AI Labs", "Robotics Centers"]
+            },
+            {
+                title: "International Collaborators",
+                items: ["Global AI Initiatives", "Cross-Border Robotics Projects", "Virtual Research Exchanges"]
+            },
+            {
+                title: "Industry Partners",
+                items: ["AI in Healthcare", "Robotics in Medicine", "Digital Health Solutions", "Research Sponsorships"]
+            },
+            {
+                title: "Prospective Members",
+                items: ["IQ Test Information", "Application Process", "Virtual Campus Tour", "Alumni Privileges"]
+            },
+            {
+                title: "Ethical AI & Robotics",
+                items: ["AI Ethics Guidelines", "Responsible Robotics Development", "Digital Privacy Policies", "Ethical Review Board"]
+            }
+        ];
+
+        function populateNavItems() {
+            const navItemsContainer = document.querySelector('.nav-items');
+            navItems.forEach(item => {
+                const div = document.createElement('div');
+                div.style.position = 'relative';
+                div.style.marginRight = '1rem';
+
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                button.style.background = 'none';
+                button.style.border = 'none';
+                button.style.cursor = 'pointer';
+                button.style.fontSize = '1rem';
+                button.style.color = '#374151';
+                button.addEventListener('mouseenter', () => {
+                    dropdown.style.display = 'block';
+                });
+                div.addEventListener('mouseleave', () => {
+                    dropdown.style.display = 'none';
+                });
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'dropdown';
+
+                if (Array.isArray(item.items)) {
+                    item.items.forEach(subItem => {
+                        const a = document.createElement('a');
+                        a.href = subItem.link;
+                        a.textContent = subItem.text;
+                        dropdown.appendChild(a);
+                    });
+                } else {
+                    for (const [category, subitems] of Object.entries(item.items)) {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = category;
+                        dropdown.appendChild(h3);
+                        subitems.forEach(subItem => {
+                            const a = document.createElement('a');
+                            a.href = subItem.link;
+                            a.textContent = subItem.text;
+                            dropdown.appendChild(a);
+                        });
+                    }
+                }
+
+                div.appendChild(button);
+                div.appendChild(dropdown);
+                navItemsContainer.appendChild(div);
+            });
+        }
+
+        function populateMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            navItems.forEach(item => {
+                const button = document.createElement('button');
+                button.textContent = item.title;
+                mobileMenu.appendChild(button);
+
+                const submenu = document.createElement('div');
+                submenu.className = 'mobile-submenu';
+
+                if (Array.isArray(item.items)) {
+                    item.items.forEach(subItem => {
+                        const a = document.createElement('a');
+                        a.href = subItem.link;
+                        a.textContent = subItem.text;
+                        submenu.appendChild(a);
+                    });
+                } else {
+                    for (const [category, subitems] of Object.entries(item.items)) {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = category;
+                        submenu.appendChild(h3);
+                        subitems.forEach(subItem => {
+                            const a = document.createElement('a');
+                            a.href = subItem.link;
+                            a.textContent = subItem.text;
+                            submenu.appendChild(a);
+                        });
+                    }
+                }
+
+                mobileMenu.appendChild(submenu);
+                button.addEventListener('click', () => {
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        // Hide all other submenus
+                        document.querySelectorAll('.mobile-submenu').forEach(el => {
+                            el.style.display = 'none';
+                        });
+                        submenu.style.display = 'block';
+                    }
+                });
+            });
+        }
+
+        function populateFooterLinks() {
+            const footerGrid = document.querySelector('.footer-grid');
+            footerLinks.forEach(column => {
+                const div = document.createElement('div');
+                div.className = 'footer-column';
+                
+                const h3 = document.createElement('h3');
+                h3.textContent = column.title;
+                div.appendChild(h3);
+                
+                const ul = document.createElement('ul');
+                column.items.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.textContent = item;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                
+                div.appendChild(ul);
+                footerGrid.appendChild(div);
+            });
+        }
+
+        // Initialize navigation and footer
+        document.addEventListener('DOMContentLoaded', () => {
+            populateNavItems();
+            populateMobileMenu();
+            populateFooterLinks();
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                if (mobileMenu.style.display === 'block') {
+                    mobileMenu.style.display = 'none';
+                } else {
+                    mobileMenu.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
